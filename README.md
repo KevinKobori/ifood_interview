@@ -39,7 +39,7 @@ Test data example: ⚠️✅
     - credit Card:
         - Number: 4333 2454 3263 4631
         - Date: 112028
-        - Kevin Kobori 
+        - Titular: Kevin Kobori 
         - Verification: 235
 
-        - 385.631.880-11
+        - CPF: 385.631.880-11

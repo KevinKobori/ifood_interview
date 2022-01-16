@@ -3,12 +3,12 @@ import 'package:lojavirtual/common/price_card.dart';
 import 'package:lojavirtual/models/cart_manager.dart';
 import 'package:lojavirtual/models/checkout_manager.dart';
 import 'package:lojavirtual/models/credit_card.dart';
+import 'package:lojavirtual/models/user_manager.dart';
 import 'package:lojavirtual/screens/checkout/components/cpf_field.dart';
 import 'package:lojavirtual/screens/checkout/components/credit_card_widget.dart';
 import 'package:provider/provider.dart';
 
 class CheckoutScreen extends StatelessWidget {
-  
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
@@ -16,10 +16,12 @@ class CheckoutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final userManager = context.watch<UserManager>();
+
     return ChangeNotifierProxyProvider<CartManager, CheckoutManager>(
       create: (_) => CheckoutManager(),
       update: (_, cartManager, checkoutManager) =>
-        checkoutManager..updateCart(cartManager),
+          checkoutManager..updateCart(cartManager),
       lazy: false,
       child: Scaffold(
         key: scaffoldKey,
@@ -28,12 +30,12 @@ class CheckoutScreen extends StatelessWidget {
           centerTitle: true,
         ),
         body: GestureDetector(
-          onTap: (){
+          onTap: () {
             FocusScope.of(context).unfocus();
           },
           child: Consumer<CheckoutManager>(
-            builder: (_, checkoutManager, __){
-              if(checkoutManager.loading){
+            builder: (_, checkoutManager, __) {
+              if (checkoutManager.loading) {
                 return Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -41,14 +43,15 @@ class CheckoutScreen extends StatelessWidget {
                       CircularProgressIndicator(
                         valueColor: AlwaysStoppedAnimation(Colors.white),
                       ),
-                      const SizedBox(height: 16,),
+                      const SizedBox(
+                        height: 16,
+                      ),
                       Text(
                         'Processando seu pagamento...',
                         style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w800,
-                          fontSize: 16
-                        ),
+                            color: Colors.white,
+                            fontWeight: FontWeight.w800,
+                            fontSize: 16),
                       )
                     ],
                   ),
@@ -63,34 +66,58 @@ class CheckoutScreen extends StatelessWidget {
                     CpfField(),
                     PriceCard(
                       buttonText: 'Finalizar Pedido',
-                      onPressed: (){
-                        if(formKey.currentState.validate()){
-                          formKey.currentState.save();
-
-                          checkoutManager.checkout(
-                            creditCard: creditCard,
-                            onStockFail: (e){
-                              Navigator.of(context).popUntil(
-                                      (route) => route.settings.name == '/cart');
-                            },
-                            onPayFail: (e){
-                              scaffoldKey.currentState.showSnackBar(
-                                SnackBar(
-                                  content: Text('$e'),
-                                  backgroundColor: Colors.red,
-                                )
-                              );
-                            },
-                            onSuccess: (order){
-                              Navigator.of(context).popUntil(
-                                      (route) => route.settings.name == '/');
-                              Navigator.of(context).pushNamed(
-                                  '/confirmation',
-                                  arguments: order
-                              );
-                            }
-                          );
-                        }
+                      onPressed: () {
+                        // if (formKey.currentState.validate()) {
+                        //   formKey.currentState.save();
+                        //   print(creditCard.toString());
+                        //   print(userManager.user.cpf);
+                        //   checkoutManager.checkout(
+                        //       creditCard: creditCard,
+                        //       onStockFail: (e) {
+                        //         Navigator.of(context).popUntil(
+                        //             (route) => route.settings.name == '/cart');
+                        //       },
+                        //       onPayFail: (e) {
+                        //         scaffoldKey.currentState.showSnackBar(SnackBar(
+                        //           content: Text('$e'),
+                        //           backgroundColor: Colors.red,
+                        //         ));
+                        //       },
+                        //       onSuccess: (order) {
+                        //         Navigator.of(context).popUntil(
+                        //             (route) => route.settings.name == '/');
+                        //         Navigator.of(context).pushNamed('/confirmation',
+                        //             arguments: order);
+                        //       },
+                        // );
+                        // } // TODO RETURN THIS
+                        creditCard.setNumber('4333333333333331');
+                        creditCard.setHolder('João Carlos');
+                        creditCard.setCVV('800');
+                        creditCard.setExpirationDate('12/2027');
+                        // creditCard
+                        // creditCard
+                        print(creditCard.toString());
+                        print(userManager.user.cpf);
+                        checkoutManager.checkout(
+                          creditCard: creditCard,
+                          onStockFail: (e) {
+                            Navigator.of(context).popUntil(
+                                (route) => route.settings.name == '/cart');
+                          },
+                          onPayFail: (e) {
+                            scaffoldKey.currentState.showSnackBar(SnackBar(
+                              content: Text('$e'),
+                              backgroundColor: Colors.red,
+                            ));
+                          },
+                          onSuccess: (order) {
+                            Navigator.of(context).popUntil(
+                                (route) => route.settings.name == '/');
+                            Navigator.of(context)
+                                .pushNamed('/confirmation', arguments: order);
+                          },
+                        );
                       },
                     )
                   ],

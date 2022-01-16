@@ -17,7 +17,7 @@ class CpfField extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text(
+            const Text(
               'CPF',
               textAlign: TextAlign.start,
               style: TextStyle(
@@ -33,7 +33,7 @@ class CpfField extends StatelessWidget {
               ),
               keyboardType: TextInputType.number,
               inputFormatters: [
-                // FilteringTextInputFormatter.digitsOnly,
+                FilteringTextInputFormatter.digitsOnly,
                 CpfInputFormatter(),
               ],
               validator: (cpf){
