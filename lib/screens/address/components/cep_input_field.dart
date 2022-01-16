@@ -28,38 +28,27 @@ class _CepInputFieldState extends State<CepInputField> {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          MaskedTextField(
-            maskedTextFieldController: cepController,
-            escapeCharacter: '#',
-            mask: "##.###-###",
-            maxLength: 10,
-            keyboardType: TextInputType.number,
-            inputDecoration: const InputDecoration(
+         TextFormField(
+            enabled: !cartManager.loading,
+            controller: cepController,
+            decoration: const InputDecoration(
               isDense: true,
               labelText: 'CEP',
-              hintText: '12.345-678',
+              hintText: '12.345-678'
             ),
-          ), // TODO VALIDATE
-          // TextFormField(
-          //   enabled: !cartManager.loading,
-          //   controller: cepController,
-          //   decoration: const InputDecoration(
-          //     isDense: true,
-          //     labelText: 'CEP',
-          //     hintText: '12.345-678',
-          //   ),
-          //   inputFormatters: [
-          //     // WhitelistingTextInputFormatter.digitsOnly,
-          //     CepInputFormatter(),
-          //   ],
-          //   keyboardType: TextInputType.number,
-          //   validator: (cep) {
-          //     if (cep.isEmpty)
-          //       return 'Campo obrigatório';
-          //     else if (cep.length != 10) return 'CEP Inválido';
-          //     return null;
-          //   },
-          // ),
+            inputFormatters: [
+              FilteringTextInputFormatter.digitsOnly,
+              CepInputFormatter(),
+            ],
+            keyboardType: TextInputType.number,
+            validator: (cep){
+              if(cep.isEmpty)
+                return 'Campo obrigatório';
+              else if(cep.length != 10)
+                return 'CEP Inválido';
+              return null;
+            },
+          ),
           if (cartManager.loading)
             LinearProgressIndicator(
               valueColor: AlwaysStoppedAnimation(primaryColor),
