@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:lojavirtual/models/user_manager.dart';
 import 'package:provider/provider.dart';
 
-class CpfField extends StatelessWidget {
+class CpfField extends StatelessWidget { 
   @override
   Widget build(BuildContext context) {
     final userManager = context.watch<UserManager>();

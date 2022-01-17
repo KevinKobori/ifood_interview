@@ -3,7 +3,7 @@
 ## change_app_package_name
 flutter pub run change_app_package_name:main com.new.package.name
 
-## Need to fix:
+## Need to fix original project:
 - CEP mask ⚠️✅
 - Credit Card mask ⚠️✅
     - Number mask ⚠️✅
@@ -13,6 +13,13 @@ flutter pub run change_app_package_name:main com.new.package.name
     - maybe the solution: Firebase.initializeApp(); ⛔
 - packages deprecated ⛔
 - Facebook Login not working ⛔
+
+## Need to fix after custom project:
+- Error when try to insert user CPF ⚠️✅
+    - what fixes: formKey.currentState.save(); ⚠️✅
+    - it was caused because i mocked the credit card data directly on code ⚠️✅
+
+## Need to implement each project:
 - Customize the app: ⚠️⭕
     - Change the package name ⚠️⭕
     - Insert the google-services ⚠️⭕
@@ -24,7 +31,7 @@ flutter pub run change_app_package_name:main com.new.package.name
     - functions:
         - set functions.config().cielo.merchantid; ⚠️✅
         - set functions.config().cielo.merchantkey; ⚠️✅
-        - 163. sandbox > dev mode > change to a real key later: ⚠️✅
+        - Class 163. sandbox > dev mode > change to a real key later: ⚠️✅
             - https://cadastrosandbox.cieloecommerce.cielo.com.br ⚠️✅
             - Fake MerchantId: e29ebe9c-c7ef-4ac3-8cf9-37536a48be91 ⚠️✅
             - Fake MerchantKey: HKDALLEYEKGSNNYUIGARZHGNTXSJJEHSVOFYIUUB ⚠️✅
@@ -33,7 +40,13 @@ flutter pub run change_app_package_name:main com.new.package.name
             - $ firebase functions:config:get ⚠️✅
             - $ firebase deploy --only functions ⚠️✅
     - include some firestore documents configuring the data about CEP and delivery distance ⭕
-
+        - Class 59. set user in admin collection ⚠️✅
+        - Class 102 & 103. calculating distance > set lat, long, km, maxkm, base (in example using a sopping from SP Campinas) ⚠️✅
+        - Class 110. aux/ordercounter ⚠️✅
+    - Config Firestore roles:
+        - For test and run ⚠️✅
+        - For secure access ⭕
+        
 Test data example: ⚠️✅
     - CEP: 13.087-000 ⚠️✅
     - credit Card:

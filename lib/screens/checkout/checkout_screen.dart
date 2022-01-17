@@ -68,35 +68,33 @@ class CheckoutScreen extends StatelessWidget {
                       buttonText: 'Finalizar Pedido',
                       onPressed: () {
                         // if (formKey.currentState.validate()) {
-                        //   formKey.currentState.save();
+                        // formKey.currentState.save();
                         //   print(creditCard.toString());
                         //   print(userManager.user.cpf);
                         //   checkoutManager.checkout(
-                        //       creditCard: creditCard,
-                        //       onStockFail: (e) {
-                        //         Navigator.of(context).popUntil(
-                        //             (route) => route.settings.name == '/cart');
-                        //       },
-                        //       onPayFail: (e) {
-                        //         scaffoldKey.currentState.showSnackBar(SnackBar(
-                        //           content: Text('$e'),
-                        //           backgroundColor: Colors.red,
-                        //         ));
-                        //       },
-                        //       onSuccess: (order) {
-                        //         Navigator.of(context).popUntil(
-                        //             (route) => route.settings.name == '/');
-                        //         Navigator.of(context).pushNamed('/confirmation',
-                        //             arguments: order);
-                        //       },
-                        // );
+                        //     creditCard: creditCard,
+                        //     onStockFail: (e) {
+                        //       Navigator.of(context).popUntil(
+                        //           (route) => route.settings.name == '/cart');
+                        //     },
+                        //     onPayFail: (e) {
+                        //       scaffoldKey.currentState.showSnackBar(SnackBar(
+                        //         content: Text('$e'),
+                        //         backgroundColor: Colors.red,
+                        //       ));
+                        //     },
+                        //     onSuccess: (order) {
+                        //       Navigator.of(context).popUntil(
+                        //           (route) => route.settings.name == '/');
+                        //       Navigator.of(context)
+                        //           .pushNamed('/confirmation', arguments: order);
+                        //     },
+                        //   );
                         // } // TODO RETURN THIS
-                        creditCard.setNumber('4333333333333331');
+                        creditCard.setNumber('4333 3333 3333 3331');
                         creditCard.setHolder('João Carlos');
                         creditCard.setCVV('800');
                         creditCard.setExpirationDate('12/2027');
-                        // creditCard
-                        // creditCard
                         print(creditCard.toString());
                         print(userManager.user.cpf);
                         checkoutManager.checkout(

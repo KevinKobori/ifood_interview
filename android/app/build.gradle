@@ -39,7 +39,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "br.com.ciolfi.lojavirtual"
+        applicationId "com.remottely.nextlov"
         minSdkVersion 16
         targetSdkVersion 29
         multiDexEnabled true
@@ -69,4 +69,5 @@ configurations.all {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.google.android.gms:play-services-location:16.0.0'
+    implementation 'com.google.firebase:firebase-functions:19.0.1'
 }

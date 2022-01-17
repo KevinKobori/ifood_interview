@@ -5,17 +5,16 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:lojavirtual/models/address.dart';
 
 class User {
-
   User({this.email, this.password, this.name, this.id});
 
-  User.fromDocument(DocumentSnapshot document){
+  User.fromDocument(DocumentSnapshot document) {
     id = document.documentID;
     name = document.data['name'] as String;
     email = document.data['email'] as String;
     cpf = document.data['cpf'] as String;
-    if(document.data.containsKey('address')){
-      address = Address.fromMap(
-          document.data['address'] as Map<String, dynamic>);
+    if (document.data.containsKey('address')) {
+      address =
+          Address.fromMap(document.data['address'] as Map<String, dynamic>);
     }
   }
 
@@ -32,35 +31,31 @@ class User {
   Address address;
 
   DocumentReference get firestoreRef =>
-    Firestore.instance.document('users/$id');
+      Firestore.instance.document('users/$id');
 
-  CollectionReference get cartReference =>
-    firestoreRef.collection('cart');
+  CollectionReference get cartReference => firestoreRef.collection('cart');
 
-  CollectionReference get tokensReference =>
-      firestoreRef.collection('tokens');
+  CollectionReference get tokensReference => firestoreRef.collection('tokens');
 
   Future<void> saveData() async {
     await firestoreRef.setData(toMap());
   }
 
-  Map<String, dynamic> toMap(){
+  Map<String, dynamic> toMap() {
     return {
       'name': name,
       'email': email,
-      if(address != null)
-        'address': address.toMap(),
-      if(cpf != null)
-        'cpf': cpf
+      if (address != null) 'address': address.toMap(),
+      if (cpf != null) 'cpf': cpf
     };
   }
 
-  void setAddress(Address address){
+  void setAddress(Address address) {
     this.address = address;
     saveData();
   }
 
-  void setCpf(String cpf){
+  void setCpf(String cpf) {
     this.cpf = cpf;
     saveData();
   }
