@@ -12,10 +12,12 @@ class User {
     name = document.data['name'] as String;
     email = document.data['email'] as String;
     cpf = document.data['cpf'] as String;
+    emailVerified = document.data['emailVerified'] as bool;
     if (document.data.containsKey('address')) {
       address =
           Address.fromMap(document.data['address'] as Map<String, dynamic>);
     }
+    
   }
 
   String id;
@@ -27,6 +29,8 @@ class User {
   String confirmPassword;
 
   bool admin = false;
+
+  bool emailVerified;
 
   Address address;
 
@@ -45,6 +49,7 @@ class User {
     return {
       'name': name,
       'email': email,
+      'emailVerified': emailVerified,
       if (address != null) 'address': address.toMap(),
       if (cpf != null) 'cpf': cpf
     };

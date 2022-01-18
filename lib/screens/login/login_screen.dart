@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flushbar/flushbar.dart';
 import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
+import 'package:lojavirtual/helpers/send_email.dart';
 import 'package:lojavirtual/models/user.dart';
 import 'package:lojavirtual/models/user_manager.dart';
 import 'package:provider/provider.dart';
@@ -7,7 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:lojavirtual/helpers/validators.dart';
 
 class LoginScreen extends StatelessWidget {
-
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passController = TextEditingController();
 
@@ -23,7 +25,7 @@ class LoginScreen extends StatelessWidget {
         centerTitle: true,
         actions: <Widget>[
           FlatButton(
-            onPressed: (){
+            onPressed: () {
               Navigator.of(context).pushReplacementNamed('/signup');
             },
             textColor: Colors.white,
@@ -40,14 +42,13 @@ class LoginScreen extends StatelessWidget {
           child: Form(
             key: formKey,
             child: Consumer<UserManager>(
-              builder: (_, userManager, child){
-                if(userManager.loadingFace){
+              builder: (_, userManager, child) {
+                if (userManager.loadingFace) {
                   return Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: CircularProgressIndicator(
                       valueColor: AlwaysStoppedAnimation(
-                          Theme.of(context).primaryColor
-                      ),
+                          Theme.of(context).primaryColor),
                     ),
                   );
                 }
@@ -62,82 +63,168 @@ class LoginScreen extends StatelessWidget {
                       decoration: const InputDecoration(hintText: 'E-mail'),
                       keyboardType: TextInputType.emailAddress,
                       autocorrect: false,
-                      validator: (email){
-                        if(!emailValid(email))
-                          return 'E-mail inválido';
+                      validator: (email) {
+                        if (!emailValid(email)) return 'E-mail inválido';
                         return null;
                       },
                     ),
-                    const SizedBox(height: 16,),
+                    const SizedBox(
+                      height: 16,
+                    ),
                     TextFormField(
                       controller: passController,
                       enabled: !userManager.loading,
                       decoration: const InputDecoration(hintText: 'Senha'),
                       autocorrect: false,
                       obscureText: true,
-                      validator: (pass){
-                        if(pass.isEmpty || pass.length < 6)
+                      validator: (pass) {
+                        if (pass.isEmpty || pass.length < 6)
                           return 'Senha inválida';
                         return null;
                       },
                     ),
                     child,
-                    const SizedBox(height: 16,),
+                    const SizedBox(
+                      height: 16,
+                    ),
                     RaisedButton(
                       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      onPressed: userManager.loading ? null : (){
-                        if(formKey.currentState.validate()){
-                          userManager.signIn(
-                            user: User(
-                                email: emailController.text,
-                                password: passController.text
-                            ),
-                            onFail: (e){
-                              scaffoldKey.currentState.showSnackBar(
-                                  SnackBar(
-                                    content: Text('Falha ao entrar: $e'),
-                                    backgroundColor: Colors.red,
-                                  )
-                              );
+                      onPressed: userManager.loading
+                          ? null
+                          : () {
+                              if (formKey.currentState.validate()) {
+                                userManager.signIn(
+                                  user: User(
+                                      email: emailController.text,
+                                      password: passController.text),
+                                  onFail: (e) {
+                                    scaffoldKey.currentState.showSnackBar(
+                                      SnackBar(
+                                        content: Text('Falha ao entrar: $e'),
+                                        backgroundColor: Colors.red,
+                                      ),
+                                    );
+                                  },
+                                  onEmailNotVerified:
+                                      (FirebaseUser currentUser) {
+                                    showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        // retorna um objeto do tipo Dialog
+                                        return AlertDialog(
+                                          title:
+                                              new Text("Alert Dialog titulo"),
+                                          content: ElevatedButton(
+                                            onPressed: () async {
+                                              if (!currentUser
+                                                  .isEmailVerified) {
+                                                await currentUser
+                                                    .sendEmailVerification()
+                                                    .then((email) {
+                                                  Navigator.of(context)
+                                                      .pushReplacement(
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          SendEmail(currentUser
+                                                              .email),
+                                                    ),
+                                                  );
+                                                }).catchError((onError) {
+                                                  Flushbar(
+                                                    title: 'ATENÇÃO!',
+                                                    message:
+                                                        "${onError.toString()}",
+                                                    flushbarPosition:
+                                                        FlushbarPosition.TOP,
+                                                    flushbarStyle:
+                                                        FlushbarStyle.GROUNDED,
+                                                    isDismissible: true,
+                                                    backgroundColor:
+                                                        Theme.of(context)
+                                                            .primaryColor,
+                                                    duration: const Duration(
+                                                        seconds: 5),
+                                                    icon: Icon(
+                                                      Icons.shopping_cart,
+                                                      color: Colors.white,
+                                                    ),
+                                                  ).show(context);
+                                                  // showFlushbar(
+                                                  //   context,
+                                                  //   'ATENÇÃO!',
+                                                  //   "${onError.toString()}",
+                                                  // );
+                                                });
+                                              } else {
+                                                Navigator.of(context).pop();
+                                              }
+                                            },
+                                            style: ElevatedButton.styleFrom(
+                                              primary: Colors.black,
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 30, vertical: 20),
+                                              textStyle: TextStyle(
+                                                  fontSize: 20,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            child: Text(
+                                                'Enviar verificação por email'),
+                                          ),
+                                          // content:
+                                          //     new Text("Alert Dialog body"),
+                                          actions: <Widget>[
+                                            // define os botões na base do dialogo
+                                            new FlatButton(
+                                              child:
+                                                  new Text("Voltar ao Login"),
+                                              onPressed: () {
+                                                Navigator.of(context).pop();
+                                              },
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                    // scaffoldKey.currentState.showSnackBar(
+                                    //   const SnackBar(
+                                    //     content: Text(
+                                    //       'Por favor, verifique o seu email!',
+                                    //     ),
+                                    //     backgroundColor: Colors.red,
+                                    //   ),
+                                    // );
+                                  },
+                                  onSuccess: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                );
+                              }
                             },
-                            onSuccess: (){
-                              Navigator.of(context).pop();
-                            }
-                          );
-                        }
-                      },
                       color: Theme.of(context).primaryColor,
-                      disabledColor: Theme.of(context).primaryColor
-                          .withAlpha(100),
+                      disabledColor:
+                          Theme.of(context).primaryColor.withAlpha(100),
                       textColor: Colors.white,
-                      child: userManager.loading ?
-                      CircularProgressIndicator(
-                        valueColor: AlwaysStoppedAnimation(Colors.white),
-                      ) :
-                      const Text(
-                        'Entrar',
-                        style: TextStyle(
-                            fontSize: 15
-                        ),
-                      ),
+                      child: userManager.loading
+                          ? CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation(Colors.white),
+                            )
+                          : const Text(
+                              'Entrar',
+                              style: TextStyle(fontSize: 15),
+                            ),
                     ),
                     SignInButton(
                       Buttons.Facebook,
                       text: 'Entrar com Facebook',
-                      onPressed: (){
-                        userManager.facebookLogin(
-                          onFail: (e){
-                            scaffoldKey.currentState.showSnackBar(
-                                SnackBar(
-                                  content: Text('Falha ao entrar: $e'),
-                                  backgroundColor: Colors.red,
-                                )
-                            );
-                          },
-                          onSuccess: (){
-                            Navigator.of(context).pop();
-                          }
-                        );
+                      onPressed: () {
+                        userManager.facebookLogin(onFail: (e) {
+                          scaffoldKey.currentState.showSnackBar(SnackBar(
+                            content: Text('Falha ao entrar: $e'),
+                            backgroundColor: Colors.red,
+                          ));
+                        }, onSuccess: () {
+                          Navigator.of(context).pop();
+                        });
                       },
                     )
                   ],
@@ -146,13 +233,9 @@ class LoginScreen extends StatelessWidget {
               child: Align(
                 alignment: Alignment.centerRight,
                 child: FlatButton(
-                  onPressed: (){
-
-                  },
+                  onPressed: () {},
                   padding: EdgeInsets.zero,
-                  child: const Text(
-                      'Esqueci minha senha'
-                  ),
+                  child: const Text('Esqueci minha senha'),
                 ),
               ),
             ),
