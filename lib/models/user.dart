@@ -68,4 +68,9 @@ class User {
       'platform': Platform.operatingSystem,
     });
   }
+
+   Future<void> deleteToken() async {
+    final token = await FirebaseMessaging().getToken();
+    await tokensReference.document(token).delete();
+  }
 }

@@ -13,9 +13,10 @@ flutter pub run change_app_package_name:main com.new.package.name
     - maybe the solution: Firebase.initializeApp(); ⛔
 - packages deprecated ⛔
 - Facebook Login not working ⛔
-- FunctionsError: fix:
-    - sandbox: true,
-    - debug: true,
+- FunctionsError: fix: ⚠️✅
+    - sandbox: true, ⚠️✅
+    - debug: true, ⚠️✅
+- User token not deleting when logout ⚠️✅
 
 ## Need to fix after custom project:
 - Error when try to insert user CPF ⚠️✅

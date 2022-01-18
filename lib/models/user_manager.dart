@@ -107,7 +107,8 @@ class UserManager extends ChangeNotifier {
     loading = false;
   }
 
-  void signOut(){
+  Future<void> signOut() async {
+    await user.deleteToken();
     auth.signOut();
     user = null;
     notifyListeners();
