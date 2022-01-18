@@ -5,7 +5,6 @@ import 'package:lojavirtual/common/custom_icon_button.dart';
 import 'package:lojavirtual/models/address.dart';
 import 'package:lojavirtual/models/cart_manager.dart';
 import 'package:provider/provider.dart';
-import 'package:masked_text/masked_text.dart';
 
 class CepInputField extends StatefulWidget {
   const CepInputField(this.address);

@@ -14,8 +14,8 @@ const merchantKey = functions.config().cielo.merchantkey;
 const cieloParams: CieloConstructor = {
     merchantId: merchantId,
     merchantKey: merchantKey,
-    sandbox: false,
-    debug: false,
+    sandbox: true,
+    debug: true,
 }
 
 const cielo = new Cielo(cieloParams);
@@ -279,6 +279,12 @@ export const cancelCreditCard = functions.https.onCall(async (data, context) => 
         };
     }
 
+});
+
+
+
+export const helloWorld = functions.https.onCall((data, context) => {
+  return {data: "Hellow from Cloud Functions!!!"};
 });
 
 export const getUserData = functions.https.onCall( async (data, context) => {

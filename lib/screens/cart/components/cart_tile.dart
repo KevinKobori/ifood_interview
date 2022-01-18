@@ -23,11 +23,11 @@ class CartTile extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: Row(
               children: <Widget>[
-                SizedBox(
-                  height: 80,
-                  width: 80,
-                  child: Image.network(cartProduct.product.images.first),
-                ),
+                // SizedBox(
+                //   height: 80,
+                //   width: 80,
+                //   child: Image.network(cartProduct.product.images.first),
+                // ), TODO PUT IT BACK
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.only(left: 16),

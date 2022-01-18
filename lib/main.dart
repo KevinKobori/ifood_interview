@@ -49,27 +49,25 @@ class MyApp extends StatelessWidget {
           create: (_) => CartManager(),
           lazy: false,
           update: (_, userManager, cartManager) =>
-            cartManager..updateUser(userManager),
+              cartManager..updateUser(userManager),
         ),
         ChangeNotifierProxyProvider<UserManager, OrdersManager>(
           create: (_) => OrdersManager(),
           lazy: false,
           update: (_, userManager, ordersManager) =>
-            ordersManager..updateUser(userManager.user),
+              ordersManager..updateUser(userManager.user),
         ),
         ChangeNotifierProxyProvider<UserManager, AdminUsersManager>(
           create: (_) => AdminUsersManager(),
           lazy: false,
           update: (_, userManager, adminUsersManager) =>
-            adminUsersManager..updateUser(userManager),
+              adminUsersManager..updateUser(userManager),
         ),
         ChangeNotifierProxyProvider<UserManager, AdminOrdersManager>(
           create: (_) => AdminOrdersManager(),
           lazy: false,
-          update: (_, userManager, adminOrdersManager) =>
-            adminOrdersManager..updateAdmin(
-              adminEnabled: userManager.adminEnabled
-            ),
+          update: (_, userManager, adminOrdersManager) => adminOrdersManager
+            ..updateAdmin(adminEnabled: userManager.adminEnabled),
         )
       ],
       child: MaterialApp(
@@ -78,62 +76,51 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primaryColor: const Color.fromARGB(255, 4, 125, 141),
           scaffoldBackgroundColor: const Color.fromARGB(255, 4, 125, 141),
-          appBarTheme: const AppBarTheme(
-            elevation: 0
-          ),
+          appBarTheme: const AppBarTheme(elevation: 0),
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        onGenerateRoute: (settings){
-          switch(settings.name){
+        onGenerateRoute: (settings) {
+          switch (settings.name) {
             case '/login':
               return MaterialPageRoute(
-                  builder: (_) => LoginScreen()
+                builder: (_) => LoginScreen(),
               );
             case '/signup':
               return MaterialPageRoute(
-                  builder: (_) => SignUpScreen()
+                builder: (_) => SignUpScreen(),
               );
             case '/product':
               return MaterialPageRoute(
-                  builder: (_) => ProductScreen(
-                    settings.arguments as Product
-                  )
+                builder: (_) => ProductScreen(settings.arguments as Product),
               );
             case '/cart':
               return MaterialPageRoute(
-                builder: (_) => CartScreen(),
-                settings: settings
-              );
+                  builder: (_) => CartScreen(), settings: settings);
             case '/address':
               return MaterialPageRoute(
-                  builder: (_) => AddressScreen()
+                builder: (_) => AddressScreen(),
               );
             case '/checkout':
               return MaterialPageRoute(
-                  builder: (_) => CheckoutScreen()
+                builder: (_) => CheckoutScreen(),
               );
             case '/edit_product':
               return MaterialPageRoute(
-                  builder: (_) => EditProductScreen(
-                    settings.arguments as Product
-                  )
+                builder: (_) =>
+                    EditProductScreen(settings.arguments as Product),
               );
             case '/select_product':
               return MaterialPageRoute(
-                  builder: (_) => SelectProductScreen()
+                builder: (_) => SelectProductScreen(),
               );
             case '/confirmation':
               return MaterialPageRoute(
-                  builder: (_) => ConfirmationScreen(
-                    settings.arguments as Order
-                  )
+                builder: (_) => ConfirmationScreen(settings.arguments as Order),
               );
             case '/':
             default:
               return MaterialPageRoute(
-                builder: (_) => BaseScreen(),
-                settings: settings
-              );
+                  builder: (_) => BaseScreen(), settings: settings);
           }
         },
       ),
