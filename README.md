@@ -4,15 +4,16 @@
 - Forget password ⚠️✅
 - Confirm email on register ⚠️✅
 - Verify and confirm email on login ⚠️✅
-- Google SignIn ⭕
+- Google SignIn ⚠️✅
 - Loading animation on items ⭕
 - Redirect to whatsapp ✅
 - Create Categories ⭕
 - Format send email verification ⭕
 - Users:
-    - Generate random code for what? ⭕
-    - ImageProfile ⭕
-    
+    - Generate random code for what? ⚠️✅
+    - ImageProfile ⚠️✅
+- Create Insert Stores Locations Screen ⭕
+
 ## Need to fix on original project:
 - Refact User() to UserModel() ⚠️✅
 - Remove all whitespace on inputs ⚠️✅
@@ -62,6 +63,7 @@
     - Config Firestore roles:
         - For test and run ⚠️✅
         - For secure access ⚠️⭕
+    - 137. Set Storeslocations on Firebase ⛔
         
 Test data example: ⚠️✅
     - CEP: 13.087-000 ⚠️✅
