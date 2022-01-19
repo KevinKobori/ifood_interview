@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
+import 'package:lojavirtual/common/forgot_password.dart';
 import 'package:lojavirtual/helpers/send_email.dart';
 import 'package:lojavirtual/models/user_model.dart';
 import 'package:lojavirtual/models/user_manager.dart';
@@ -189,13 +190,28 @@ class LoginScreen extends StatelessWidget {
                           Theme.of(context).primaryColor.withAlpha(100),
                       textColor: Colors.white,
                       child: userManager.loading
-                          ? CircularProgressIndicator(
+                          ? const CircularProgressIndicator(
                               valueColor: AlwaysStoppedAnimation(Colors.white),
                             )
                           : const Text(
                               'Entrar',
                               style: TextStyle(fontSize: 15),
                             ),
+                    ),
+                    const SizedBox(height: 4),
+                    SignInButton(
+                      Buttons.Google,
+                      text: 'Entrar com Google',
+                      onPressed: () {
+                        userManager.googleLogin(onFail: (e) {
+                          scaffoldKey.currentState.showSnackBar(SnackBar(
+                            content: Text('Falha ao entrar: $e'),
+                            backgroundColor: Colors.red,
+                          ));
+                        }, onSuccess: () {
+                          Navigator.of(context).pop();
+                        });
+                      },
                     ),
                     SignInButton(
                       Buttons.Facebook,
@@ -211,31 +227,36 @@ class LoginScreen extends StatelessWidget {
                         });
                       },
                     ),
-                     SignInButton(
-                      Buttons.Google,
-                      text: 'Entrar com Google',
-                      onPressed: () {
-                        userManager.googleLogin(
-                          onFail: (e) {
-                          scaffoldKey.currentState.showSnackBar(SnackBar(
-                            content: Text('Falha ao entrar: $e'),
-                            backgroundColor: Colors.red,
-                          ));
-                        }, onSuccess: () {
-                          Navigator.of(context).pop();
-                        });
-                      },
-                    )
                   ],
                 );
               },
               child: Align(
                 alignment: Alignment.centerRight,
-                child: FlatButton(
-                  onPressed: () {},
-                  padding: EdgeInsets.zero,
-                  child: const Text('Esqueci minha senha'),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            ForgotPassword(emailController.text),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(horizontal: 6, vertical: 0),
+                  ),
+                  child: Text(
+                    'Esqueci minha senha',
+                    style: TextStyle(
+                      color: Colors.blue,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
+                // FlatButton(
+                //   onPressed: () {},
+                //   padding: EdgeInsets.zero,
+                //   child: const Text('Esqueci minha senha'),
+                // ),
               ),
             ),
           ),

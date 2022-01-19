@@ -10,7 +10,7 @@ class CustomDrawerHeader extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(32, 24, 16, 8),
       height: 180,
       child: Consumer<UserManager>(
-        builder: (_, userManager, __){
+        builder: (_, userManager, __) {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -22,18 +22,19 @@ class CustomDrawerHeader extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(
-                'Olá, ${userManager.userModel?.name ?? ''}',
-                overflow: TextOverflow.ellipsis,
-                maxLines: 2,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
+              if (userManager.userModel?.name != null)
+                Text(
+                  'Olá, ${userManager.userModel?.name}',
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
               GestureDetector(
-                onTap: (){
-                  if(userManager.isLoggedIn){
+                onTap: () {
+                  if (userManager.isLoggedIn) {
                     context.read<PageManager>().setPage(0);
                     userManager.signOut();
                   } else {
@@ -41,9 +42,7 @@ class CustomDrawerHeader extends StatelessWidget {
                   }
                 },
                 child: Text(
-                  userManager.isLoggedIn
-                      ? 'Sair'
-                      : 'Entre ou Cadastre-se',
+                  userManager.isLoggedIn ? 'Sair' : 'Entre ou Cadastre-se',
                   style: TextStyle(
                     color: Theme.of(context).primaryColor,
                     fontSize: 16,

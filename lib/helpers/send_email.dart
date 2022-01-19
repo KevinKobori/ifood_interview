@@ -53,7 +53,7 @@ class _SendEmailState extends State<SendEmail> {
                       text: widget.emailAddress,
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
-                          fontSize: 20,
+                        fontSize: 20,
                       ),
                     ),
                     // TextSpan(text: ' world!'),
@@ -73,19 +73,15 @@ class _SendEmailState extends State<SendEmail> {
             SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pop();
-                // Navigator.of(context).pushReplacement(
-                //   MaterialPageRoute(
-                //     builder: (context) => AuthAppPage(),
-                //   ),
-                // );
+                Navigator.of(context)
+                    .popUntil((route) => route.settings.name == '/');
               },
               style: ElevatedButton.styleFrom(
                 primary: Colors.blue,
                 padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                 textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
-              child: Text(
+              child: const Text(
                 'Voltar',
                 style: TextStyle(
                   fontSize: 16,

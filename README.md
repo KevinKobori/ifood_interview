@@ -1,6 +1,7 @@
 # shop_reference
 
 ## Need to improve:
+- Forget password ⚠️✅
 - Confirm email on register ⚠️✅
 - Verify and confirm email on login ⚠️✅
 - Google SignIn ⭕
