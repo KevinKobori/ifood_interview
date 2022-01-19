@@ -73,9 +73,10 @@ class UserManager extends ChangeNotifier {
           final firebaseUser = authResult.user;
 
           user = User(
-              id: firebaseUser.uid,
-              name: firebaseUser.displayName,
-              email: firebaseUser.email);
+            id: firebaseUser.uid,
+            name: firebaseUser.displayName,
+            email: firebaseUser.email,
+          );
 
           await user.saveData();
 
@@ -94,20 +95,21 @@ class UserManager extends ChangeNotifier {
     loadingFace = false;
   }
 
-  Future<void> signUp({User user, Function onFail, Function onSuccess}) async {
+  Future<FirebaseUser> signUp(
+      {User user, Function onFail, Function onSuccess}) async {
     loading = true;
     try {
       final AuthResult result = await auth.createUserWithEmailAndPassword(
           email: user.email, password: user.password);
 
-      user.id = result.user.uid;
-      this.user = user;
+      // user.id = result.user.uid;
+      // this.user = user;
 
-      await user.saveData();
+      // await user.saveData();
 
-      user.saveToken();
+      // user.saveToken();
 
-      onSuccess();
+      onSuccess(result.user);
     } on PlatformException catch (e) {
       onFail(getErrorString(e.code));
     }

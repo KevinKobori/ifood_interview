@@ -110,10 +110,15 @@ class LoginScreen extends StatelessWidget {
                                     showDialog(
                                       context: context,
                                       builder: (BuildContext context) {
-                                        // retorna um objeto do tipo Dialog
                                         return AlertDialog(
-                                          title:
-                                              new Text("Alert Dialog titulo"),
+                                          backgroundColor:
+                                              Theme.of(context).primaryColor,
+                                          title: const Text(
+                                            "Email não verificado!",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                            ),
+                                          ),
                                           content: ElevatedButton(
                                             onPressed: () async {
                                               if (!currentUser
@@ -149,50 +154,29 @@ class LoginScreen extends StatelessWidget {
                                                       color: Colors.white,
                                                     ),
                                                   ).show(context);
-                                                  // showFlushbar(
-                                                  //   context,
-                                                  //   'ATENÇÃO!',
-                                                  //   "${onError.toString()}",
-                                                  // );
                                                 });
                                               } else {
                                                 Navigator.of(context).pop();
                                               }
                                             },
                                             style: ElevatedButton.styleFrom(
-                                              primary: Colors.black,
+                                              primary: Colors.blue,
                                               padding: EdgeInsets.symmetric(
                                                   horizontal: 30, vertical: 20),
                                               textStyle: TextStyle(
                                                   fontSize: 20,
                                                   fontWeight: FontWeight.bold),
                                             ),
-                                            child: Text(
-                                                'Enviar verificação por email'),
-                                          ),
-                                          // content:
-                                          //     new Text("Alert Dialog body"),
-                                          actions: <Widget>[
-                                            // define os botões na base do dialogo
-                                            new FlatButton(
-                                              child:
-                                                  new Text("Voltar ao Login"),
-                                              onPressed: () {
-                                                Navigator.of(context).pop();
-                                              },
+                                            child: const Text(
+                                              'Enviar verificação por email',
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                              ),
                                             ),
-                                          ],
+                                          ),
                                         );
                                       },
                                     );
-                                    // scaffoldKey.currentState.showSnackBar(
-                                    //   const SnackBar(
-                                    //     content: Text(
-                                    //       'Por favor, verifique o seu email!',
-                                    //     ),
-                                    //     backgroundColor: Colors.red,
-                                    //   ),
-                                    // );
                                   },
                                   onSuccess: () {
                                     Navigator.of(context).pop();
