@@ -1,10 +1,13 @@
+import 'dart:math';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:lojavirtual/helpers/firebase_errors.dart';
-import 'package:lojavirtual/models/user.dart';
+import 'package:lojavirtual/models/user_model.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class UserManager extends ChangeNotifier {
   UserManager() {
@@ -14,7 +17,10 @@ class UserManager extends ChangeNotifier {
   final FirebaseAuth auth = FirebaseAuth.instance;
   final Firestore firestore = Firestore.instance;
 
-  User user;
+  UserModel userModel;
+
+  final GoogleSignIn googleSignIn = GoogleSignIn();
+  final FacebookLogin facebookSignIn = FacebookLogin();
 
   bool _loading = false;
   bool get loading => _loading;
@@ -30,10 +36,17 @@ class UserManager extends ChangeNotifier {
     notifyListeners();
   }
 
-  bool get isLoggedIn => user != null;
+  bool _loadingGoogle = false;
+  bool get loadingGoogle => _loadingFace;
+  set loadingGoogle(bool value) {
+    _loadingGoogle = value;
+    notifyListeners();
+  }
+
+  bool get isLoggedIn => userModel != null;
 
   Future<bool> signIn(
-      {User user,
+      {UserModel user,
       Function onFail,
       Function onEmailNotVerified,
       Function onSuccess}) async {
@@ -49,7 +62,6 @@ class UserManager extends ChangeNotifier {
         onSuccess();
       } else {
         onEmailNotVerified(currentUser);
-        print('WTFWTF');
       }
     } on PlatformException catch (e) {
       onFail(getErrorString(e.code));
@@ -60,7 +72,7 @@ class UserManager extends ChangeNotifier {
   Future<void> facebookLogin({Function onFail, Function onSuccess}) async {
     loadingFace = true;
 
-    final result = await FacebookLogin().logIn(['email', 'public_profile']);
+    final result = await facebookSignIn.logIn(['email', 'public_profile']);
 
     switch (result.status) {
       case FacebookLoginStatus.loggedIn:
@@ -72,15 +84,17 @@ class UserManager extends ChangeNotifier {
         if (authResult.user != null) {
           final firebaseUser = authResult.user;
 
-          user = User(
+          userModel = UserModel(
             id: firebaseUser.uid,
             name: firebaseUser.displayName,
             email: firebaseUser.email,
           );
 
-          await user.saveData();
+          await userModel.saveData();
 
-          user.saveToken();
+          await userModel.saveToken();
+
+          await _loadCurrentUser(firebaseUser: authResult.user);
 
           onSuccess();
         }
@@ -95,19 +109,76 @@ class UserManager extends ChangeNotifier {
     loadingFace = false;
   }
 
+  String getRandomString(int length) {
+    const _chars =
+        'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890';
+    final Random _rnd = Random();
+
+    return String.fromCharCodes(
+      Iterable.generate(
+        length,
+        (_) => _chars.codeUnitAt(
+          _rnd.nextInt(_chars.length),
+        ),
+      ),
+    );
+  }
+
+  Future<void> googleLogin({Function onFail, Function onSuccess}) async {
+    final googleUser = await googleSignIn.signIn();
+
+    if (googleUser == null) {
+      onFail();
+      return;
+    } else {
+      _loadingGoogle = true;
+      final googleAuth = await googleUser.authentication;
+      final credential = GoogleAuthProvider.getCredential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+
+      final AuthResult result =
+          await FirebaseAuth.instance.signInWithCredential(credential);
+
+      if (result.additionalUserInfo.isNewUser) {
+        UserModel userModel = new UserModel();
+        userModel.id = result.user.uid;
+        this.userModel = userModel;
+
+        userModel.name = result.user.displayName;
+        userModel.email = result.user.email;
+        userModel.code = getRandomString(28);
+        userModel.password = '';
+        userModel.cpf = '';
+        userModel.imageProfile = result.user.photoUrl;
+
+        await userModel.saveData();
+
+        await userModel.saveToken();
+      } else {
+        await _loadCurrentUser(firebaseUser: result.user);
+      }
+      _loadingGoogle = false;
+      onSuccess();
+      return;
+    }
+  }
+
   Future<FirebaseUser> signUp(
-      {User user, Function onFail, Function onSuccess}) async {
+      {UserModel user, Function onFail, Function onSuccess}) async {
     loading = true;
     try {
       final AuthResult result = await auth.createUserWithEmailAndPassword(
           email: user.email, password: user.password);
 
-      // user.id = result.user.uid;
+      user.id = result.user.uid;
       // this.user = user;
+      user.code = getRandomString(28);
 
-      // await user.saveData();
+      await user.saveData();
 
-      // user.saveToken();
+      // await user.saveToken();
 
       onSuccess(result.user);
     } on PlatformException catch (e) {
@@ -117,9 +188,14 @@ class UserManager extends ChangeNotifier {
   }
 
   Future<void> signOut() async {
-    await user.deleteToken();
+    await userModel.deleteToken();
+    if (await googleSignIn.isSignedIn()) {
+      googleSignIn.disconnect();
+    } else if (await facebookSignIn.isLoggedIn) {
+      facebookSignIn.logOut();
+    }
     auth.signOut();
-    user = null;
+    userModel = null;
     notifyListeners();
   }
 
@@ -129,21 +205,21 @@ class UserManager extends ChangeNotifier {
       if (currentUser.isEmailVerified) {
         final DocumentSnapshot docUser =
             await firestore.collection('users').document(currentUser.uid).get();
-        user = User.fromDocument(docUser);
+        userModel = UserModel.fromDocument(docUser);
 
-        user.saveToken();
+        await userModel.saveToken();
 
         final docAdmin =
-            await firestore.collection('admins').document(user.id).get();
+            await firestore.collection('admins').document(userModel.id).get();
         if (docAdmin.exists) {
-          user.admin = true;
+          userModel.admin = true;
         }
 
         notifyListeners();
       }
-      return currentUser;
     }
+    return currentUser;
   }
 
-  bool get adminEnabled => user != null && user.admin;
+  bool get adminEnabled => userModel != null && userModel.admin;
 }

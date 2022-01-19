@@ -3,7 +3,7 @@ import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:lojavirtual/helpers/send_email.dart';
 import 'package:lojavirtual/helpers/validators.dart';
-import 'package:lojavirtual/models/user.dart';
+import 'package:lojavirtual/models/user_model.dart';
 import 'package:lojavirtual/models/user_manager.dart';
 import 'package:provider/provider.dart';
 
@@ -11,7 +11,7 @@ class SignUpScreen extends StatelessWidget {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final User user = User();
+  final UserModel user = UserModel();
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +55,7 @@ class SignUpScreen extends StatelessWidget {
                       validator: (email) {
                         if (email.isEmpty)
                           return 'Campo obrigatório';
-                        else if (!emailValid(email)) return 'E-mail inválido';
+                        else if (!emailValid(email.replaceAll(' ', ''))) return 'E-mail inválido';
                         return null;
                       },
                       onSaved: (email) => user.email = email,

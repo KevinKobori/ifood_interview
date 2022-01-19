@@ -26,7 +26,7 @@ class CpfField extends StatelessWidget {
               ),
             ),
             TextFormField(
-              initialValue: userManager.user.cpf,
+              initialValue: userManager.userModel.cpf,
               decoration: const InputDecoration(
                 hintText: '000.000.000-00',
                 isDense: true
@@ -41,7 +41,7 @@ class CpfField extends StatelessWidget {
                 else if(!CPFValidator.isValid(cpf)) return 'CPF Inválido';
                 return null;
               },
-              onSaved: userManager.user.setCpf,
+              onSaved: userManager.userModel.setCpf,
             )
           ],
         ),

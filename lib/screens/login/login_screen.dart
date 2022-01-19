@@ -3,7 +3,7 @@ import 'package:flushbar/flushbar.dart';
 import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
 import 'package:lojavirtual/helpers/send_email.dart';
-import 'package:lojavirtual/models/user.dart';
+import 'package:lojavirtual/models/user_model.dart';
 import 'package:lojavirtual/models/user_manager.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +43,7 @@ class LoginScreen extends StatelessWidget {
             key: formKey,
             child: Consumer<UserManager>(
               builder: (_, userManager, child) {
-                if (userManager.loadingFace) {
+                if (userManager.loadingFace || userManager.loadingGoogle) {
                   return Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: CircularProgressIndicator(
@@ -94,7 +94,7 @@ class LoginScreen extends StatelessWidget {
                           : () {
                               if (formKey.currentState.validate()) {
                                 userManager.signIn(
-                                  user: User(
+                                  user: UserModel(
                                       email: emailController.text,
                                       password: passController.text),
                                   onFail: (e) {
@@ -202,6 +202,21 @@ class LoginScreen extends StatelessWidget {
                       text: 'Entrar com Facebook',
                       onPressed: () {
                         userManager.facebookLogin(onFail: (e) {
+                          scaffoldKey.currentState.showSnackBar(SnackBar(
+                            content: Text('Falha ao entrar: $e'),
+                            backgroundColor: Colors.red,
+                          ));
+                        }, onSuccess: () {
+                          Navigator.of(context).pop();
+                        });
+                      },
+                    ),
+                     SignInButton(
+                      Buttons.Google,
+                      text: 'Entrar com Google',
+                      onPressed: () {
+                        userManager.googleLogin(
+                          onFail: (e) {
                           scaffoldKey.currentState.showSnackBar(SnackBar(
                             content: Text('Falha ao entrar: $e'),
                             backgroundColor: Colors.red,

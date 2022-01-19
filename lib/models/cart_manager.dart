@@ -4,7 +4,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:lojavirtual/models/address.dart';
 import 'package:lojavirtual/models/cart_product.dart';
 import 'package:lojavirtual/models/product.dart';
-import 'package:lojavirtual/models/user.dart';
+import 'package:lojavirtual/models/user_model.dart';
 import 'package:lojavirtual/models/user_manager.dart';
 import 'package:lojavirtual/services/cepaberto_service.dart';
 
@@ -12,7 +12,7 @@ class CartManager extends ChangeNotifier {
 
   List<CartProduct> items = [];
 
-  User user;
+  UserModel user;
   Address address;
 
   num productsPrice = 0.0;
@@ -30,7 +30,7 @@ class CartManager extends ChangeNotifier {
   final Firestore firestore = Firestore.instance;
 
   void updateUser(UserManager userManager){
-    user = userManager.user;
+    user = userManager.userModel;
     productsPrice = 0.0;
     items.clear();
     removeAddress();

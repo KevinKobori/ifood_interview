@@ -23,7 +23,7 @@ class CustomDrawerHeader extends StatelessWidget {
                 ),
               ),
               Text(
-                'Olá, ${userManager.user?.name ?? ''}',
+                'Olá, ${userManager.userModel?.name ?? ''}',
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
                 style: const TextStyle(

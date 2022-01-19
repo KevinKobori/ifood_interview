@@ -13,17 +13,18 @@ class ProductsScreen extends StatelessWidget {
       drawer: CustomDrawer(),
       appBar: AppBar(
         title: Consumer<ProductManager>(
-          builder: (_, productManager, __){
-            if(productManager.search.isEmpty){
+          builder: (_, productManager, __) {
+            if (productManager.search.isEmpty) {
               return const Text('Produtos');
             } else {
               return LayoutBuilder(
-                builder: (_, constraints){
+                builder: (_, constraints) {
                   return GestureDetector(
                     onTap: () async {
-                      final search = await showDialog<String>(context: context,
+                      final search = await showDialog<String>(
+                          context: context,
                           builder: (_) => SearchDialog(productManager.search));
-                      if(search != null){
+                      if (search != null) {
                         productManager.search = search;
                       }
                     },
@@ -32,7 +33,7 @@ class ProductsScreen extends StatelessWidget {
                       child: Text(
                         productManager.search,
                         textAlign: TextAlign.center,
-                      )
+                      ),
                     ),
                   );
                 },
@@ -43,14 +44,15 @@ class ProductsScreen extends StatelessWidget {
         centerTitle: true,
         actions: <Widget>[
           Consumer<ProductManager>(
-            builder: (_, productManager, __){
-              if(productManager.search.isEmpty){
+            builder: (_, productManager, __) {
+              if (productManager.search.isEmpty) {
                 return IconButton(
                   icon: Icon(Icons.search),
                   onPressed: () async {
-                    final search = await showDialog<String>(context: context,
+                    final search = await showDialog<String>(
+                        context: context,
                         builder: (_) => SearchDialog(productManager.search));
-                    if(search != null){
+                    if (search != null) {
                       productManager.search = search;
                     }
                   },
@@ -66,11 +68,11 @@ class ProductsScreen extends StatelessWidget {
             },
           ),
           Consumer<UserManager>(
-            builder: (_, userManager, __){
-              if(userManager.adminEnabled){
+            builder: (_, userManager, __) {
+              if (userManager.adminEnabled) {
                 return IconButton(
                   icon: Icon(Icons.add),
-                  onPressed: (){
+                  onPressed: () {
                     Navigator.of(context).pushNamed(
                       '/edit_product',
                     );
@@ -84,20 +86,19 @@ class ProductsScreen extends StatelessWidget {
         ],
       ),
       body: Consumer<ProductManager>(
-        builder: (_, productManager, __){
+        builder: (_, productManager, __) {
           final filteredProducts = productManager.filteredProducts;
           return ListView.builder(
-            itemCount: filteredProducts.length,
-            itemBuilder: (_, index){
-              return ProductListTile(filteredProducts[index]);
-            }
-          );
+              itemCount: filteredProducts.length,
+              itemBuilder: (_, index) {
+                return ProductListTile(filteredProducts[index]);
+              });
         },
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.white,
         foregroundColor: Theme.of(context).primaryColor,
-        onPressed: (){
+        onPressed: () {
           Navigator.of(context).pushNamed('/cart');
         },
         child: Icon(Icons.shopping_cart),

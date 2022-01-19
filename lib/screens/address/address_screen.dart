@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lojavirtual/common/price_card.dart';
+import 'package:lojavirtual/common/whatsapp_card.dart';
 import 'package:lojavirtual/models/cart_manager.dart';
 import 'package:lojavirtual/screens/address/components/address_card.dart';
 import 'package:provider/provider.dart';
@@ -16,14 +17,21 @@ class AddressScreen extends StatelessWidget {
         children: <Widget>[
           AddressCard(),
           Consumer<CartManager>(
-            builder: (_, cartManager, __){
+            builder: (_, cartManager, __) {
               return PriceCard(
                 buttonText: 'Continuar para o Pagamento',
-                onPressed: cartManager.isAddressValid ? (){
-                  Navigator.of(context).pushNamed('/checkout');
-                } : null,
+                onPressed: cartManager.isAddressValid
+                    ? () {
+                        Navigator.of(context).pushNamed('/checkout');
+                      }
+                    : null,
               );
             },
+          ),
+          const WhatsappCard(
+            buttonText: 'Contato Whatsapp',
+            onPressed: true,
+            cartDoubt: true,
           ),
         ],
       ),

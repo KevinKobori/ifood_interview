@@ -96,7 +96,7 @@ class CheckoutScreen extends StatelessWidget {
                         creditCard.setCVV('800');
                         creditCard.setExpirationDate('12/2027');
                         print(creditCard.toString());
-                        print(userManager.user.cpf);
+                        print(userManager.userModel.cpf);
                         checkoutManager.checkout(
                           creditCard: creditCard,
                           onStockFail: (e) {

@@ -3,14 +3,14 @@ import 'dart:collection';
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:lojavirtual/models/credit_card.dart';
-import 'package:lojavirtual/models/user.dart';
+import 'package:lojavirtual/models/user_model.dart';
 
 class CieloPayment {
 
   final CloudFunctions functions = CloudFunctions.instance;
 
   Future<String> authorize({CreditCard creditCard, num price,
-    String orderId, User user}) async {
+    String orderId, UserModel user}) async {
 
     try {
       final Map<String, dynamic> dataSale = {

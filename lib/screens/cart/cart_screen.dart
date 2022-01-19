@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lojavirtual/common/empty_card.dart';
 import 'package:lojavirtual/common/login_card.dart';
 import 'package:lojavirtual/common/price_card.dart';
+import 'package:lojavirtual/common/whatsapp_card.dart';
 import 'package:lojavirtual/models/cart_manager.dart';
 import 'package:lojavirtual/screens/cart/components/cart_tile.dart';
 import 'package:provider/provider.dart';
@@ -15,13 +16,13 @@ class CartScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: Consumer<CartManager>(
-        builder: (_, cartManager, __){
-          if(cartManager.user == null){
+        builder: (_, cartManager, __) {
+          if (cartManager.user == null) {
             return LoginCard();
           }
 
-          if(cartManager.items.isEmpty){
-            return EmptyCard(
+          if (cartManager.items.isEmpty) {
+            return const EmptyCard(
               iconData: Icons.remove_shopping_cart,
               title: 'Nenhum produto no carrinho!',
             );
@@ -30,20 +31,35 @@ class CartScreen extends StatelessWidget {
           return ListView(
             children: <Widget>[
               Column(
-                children: cartManager.items.map(
-                        (cartProduct) => CartTile(cartProduct)
-                ).toList(),
+                children: cartManager.items
+                    .map((cartProduct) => CartTile(cartProduct))
+                    .toList(),
               ),
               PriceCard(
                 buttonText: 'Continuar para Entrega',
-                onPressed: cartManager.isCartValid ? (){
-                  Navigator.of(context).pushNamed('/address');
-                } : null,
+                onPressed: cartManager.isCartValid
+                    ? () {
+                        Navigator.of(context).pushNamed('/address');
+                      }
+                    : null,
+              ),
+              const WhatsappCard(
+                buttonText: 'Contato Whatsapp',
+                onPressed: true,
+                cartDoubt: true,
               ),
             ],
           );
         },
       ),
+      // floatingActionButton: FloatingActionButton(
+      //   backgroundColor: Colors.white,
+      //   foregroundColor: Theme.of(context).primaryColor,
+      //   onPressed: () {
+      //     Navigator.of(context).pushNamed('/cart');
+      //   },
+      //   child: Icon(Icons.whatshot),
+      // ),
     );
   }
 }

@@ -4,8 +4,9 @@ import 'package:lojavirtual/common/custom_drawer/drawer_tile.dart';
 import 'package:lojavirtual/models/user_manager.dart';
 import 'package:provider/provider.dart';
 
-class CustomDrawer extends StatelessWidget {
+import '../whatsapp_card.dart';
 
+class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -13,15 +14,14 @@ class CustomDrawer extends StatelessWidget {
         children: <Widget>[
           Container(
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  const Color.fromARGB(255, 203, 236, 241),
-                  Colors.white,
-                ],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              )
-            ),
+                gradient: LinearGradient(
+              colors: [
+                const Color.fromARGB(255, 203, 236, 241),
+                Colors.white,
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            )),
           ),
           ListView(
             children: <Widget>[
@@ -47,9 +47,14 @@ class CustomDrawer extends StatelessWidget {
                 title: 'Lojas',
                 page: 3,
               ),
+              const WhatsappCard(
+                buttonText: 'Contato Whatsapp',
+                onPressed: true,
+                cartDoubt: false,
+              ),
               Consumer<UserManager>(
-                builder: (_, userManager, __){
-                  if(userManager.adminEnabled){
+                builder: (_, userManager, __) {
+                  if (userManager.adminEnabled) {
                     return Column(
                       children: <Widget>[
                         const Divider(),

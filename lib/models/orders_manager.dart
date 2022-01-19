@@ -3,11 +3,11 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:lojavirtual/models/order.dart';
-import 'package:lojavirtual/models/user.dart';
+import 'package:lojavirtual/models/user_model.dart';
 
 class OrdersManager extends ChangeNotifier {
 
-  User user;
+  UserModel user;
 
   List<Order> orders = [];
   
@@ -15,7 +15,7 @@ class OrdersManager extends ChangeNotifier {
 
   StreamSubscription _subscription;
 
-  void updateUser(User user){
+  void updateUser(UserModel user){
     this.user = user;
     orders.clear();
 

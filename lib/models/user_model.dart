@@ -4,15 +4,17 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:lojavirtual/models/address.dart';
 
-class User {
-  User({this.email, this.password, this.name, this.id});
+class UserModel {
+  UserModel({this.email, this.password, this.name, this.id});
 
-  User.fromDocument(DocumentSnapshot document) {
+  UserModel.fromDocument(DocumentSnapshot document) {
     id = document.documentID;
     name = document.data['name'] as String;
     email = document.data['email'] as String;
     cpf = document.data['cpf'] as String;
-    emailVerified = document.data['emailVerified'] as bool;
+    imageProfile = document.data['imageProfile'] as String;
+    code = document.data['code'] as String;
+    // emailVerified = document.data['emailVerified'] as bool;
     if (document.data.containsKey('address')) {
       address =
           Address.fromMap(document.data['address'] as Map<String, dynamic>);
@@ -30,7 +32,9 @@ class User {
 
   bool admin = false;
 
-  bool emailVerified;
+  String code;
+  String imageProfile;
+  // bool emailVerified;
 
   Address address;
 
@@ -49,7 +53,9 @@ class User {
     return {
       'name': name,
       'email': email,
-      'emailVerified': emailVerified,
+      'code': code,
+      // 'emailVerified': emailVerified,
+      if (imageProfile != null) 'imageProfile': imageProfile,
       if (address != null) 'address': address.toMap(),
       if (cpf != null) 'cpf': cpf
     };
