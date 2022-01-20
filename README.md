@@ -8,19 +8,19 @@
 - Loading animation on items ⭕
 - Redirect to whatsapp ✅
 - Create Categories ✅
-- Create all products clone from category products ✅
+- Create all products outside categories ✅
 - Error when load all products, images was not saving into both collections ⚠️✅
 - Format send email verification ⭕
 - Users:
     - Generate random code for what? ⚠️✅
-    - ImageProfile ⚠️✅
+    - ImageProfile only on google SignIn create ⚠️✅
+    - ImageProfile for facebook SignIn create ⚠️⭕
+    - ImageProfile for SignUp create ⚠️⭕
 - Create Insert Stores Locations Screen ⭕
 - Format everything to be named parameters ⭕
 - Set all orders status filter enabled by default ✅
+- Set icon into Filters SlidingUpPanel ✅
 
-## Need to fix on improve project:
-- Users:
-    - ImageProfile only on google SignIn create ⚠️⭕
 ## _______________________________
 
 ## Need to fix on original project:
@@ -32,10 +32,10 @@
     - Number mask ⚠️✅
     - Validate date mask ⚠️✅
 - Error Invalid Credentials ⚠️⭕ > its about course problem. dont have to be fixed.
-- Home page not loading when the app opens at first time ⚠️⭕
+<!-- - Home page not loading when the app opens at first time ⚠️⭕
     - maybe the solution:
         - Firebase.initializeApp(); ⚠️⭕
-        - await ⚠️⭕
+        - await ⚠️⭕ --> FIXED BY YOURSELF
 - packages deprecated ⛔
 - Facebook Login not working ⛔
 - FunctionsError fix: ⚠️✅
