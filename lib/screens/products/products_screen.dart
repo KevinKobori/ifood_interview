@@ -22,7 +22,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     final ProductManager productManager = Provider.of(context, listen: false);
-    productManager.loadAllProducts(widget.categoryId);
+    productManager.loadAllCategoryProducts(widget.categoryId);
   }
 
   @override

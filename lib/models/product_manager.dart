@@ -4,10 +4,12 @@ import 'package:lojavirtual/models/product.dart';
 
 class ProductManager extends ChangeNotifier {
   ProductManager() {
-    // loadAllProducts();
+    loadAllProducts();
   }
 
   final Firestore firestore = Firestore.instance;
+
+  List<Product> allCategoryProducts = [];
 
   List<Product> allProducts = [];
 
@@ -23,19 +25,54 @@ class ProductManager extends ChangeNotifier {
     final List<Product> filteredProducts = [];
 
     if (search.isEmpty) {
-      filteredProducts.addAll(allProducts);
+      filteredProducts.addAll(allCategoryProducts);
     } else {
-      filteredProducts.addAll(allProducts
+      filteredProducts.addAll(allCategoryProducts
           .where((p) => p.name.toLowerCase().contains(search.toLowerCase())));
     }
 
     return filteredProducts;
   }
 
-  Future<void> loadAllProducts(String categoryId) async {
+  Future<void> loadAllCategoryProducts(String categoryId) async {
     final QuerySnapshot getProducts = await firestore
         .collection('categories')
         .document(categoryId)
+        .collection('products')
+        .where('deleted', isEqualTo: false)
+        .getDocuments();
+
+    allCategoryProducts =
+        getProducts.documents.map((d) => Product.fromDocument(d)).toList();
+
+    notifyListeners();
+  }
+
+  Product findCategoryProductById(String id) {
+    try {
+      return allCategoryProducts.firstWhere((p) => p.id == id);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  void updateCategoryProduct(Product product) {
+    allCategoryProducts.removeWhere((p) => p.id == product.id);
+    allCategoryProducts.add(product);
+    updateProductsProduct(product);
+    notifyListeners();
+  }
+
+  void deleteCategoryProduct(Product product, String categoryId) {
+    product.deleteCategoryProduct(categoryId);
+    allCategoryProducts.removeWhere((p) => p.id == product.id);
+    deleteProductsProduct(product);
+    notifyListeners();
+  }
+
+  //______________________________________
+  Future<void> loadAllProducts() async {
+    final QuerySnapshot getProducts = await firestore
         .collection('products')
         .where('deleted', isEqualTo: false)
         .getDocuments();
@@ -54,15 +91,17 @@ class ProductManager extends ChangeNotifier {
     }
   }
 
-  void update(Product product) {
+  void updateProductsProduct(Product product) {
     allProducts.removeWhere((p) => p.id == product.id);
     allProducts.add(product);
     notifyListeners();
   }
 
-  void delete(Product product, String categoryId) {
-    product.delete(categoryId);
+  void deleteProductsProduct(Product product) {
     allProducts.removeWhere((p) => p.id == product.id);
     notifyListeners();
   }
+
+  //______________________________________
+
 }

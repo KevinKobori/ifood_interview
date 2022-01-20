@@ -14,9 +14,9 @@ class SelectProductScreen extends StatelessWidget {
       body: Consumer<ProductManager>(
         builder: (_, productManager, __){
           return ListView.builder(
-            itemCount: productManager.allProducts.length,
+            itemCount: productManager.allCategoryProducts.length,
             itemBuilder: (_, index){
-              final product = productManager.allProducts[index];
+              final product = productManager.allCategoryProducts[index];
               return ListTile(
                 leading: Image.network(product.images.first),
                 title: Text(product.name),

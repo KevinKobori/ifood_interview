@@ -110,11 +110,17 @@ class Product extends ChangeNotifier {
           .document(categoryId)
           .collection('products')
           .add(data);
+      await firestore
+          .collection('products')
+          .document(doc.documentID)
+          .setData(data);
+
       id = doc.documentID;
     } else {
       await firestore
           .document('categories/$categoryId/products/$id')
           .updateData(data);
+      await firestore.collection('products').document(id).updateData(data);
     }
 
     final List<String> updateImages = [];
@@ -151,10 +157,11 @@ class Product extends ChangeNotifier {
     loading = false;
   }
 
-  void delete(String categoryId) {
+  void deleteCategoryProduct(String categoryId) {
     firestore
         .document('categories/$categoryId/products/$id')
         .updateData({'deleted': true});
+    deleteProductsProduct();
   }
 
   Product clone() {
@@ -167,6 +174,11 @@ class Product extends ChangeNotifier {
       sizes: sizes.map((size) => size.clone()).toList(),
       deleted: deleted,
     );
+  }
+
+//________________________
+  void deleteProductsProduct() {
+    firestore.document('products/$id').updateData({'deleted': true});
   }
 
   @override

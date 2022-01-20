@@ -46,7 +46,7 @@ class EditProductScreen extends StatelessWidget {
               IconButton(
                 icon: Icon(Icons.delete),
                 onPressed: () {
-                  context.read<ProductManager>().delete(product, categoryId);
+                  context.read<ProductManager>().deleteCategoryProduct(product, categoryId);
                   Navigator.of(context).pop();
                 },
               )
@@ -134,7 +134,7 @@ class EditProductScreen extends StatelessWidget {
 
                                       context
                                           .read<ProductManager>()
-                                          .update(product);
+                                          .updateCategoryProduct(product);
 
                                       Navigator.of(context).pop();
                                     }

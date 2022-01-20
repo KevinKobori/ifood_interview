@@ -8,11 +8,13 @@
 - Loading animation on items ⭕
 - Redirect to whatsapp ✅
 - Create Categories ✅
+- Create all products clone from category products ✅
 - Format send email verification ⭕
 - Users:
     - Generate random code for what? ⚠️✅
     - ImageProfile ⚠️✅
 - Create Insert Stores Locations Screen ⭕
+- Format everything to be named parameters ⭕
 
 ## Need to fix on original project:
 - Refact User() to UserModel() ⚠️✅
