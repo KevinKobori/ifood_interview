@@ -21,17 +21,17 @@ class ProductManager extends ChangeNotifier {
     notifyListeners();
   }
 
-  List<Product> get filteredProducts {
-    final List<Product> filteredProducts = [];
+  List<Product> get filteredCategoryProducts {
+    final List<Product> filteredCategoryProducts = [];
 
     if (search.isEmpty) {
-      filteredProducts.addAll(allCategoryProducts);
+      filteredCategoryProducts.addAll(allCategoryProducts);
     } else {
-      filteredProducts.addAll(allCategoryProducts
+      filteredCategoryProducts.addAll(allCategoryProducts
           .where((p) => p.name.toLowerCase().contains(search.toLowerCase())));
     }
 
-    return filteredProducts;
+    return filteredCategoryProducts;
   }
 
   Future<void> loadAllCategoryProducts(String categoryId) async {
@@ -72,13 +72,13 @@ class ProductManager extends ChangeNotifier {
 
   //______________________________________
   Future<void> loadAllProducts() async {
-    final QuerySnapshot getProducts = await firestore
+    final QuerySnapshot snapProducts = await firestore
         .collection('products')
         .where('deleted', isEqualTo: false)
         .getDocuments();
 
     allProducts =
-        getProducts.documents.map((d) => Product.fromDocument(d)).toList();
+        snapProducts.documents.map((d) => Product.fromDocument(d)).toList();
 
     notifyListeners();
   }

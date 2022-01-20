@@ -16,7 +16,10 @@
 - Create Insert Stores Locations Screen ⭕
 - Format everything to be named parameters ⭕
 
+## _______________________________
+
 ## Need to fix on original project:
+- Cart error when deleted a product from products collection ⚠️⭕
 - Refact User() to UserModel() ⚠️✅
 - Remove all whitespace on inputs ⚠️✅
 - CEP mask ⚠️✅

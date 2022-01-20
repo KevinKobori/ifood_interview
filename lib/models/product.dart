@@ -151,6 +151,9 @@ class Product extends ChangeNotifier {
     await firestore
         .document('categories/$categoryId/products/$id')
         .updateData({'images': updateImages});
+    await firestore
+        .document('products/$id')
+        .updateData({'images': updateImages});
 
     images = updateImages;
 

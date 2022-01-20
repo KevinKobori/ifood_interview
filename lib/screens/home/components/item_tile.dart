@@ -23,7 +23,7 @@ class ItemTile extends StatelessWidget {
       onTap: () {
         if (item.product != null) {
           final product =
-              context.read<ProductManager>().findCategoryProductById(item.product);
+              context.read<ProductManager>().findProductById(item.product);
           if (product != null) {
             Navigator.of(context).pushNamed(
               '/product',

@@ -281,12 +281,6 @@ export const cancelCreditCard = functions.https.onCall(async (data, context) => 
 
 });
 
-
-
-export const helloWorld = functions.https.onCall((data, context) => {
-  return {data: "Hellow from Cloud Functions!!!"};
-});
-
 export const getUserData = functions.https.onCall( async (data, context) => {
     if(!context.auth){
         return {

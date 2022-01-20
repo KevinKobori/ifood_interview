@@ -109,12 +109,12 @@ class _ProductsScreenState extends State<ProductsScreen> {
       ),
       body: Consumer<ProductManager>(
         builder: (_, productManager, __) {
-          final filteredProducts = productManager.filteredProducts;
+          final filteredCategoryProducts = productManager.filteredCategoryProducts;
           return ListView.builder(
-              itemCount: filteredProducts.length,
+              itemCount: filteredCategoryProducts.length,
               itemBuilder: (_, index) {
                 return ProductListTile(
-                    filteredProducts[index], widget.categoryId);
+                    filteredCategoryProducts[index], widget.categoryId);
               });
         },
       ),
