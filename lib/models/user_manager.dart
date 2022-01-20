@@ -37,7 +37,7 @@ class UserManager extends ChangeNotifier {
   }
 
   bool _loadingGoogle = false;
-  bool get loadingGoogle => _loadingFace;
+  bool get loadingGoogle => _loadingGoogle;
   set loadingGoogle(bool value) {
     _loadingGoogle = value;
     notifyListeners();
@@ -131,7 +131,7 @@ class UserManager extends ChangeNotifier {
       onFail();
       return;
     } else {
-      _loadingGoogle = true;
+      loadingGoogle = true;
       final googleAuth = await googleUser.authentication;
       final credential = GoogleAuthProvider.getCredential(
         accessToken: googleAuth.accessToken,
@@ -142,15 +142,15 @@ class UserManager extends ChangeNotifier {
           await FirebaseAuth.instance.signInWithCredential(credential);
 
       if (result.additionalUserInfo.isNewUser) {
-        UserModel userModel = new UserModel();
+        // UserModel userModel = new UserModel();
         userModel.id = result.user.uid;
-        this.userModel = userModel;
+        // this.userModel = userModel;
 
         userModel.name = result.user.displayName;
         userModel.email = result.user.email;
         userModel.code = getRandomString(28);
-        userModel.password = '';
-        userModel.cpf = '';
+        // userModel.password = '';
+        // userModel.cpf = '';
         userModel.imageProfile = result.user.photoUrl;
 
         await userModel.saveData();
@@ -159,13 +159,13 @@ class UserManager extends ChangeNotifier {
       } else {
         await _loadCurrentUser(firebaseUser: result.user);
       }
-      _loadingGoogle = false;
+      loadingGoogle = false;
       onSuccess();
       return;
     }
   }
 
-  Future<FirebaseUser> signUp(
+  Future<void> signUp(
       {UserModel user, Function onFail, Function onSuccess}) async {
     loading = true;
     try {

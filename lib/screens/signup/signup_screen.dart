@@ -55,7 +55,8 @@ class SignUpScreen extends StatelessWidget {
                       validator: (email) {
                         if (email.isEmpty)
                           return 'Campo obrigatório';
-                        else if (!emailValid(email.replaceAll(' ', ''))) return 'E-mail inválido';
+                        else if (!emailValid(email.replaceAll(' ', '')))
+                          return 'E-mail inválido';
                         return null;
                       },
                       onSaved: (email) => user.email = email,
@@ -133,52 +134,51 @@ class SignUpScreen extends StatelessWidget {
                                             ),
                                             content: ElevatedButton(
                                               onPressed: () async {
-                                                if (!currentUser
-                                                    .isEmailVerified) {
-                                                  await currentUser
-                                                      .sendEmailVerification()
-                                                      .then((email) {
-                                                    Navigator.of(context)
-                                                        .pushReplacement(
-                                                      MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            SendEmail(
-                                                                currentUser
-                                                                    .email),
-                                                      ),
-                                                    );
-                                                  }).catchError((onError) {
-                                                    Flushbar(
-                                                      title: 'ATENÇÃO!',
-                                                      message:
-                                                          "${onError.toString()}",
-                                                      flushbarPosition:
-                                                          FlushbarPosition.TOP,
-                                                      flushbarStyle:
-                                                          FlushbarStyle
-                                                              .GROUNDED,
-                                                      isDismissible: true,
-                                                      backgroundColor:
-                                                          Theme.of(context)
-                                                              .primaryColor,
-                                                      duration: const Duration(
-                                                          seconds: 5),
-                                                      icon: Icon(
-                                                        Icons.shopping_cart,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ).show(context);
-                                                  });
-                                                } else {
-                                                  Navigator.of(context).pop();
-                                                }
+                                                // if (!currentUser
+                                                //     .isEmailVerified) {
+                                                await currentUser
+                                                    .sendEmailVerification()
+                                                    .then((email) {
+                                                  Navigator.of(context)
+                                                      .pushReplacement(
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          SendEmail(currentUser
+                                                              .email),
+                                                    ),
+                                                  );
+                                                }).catchError((onError) {
+                                                  Flushbar(
+                                                    title: 'ATENÇÃO!',
+                                                    message:
+                                                        "${onError.toString()}",
+                                                    flushbarPosition:
+                                                        FlushbarPosition.TOP,
+                                                    flushbarStyle:
+                                                        FlushbarStyle.GROUNDED,
+                                                    isDismissible: true,
+                                                    backgroundColor:
+                                                        Theme.of(context)
+                                                            .primaryColor,
+                                                    duration: const Duration(
+                                                        seconds: 5),
+                                                    icon: const Icon(
+                                                      Icons.shopping_cart,
+                                                      color: Colors.white,
+                                                    ),
+                                                  ).show(context);
+                                                });
+                                                // } else {
+                                                //   Navigator.of(context).pop();
+                                                // }
                                               },
                                               style: ElevatedButton.styleFrom(
                                                 primary: Colors.blue,
-                                                padding: EdgeInsets.symmetric(
-                                                    horizontal: 30,
-                                                    vertical: 20),
-                                                textStyle: TextStyle(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                        horizontal: 30,
+                                                        vertical: 20),
+                                                textStyle: const TextStyle(
                                                     fontSize: 20,
                                                     fontWeight:
                                                         FontWeight.bold),

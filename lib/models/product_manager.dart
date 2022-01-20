@@ -35,11 +35,18 @@ class ProductManager extends ChangeNotifier {
   }
 
   Future<void> loadAllCategoryProducts(String categoryId) async {
-    final QuerySnapshot getProducts = await firestore
-        .collection('categories')
-        .document(categoryId)
+    // final QuerySnapshot getProducts = await firestore
+    //     .collection('categories')
+    //     .document(categoryId)
+    //     .collection('products')
+    //     .where('deleted', isEqualTo: false)
+    //     .getDocuments();
+     final QuerySnapshot getProducts = await firestore
+        // .collection('categories')
+        // .document(categoryId)
         .collection('products')
         .where('deleted', isEqualTo: false)
+        .where('categoryId', isEqualTo: categoryId)
         .getDocuments();
 
     allCategoryProducts =

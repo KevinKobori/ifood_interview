@@ -16,7 +16,11 @@
     - ImageProfile ⚠️✅
 - Create Insert Stores Locations Screen ⭕
 - Format everything to be named parameters ⭕
+- Set all orders status filter enabled by default ✅
 
+## Need to fix on improve project:
+- Users:
+    - ImageProfile only on google SignIn create ⚠️⭕
 ## _______________________________
 
 ## Need to fix on original project:
