@@ -9,6 +9,7 @@
 - Redirect to whatsapp ✅
 - Create Categories ✅
 - Create all products clone from category products ✅
+- Error when load all products, images was not saving into both collections ⚠️✅
 - Format send email verification ⭕
 - Users:
     - Generate random code for what? ⚠️✅
