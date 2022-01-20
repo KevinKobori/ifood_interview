@@ -21,6 +21,12 @@ import 'package:lojavirtual/screens/select_product/select_product_screen.dart';
 import 'package:lojavirtual/screens/signup/signup_screen.dart';
 import 'package:provider/provider.dart';
 
+import 'models/category_manager.dart';
+import 'models/category_model.dart';
+import 'screens/category/category_screen.dart';
+import 'screens/edit_category/edit_category_screen.dart';
+import 'screens/products/products_screen.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -36,6 +42,10 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (_) => ProductManager(),
+          lazy: false,
+        ),
+        ChangeNotifierProvider(
+          create: (_) => CategoryManager(),
           lazy: false,
         ),
         ChangeNotifierProvider(
@@ -94,6 +104,14 @@ class MyApp extends StatelessWidget {
               return MaterialPageRoute(
                 builder: (_) => ProductScreen(settings.arguments as Product),
               );
+            case '/category':
+              return MaterialPageRoute(
+                builder: (_) => CategoryScreen(settings.arguments as CategoryModel),
+              );
+            case '/products':
+              return MaterialPageRoute(
+                builder: (_) => ProductsScreen(settings.arguments as String),
+              );
             case '/cart':
               return MaterialPageRoute(
                   builder: (_) => CartScreen(), settings: settings);
@@ -108,7 +126,12 @@ class MyApp extends StatelessWidget {
             case '/edit_product':
               return MaterialPageRoute(
                 builder: (_) =>
-                    EditProductScreen(settings.arguments as Product),
+                    EditProductScreen(settings.arguments as Map<String, dynamic>),
+              );
+            case '/edit_category':
+              return MaterialPageRoute(
+                builder: (_) =>
+                    EditCategoryScreen(settings.arguments as CategoryModel),
               );
             case '/select_product':
               return MaterialPageRoute(

@@ -7,13 +7,17 @@ import 'package:lojavirtual/screens/product/components/size_widget.dart';
 import 'package:provider/provider.dart';
 
 class ProductScreen extends StatelessWidget {
-
-  const ProductScreen(this.product);
-
+  const ProductScreen(
+    this.product,
+  );
   final Product product;
 
   @override
   Widget build(BuildContext context) {
+    // final Product prod = getMap['product'] as Product;
+    // final Product product =
+    //     getMap['product'] != null ? prod.clone() : Product();
+    // final String categoryId = getMap['categoryId'] as String;
     final primaryColor = Theme.of(context).primaryColor;
 
     return ChangeNotifierProvider.value(
@@ -24,15 +28,16 @@ class ProductScreen extends StatelessWidget {
           centerTitle: true,
           actions: <Widget>[
             Consumer<UserManager>(
-              builder: (_, userManager, __){
-                if(userManager.adminEnabled && !product.deleted){
+              builder: (_, userManager, __) {
+                if (userManager.adminEnabled && !product.deleted) {
                   return IconButton(
                     icon: Icon(Icons.edit),
-                    onPressed: (){
-                      Navigator.of(context).pushReplacementNamed(
-                          '/edit_product',
-                          arguments: product
-                      );
+                    onPressed: () {
+                      Navigator.of(context)
+                          .pushReplacementNamed('/edit_product', arguments: {
+                        'categoryId': product.categoryId,
+                        'product': product
+                      });
                     },
                   );
                 } else {
@@ -48,7 +53,7 @@ class ProductScreen extends StatelessWidget {
             AspectRatio(
               aspectRatio: 1,
               child: Carousel(
-                images: product.images.map((url){
+                images: product.images.map((url) {
                   return NetworkImage(url);
                 }).toList(),
                 dotSize: 4,
@@ -65,10 +70,7 @@ class ProductScreen extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     product.name,
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600
-                    ),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 8),
@@ -92,65 +94,64 @@ class ProductScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 16, bottom: 8),
                     child: Text(
                       'Descrição',
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500
-                      ),
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                     ),
                   ),
                   Text(
                     product.description,
-                    style: const TextStyle(
-                        fontSize: 16
-                    ),
+                    style: const TextStyle(fontSize: 16),
                   ),
-                  if(product.deleted)
+                  if (product.deleted)
                     Padding(
                       padding: const EdgeInsets.only(top: 16, bottom: 8),
                       child: Text(
                         'Este produto não está mais disponível',
                         style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.red
-                        ),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.red),
                       ),
                     )
-                  else
-                    ...[
-                      Padding(
-                        padding: const EdgeInsets.only(top: 16, bottom: 8),
-                        child: Text(
-                          'Tamanhos',
-                          style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500
-                          ),
-                        ),
+                  else ...[
+                    Padding(
+                      padding: const EdgeInsets.only(top: 16, bottom: 8),
+                      child: Text(
+                        'Tamanhos',
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w500),
                       ),
-                      Wrap(
-                        spacing: 8,
-                        runSpacing: 8,
-                        children: product.sizes.map((s){
-                          return SizeWidget(size: s);
-                        }).toList(),
-                      ),
-                    ],
-                  const SizedBox(height: 20,),
-                  if(product.hasStock)
+                    ),
+                    Wrap(
+                      spacing: 8,
+                      runSpacing: 8,
+                      children: product.sizes.map((s) {
+                        return SizeWidget(size: s);
+                      }).toList(),
+                    ),
+                  ],
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  if (product.hasStock)
                     Consumer2<UserManager, Product>(
-                      builder: (_, userManager, product, __){
+                      builder: (_, userManager, product, __) {
+                        print('OIOIOI:' + product.name);
                         return SizedBox(
                           height: 44,
                           child: RaisedButton(
-                            onPressed: product.selectedSize != null ? (){
-                              if(userManager.isLoggedIn){
-                                context.read<CartManager>().addToCart(product);
-                                Navigator.of(context).pushNamed('/cart');
-                              } else {
-                                Navigator.of(context).pushNamed('/login');
-                              }
-                            } : null,
+                            onPressed: product.selectedSize != null
+                                ? () {
+                                    if (userManager.isLoggedIn) {
+                                      context
+                                          .read<CartManager>()
+                                          .addToCart(product);
+                                      Navigator.of(context).pushNamed('/cart');
+                                    } else {
+                                      Navigator.of(context).pushNamed('/login');
+                                    }
+                                  }
+                                : null,
                             color: primaryColor,
                             textColor: Colors.white,
                             child: Text(

@@ -7,7 +7,7 @@
 - Google SignIn ⚠️✅
 - Loading animation on items ⭕
 - Redirect to whatsapp ✅
-- Create Categories ⭕
+- Create Categories ✅
 - Format send email verification ⭕
 - Users:
     - Generate random code for what? ⚠️✅

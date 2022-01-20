@@ -1,52 +1,37 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:lojavirtual/models/category_manager.dart';
 import 'package:lojavirtual/models/category_model.dart';
-// import 'package:lojavirtual/models/category_manager.dart';
-import 'package:lojavirtual/models/product.dart';
-import 'package:lojavirtual/models/product_manager.dart';
-import 'package:lojavirtual/screens/edit_product/components/images_form.dart';
-import 'package:lojavirtual/screens/edit_product/components/sizes_form.dart';
 import 'package:provider/provider.dart';
 
-class EditProductScreen extends StatelessWidget {
-  EditProductScreen(
-    this.getMap,
-    // Product p, this.categoryId
-  );
-  // : editing = getMap['product'] != null,
-  //   product = getMap['product'] != null ? getMap['product'].clone() : Product();
+import 'components/images_form.dart';
 
-  final Map<String, dynamic> getMap;
+class EditCategoryScreen extends StatelessWidget {
+  EditCategoryScreen(CategoryModel c)
+      : editing = c != null,
+        categoryModel = c != null ? c.clone() : CategoryModel();
+
+  final CategoryModel categoryModel;
+  final bool editing;
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    //  product =
-    final Product prod = getMap['product'] as Product;
-    final bool editing = getMap['product'] != null;
-    final Product product =
-        getMap['product'] != null ? prod.clone() : Product();
-    final String categoryId = getMap['categoryId'] as String;
     final primaryColor = Theme.of(context).primaryColor;
-    // final arguments =
-    //     ModalRoute.of(context).settings.arguments as Map<String, dynamic>;
-    // final productManager = context.watch<ProductManager>();
-    // final categoryManager = context.watch<CategoryManager>();
-    // print('OIOIOI:' + categoryManager.);
+
     return ChangeNotifierProvider.value(
-      value: product,
+      value: categoryModel,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(editing ? 'Editar Produto' : 'Criar Produto'),
+          title: Text(editing ? 'Editar Categoria' : 'Criar Categoria'),
           centerTitle: true,
           actions: <Widget>[
             if (editing)
               IconButton(
-                icon: Icon(Icons.delete),
+                icon: const Icon(Icons.delete),
                 onPressed: () {
-                  context.read<ProductManager>().delete(product, categoryId);
+                  context.read<CategoryManager>().delete(categoryModel);
                   Navigator.of(context).pop();
                 },
               )
@@ -57,14 +42,14 @@ class EditProductScreen extends StatelessWidget {
           key: formKey,
           child: ListView(
             children: <Widget>[
-              ImagesForm(product),
+              ImagesForm(categoryModel),
               Padding(
                 padding: const EdgeInsets.all(16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
                     TextFormField(
-                      initialValue: product.name,
+                      initialValue: categoryModel.name,
                       decoration: const InputDecoration(
                         hintText: 'Título',
                         border: InputBorder.none,
@@ -72,10 +57,10 @@ class EditProductScreen extends StatelessWidget {
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                       validator: (name) {
-                        if (name.length < 6) return 'Título muito curto';
+                        if (name.isEmpty) return 'Insira um nome';
                         return null;
                       },
-                      onSaved: (name) => product.name = name,
+                      onSaved: (name) => categoryModel.name = name,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 4),
@@ -95,6 +80,27 @@ class EditProductScreen extends StatelessWidget {
                         color: primaryColor,
                       ),
                     ),
+                    TextFormField(
+                      initialValue: categoryModel.basePrice != null
+                          ? categoryModel.basePrice.toStringAsFixed(2)
+                          : '',
+                      decoration: const InputDecoration(
+                        hintText: 'Preço Base',
+                        border: InputBorder.none,
+                      ),
+                      keyboardType: TextInputType.number,
+                      // inputFormatters: [
+                      //   FilteringTextInputFormatter.digitsOnly,
+                      // ],
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                      validator: (basePrice) {
+                        if (basePrice.isEmpty) return 'Insira um valor base';
+                        return null;
+                      },
+                      onSaved: (basePrice) =>
+                          categoryModel.basePrice = double.parse(basePrice),
+                    ),
                     Padding(
                       padding: const EdgeInsets.only(top: 16),
                       child: Text(
@@ -104,37 +110,35 @@ class EditProductScreen extends StatelessWidget {
                       ),
                     ),
                     TextFormField(
-                      initialValue: product.description,
+                      initialValue: categoryModel.description,
                       style: const TextStyle(fontSize: 16),
                       decoration: const InputDecoration(
                           hintText: 'Descrição', border: InputBorder.none),
                       maxLines: null,
                       validator: (desc) {
-                        if (desc.length < 10) return 'Descrição muito curta';
+                        if (desc.isEmpty) return 'Insira uma descrição';
                         return null;
                       },
-                      onSaved: (desc) => product.description = desc,
+                      onSaved: (desc) => categoryModel.description = desc,
                     ),
-                    SizesForm(product),
                     const SizedBox(
                       height: 20,
                     ),
-                    Consumer<Product>(
-                      builder: (_, product, __) {
+                    Consumer<CategoryModel>(
+                      builder: (_, categoryModel, __) {
                         return SizedBox(
                           height: 44,
                           child: RaisedButton(
-                            onPressed: !product.loading
+                            onPressed: !categoryModel.loading
                                 ? () async {
                                     if (formKey.currentState.validate()) {
                                       formKey.currentState.save();
 
-                                      await product.save(
-                                          categoryId: categoryId);
+                                      await categoryModel.save();
 
                                       context
-                                          .read<ProductManager>()
-                                          .update(product);
+                                          .read<CategoryManager>()
+                                          .update(categoryModel);
 
                                       Navigator.of(context).pop();
                                     }
@@ -143,7 +147,7 @@ class EditProductScreen extends StatelessWidget {
                             textColor: Colors.white,
                             color: primaryColor,
                             disabledColor: primaryColor.withAlpha(100),
-                            child: product.loading
+                            child: categoryModel.loading
                                 ? CircularProgressIndicator(
                                     valueColor:
                                         AlwaysStoppedAnimation(Colors.white),

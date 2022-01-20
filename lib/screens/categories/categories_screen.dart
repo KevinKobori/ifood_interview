@@ -1,39 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:lojavirtual/common/custom_drawer/custom_drawer.dart';
 import 'package:lojavirtual/common/search_dialog.dart';
-// import 'package:lojavirtual/models/category_manager.dart';
-import 'package:lojavirtual/models/product_manager.dart';
+import 'package:lojavirtual/models/category_manager.dart';
 import 'package:lojavirtual/models/user_manager.dart';
-import 'package:lojavirtual/screens/products/components/product_list_tile.dart';
+import 'package:lojavirtual/screens/categories/components/category_list_tile.dart';
 import 'package:provider/provider.dart';
 
-class ProductsScreen extends StatefulWidget {
-  const ProductsScreen(this.categoryId);
+import 'components/category_list_tile.dart';
 
-  final String categoryId;
-
-  @override
-  _ProductsScreenState createState() => _ProductsScreenState();
-}
-
-class _ProductsScreenState extends State<ProductsScreen> {
-  final PageController pageController = PageController();
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    final ProductManager productManager = Provider.of(context, listen: false);
-    productManager.loadAllProducts(widget.categoryId);
-  }
-
+class CategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // final userManager = context.watch<UserManager>();
     return Scaffold(
+      drawer: CustomDrawer(),
       appBar: AppBar(
-        title: Consumer<ProductManager>(
-          builder: (_, productManager, __) {
-            if (productManager.search.isEmpty) {
-              return const Text('Produtos');
+        title: Consumer<CategoryManager>(
+          builder: (_, categoryManager, __) {
+            if (categoryManager.search.isEmpty) {
+              return const Text('Categorias');
             } else {
               return LayoutBuilder(
                 builder: (_, constraints) {
@@ -41,15 +25,15 @@ class _ProductsScreenState extends State<ProductsScreen> {
                     onTap: () async {
                       final search = await showDialog<String>(
                           context: context,
-                          builder: (_) => SearchDialog(productManager.search));
+                          builder: (_) => SearchDialog(categoryManager.search));
                       if (search != null) {
-                        productManager.search = search;
+                        categoryManager.search = search;
                       }
                     },
                     child: Container(
                       width: constraints.biggest.width,
                       child: Text(
-                        productManager.search,
+                        categoryManager.search,
                         textAlign: TextAlign.center,
                       ),
                     ),
@@ -61,17 +45,17 @@ class _ProductsScreenState extends State<ProductsScreen> {
         ),
         centerTitle: true,
         actions: <Widget>[
-          Consumer<ProductManager>(
-            builder: (_, productManager, __) {
-              if (productManager.search.isEmpty) {
+          Consumer<CategoryManager>(
+            builder: (_, categoryManager, __) {
+              if (categoryManager.search.isEmpty) {
                 return IconButton(
                   icon: Icon(Icons.search),
                   onPressed: () async {
                     final search = await showDialog<String>(
                         context: context,
-                        builder: (_) => SearchDialog(productManager.search));
+                        builder: (_) => SearchDialog(categoryManager.search));
                     if (search != null) {
-                      productManager.search = search;
+                      categoryManager.search = search;
                     }
                   },
                 );
@@ -79,7 +63,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                 return IconButton(
                   icon: Icon(Icons.close),
                   onPressed: () async {
-                    productManager.search = '';
+                    categoryManager.search = '';
                   },
                 );
               }
@@ -92,11 +76,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                   icon: Icon(Icons.add),
                   onPressed: () {
                     Navigator.of(context).pushNamed(
-                      '/edit_product',
-                      arguments: {
-                        'categoryId': widget.categoryId,
-                        // 'product': product
-                      },
+                      '/edit_category',
                     );
                   },
                 );
@@ -107,15 +87,15 @@ class _ProductsScreenState extends State<ProductsScreen> {
           )
         ],
       ),
-      body: Consumer<ProductManager>(
-        builder: (_, productManager, __) {
-          final filteredProducts = productManager.filteredProducts;
+      body: Consumer<CategoryManager>(
+        builder: (_, categoryManager, __) {
+          final filteredCategories = categoryManager.filteredCategories;
           return ListView.builder(
-              itemCount: filteredProducts.length,
-              itemBuilder: (_, index) {
-                return ProductListTile(
-                    filteredProducts[index], widget.categoryId);
-              });
+            itemCount: filteredCategories.length,
+            itemBuilder: (_, index) {
+              return CategoryListTile(filteredCategories[index]);
+            },
+          );
         },
       ),
       floatingActionButton: FloatingActionButton(

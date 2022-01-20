@@ -5,13 +5,15 @@ class OrderProductTile extends StatelessWidget {
   const OrderProductTile(this.cartProduct);
 
   final CartProduct cartProduct;
-
+  
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context)
-            .pushNamed('/product', arguments: cartProduct.product);
+        Navigator.of(context).pushNamed(
+          '/product',
+          arguments: cartProduct.product,
+        );
       },
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),

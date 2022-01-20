@@ -66,7 +66,7 @@ class WhatsappCard extends StatelessWidget {
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.resolveWith<Color>(
                   (Set<MaterialState> states) {
-                    return Theme.of(context).accentColor;
+                    return Colors.green;
                   },
                 ),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(

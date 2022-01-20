@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/product.dart';
+import 'package:lojavirtual/models/category_model.dart';
 
-class ProductListTile extends StatelessWidget {
-  const ProductListTile(this.product, this.categoryId);
+class CategoryListTile extends StatelessWidget {
+  const CategoryListTile(this.categoryModel);
 
-  final Product product;
-  final String categoryId;
+  final CategoryModel categoryModel;
+
   @override
   Widget build(BuildContext context) {
+    
+    // context.read<CartManager>().setCategoryId();
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).pushNamed(
-          '/product',
-          arguments: product,
-        );
+        Navigator.of(context).pushNamed('/products', arguments: categoryModel.id);
       },
       child: Card(
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
@@ -25,7 +24,7 @@ class ProductListTile extends StatelessWidget {
             children: <Widget>[
               AspectRatio(
                 aspectRatio: 1,
-                child: Image.network(product.images.first),
+                child: Image.network(categoryModel.images.first),
               ),
               const SizedBox(
                 width: 16,
@@ -36,8 +35,8 @@ class ProductListTile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      product.name,
-                      style: TextStyle(
+                      categoryModel.name,
+                      style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w800,
                       ),
@@ -53,20 +52,12 @@ class ProductListTile extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'R\$ ${product.basePrice.toStringAsFixed(2)}',
+                      'R\$ ${categoryModel.basePrice.toStringAsFixed(2)}',
                       style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w800,
                           color: Theme.of(context).primaryColor),
                     ),
-                    if (!product.hasStock)
-                      const Padding(
-                        padding: EdgeInsets.only(top: 4),
-                        child: Text(
-                          'Sem estoque',
-                          style: TextStyle(color: Colors.red, fontSize: 10),
-                        ),
-                      )
                   ],
                 ),
               )
