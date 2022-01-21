@@ -21,9 +21,9 @@
 - Set all orders status filter enabled by default ✅
 - Set icon into Filters SlidingUpPanel ✅
 
-## _______________________________
-
 ## Need to fix on original project:
+- Make to run on iphone 8. ⚠️✅
+    - Google SignIn closing the App. ⚠️⭕
 - Cart error when deleted a product from products collection ⚠️⭕
 - Refact User() to UserModel() ⚠️✅
 - Remove all whitespace on inputs ⚠️✅
@@ -43,14 +43,13 @@
     - debug: true, ⚠️✅
 - User token not deleting when logout ⚠️✅
 
-## _______________________________
-
 ## Need to implement each project:
 - flutter pub run change_app_package_name:main com.new.package.name
 - Customize the app: ⚠️⭕
-    - Change the package name ⚠️⭕
-    - Insert the google-services ⚠️⭕
-    - Configure firebase products: ⚠️⭕
+    - Change the package name ⚠️✅
+    - Insert the google-services.json(Android) ⚠️✅
+    - Insert the GoogleServices-info.plist(iOS) ⚠️✅
+    - Configure firebase products: ⚠️✅
         - Login email/password ⚠️✅
         - Login Facebook: ⛔
             - Go to facebook.com configurations ⛔
@@ -73,7 +72,7 @@
     - Config Firestore roles:
         - For test and run ⚠️✅
         - For secure access ⚠️⭕
-    - 137. Set Storeslocations on Firebase ⛔
+    - 137. Set Storeslocations on Firebase ✅
         
 Test data example: ⚠️✅
     - CEP: 13.087-000 ⚠️✅

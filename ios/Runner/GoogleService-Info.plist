@@ -3,21 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>780684814029-hbh30j59oa00781ciha3seghca58t13n.apps.googleusercontent.com</string>
+	<string>999013355181-a16b0qtfe4gvg8v4dt6e71cmi21oc62k.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.780684814029-hbh30j59oa00781ciha3seghca58t13n</string>
+	<string>com.googleusercontent.apps.999013355181-a16b0qtfe4gvg8v4dt6e71cmi21oc62k</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>999013355181-g5q5952turvfak8i23s842u65fvo8n4a.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAl3bQSiKLvSHrBLmAftEEcJAERjz25BS0</string>
+	<string>AIzaSyAbBBTwQewgPJP3r6rhFvYkzSjQ-92sY0Q</string>
 	<key>GCM_SENDER_ID</key>
-	<string>780684814029</string>
+	<string>999013355181</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.remottely.nextlov</string>
+	<string>remottely.nextlov</string>
 	<key>PROJECT_ID</key>
-	<string>loja-virtual-557ed</string>
+	<string>remottely-nextlov</string>
 	<key>STORAGE_BUCKET</key>
-	<string>loja-virtual-557ed.appspot.com</string>
+	<string>remottely-nextlov.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:780684814029:ios:bec68fdaa3c488f0c76b84</string>
-	<key>DATABASE_URL</key>
-	<string>https://loja-virtual-557ed.firebaseio.com</string>
+	<string>1:999013355181:ios:c329a87b32d660da75c024</string>
 </dict>
 </plist>

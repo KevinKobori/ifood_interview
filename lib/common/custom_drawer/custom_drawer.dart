@@ -38,15 +38,21 @@ class CustomDrawer extends StatelessWidget {
                 page: 1,
               ),
               DrawerTile(
+                iconData: Icons.list,
+                title: 'Todos os Produtos',
+                page: 2,
+              ),
+              DrawerTile(
                 iconData: Icons.playlist_add_check,
                 title: 'Meus Pedidos',
-                page: 2,
+                page: 3,
               ),
               DrawerTile(
                 iconData: Icons.location_on,
                 title: 'Lojas',
-                page: 3,
+                page: 4,
               ),
+              const Divider(),
               const WhatsappCard(
                 buttonText: 'Contato Whatsapp',
                 onPressed: true,
@@ -61,12 +67,12 @@ class CustomDrawer extends StatelessWidget {
                         DrawerTile(
                           iconData: Icons.settings,
                           title: 'Usuários',
-                          page: 4,
+                          page: 5,
                         ),
                         DrawerTile(
                           iconData: Icons.settings,
                           title: 'Pedidos',
-                          page: 5,
+                          page: 6,
                         ),
                       ],
                     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lojavirtual/common/custom_drawer/custom_drawer.dart';
 import 'package:lojavirtual/common/search_dialog.dart';
 // import 'package:lojavirtual/models/category_manager.dart';
 import 'package:lojavirtual/models/product_manager.dart';
@@ -7,7 +8,9 @@ import 'package:lojavirtual/screens/products/components/product_list_tile.dart';
 import 'package:provider/provider.dart';
 
 class ProductsScreen extends StatefulWidget {
-  const ProductsScreen(this.categoryId);
+  const ProductsScreen(
+    this.categoryId,
+  );
 
   final String categoryId;
 
@@ -22,13 +25,18 @@ class _ProductsScreenState extends State<ProductsScreen> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     final ProductManager productManager = Provider.of(context, listen: false);
-    productManager.loadAllCategoryProducts(widget.categoryId);
+    if (widget.categoryId != null) {
+      productManager.loadAllCategoryProducts(widget.categoryId);
+    } else {
+      productManager.loadAllProducts();
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     // final userManager = context.watch<UserManager>();
     return Scaffold(
+      drawer: widget.categoryId == null ? CustomDrawer() : null,
       appBar: AppBar(
         title: Consumer<ProductManager>(
           builder: (_, productManager, __) {
@@ -109,13 +117,26 @@ class _ProductsScreenState extends State<ProductsScreen> {
       ),
       body: Consumer<ProductManager>(
         builder: (_, productManager, __) {
-          final filteredCategoryProducts = productManager.filteredCategoryProducts;
-          return ListView.builder(
+          if (widget.categoryId != null) {
+            final filteredCategoryProducts =
+                productManager.filteredCategoryProducts;
+            return ListView.builder(
               itemCount: filteredCategoryProducts.length,
               itemBuilder: (_, index) {
                 return ProductListTile(
                     filteredCategoryProducts[index], widget.categoryId);
-              });
+              },
+            );
+          } else {
+            final filteredProducts = productManager.filteredProducts;
+            return ListView.builder(
+              itemCount: filteredProducts.length,
+              itemBuilder: (_, index) {
+                return ProductListTile(
+                    filteredProducts[index], widget.categoryId);
+              },
+            );
+          }
         },
       ),
       floatingActionButton: FloatingActionButton(

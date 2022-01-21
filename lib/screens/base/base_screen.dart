@@ -86,6 +86,7 @@ class _BaseScreenState extends State<BaseScreen> {
             children: <Widget>[
               HomeScreen(),
               CategoriesScreen(),
+              const ProductsScreen(null),
               OrdersScreen(),
               StoresScreen(),
               if(userManager.adminEnabled)
