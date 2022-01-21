@@ -27,24 +27,20 @@ class _CepInputFieldState extends State<CepInputField> {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-         TextFormField(
+          TextFormField(
             enabled: !cartManager.loading,
             controller: cepController,
             decoration: const InputDecoration(
-              isDense: true,
-              labelText: 'CEP',
-              hintText: '12.345-678'
-            ),
+                isDense: true, labelText: 'CEP', hintText: '12.345-678'),
             inputFormatters: [
               FilteringTextInputFormatter.digitsOnly,
               CepInputFormatter(),
             ],
             keyboardType: TextInputType.number,
-            validator: (cep){
-              if(cep.isEmpty)
+            validator: (cep) {
+              if (cep.isEmpty)
                 return 'Campo obrigatório';
-              else if(cep.length != 10)
-                return 'CEP Inválido';
+              else if (cep.length != 10) return 'CEP Inválido';
               return null;
             },
           ),

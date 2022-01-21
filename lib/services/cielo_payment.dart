@@ -6,12 +6,13 @@ import 'package:lojavirtual/models/credit_card.dart';
 import 'package:lojavirtual/models/user_model.dart';
 
 class CieloPayment {
-
   final CloudFunctions functions = CloudFunctions.instance;
 
-  Future<String> authorize({CreditCard creditCard, num price,
-    String orderId, UserModel user}) async {
-
+  Future<String> authorize(
+      {CreditCard creditCard,
+      num price,
+      String orderId,
+      UserModel user}) async {
     try {
       final Map<String, dynamic> dataSale = {
         'merchantOrderId': orderId,
@@ -23,9 +24,8 @@ class CieloPayment {
         'paymentType': 'CreditCard',
       };
 
-      final HttpsCallable callable = functions.getHttpsCallable(
-          functionName: 'authorizeCreditCard'
-      );
+      final HttpsCallable callable =
+          functions.getHttpsCallable(functionName: 'authorizeCreditCard');
       callable.timeout = const Duration(seconds: 60);
       final response = await callable.call(dataSale);
       final data = Map<String, dynamic>.from(response.data as LinkedHashMap);
@@ -35,19 +35,16 @@ class CieloPayment {
         debugPrint('${data['error']['message']}');
         return Future.error(data['error']['message']);
       }
-    } catch (e){
+    } catch (e) {
       debugPrint('$e');
       return Future.error('Falha ao processar transação. Tente novamente.');
     }
   }
 
   Future<void> capture(String payId) async {
-    final Map<String, dynamic> captureData = {
-      'payId': payId
-    };
-    final HttpsCallable callable = functions.getHttpsCallable(
-        functionName: 'captureCreditCard'
-    );
+    final Map<String, dynamic> captureData = {'payId': payId};
+    final HttpsCallable callable =
+        functions.getHttpsCallable(functionName: 'captureCreditCard');
     callable.timeout = const Duration(seconds: 60);
     final response = await callable.call(captureData);
     final data = Map<String, dynamic>.from(response.data as LinkedHashMap);
@@ -61,12 +58,9 @@ class CieloPayment {
   }
 
   Future<void> cancel(String payId) async {
-    final Map<String, dynamic> cancelData = {
-      'payId': payId
-    };
-    final HttpsCallable callable = functions.getHttpsCallable(
-        functionName: 'cancelCreditCard'
-    );
+    final Map<String, dynamic> cancelData = {'payId': payId};
+    final HttpsCallable callable =
+        functions.getHttpsCallable(functionName: 'cancelCreditCard');
     callable.timeout = const Duration(seconds: 60);
     final response = await callable.call(cancelData);
     final data = Map<String, dynamic>.from(response.data as LinkedHashMap);
@@ -78,5 +72,4 @@ class CieloPayment {
       return Future.error(data['error']['message']);
     }
   }
-
 }

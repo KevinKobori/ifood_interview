@@ -52,15 +52,22 @@ class ItemTile extends StatelessWidget {
                             )
                           : null,
                       actions: <Widget>[
-                        FlatButton(
+                        TextButton(
                           onPressed: () {
                             context.read<Section>().removeItem(item);
                             Navigator.of(context).pop();
                           },
-                          textColor: Colors.red,
-                          child: const Text('Excluir'),
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(horizontal: 6),
+                          ),
+                          child: const Text(
+                            'Excluir',
+                            style: TextStyle(
+                              color: Colors.red,
+                            ),
+                          ),
                         ),
-                        FlatButton(
+                        TextButton(
                           onPressed: () async {
                             if (product != null) {
                               item.product = null;
@@ -72,6 +79,9 @@ class ItemTile extends StatelessWidget {
                             }
                             Navigator.of(context).pop();
                           },
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(horizontal: 6),
+                          ),
                           child: Text(
                               product != null ? 'Desvincular' : 'Vincular'),
                         ),

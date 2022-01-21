@@ -16,52 +16,43 @@ import 'package:lojavirtual/screens/stores/stores_screen.dart';
 import 'package:provider/provider.dart';
 
 class BaseScreen extends StatefulWidget {
-
   @override
   _BaseScreenState createState() => _BaseScreenState();
 }
 
 class _BaseScreenState extends State<BaseScreen> {
-
   final PageController pageController = PageController();
 
   @override
   void initState() {
     super.initState();
 
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp
-    ]);
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
     configFCM();
   }
 
-  void configFCM(){
+  void configFCM() {
     final fcm = FirebaseMessaging();
 
-    if(Platform.isIOS){
+    if (Platform.isIOS) {
       fcm.requestNotificationPermissions(
-        const IosNotificationSettings(provisional: true)
-      );
+          const IosNotificationSettings(provisional: true));
     }
 
-    fcm.configure(
-      onLaunch: (Map<String, dynamic> message) async {
-        print('onLaunch $message');
-      },
-      onResume: (Map<String, dynamic> message) async {
-        print('onResume $message');
-      },
-      onMessage: (Map<String, dynamic> message) async {
-        showNotification(
-          message['notification']['title'] as String,
-          message['notification']['body'] as String,
-        );
-      }
-    );
+    fcm.configure(onLaunch: (Map<String, dynamic> message) async {
+      print('onLaunch $message');
+    }, onResume: (Map<String, dynamic> message) async {
+      print('onResume $message');
+    }, onMessage: (Map<String, dynamic> message) async {
+      showNotification(
+        message['notification']['title'] as String,
+        message['notification']['body'] as String,
+      );
+    });
   }
 
-  void showNotification(String title, String message){
+  void showNotification(String title, String message) {
     Flushbar(
       title: title,
       message: message,
@@ -70,7 +61,10 @@ class _BaseScreenState extends State<BaseScreen> {
       isDismissible: true,
       backgroundColor: Theme.of(context).primaryColor,
       duration: const Duration(seconds: 5),
-      icon: Icon(Icons.shopping_cart, color: Colors.white,),
+      icon: Icon(
+        Icons.shopping_cart,
+        color: Colors.white,
+      ),
     ).show(context);
   }
 
@@ -79,7 +73,7 @@ class _BaseScreenState extends State<BaseScreen> {
     return Provider(
       create: (_) => PageManager(pageController),
       child: Consumer<UserManager>(
-        builder: (_, userManager, __){
+        builder: (_, userManager, __) {
           return PageView(
             controller: pageController,
             physics: const NeverScrollableScrollPhysics(),
@@ -89,11 +83,10 @@ class _BaseScreenState extends State<BaseScreen> {
               const ProductsScreen(null),
               OrdersScreen(),
               StoresScreen(),
-              if(userManager.adminEnabled)
-                ...[
-                  AdminUsersScreen(),
-                  AdminOrdersScreen(),
-                ]
+              if (userManager.adminEnabled) ...[
+                AdminUsersScreen(),
+                AdminOrdersScreen(),
+              ]
             ],
           );
         },

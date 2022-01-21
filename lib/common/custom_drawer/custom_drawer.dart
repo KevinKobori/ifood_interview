@@ -13,10 +13,10 @@ class CustomDrawer extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 gradient: LinearGradient(
               colors: [
-                const Color.fromARGB(255, 203, 236, 241),
+                Color.fromARGB(255, 203, 236, 241),
                 Colors.white,
               ],
               begin: Alignment.topCenter,
@@ -27,27 +27,27 @@ class CustomDrawer extends StatelessWidget {
             children: <Widget>[
               CustomDrawerHeader(),
               const Divider(),
-              DrawerTile(
+              const DrawerTile(
                 iconData: Icons.home,
                 title: 'Início',
                 page: 0,
               ),
-              DrawerTile(
+              const DrawerTile(
                 iconData: Icons.list,
                 title: 'Categorias',
                 page: 1,
               ),
-              DrawerTile(
+              const DrawerTile(
                 iconData: Icons.list,
                 title: 'Todos os Produtos',
                 page: 2,
               ),
-              DrawerTile(
+              const DrawerTile(
                 iconData: Icons.playlist_add_check,
                 title: 'Meus Pedidos',
                 page: 3,
               ),
-              DrawerTile(
+              const DrawerTile(
                 iconData: Icons.location_on,
                 title: 'Lojas',
                 page: 4,
@@ -62,8 +62,8 @@ class CustomDrawer extends StatelessWidget {
                 builder: (_, userManager, __) {
                   if (userManager.adminEnabled) {
                     return Column(
-                      children: <Widget>[
-                        const Divider(),
+                      children: const <Widget>[
+                        Divider(),
                         DrawerTile(
                           iconData: Icons.settings,
                           title: 'Usuários',

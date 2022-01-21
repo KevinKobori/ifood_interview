@@ -3,7 +3,6 @@ import 'package:lojavirtual/models/home_manager.dart';
 import 'package:lojavirtual/models/section.dart';
 
 class AddSectionWidget extends StatelessWidget {
-
   const AddSectionWidget(this.homeManager);
 
   final HomeManager homeManager;
@@ -13,21 +12,29 @@ class AddSectionWidget extends StatelessWidget {
     return Row(
       children: <Widget>[
         Expanded(
-          child: FlatButton(
-            onPressed: (){
+          child: TextButton(
+            onPressed: () {
               homeManager.addSection(Section(type: 'List'));
             },
-            textColor: Colors.white,
-            child: const Text('Adicionar Lista'),
+            style: ElevatedButton.styleFrom(
+              padding: const EdgeInsets.symmetric(horizontal: 6),
+            ),
+            child: const Text(
+              'Adicionar Lista',
+            ),
           ),
         ),
         Expanded(
-          child: FlatButton(
-            onPressed: (){
+          child: TextButton(
+            onPressed: () {
               homeManager.addSection(Section(type: 'Staggered'));
             },
-            textColor: Colors.white,
-            child: const Text('Adicionar Grade'),
+            style: ElevatedButton.styleFrom(
+              padding: const EdgeInsets.symmetric(horizontal: 6),
+            ),
+            child: const Text(
+              'Adicionar Grade',
+            ),
           ),
         ),
       ],

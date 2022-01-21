@@ -5,7 +5,6 @@ import 'package:lojavirtual/common/order/order_product_tile.dart';
 import 'package:lojavirtual/models/order.dart';
 
 class OrderTile extends StatelessWidget {
-
   const OrderTile(this.order, {this.showControls = false});
 
   final Order order;
@@ -33,7 +32,7 @@ class OrderTile extends StatelessWidget {
                 ),
                 Text(
                   'R\$ ${order.price.toStringAsFixed(2)}',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.w600,
                     color: Colors.black,
                     fontSize: 14,
@@ -44,54 +43,77 @@ class OrderTile extends StatelessWidget {
             Text(
               order.statusText,
               style: TextStyle(
-                fontWeight: FontWeight.w400,
-                color: order.status == Status.canceled ?
-                  Colors.red : primaryColor,
-                fontSize: 14
-              ),
+                  fontWeight: FontWeight.w400,
+                  color: order.status == Status.canceled
+                      ? Colors.red
+                      : primaryColor,
+                  fontSize: 14),
             )
           ],
         ),
         children: <Widget>[
           Column(
-            children: order.items.map((e){
+            children: order.items.map((e) {
               return OrderProductTile(e);
             }).toList(),
           ),
-          if(showControls && order.status != Status.canceled)
+          if (showControls && order.status != Status.canceled)
             SizedBox(
               height: 50,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  FlatButton(
-                    onPressed: (){
+                  TextButton(
+                    onPressed: () {
                       showDialog(
-                        context: context,
-                        barrierDismissible: false,
-                        builder: (_) => CancelOrderDialog(order)
-                      );
+                          context: context,
+                          barrierDismissible: false,
+                          builder: (_) => CancelOrderDialog(order));
                     },
-                    textColor: Colors.red,
-                    child: const Text('Cancelar'),
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(horizontal: 6),
+                    ),
+                    child: Text(
+                      'Cancelar',
+                      style: TextStyle(
+                        color: Colors.red[700],
+                      ),
+                    ),
                   ),
-                  FlatButton(
+                  TextButton(
                     onPressed: order.back,
-                    child: const Text('Recuar'),
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(horizontal: 6),
+                    ),
+                    child: const Text(
+                      'Recuar',
+                    ),
                   ),
-                  FlatButton(
+                  TextButton(
                     onPressed: order.advance,
-                    child: const Text('Avançar'),
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(horizontal: 6),
+                    ),
+                    child: const Text(
+                      'Avançar',
+                    ),
                   ),
-                  FlatButton(
-                    onPressed: (){
-                      showDialog(context: context,
-                        builder: (_) => ExportAddressDialog(order.address)
-                      );
+                  TextButton(
+                    onPressed: () {
+                      showDialog(
+                          context: context,
+                          builder: (_) => ExportAddressDialog(order.address));
                     },
-                    textColor: primaryColor,
-                    child: const Text('Endereço'),
-                  )
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(horizontal: 6),
+                    ),
+                    child: Text(
+                      'Endereço',
+                      style: TextStyle(
+                        color: primaryColor,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             )

@@ -1,6 +1,11 @@
 # shop_reference
 
+# Main branch:
+
 ## Need to improve:
+- Pix payment method ⚠️⭕
+- Real Frete calc ⚠️⭕
+- Layout for iOS using cupertino padronization ⛔
 - Forget password ⚠️✅
 - Confirm email on register ⚠️✅
 - Verify and confirm email on login ⚠️✅
@@ -21,7 +26,22 @@
 - Set all orders status filter enabled by default ✅
 - Set icon into Filters SlidingUpPanel ✅
 
+TextButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              padding: const EdgeInsets.symmetric(horizontal: 6),
+            ),
+            child: Text(
+              'Esqueceu a senha?',
+              style: TextStyle(
+                color: Colors.blue[700],
+                // fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+
 ## Need to fix on original project:
+- FlatButton to TextButton
 - Make to run on iphone 8. ⚠️✅
     - Google SignIn closing the App. ⚠️⭕
 - Cart error when deleted a product from products collection ⚠️⭕
@@ -35,7 +55,7 @@
 <!-- - Home page not loading when the app opens at first time ⚠️⭕
     - maybe the solution:
         - Firebase.initializeApp(); ⚠️⭕
-        - await ⚠️⭕ --> FIXED BY YOURSELF
+        - await ⚠️⭕ --> FIXED BY ITSELF
 - packages deprecated ⛔
 - Facebook Login not working ⛔
 - FunctionsError fix: ⚠️✅
@@ -82,3 +102,37 @@ Test data example: ⚠️✅
         - Titular: Kevin Kobori
         - Verification: 235
     - CPF: 385.631.880-11
+
+# Tests: status: ⚠️❓❗❕❌
+## Android:
+    - Google SignIn ⚠️❕
+    - Facebook SignIn ⚠️❗
+    - Payment ⚠️❕
+    - Notification ⚠️❕
+    - Google Maps opening ⚠️❕
+    - Call automatically ⚠️❓
+    - User orders navigation ⚠️❕
+    - Cancel Order not working ⚠️❓
+        - obs: need to see where it begins ⚠️❓
+
+## iOS:
+    - Google SignIn ⚠️❌
+    - Facebook SignIn ⚠️❗
+    - Payment ⚠️❕
+    - Notification ⚠️❕
+    - Google Maps opening ⚠️❓
+    - Apple Maps opening ⚠️❕
+    - Call automatically ⚠️❌
+    - User orders navigation ⚠️❓
+    - Cancel Order not working ⚠️❓
+        - obs: need to see where it begins ⚠️❓
+        
+# Mewnu branch:
+
+## Need to improve:
+- Layout of the App:
+    - drawer to bottom navigationbar ⭕
+    - Search bar ⭕
+    - Items list to grid ⭕
+    - Colors ⭕
+    - Fonts ⭕

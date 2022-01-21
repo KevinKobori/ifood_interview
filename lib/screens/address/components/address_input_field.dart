@@ -5,7 +5,6 @@ import 'package:lojavirtual/models/cart_manager.dart';
 import 'package:provider/provider.dart';
 
 class AddressInputField extends StatelessWidget {
-
   const AddressInputField(this.address);
 
   final Address address;
@@ -18,7 +17,7 @@ class AddressInputField extends StatelessWidget {
     String emptyValidator(String text) =>
         text.isEmpty ? 'Campo obrigatório' : null;
 
-    if(address.zipCode != null && cartManager.deliveryPrice == null)
+    if (address.zipCode != null && cartManager.deliveryPrice == null)
       return Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
@@ -40,9 +39,9 @@ class AddressInputField extends StatelessWidget {
                   enabled: !cartManager.loading,
                   initialValue: address.number,
                   decoration: const InputDecoration(
-                      isDense: true,
-                      labelText: 'Número',
-                      hintText: '123',
+                    isDense: true,
+                    labelText: 'Número',
+                    hintText: '123',
                   ),
                   inputFormatters: [
                     // FilteringTextInputFormatter.digitsOnly,
@@ -125,8 +124,10 @@ class AddressInputField extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 8,),
-          if(cartManager.loading)
+          const SizedBox(
+            height: 8,
+          ),
+          if (cartManager.loading)
             LinearProgressIndicator(
               valueColor: AlwaysStoppedAnimation(primaryColor),
               backgroundColor: Colors.transparent,
@@ -135,33 +136,33 @@ class AddressInputField extends StatelessWidget {
             color: primaryColor,
             disabledColor: primaryColor.withAlpha(100),
             textColor: Colors.white,
-            onPressed: !cartManager.loading ? () async {
-              if(Form.of(context).validate()){
-                Form.of(context).save();
-                try {
-                  await context.read<CartManager>().setAddress(address);
-                } catch (e){
-                  Scaffold.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text('$e'),
-                      backgroundColor: Colors.red,
-                    )
-                  );
-                }
-              }
-            } : null,
+            onPressed: !cartManager.loading
+                ? () async {
+                    if (Form.of(context).validate()) {
+                      Form.of(context).save();
+                      try {
+                        await context.read<CartManager>().setAddress(address);
+                      } catch (e) {
+                        Scaffold.of(context).showSnackBar(SnackBar(
+                          content: Text('$e'),
+                          backgroundColor: Colors.red,
+                        ));
+                      }
+                    }
+                  }
+                : null,
             child: const Text('Calcular Frete'),
           ),
         ],
       );
-    else if(address.zipCode != null)
+    else if (address.zipCode != null)
       return Padding(
         padding: const EdgeInsets.only(bottom: 16),
-        child: Text(
-            '${address.street}, ${address.number}\n${address.district}\n'
-                '${address.city} - ${address.state}'
-        ),
+        child:
+            Text('${address.street}, ${address.number}\n${address.district}\n'
+                '${address.city} - ${address.state}'),
       );
-    else return Container();
+    else
+      return Container();
   }
 }

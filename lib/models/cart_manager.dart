@@ -9,7 +9,6 @@ import 'package:lojavirtual/models/user_manager.dart';
 import 'package:lojavirtual/services/cepaberto_service.dart';
 
 class CartManager extends ChangeNotifier {
-
   List<CartProduct> items = [];
 
   UserModel user;
@@ -22,20 +21,20 @@ class CartManager extends ChangeNotifier {
 
   bool _loading = false;
   bool get loading => _loading;
-  set loading(bool value){
+  set loading(bool value) {
     _loading = value;
     notifyListeners();
   }
 
   final Firestore firestore = Firestore.instance;
 
-  void updateUser(UserManager userManager){
+  void updateUser(UserManager userManager) {
     user = userManager.userModel;
     productsPrice = 0.0;
     items.clear();
     removeAddress();
 
-    if(user != null){
+    if (user != null) {
       _loadCartItems();
       _loadUserAddress();
     }
@@ -44,35 +43,36 @@ class CartManager extends ChangeNotifier {
   Future<void> _loadCartItems() async {
     final QuerySnapshot cartSnap = await user.cartReference.getDocuments();
 
-    items = cartSnap.documents.map(
-        (d) => CartProduct.fromDocument(d)..addListener(_onItemUpdated)
-    ).toList();
+    items = cartSnap.documents
+        .map((d) => CartProduct.fromDocument(d)..addListener(_onItemUpdated))
+        .toList();
   }
 
   Future<void> _loadUserAddress() async {
-    if(user.address != null
-        && await calculateDelivery(user.address.lat, user.address.long)){
+    if (user.address != null &&
+        await calculateDelivery(user.address.lat, user.address.long)) {
       address = user.address;
       notifyListeners();
     }
   }
 
-  void addToCart(Product product){
+  void addToCart(Product product) {
     try {
       final e = items.firstWhere((p) => p.stackable(product));
       e.increment();
-    } catch (e){
+    } catch (e) {
       final cartProduct = CartProduct.fromProduct(product);
       cartProduct.addListener(_onItemUpdated);
       items.add(cartProduct);
-      user.cartReference.add(cartProduct.toCartItemMap())
+      user.cartReference
+          .add(cartProduct.toCartItemMap())
           .then((doc) => cartProduct.id = doc.documentID);
       _onItemUpdated();
     }
     notifyListeners();
   }
 
-  void removeOfCart(CartProduct cartProduct){
+  void removeOfCart(CartProduct cartProduct) {
     items.removeWhere((p) => p.id == cartProduct.id);
     user.cartReference.document(cartProduct.id).delete();
     cartProduct.removeListener(_onItemUpdated);
@@ -80,20 +80,20 @@ class CartManager extends ChangeNotifier {
   }
 
   void clear() {
-    for(final cartProduct in items){
+    for (final cartProduct in items) {
       user.cartReference.document(cartProduct.id).delete();
     }
     items.clear();
     notifyListeners();
   }
 
-  void _onItemUpdated(){
+  void _onItemUpdated() {
     productsPrice = 0.0;
 
-    for(int i = 0; i<items.length; i++){
+    for (int i = 0; i < items.length; i++) {
       final cartProduct = items[i];
 
-      if(cartProduct.quantity == 0){
+      if (cartProduct.quantity == 0) {
         removeOfCart(cartProduct);
         i--;
         continue;
@@ -107,15 +107,16 @@ class CartManager extends ChangeNotifier {
     notifyListeners();
   }
 
-  void _updateCartProduct(CartProduct cartProduct){
-    if(cartProduct.id != null)
-      user.cartReference.document(cartProduct.id)
+  void _updateCartProduct(CartProduct cartProduct) {
+    if (cartProduct.id != null)
+      user.cartReference
+          .document(cartProduct.id)
           .updateData(cartProduct.toCartItemMap());
   }
 
   bool get isCartValid {
-    for(final cartProduct in items){
-      if(!cartProduct.hasStock) return false;
+    for (final cartProduct in items) {
+      if (!cartProduct.hasStock) return false;
     }
     return true;
   }
@@ -132,20 +133,19 @@ class CartManager extends ChangeNotifier {
     try {
       final cepAbertoAddress = await cepAbertoService.getAddressFromCep(cep);
 
-      if(cepAbertoAddress != null){
+      if (cepAbertoAddress != null) {
         address = Address(
-          street: cepAbertoAddress.logradouro,
-          district: cepAbertoAddress.bairro,
-          zipCode: cepAbertoAddress.cep,
-          city: cepAbertoAddress.cidade.nome,
-          state: cepAbertoAddress.estado.sigla,
-          lat: cepAbertoAddress.latitude,
-          long: cepAbertoAddress.longitude
-        );
+            street: cepAbertoAddress.logradouro,
+            district: cepAbertoAddress.bairro,
+            zipCode: cepAbertoAddress.cep,
+            city: cepAbertoAddress.cidade.nome,
+            state: cepAbertoAddress.estado.sigla,
+            lat: cepAbertoAddress.latitude,
+            long: cepAbertoAddress.longitude);
       }
 
       loading = false;
-    } catch (e){
+    } catch (e) {
       loading = false;
       return Future.error('CEP Inválido');
     }
@@ -156,7 +156,7 @@ class CartManager extends ChangeNotifier {
 
     this.address = address;
 
-    if(await calculateDelivery(address.lat, address.long)){
+    if (await calculateDelivery(address.lat, address.long)) {
       user.setAddress(address);
       loading = false;
     } else {
@@ -165,7 +165,7 @@ class CartManager extends ChangeNotifier {
     }
   }
 
-  void removeAddress(){
+  void removeAddress() {
     address = null;
     deliveryPrice = null;
     notifyListeners();
@@ -182,13 +182,13 @@ class CartManager extends ChangeNotifier {
     final maxkm = doc.data['maxkm'] as num;
 
     double dis =
-      await Geolocator().distanceBetween(latStore, longStore, lat, long);
+        await Geolocator().distanceBetween(latStore, longStore, lat, long);
 
     dis /= 1000.0;
 
     debugPrint('Distance $dis');
 
-    if(dis > maxkm){
+    if (dis > maxkm) {
       return false;
     }
 

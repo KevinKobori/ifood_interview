@@ -16,24 +16,21 @@ class OrdersScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: Consumer<OrdersManager>(
-        builder: (_, ordersManager, __){
-          if(ordersManager.user == null){
+        builder: (_, ordersManager, __) {
+          if (ordersManager.user == null) {
             return LoginCard();
           }
-          if(ordersManager.orders.isEmpty){
+          if (ordersManager.orders.isEmpty) {
             return EmptyCard(
               title: 'Nenhuma compra encontrada!',
               iconData: Icons.border_clear,
             );
           }
           return ListView.builder(
-            itemCount: ordersManager.orders.length,
-            itemBuilder: (_, index){
-              return OrderTile(
-                ordersManager.orders.reversed.toList()[index]
-              );
-            }
-          );
+              itemCount: ordersManager.orders.length,
+              itemBuilder: (_, index) {
+                return OrderTile(ordersManager.orders.reversed.toList()[index]);
+              });
         },
       ),
     );

@@ -25,16 +25,18 @@ class LoginScreen extends StatelessWidget {
         title: const Text('Entrar'),
         centerTitle: true,
         actions: <Widget>[
-          FlatButton(
+          TextButton(
             onPressed: () {
               Navigator.of(context).pushReplacementNamed('/signup');
             },
-            textColor: Colors.white,
+            style: ElevatedButton.styleFrom(
+              padding: const EdgeInsets.symmetric(horizontal: 6),
+            ),
             child: const Text(
               'CRIAR CONTA',
               style: TextStyle(fontSize: 14),
             ),
-          )
+          ),
         ],
       ),
       body: Center(
@@ -89,6 +91,7 @@ class LoginScreen extends StatelessWidget {
                       height: 16,
                     ),
                     RaisedButton(
+                      // TODO
                       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       onPressed: userManager.loading
                           ? null
@@ -150,7 +153,7 @@ class LoginScreen extends StatelessWidget {
                                                             .primaryColor,
                                                     duration: const Duration(
                                                         seconds: 5),
-                                                    icon: Icon(
+                                                    icon: const Icon(
                                                       Icons.shopping_cart,
                                                       color: Colors.white,
                                                     ),
@@ -162,9 +165,11 @@ class LoginScreen extends StatelessWidget {
                                             },
                                             style: ElevatedButton.styleFrom(
                                               primary: Colors.blue,
-                                              padding: EdgeInsets.symmetric(
-                                                  horizontal: 30, vertical: 20),
-                                              textStyle: TextStyle(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 30,
+                                                      vertical: 20),
+                                              textStyle: const TextStyle(
                                                   fontSize: 20,
                                                   fontWeight: FontWeight.bold),
                                             ),
@@ -242,21 +247,16 @@ class LoginScreen extends StatelessWidget {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(horizontal: 6, vertical: 0),
+                    padding: const EdgeInsets.symmetric(horizontal: 6),
                   ),
                   child: Text(
-                    'Esqueci minha senha',
+                    'Esqueceu a senha?',
                     style: TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
+                      color: Colors.blue[700],
+                      // fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-                // FlatButton(
-                //   onPressed: () {},
-                //   padding: EdgeInsets.zero,
-                //   child: const Text('Esqueci minha senha'),
-                // ),
               ),
             ),
           ),

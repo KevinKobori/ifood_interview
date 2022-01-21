@@ -3,7 +3,6 @@ import 'package:lojavirtual/models/cart_manager.dart';
 import 'package:provider/provider.dart';
 
 class PriceCard extends StatelessWidget {
-
   const PriceCard({this.buttonText, this.onPressed});
 
   final String buttonText;
@@ -31,7 +30,9 @@ class PriceCard extends StatelessWidget {
                 fontSize: 16,
               ),
             ),
-            const SizedBox(height: 12,),
+            const SizedBox(
+              height: 12,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
@@ -40,22 +41,24 @@ class PriceCard extends StatelessWidget {
               ],
             ),
             const Divider(),
-            if(deliveryPrice != null)
-              ...[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    const Text('Entrega'),
-                    Text('R\$ ${deliveryPrice.toStringAsFixed(2)}')
-                  ],
-                ),
-                const Divider(),
-              ],
-            const SizedBox(height: 12,),
+            if (deliveryPrice != null) ...[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  const Text('Entrega'),
+                  Text('R\$ ${deliveryPrice.toStringAsFixed(2)}')
+                ],
+              ),
+              const Divider(),
+            ],
+            const SizedBox(
+              height: 12,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text('Total',
+                Text(
+                  'Total',
                   style: TextStyle(fontWeight: FontWeight.w500),
                 ),
                 Text(
@@ -67,7 +70,9 @@ class PriceCard extends StatelessWidget {
                 )
               ],
             ),
-            const SizedBox(height: 8,),
+            const SizedBox(
+              height: 8,
+            ),
             RaisedButton(
               color: Theme.of(context).primaryColor,
               disabledColor: Theme.of(context).primaryColor.withAlpha(100),

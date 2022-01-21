@@ -8,7 +8,6 @@ import 'package:lojavirtual/screens/home/components/section_header.dart';
 import 'package:provider/provider.dart';
 
 class SectionStaggered extends StatelessWidget {
-
   const SectionStaggered(this.section);
 
   final Section section;
@@ -26,7 +25,7 @@ class SectionStaggered extends StatelessWidget {
           children: <Widget>[
             SectionHeader(),
             Consumer<Section>(
-              builder: (_, section, __){
+              builder: (_, section, __) {
                 return StaggeredGridView.countBuilder(
                   padding: EdgeInsets.zero,
                   shrinkWrap: true,
@@ -35,8 +34,8 @@ class SectionStaggered extends StatelessWidget {
                   itemCount: homeManager.editing
                       ? section.items.length + 1
                       : section.items.length,
-                  itemBuilder: (_, index){
-                    if(index < section.items.length)
+                  itemBuilder: (_, index) {
+                    if (index < section.items.length)
                       return ItemTile(section.items[index]);
                     else
                       return AddTileWidget();

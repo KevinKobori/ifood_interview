@@ -7,12 +7,11 @@ import 'package:lojavirtual/models/product.dart';
 import 'package:lojavirtual/services/cielo_payment.dart';
 
 class CheckoutManager extends ChangeNotifier {
-
   CartManager cartManager;
 
   bool _loading = false;
   bool get loading => _loading;
-  set loading(bool value){
+  set loading(bool value) {
     _loading = value;
     notifyListeners();
   }
@@ -22,15 +21,15 @@ class CheckoutManager extends ChangeNotifier {
   final CieloPayment cieloPayment = CieloPayment();
 
   // ignore: use_setters_to_change_properties
-  void updateCart(CartManager cartManager){
+  void updateCart(CartManager cartManager) {
     this.cartManager = cartManager;
   }
 
-  Future<void> checkout({CreditCard creditCard,
-    Function onStockFail,
-    Function onSuccess,
-    Function onPayFail}) async {
-
+  Future<void> checkout(
+      {CreditCard creditCard,
+      Function onStockFail,
+      Function onSuccess,
+      Function onPayFail}) async {
     loading = true;
 
     final orderId = await _getOrderId();
@@ -44,7 +43,7 @@ class CheckoutManager extends ChangeNotifier {
         user: cartManager.user,
       );
       debugPrint('success $payId');
-    } catch (e){
+    } catch (e) {
       onPayFail(e);
       loading = false;
       return;
@@ -52,7 +51,7 @@ class CheckoutManager extends ChangeNotifier {
 
     try {
       await _decrementStock();
-    } catch (e){
+    } catch (e) {
       cieloPayment.cancel(payId);
       onStockFail(e);
       loading = false;
@@ -61,7 +60,7 @@ class CheckoutManager extends ChangeNotifier {
 
     try {
       await cieloPayment.capture(payId);
-    } catch (e){
+    } catch (e) {
       onPayFail(e);
       loading = false;
       return;
@@ -90,13 +89,13 @@ class CheckoutManager extends ChangeNotifier {
         return {'orderId': orderId};
       });
       return result['orderId'] as int;
-    } catch (e){
+    } catch (e) {
       debugPrint(e.toString());
       return Future.error('Falha ao gerar número do pedido');
     }
   }
 
-  Future<void> _decrementStock(){
+  Future<void> _decrementStock() {
     // 1. Ler todos os estoques 3xM
     // 2. Decremento localmente os estoques 2xM
     // 3. Salvar os estoques no firebase 2xM
@@ -105,23 +104,22 @@ class CheckoutManager extends ChangeNotifier {
       final List<Product> productsToUpdate = [];
       final List<Product> productsWithoutStock = [];
 
-      for(final cartProduct in cartManager.items){
+      for (final cartProduct in cartManager.items) {
         Product product;
 
-        if(productsToUpdate.any((p) => p.id == cartProduct.productId)){
-          product = productsToUpdate.firstWhere(
-                  (p) => p.id == cartProduct.productId);
+        if (productsToUpdate.any((p) => p.id == cartProduct.productId)) {
+          product =
+              productsToUpdate.firstWhere((p) => p.id == cartProduct.productId);
         } else {
-          final doc = await tx.get(
-              firestore.document('products/${cartProduct.productId}')
-          );
+          final doc = await tx
+              .get(firestore.document('products/${cartProduct.productId}'));
           product = Product.fromDocument(doc);
         }
 
         cartProduct.product = product;
 
         final size = product.findSize(cartProduct.size);
-        if(size.stock - cartProduct.quantity < 0){
+        if (size.stock - cartProduct.quantity < 0) {
           productsWithoutStock.add(product);
         } else {
           size.stock -= cartProduct.quantity;
@@ -129,16 +127,15 @@ class CheckoutManager extends ChangeNotifier {
         }
       }
 
-      if(productsWithoutStock.isNotEmpty){
+      if (productsWithoutStock.isNotEmpty) {
         return Future.error(
             '${productsWithoutStock.length} produtos sem estoque');
       }
 
-      for(final product in productsToUpdate){
+      for (final product in productsToUpdate) {
         tx.update(firestore.document('products/${product.id}'),
             {'sizes': product.exportSizeList()});
       }
     });
   }
-
 }

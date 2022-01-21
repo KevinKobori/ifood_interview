@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class CardTextField extends StatelessWidget {
-
   const CardTextField({
     this.title,
     this.bold = false,
@@ -16,9 +15,8 @@ class CardTextField extends StatelessWidget {
     this.onSubmitted,
     this.onSaved,
     this.initialValue,
-  }) : textInputAction = onSubmitted == null
-      ? TextInputAction.done
-      : TextInputAction.next;
+  }) : textInputAction =
+            onSubmitted == null ? TextInputAction.done : TextInputAction.next;
 
   final String title;
   final bool bold;
@@ -40,13 +38,13 @@ class CardTextField extends StatelessWidget {
       initialValue: initialValue,
       validator: validator,
       onSaved: onSaved,
-      builder: (state){
+      builder: (state) {
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 2),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              if(title != null)
+              if (title != null)
                 Row(
                   children: <Widget>[
                     Text(
@@ -54,10 +52,9 @@ class CardTextField extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 10,
                           fontWeight: FontWeight.w400,
-                          color: Colors.white
-                      ),
+                          color: Colors.white),
                     ),
-                    if(state.hasError)
+                    if (state.hasError)
                       const Text(
                         '   Inválido',
                         style: TextStyle(
@@ -65,31 +62,31 @@ class CardTextField extends StatelessWidget {
                           fontSize: 9,
                         ),
                       )
-                ],
-              ),
+                  ],
+                ),
               TextFormField(
                 initialValue: initialValue,
                 style: TextStyle(
                   color: title == null && state.hasError
-                      ? Colors.red : Colors.white,
+                      ? Colors.red
+                      : Colors.white,
                   fontWeight: bold ? FontWeight.bold : FontWeight.w500,
                 ),
                 cursorColor: Colors.white,
                 decoration: InputDecoration(
-                    hintText: hint,
-                    hintStyle: TextStyle(
-                        color: title == null && state.hasError
-                            ? Colors.red.withAlpha(200)
-                            : Colors.white.withAlpha(100)
-                    ),
-                    border: InputBorder.none,
-                    isDense: true,
-                    contentPadding: const EdgeInsets.symmetric(vertical: 2),
+                  hintText: hint,
+                  hintStyle: TextStyle(
+                      color: title == null && state.hasError
+                          ? Colors.red.withAlpha(200)
+                          : Colors.white.withAlpha(100)),
+                  border: InputBorder.none,
+                  isDense: true,
+                  contentPadding: const EdgeInsets.symmetric(vertical: 2),
                   counterText: '',
                 ),
                 keyboardType: textInputType,
                 inputFormatters: inputFormatters,
-                onChanged: (text){
+                onChanged: (text) {
                   state.didChange(text);
                 },
                 maxLength: maxLength,

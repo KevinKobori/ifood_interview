@@ -106,7 +106,8 @@ class MyApp extends StatelessWidget {
               );
             case '/category':
               return MaterialPageRoute(
-                builder: (_) => CategoryScreen(settings.arguments as CategoryModel),
+                builder: (_) =>
+                    CategoryScreen(settings.arguments as CategoryModel),
               );
             case '/products':
               return MaterialPageRoute(
@@ -125,8 +126,8 @@ class MyApp extends StatelessWidget {
               );
             case '/edit_product':
               return MaterialPageRoute(
-                builder: (_) =>
-                    EditProductScreen(settings.arguments as Map<String, dynamic>),
+                builder: (_) => EditProductScreen(
+                    settings.arguments as Map<String, dynamic>),
               );
             case '/edit_category':
               return MaterialPageRoute(

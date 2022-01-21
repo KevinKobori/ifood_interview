@@ -6,7 +6,6 @@ import 'package:lojavirtual/screens/address/components/cep_input_field.dart';
 import 'package:provider/provider.dart';
 
 class AddressCard extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -14,7 +13,7 @@ class AddressCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.fromLTRB(16, 16, 16, 4),
         child: Consumer<CartManager>(
-          builder: (_, cartManager, __){
+          builder: (_, cartManager, __) {
             final address = cartManager.address ?? Address();
 
             return Form(

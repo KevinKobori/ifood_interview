@@ -5,7 +5,7 @@ class OrderProductTile extends StatelessWidget {
   const OrderProductTile(this.cartProduct);
 
   final CartProduct cartProduct;
-  
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

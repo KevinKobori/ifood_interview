@@ -14,8 +14,8 @@ class StoresScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: Consumer<StoresManager>(
-        builder: (_, storesManager, __){
-          if(storesManager.stores.isEmpty){
+        builder: (_, storesManager, __) {
+          if (storesManager.stores.isEmpty) {
             return LinearProgressIndicator(
               valueColor: AlwaysStoppedAnimation(Colors.white),
               backgroundColor: Colors.transparent,
@@ -24,7 +24,7 @@ class StoresScreen extends StatelessWidget {
 
           return ListView.builder(
             itemCount: storesManager.stores.length,
-            itemBuilder: (_, index){
+            itemBuilder: (_, index) {
               return StoreCard(storesManager.stores[index]);
             },
           );

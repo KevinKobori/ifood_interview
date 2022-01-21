@@ -19,7 +19,6 @@ class UserModel {
       address =
           Address.fromMap(document.data['address'] as Map<String, dynamic>);
     }
-    
   }
 
   String id;
@@ -80,7 +79,7 @@ class UserModel {
     });
   }
 
-   Future<void> deleteToken() async {
+  Future<void> deleteToken() async {
     final token = await FirebaseMessaging().getToken();
     await tokensReference.document(token).delete();
   }

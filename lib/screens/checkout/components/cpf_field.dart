@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:lojavirtual/models/user_manager.dart';
 import 'package:provider/provider.dart';
 
-class CpfField extends StatelessWidget { 
+class CpfField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final userManager = context.watch<UserManager>();
@@ -28,17 +28,16 @@ class CpfField extends StatelessWidget {
             TextFormField(
               initialValue: userManager.userModel.cpf,
               decoration: const InputDecoration(
-                hintText: '000.000.000-00',
-                isDense: true
-              ),
+                  hintText: '000.000.000-00', isDense: true),
               keyboardType: TextInputType.number,
               inputFormatters: [
                 FilteringTextInputFormatter.digitsOnly,
                 CpfInputFormatter(),
               ],
-              validator: (cpf){
-                if(cpf.isEmpty) return 'Campo Obrigatório';
-                else if(!CPFValidator.isValid(cpf)) return 'CPF Inválido';
+              validator: (cpf) {
+                if (cpf.isEmpty)
+                  return 'Campo Obrigatório';
+                else if (!CPFValidator.isValid(cpf)) return 'CPF Inválido';
                 return null;
               },
               onSaved: userManager.userModel.setCpf,

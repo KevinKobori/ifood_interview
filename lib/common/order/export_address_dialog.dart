@@ -4,7 +4,6 @@ import 'package:lojavirtual/models/address.dart';
 import 'package:screenshot/screenshot.dart';
 
 class ExportAddressDialog extends StatelessWidget {
-
   ExportAddressDialog(this.address);
 
   final Address address;
@@ -30,15 +29,22 @@ class ExportAddressDialog extends StatelessWidget {
       ),
       contentPadding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
       actions: <Widget>[
-        FlatButton(
+        TextButton(
           onPressed: () async {
             Navigator.of(context).pop();
             final file = await screenshotController.capture();
             await GallerySaver.saveImage(file.path);
           },
-          textColor: Theme.of(context).primaryColor,
-          child: const Text('Exportar'),
-        )
+          style: ElevatedButton.styleFrom(
+            padding: const EdgeInsets.symmetric(horizontal: 6),
+          ),
+          child: Text(
+            'Exportar',
+            style: TextStyle(
+              color: Theme.of(context).primaryColor,
+            ),
+          ),
+        ),
       ],
     );
   }

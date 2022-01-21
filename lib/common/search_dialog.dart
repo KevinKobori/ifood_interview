@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class SearchDialog extends StatelessWidget {
-
   const SearchDialog(this.initialText);
 
   final String initialText;
@@ -20,17 +19,16 @@ class SearchDialog extends StatelessWidget {
               textInputAction: TextInputAction.search,
               autofocus: true,
               decoration: InputDecoration(
-                border: InputBorder.none,
-                contentPadding: const EdgeInsets.symmetric(vertical: 15),
-                prefixIcon: IconButton(
-                  icon: Icon(Icons.arrow_back),
-                  color: Colors.grey[700],
-                  onPressed: (){
-                    Navigator.of(context).pop();
-                  },
-                )
-              ),
-              onFieldSubmitted: (text){
+                  border: InputBorder.none,
+                  contentPadding: const EdgeInsets.symmetric(vertical: 15),
+                  prefixIcon: IconButton(
+                    icon: Icon(Icons.arrow_back),
+                    color: Colors.grey[700],
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  )),
+              onFieldSubmitted: (text) {
                 Navigator.of(context).pop(text);
               },
             ),

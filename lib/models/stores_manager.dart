@@ -5,8 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:lojavirtual/models/store.dart';
 
 class StoresManager extends ChangeNotifier {
-
-  StoresManager(){
+  StoresManager() {
     _loadStoreList();
     _startTimer();
   }
@@ -25,15 +24,14 @@ class StoresManager extends ChangeNotifier {
     notifyListeners();
   }
 
-  void _startTimer(){
+  void _startTimer() {
     _timer = Timer.periodic(const Duration(minutes: 1), (timer) {
       _checkOpening();
     });
   }
 
-  void _checkOpening(){
-    for(final store in stores)
-      store.updateStatus();
+  void _checkOpening() {
+    for (final store in stores) store.updateStatus();
     notifyListeners();
   }
 

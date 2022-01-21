@@ -41,7 +41,7 @@ class ProductManager extends ChangeNotifier {
     //     .collection('products')
     //     .where('deleted', isEqualTo: false)
     //     .getDocuments();
-     final QuerySnapshot getProducts = await firestore
+    final QuerySnapshot getProducts = await firestore
         // .collection('categories')
         // .document(categoryId)
         .collection('products')

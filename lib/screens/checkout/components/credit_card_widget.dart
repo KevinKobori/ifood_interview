@@ -6,7 +6,6 @@ import 'package:lojavirtual/screens/checkout/components/card_back.dart';
 import 'package:lojavirtual/screens/checkout/components/card_front.dart';
 
 class CreditCardWidget extends StatefulWidget {
-
   const CreditCardWidget(this.creditCard);
 
   final CreditCard creditCard;
@@ -23,19 +22,17 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
   final FocusNode nameFocus = FocusNode();
   final FocusNode cvvFocus = FocusNode();
 
-  KeyboardActionsConfig _buildConfig(BuildContext context){
+  KeyboardActionsConfig _buildConfig(BuildContext context) {
     return KeyboardActionsConfig(
-      keyboardActionsPlatform: KeyboardActionsPlatform.IOS,
-      keyboardBarColor: Colors.grey[200],
-      actions: [
-        KeyboardAction(focusNode: numberFocus, displayDoneButton: false),
-        KeyboardAction(focusNode: dateFocus, displayDoneButton: false),
-        KeyboardAction(
-          focusNode: nameFocus,
-          toolbarButtons: [
-            (_){
+        keyboardActionsPlatform: KeyboardActionsPlatform.IOS,
+        keyboardBarColor: Colors.grey[200],
+        actions: [
+          KeyboardAction(focusNode: numberFocus, displayDoneButton: false),
+          KeyboardAction(focusNode: dateFocus, displayDoneButton: false),
+          KeyboardAction(focusNode: nameFocus, toolbarButtons: [
+            (_) {
               return GestureDetector(
-                onTap: (){
+                onTap: () {
                   cardKey.currentState.toggleCard();
                   cvvFocus.requestFocus();
                 },
@@ -45,10 +42,8 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
                 ),
               );
             }
-          ]
-        ),
-      ]
-    );
+          ]),
+        ]);
   }
 
   @override
@@ -71,7 +66,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
                 numberFocus: numberFocus,
                 dateFocus: dateFocus,
                 nameFocus: nameFocus,
-                finished: (){
+                finished: () {
                   cardKey.currentState.toggleCard();
                   cvvFocus.requestFocus();
                 },
@@ -81,14 +76,21 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
                 cvvFocus: cvvFocus,
               ),
             ),
-            FlatButton(
-              onPressed: (){
+            TextButton(
+              onPressed: () {
                 cardKey.currentState.toggleCard();
               },
-              textColor: Colors.white,
-              padding: EdgeInsets.zero,
-              child: const Text('Virar cartão'),
-            )
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(horizontal: 6),
+              ),
+              child: const Text(
+                'Virar cartão',
+                style: TextStyle(
+                  color: Colors.white,
+                  // fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
           ],
         ),
       ),

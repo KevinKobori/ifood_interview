@@ -30,14 +30,12 @@ class LoginCard extends StatelessWidget {
                 ),
               ),
               RaisedButton(
-                onPressed: (){
+                onPressed: () {
                   Navigator.of(context).pushNamed('/login');
                 },
                 color: Theme.of(context).primaryColor,
                 textColor: Colors.white,
-                child: const Text(
-                    'LOGIN'
-                ),
+                child: const Text('LOGIN'),
               ),
             ],
           ),
