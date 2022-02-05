@@ -56,13 +56,13 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 }).catchError((onError) {
                   Flushbar(
                     title: 'ATENÇÃO!',
-                    message: "${onError.toString()}",
+                    message: onError.toString(),
                     flushbarPosition: FlushbarPosition.TOP,
                     flushbarStyle: FlushbarStyle.GROUNDED,
                     isDismissible: true,
                     backgroundColor: Theme.of(context).primaryColor,
                     duration: const Duration(seconds: 5),
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.shopping_cart,
                       color: Colors.white,
                     ),
@@ -74,7 +74,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               //   padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
               //   textStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               // ),
-              child: Text('Enviar Verificacao por email'),
+              child: const Text('Enviar verificacao por email'),
             ),
             // SizedBox(height: 16),
             // ElevatedButton(

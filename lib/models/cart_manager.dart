@@ -171,7 +171,7 @@ class CartManager extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<bool> calculateDelivery(double lat, double long) async {
+  Future<bool> calculateDelivery(double lat, double long) async { // TODO Query 
     final DocumentSnapshot doc = await firestore.document('aux/delivery').get();
 
     final latStore = doc.data['lat'] as double;

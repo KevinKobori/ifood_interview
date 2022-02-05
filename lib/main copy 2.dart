@@ -19,7 +19,6 @@ import 'package:lojavirtual/screens/login/login_screen.dart';
 import 'package:lojavirtual/screens/product/product_screen.dart';
 import 'package:lojavirtual/screens/select_product/select_product_screen.dart';
 import 'package:lojavirtual/screens/signup/signup_screen.dart';
-import 'package:lojavirtual/utils/theme.dart';
 import 'package:provider/provider.dart';
 import 'package:correios_frete/correios_frete.dart';
 
@@ -30,6 +29,17 @@ import 'screens/edit_category/edit_category_screen.dart';
 import 'screens/products/products_screen.dart';
 
 Future<void> main() async {
+    final Result resultado = await CalcPriceTerm("0","0","04014","69097374","13480010","1","1","20","20","20",
+      "0","N","N","N","xml","3");
+
+  // print("Valor do frete: ${resultado.valor}");
+  print("Prazo de Entrega: ${resultado.prazo}");
+  // print("Valor da Mão Própria: ${resultado.vmp}");
+  // print("Valor do Aviso de Recebimento: ${resultado.valor}");
+  // print("Valor do Valor Declarado: ${resultado.vvd}");
+  // print("Possui Entrega Domiciliar (S - Sim , N - Não): ${resultado.entrDom}");
+  // print("Possui Entrega ao Sábados (S - Sim , N - Não): ${resultado.entrSa}");
+  // print("Valor sem Adicionais: ${resultado.vsa}");
   runApp(MyApp());
 }
 
@@ -85,11 +95,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Loja Virtual',
         debugShowCheckedModeBanner: false,
-        // theme: theme(),
         theme: ThemeData(
-          // primarySwatch: Colors.amber,
-          // backgroundColor: Colors.amber,
-          // scaffoldBackgroundColor: Colors.amber,
           primaryColor: const Color.fromARGB(255, 4, 125, 141),
           accentColor: const Color.fromARGB(255, 4, 125, 141),
           scaffoldBackgroundColor: const Color.fromARGB(255, 4, 125, 141),

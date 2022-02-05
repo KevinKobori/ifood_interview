@@ -44,7 +44,7 @@ class EditProductScreen extends StatelessWidget {
           actions: <Widget>[
             if (editing)
               IconButton(
-                icon: Icon(Icons.delete),
+                icon: const Icon(Icons.delete),
                 onPressed: () {
                   context
                       .read<ProductManager>()

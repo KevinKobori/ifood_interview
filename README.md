@@ -3,8 +3,15 @@
 # Main branch:
 
 ## Need to improve:
+- Light and dark Theme ⛔
+- Centralize theme dynamically for admin can controll ⚠️⭕
+- Edit Product currency input formatter by country ⚠️⭕
+- Internationalization ⚠️⭕ 
+- Search using realtime(if all products are on cash) ⛔
+- Favorite logic ⭕
 - Pix payment method ⚠️⭕
-- Real Frete calc ⚠️⭕
+- Real Frete vinculation Correios: ⚠️⭕
+    - http://labcor.com.br/pdf/26.pdf ⚠️⭕
 - Layout for iOS using cupertino padronization ⛔
 - Forget password ⚠️✅
 - Confirm email on register ⚠️✅
@@ -25,20 +32,6 @@
 - Format everything to be named parameters ⭕
 - Set all orders status filter enabled by default ✅
 - Set icon into Filters SlidingUpPanel ✅
-
-TextButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              padding: const EdgeInsets.symmetric(horizontal: 6),
-            ),
-            child: Text(
-              'Esqueceu a senha?',
-              style: TextStyle(
-                color: Colors.blue[700],
-                // fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
 
 ## Need to fix on original project:
 - FlatButton to TextButton
@@ -81,8 +74,10 @@ TextButton(
         - set functions.config().cielo.merchantkey; ⚠️✅
         - Class 163. sandbox > dev mode > change to a real key later: ⚠️✅
             - https://cadastrosandbox.cieloecommerce.cielo.com.br ⚠️✅
-            - $ firebase functions:config:set cielo.merchantid="30cdfad2-3fbb-442a-9c76-e440ee67d6e2" ⚠️✅
-            - $ firebase functions:config:set cielo.merchantkey="OSKVVKHHQYLMSQUKYRWLFQEWHFMIBMTGEHNEUJHD" ⚠️✅
+            <!-- - $ firebase functions:config:set cielo.merchantid="30cdfad2-3fbb-442a-9c76-e440ee67d6e2" ⚠️✅
+            - $ firebase functions:config:set cielo.merchantkey="OSKVVKHHQYLMSQUKYRWLFQEWHFMIBMTGEHNEUJHD" ⚠️✅ -->
+            - $ firebase functions:config:set cielo.merchantid="c93ea95f-be22-44fa-b6a0-cc2e36a4df03" ⚠️✅
+            - $ firebase functions:config:set cielo.merchantkey="JTUQPBLVPATXLAAZRHSJSGJSKLXJQKBPOOWWOOFN" ⚠️✅           
             - $ firebase functions:config:get ⚠️✅
             - $ firebase deploy --only functions ⚠️✅
     - include some firestore documents configuring the data about CEP and delivery distance ⚠️✅

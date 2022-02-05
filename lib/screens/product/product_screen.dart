@@ -153,7 +153,7 @@ class ProductScreen extends StatelessWidget {
                                   }
                                 : null,
                             color: primaryColor,
-                            textColor: Colors.white,
+                            // textColor: Colors.white,
                             child: Text(
                               userManager.isLoggedIn
                                   ? 'Adicionar ao Carrinho'

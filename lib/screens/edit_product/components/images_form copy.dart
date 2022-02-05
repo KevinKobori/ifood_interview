@@ -48,20 +48,13 @@ class ImagesForm extends StatelessWidget {
                         ),
                       Align(
                         alignment: Alignment.topRight,
-                        child: MaterialButton(
+                        child: IconButton(
+                          icon: const Icon(Icons.remove),
+                          color: Colors.red,
                           onPressed: () {
                             state.value.remove(image);
                             state.didChange(state.value);
                           },
-                          color: Colors.white,
-                          textColor: Colors.white,
-                          child: const Icon(
-                            Icons.remove,
-                            // size: 24,
-                            color: Colors.red,
-                          ),
-                          padding: EdgeInsets.all(16),
-                          shape: CircleBorder(),
                         ),
                       )
                     ],

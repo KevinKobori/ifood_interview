@@ -19,7 +19,6 @@ import 'package:lojavirtual/screens/login/login_screen.dart';
 import 'package:lojavirtual/screens/product/product_screen.dart';
 import 'package:lojavirtual/screens/select_product/select_product_screen.dart';
 import 'package:lojavirtual/screens/signup/signup_screen.dart';
-import 'package:lojavirtual/utils/theme.dart';
 import 'package:provider/provider.dart';
 import 'package:correios_frete/correios_frete.dart';
 
@@ -85,11 +84,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Loja Virtual',
         debugShowCheckedModeBanner: false,
-        // theme: theme(),
         theme: ThemeData(
-          // primarySwatch: Colors.amber,
-          // backgroundColor: Colors.amber,
-          // scaffoldBackgroundColor: Colors.amber,
           primaryColor: const Color.fromARGB(255, 4, 125, 141),
           accentColor: const Color.fromARGB(255, 4, 125, 141),
           scaffoldBackgroundColor: const Color.fromARGB(255, 4, 125, 141),

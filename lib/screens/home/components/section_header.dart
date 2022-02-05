@@ -5,6 +5,8 @@ import 'package:lojavirtual/models/section.dart';
 import 'package:provider/provider.dart';
 
 class SectionHeader extends StatelessWidget {
+  // Color txColor = color.computeLuminance() < 0.5 ? Colors.white : Colors.black;
+  Color _bgColor = Colors.blue;
   @override
   Widget build(BuildContext context) {
     final homeManager = context.watch<HomeManager>();
@@ -23,7 +25,7 @@ class SectionHeader extends StatelessWidget {
                       hintText: 'Título',
                       isDense: true,
                       border: InputBorder.none),
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w800,
                     fontSize: 18,
@@ -55,7 +57,7 @@ class SectionHeader extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 8),
         child: Text(
           section.name ?? "Banana",
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.w800,
             fontSize: 18,
