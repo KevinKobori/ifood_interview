@@ -85,17 +85,17 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Loja Virtual',
         debugShowCheckedModeBanner: false,
-        // theme: theme(),
-        theme: ThemeData(
-          // primarySwatch: Colors.amber,
-          // backgroundColor: Colors.amber,
-          // scaffoldBackgroundColor: Colors.amber,
-          primaryColor: const Color.fromARGB(255, 4, 125, 141),
-          accentColor: const Color.fromARGB(255, 4, 125, 141),
-          scaffoldBackgroundColor: const Color.fromARGB(255, 4, 125, 141),
-          appBarTheme: const AppBarTheme(elevation: 0),
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
+        theme: theme(),
+        // theme: ThemeData(
+        //   // primarySwatch: Colors.amber,
+        //   // backgroundColor: Colors.amber,
+        //   // scaffoldBackgroundColor: Colors.amber,
+        //   primaryColor: const Color.fromARGB(255, 4, 125, 141),
+        //   accentColor: const Color.fromARGB(255, 4, 125, 141),
+        //   scaffoldBackgroundColor: const Color.fromARGB(255, 4, 125, 141),
+        //   appBarTheme: const AppBarTheme(elevation: 0),
+        //   visualDensity: VisualDensity.adaptivePlatformDensity,
+        // ),
         onGenerateRoute: (settings) {
           switch (settings.name) {
             case '/login':

@@ -47,7 +47,7 @@ class ProductScreen extends StatelessWidget {
             )
           ],
         ),
-        backgroundColor: Colors.white,
+        // backgroundColor: Colors.white,
         body: ListView(
           children: <Widget>[
             AspectRatio(

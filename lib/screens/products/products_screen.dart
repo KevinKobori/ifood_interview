@@ -41,7 +41,10 @@ class _ProductsScreenState extends State<ProductsScreen> {
         title: Consumer<ProductManager>(
           builder: (_, productManager, __) {
             if (productManager.search.isEmpty) {
-              return const Text('Produtos');
+              return const Text(
+                'Produtos',
+                // style: TextStyle(color: Colors.black),
+              );
             } else {
               return LayoutBuilder(
                 builder: (_, constraints) {

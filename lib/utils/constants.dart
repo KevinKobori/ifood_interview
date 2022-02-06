@@ -38,6 +38,7 @@ const TextStyle headingStyle = TextStyle(
 
 const defaultDuration = Duration(milliseconds: 250);
 
+/// Form Error
 final RegExp emailValidatorRegExp =
     RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
 const String kEmailNullError = "Please Enter your email";
@@ -50,40 +51,16 @@ const String kPhoneNumberNullError = "Please Enter your phone number";
 const String kAddressNullError = "Please Enter your address";
 
 final otpInputDecoration = InputDecoration(
-  contentPadding: const EdgeInsets.symmetric(vertical: 15),
+  contentPadding:
+      const EdgeInsets.symmetric(vertical: 15),
   border: outlineInputBorder(),
   focusedBorder: outlineInputBorder(),
   enabledBorder: outlineInputBorder(),
 );
 
 OutlineInputBorder outlineInputBorder() {
-  return OutlineInputBorder(
+  return  OutlineInputBorder(
     borderRadius: BorderRadius.circular(15),
     borderSide: const BorderSide(color: kTextColor),
   );
-}
-
-const color1 = Color(0xFF262d3d);
-const color2 = Color(0xFF14191f);
-const color3 = Color(0xFF39adea);
-const color4 = Color(0xFF474fd8);
-const color5 = Color(0xFF232939);
-
-const color6 = Color(0xFF151e28);
-const color7 = Color(0xFF15212f);
-const color8 = Color(0xFF122236);
-const color9 = Color(0xFF262d3d);
-
-class AppColors {
-  static Color azul = Colors.blue;
-  static Color grafite = Colors.grey[800];
-  static Color branco = Colors.white;
-  static Color azulClaro = Colors.blue[300];
-  static Color azulMuitoClaro = Colors.blue[200];
-  static Color azulExtraClaro = Colors.blue[100];
-  static Color azulMarinhoEscuro = Colors.blueGrey[900];
-
-  static Color rosaClaro = Colors.pink[300];
-  static Color rosaMuitoClaro = Colors.pink[200];
-  static Color rosaExtraClaro = Colors.pink[100];
 }
