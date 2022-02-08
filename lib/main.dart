@@ -19,10 +19,9 @@ import 'package:lojavirtual/screens/login/login_screen.dart';
 import 'package:lojavirtual/screens/product/product_screen.dart';
 import 'package:lojavirtual/screens/select_product/select_product_screen.dart';
 import 'package:lojavirtual/screens/signup/signup_screen.dart';
-import 'package:lojavirtual/utils/theme.dart';
 import 'package:provider/provider.dart';
-import 'package:correios_frete/correios_frete.dart';
 
+import 'i18n/i18n.dart';
 import 'models/category_manager.dart';
 import 'models/category_model.dart';
 import 'screens/category/category_screen.dart';
@@ -85,16 +84,23 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Loja Virtual',
         debugShowCheckedModeBanner: false,
+        localizationsDelegates: const [
+          S.delegate,
+        ],
         // theme: theme(),
         theme: ThemeData(
           // primarySwatch: Colors.amber,
           // backgroundColor: Colors.amber,
           // scaffoldBackgroundColor: Colors.amber,
           primaryColor: const Color.fromARGB(255, 4, 125, 141),
-          accentColor: const Color.fromARGB(255, 4, 125, 141),
           scaffoldBackgroundColor: const Color.fromARGB(255, 4, 125, 141),
-          appBarTheme: const AppBarTheme(elevation: 0),
+          appBarTheme: const AppBarTheme(
+            elevation: 0,
+            backgroundColor: Color.fromARGB(255, 4, 125, 141),
+          ),
           visualDensity: VisualDensity.adaptivePlatformDensity,
+          colorScheme: ColorScheme.fromSwatch()
+              .copyWith(secondary: const Color.fromARGB(255, 4, 125, 141)),
         ),
         onGenerateRoute: (settings) {
           switch (settings.name) {

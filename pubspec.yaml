@@ -65,10 +65,12 @@ dependencies:
 
   #desirable
   correios_frete: ^0.0.1 # consulta fretes e valores / nao funciona!
-  # flutter_correios: ^1.0.2 # faz o rastreio dos correios
-  # cielo_payment_link: ^1.1.1 # cria links de pagamentos e vincula meios de envios / fretes
-  # cielo_ecommerce: ^2.1.1 # transacao com cartao / boleto / google pay
+  # # flutter_correios: ^1.0.2 # faz o rastreio dos correios
+  # # cielo_payment_link: ^1.1.1 # cria links de pagamentos e vincula meios de envios / fretes
+  # # cielo_ecommerce: ^2.1.1 # transacao com cartao / boleto / google pay
   palette_generator: ^0.2.3
+  intl: ^0.17.0
+  # intl_utils: ^2.5.1
 
 dev_dependencies:
   flutter_test:
@@ -86,6 +88,16 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
+flutter_intl:
+  enabled: true
+  main_locale: pt
+
+scripts:
+  build_runner: flutter pub run build_runner build --delete-conflicting-outputs
+  watch_runner: flutter pub run build_runner watch --delete-conflicting-outputs
+  clean_runner: flutter packages pub run build_runner clean
+  get: flutter packages get
 
   # To add assets to your application, add an assets section, like this:
   # assets:

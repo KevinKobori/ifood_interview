@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lojavirtual/common/custom_drawer/custom_drawer.dart';
+import 'package:lojavirtual/i18n/i18n.dart';
 import 'package:lojavirtual/models/home_manager.dart';
 import 'package:lojavirtual/models/user_manager.dart';
 import 'package:lojavirtual/screens/home/components/add_section_widget.dart';
@@ -15,8 +16,8 @@ class HomeScreen extends StatelessWidget {
       body: Stack(
         children: <Widget>[
           Container(
-            decoration: BoxDecoration(
-                gradient: LinearGradient(colors: const [
+            decoration: const BoxDecoration(
+                gradient: LinearGradient(colors: [
               Color.fromARGB(255, 211, 118, 130),
               Color.fromARGB(255, 253, 181, 168)
             ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
@@ -28,13 +29,15 @@ class HomeScreen extends StatelessWidget {
                 floating: true,
                 elevation: 0,
                 backgroundColor: Colors.transparent,
-                flexibleSpace: const FlexibleSpaceBar(
-                  title: Text('Loja Virtual'),
+                flexibleSpace: FlexibleSpaceBar(
+                  title: Text(
+                    S.of(context).aDescricaoDoOrcamentoNaoPodeEstarVazia,
+                  ),
                   centerTitle: true,
                 ),
                 actions: <Widget>[
                   IconButton(
-                    icon: Icon(Icons.shopping_cart),
+                    icon: const Icon(Icons.shopping_cart),
                     onPressed: () => Navigator.of(context).pushNamed('/cart'),
                   ),
                   Consumer2<UserManager, HomeManager>(
@@ -60,7 +63,7 @@ class HomeScreen extends StatelessWidget {
                           );
                         } else {
                           return IconButton(
-                            icon: Icon(Icons.edit),
+                            icon: const Icon(Icons.edit),
                             onPressed: homeManager.enterEditing,
                           );
                         }
@@ -73,7 +76,7 @@ class HomeScreen extends StatelessWidget {
               Consumer<HomeManager>(
                 builder: (_, homeManager, __) {
                   if (homeManager.loading) {
-                    return SliverToBoxAdapter(
+                    return const SliverToBoxAdapter(
                       child: LinearProgressIndicator(
                         valueColor: AlwaysStoppedAnimation(Colors.white),
                         backgroundColor: Colors.transparent,

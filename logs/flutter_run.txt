@@ -1,0 +1,128 @@
+[10:12:33 PM]: Spawning /Users/kevinkobori/development/flutter/bin/flutter with args ["run","--machine","--start-paused","-d","emulator-5554","--dart-define=flutter.inspector.structuredErrors=true","--web-allow-expose-url","--devtools-server-address","http://127.0.0.1:9100/","--target","lib/main.dart"]
+[10:12:33 PM]: ..  in /Users/kevinkobori/Documents/github/lojavirtual
+[10:12:33 PM]: ..  with {"toolEnv":{"FLUTTER_HOST":"VSCode","PUB_ENVIRONMENT":"vscode.dart-code"}}
+[10:12:33 PM]: PID: 62001
+[10:12:35 PM]: The plugins `cloud_functions, flutter_facebook_login, flutter_plugin_android_lifecycle, gallery_saver, map_launcher, vibration` use a deprecated version of the Android embedding.
+To avoid unexpected runtime failures, or future build failures, try to see if these plugins support the Android V2 embedding. Otherwise, consider removing them since a future release of Flutter will remove these deprecated APIs.
+If you are plugin author, take a look at the docs for migrating the plugin to the V2 embedding: https://flutter.dev/go/android-plugin-migration.
+[10:12:36 PM]: <== [{"event":"daemon.connected","params":{"version":"0.6.1","pid":62020}}]
+[10:12:36 PM]: <== [{"event":"app.start","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","deviceId":"emulator-5554","directory":"/Users/kevinkobori/Documents/github/lojavirtual","supportsRestart":true,"launchMode":"run"}}]
+[10:12:36 PM]: <== Launching lib/main.dart on Android SDK built for x86 in debug mode...
+[10:12:36 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"0","progressId":null,"message":"Running Gradle task 'assembleDebug'...","finished":false}}]
+[10:13:01 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"0","progressId":null,"finished":true}}]
+[10:13:01 PM]: <== ✓  Built build/app/outputs/flutter-apk/app-debug.apk.
+[10:13:02 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"1","progressId":null,"message":"Installing build/app/outputs/flutter-apk/app.apk...","finished":false}}]
+[10:13:03 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"1","progressId":null,"finished":true}}]
+[10:13:06 PM]: <== W/FlutterActivityAndFragmentDelegate( 3640): A splash screen was provided to Flutter, but this is deprecated. See flutter.dev/go/android-splash-migration for migration steps.
+[10:13:07 PM]: <== [{"event":"app.debugPort","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","port":56923,"wsUri":"ws://127.0.0.1:56923/shdXiusaf5g=/ws","baseUri":"file:///data/user/0/com.remottely.nextlov/code_cache/lojavirtualASDOJO/lojavirtual/"}}]
+[10:13:07 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"2","progressId":null,"message":"Syncing files to device Android SDK built for x86...","finished":false}}]
+[10:13:07 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"2","progressId":null,"finished":true}}]
+[10:13:07 PM]: <== [{"event":"app.started","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53"}}]
+[10:13:07 PM]: ==> [{"id":"1","method":"app.callServiceExtension","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","methodName":"ext.flutter.inspector.structuredErrors","params":{"enabled":true}}}]
+[10:13:09 PM]: <== W/DynamiteModule( 3640): Local module descriptor class for providerinstaller not found.
+[10:13:09 PM]: <== I/DynamiteModule( 3640): Considering local module providerinstaller:0 and remote module providerinstaller:0
+[10:13:09 PM]: <== W/ProviderInstaller( 3640): Failed to load providerinstaller module: No acceptable module found. Local version is 0 and remote version is 0.
+[10:13:09 PM]: <== I/mottely.nextlo( 3640): The ClassLoaderContext is a special shared library.
+[10:13:09 PM]: <== I/chatty  ( 3640): uid=10134(com.remottely.nextlov) AsyncTask #4 identical 1 line
+[10:13:09 PM]: <== I/mottely.nextlo( 3640): The ClassLoaderContext is a special shared library.
+[10:13:09 PM]: <== V/NativeCrypto( 3640): Registering com/google/android/gms/org/conscrypt/NativeCrypto's 294 native methods...
+[10:13:09 PM]: <== W/mottely.nextlo( 3640): Accessing hidden method Lsun/misc/Unsafe;->getLong(Ljava/lang/Object;J)J (greylist,core-platform-api, linking, allowed)
+[10:13:09 PM]: <== W/mottely.nextlo( 3640): Accessing hidden method Lsun/misc/Unsafe;->arrayBaseOffset(Ljava/lang/Class;)I (greylist,core-platform-api, linking, allowed)
+[10:13:09 PM]: <== W/mottely.nextlo( 3640): Accessing hidden method Lsun/misc/Unsafe;->copyMemory(JJJ)V (greylist, linking, allowed)
+[10:13:09 PM]: <== W/mottely.nextlo( 3640): Accessing hidden method Lsun/misc/Unsafe;->objectFieldOffset(Ljava/lang/reflect/Field;)J (greylist,core-platform-api, linking, allowed)
+[10:13:09 PM]: <== W/mottely.nextlo( 3640): Accessing hidden method Lsun/misc/Unsafe;->getByte(J)B (greylist,core-platform-api, linking, allowed)
+[10:13:09 PM]: <== W/mottely.nextlo( 3640): Accessing hidden method Lsun/misc/Unsafe;->getByte(Ljava/lang/Object;J)B (greylist,core-platform-api, linking, allowed)
+[10:13:09 PM]: <== W/mottely.nextlo( 3640): Accessing hidden method Lsun/misc/Unsafe;->getLong(J)J (greylist,core-platform-api, linking, allowed)
+[10:13:09 PM]: <== W/mottely.nextlo( 3640): Accessing hidden method Lsun/misc/Unsafe;->putByte(JB)V (greylist,core-platform-api, linking, allowed)
+[10:13:09 PM]: <== W/mottely.nextlo( 3640): Accessing hidden method Lsun/misc/Unsafe;->putByte(Ljava/lang/Object;JB)V (greylist,core-platform-api, linking, allowed)
+[10:13:09 PM]: <== W/mottely.nextlo( 3640): Accessing hidden method Lsun/misc/Unsafe;->getLong(Ljava/lang/Object;J)J (greylist,core-platform-api, reflection, allowed)
+[10:13:09 PM]: <== W/mottely.nextlo( 3640): Accessing hidden method Lsun/misc/Unsafe;->getLong(Ljava/lang/Object;J)J (greylist,core-platform-api, reflection, allowed)
+[10:13:09 PM]: <== W/mottely.nextlo( 3640): Accessing hidden field Ljava/nio/Buffer;->address:J (greylist, reflection, allowed)
+[10:13:09 PM]: <== W/mottely.nextlo( 3640): Accessing hidden method Ljava/security/spec/ECParameterSpec;->getCurveName()Ljava/lang/String; (greylist, reflection, allowed)
+[10:13:09 PM]: <== I/ProviderInstaller( 3640): Installed default security provider GmsCore_OpenSSL
+[10:13:10 PM]: <== W/mottely.nextlo( 3640): Accessing hidden field Ljava/net/Socket;->impl:Ljava/net/SocketImpl; (greylist, reflection, allowed)
+[10:13:10 PM]: <== W/mottely.nextlo( 3640): Accessing hidden method Ldalvik/system/CloseGuard;->get()Ldalvik/system/CloseGuard; (greylist,core-platform-api, linking, allowed)
+[10:13:10 PM]: <== W/mottely.nextlo( 3640): Accessing hidden method Ldalvik/system/CloseGuard;->open(Ljava/lang/String;)V (greylist,core-platform-api, linking, allowed)
+[10:13:10 PM]: <== W/mottely.nextlo( 3640): Accessing hidden method Ljava/security/spec/ECParameterSpec;->setCurveName(Ljava/lang/String;)V (greylist, reflection, allowed)
+[10:13:10 PM]: <== W/mottely.nextlo( 3640): Accessing hidden method Ldalvik/system/BlockGuard;->getThreadPolicy()Ldalvik/system/BlockGuard$Policy; (greylist,core-platform-api, linking, allowed)
+[10:13:10 PM]: <== W/mottely.nextlo( 3640): Accessing hidden method Ldalvik/system/BlockGuard$Policy;->onNetwork()V (greylist, linking, allowed)
+[10:13:11 PM]: <== D/eglCodecCommon( 3640): setVertexArrayObject: set vao to 0 (0) 1 0
+[10:13:11 PM]: <== [{"id":"1","result":{"enabled":"true","type":"_extensionType","method":"ext.flutter.inspector.structuredErrors"}}]
+[10:13:13 PM]: <== I/flutter ( 3640): Distance 779.73175
+[10:18:42 PM]: ==> [{"id":"2","method":"app.restart","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","fullRestart":false,"pause":false,"reason":"save","debounce":true}}]
+[10:18:43 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"3","progressId":"hot.reload","message":"Performing hot reload...","finished":false}}]
+[10:18:43 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"4","progressId":null,"message":"Syncing files to device Android SDK built for x86...","finished":false}}]
+[10:18:43 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"4","progressId":null,"finished":true}}]
+[10:18:44 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"3","progressId":"hot.reload","finished":true}}]
+[10:18:44 PM]: <== Reloaded 1 of 1003 libraries in 1.049ms.
+[10:18:44 PM]: <== [{"id":"2","result":{"code":0,"message":"Reloaded 1 of 1003 libraries"}}]
+[10:18:44 PM]: <== I/flutter ( 3640): Distance 779.73175
+[10:19:57 PM]: ==> [{"id":"3","method":"app.restart","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","fullRestart":false,"pause":false,"reason":"save","debounce":true}}]
+[10:19:57 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"5","progressId":"hot.reload","message":"Performing hot reload...","finished":false}}]
+[10:19:57 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"6","progressId":null,"message":"Syncing files to device Android SDK built for x86...","finished":false}}]
+[10:19:58 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"6","progressId":null,"finished":true}}]
+[10:19:58 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"5","progressId":"hot.reload","finished":true}}]
+[10:19:58 PM]: <== Reloaded 1 of 1003 libraries in 1.193ms.
+[10:19:58 PM]: <== [{"id":"3","result":{"code":0,"message":"Reloaded 1 of 1003 libraries"}}]
+[10:19:59 PM]: <== I/flutter ( 3640): Distance 779.73175
+[10:21:16 PM]: ==> [{"id":"4","method":"app.restart","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","fullRestart":false,"pause":false,"reason":"save","debounce":true}}]
+[10:21:16 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"7","progressId":"hot.reload","message":"Performing hot reload...","finished":false}}]
+[10:21:16 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"8","progressId":null,"message":"Syncing files to device Android SDK built for x86...","finished":false}}]
+[10:21:16 PM]: lib/screens/home/home_screen.dart:33:36: Error: Not a constant expression.
+                  title: Text(S.of(context).aceitar,),
+                                   ^^^^^^^
+[10:21:16 PM]: lib/screens/home/home_screen.dart:33:33: Error: Method invocation is not a constant expression.
+[10:21:16 PM]: title: Text(S.of(context).aceitar,),
+                                ^^
+[10:21:17 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"8","progressId":null,"finished":true}}]
+[10:21:17 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"7","progressId":"hot.reload","finished":true}}]
+[10:21:17 PM]: <== [{"id":"4","result":{"code":1,"message":"DevFS synchronization failed"}}]
+[10:21:45 PM]: ==> [{"id":"5","method":"app.restart","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","fullRestart":false,"pause":false,"reason":"save","debounce":true}}]
+[10:21:45 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"9","progressId":"hot.reload","message":"Performing hot reload...","finished":false}}]
+[10:21:45 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"10","progressId":null,"message":"Syncing files to device Android SDK built for x86...","finished":false}}]
+[10:21:45 PM]: lib/screens/home/home_screen.dart:33:36: Error: Not a constant expression.
+                  title: Text(S.of(context).aceitar,),
+                                   ^^^^^^^
+lib/screens/home/home_screen.dart:33:33: Error: Method invocation is not a constant expression.
+[10:21:45 PM]: title: Text(S.of(context).aceitar,),
+                                ^^
+[10:21:45 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"10","progressId":null,"finished":true}}]
+[10:21:45 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"9","progressId":"hot.reload","finished":true}}]
+[10:21:45 PM]: <== [{"id":"5","result":{"code":1,"message":"DevFS synchronization failed"}}]
+[10:21:56 PM]: ==> [{"id":"6","method":"app.restart","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","fullRestart":true,"pause":false,"reason":"manual"}}]
+[10:21:56 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"11","progressId":"hot.restart","message":"Performing hot restart...","finished":false}}]
+[10:21:56 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"12","progressId":null,"message":"Syncing files to device Android SDK built for x86...","finished":false}}]
+[10:21:56 PM]: lib/screens/home/home_screen.dart:33:36: Error: Not a constant expression.
+[10:21:56 PM]: title: Text(S.of(context).aceitar),
+                                   ^^^^^^^
+[10:21:56 PM]: lib/screens/home/home_screen.dart:33:33: Error: Method invocation is not a constant expression.
+[10:21:56 PM]: title: Text(S.of(context).aceitar),
+                                ^^
+[10:21:56 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"12","progressId":null,"finished":true}}]
+[10:21:56 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"11","progressId":"hot.restart","finished":true}}]
+[10:21:56 PM]: <== Restarted application in 343ms.
+[10:21:56 PM]: <== [{"id":"6","result":{"code":1,"message":"DevFS synchronization failed"}}]
+[10:23:42 PM]: ==> [{"id":"7","method":"app.restart","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","fullRestart":false,"pause":false,"reason":"save","debounce":true}}]
+[10:23:42 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"13","progressId":"hot.reload","message":"Performing hot reload...","finished":false}}]
+[10:23:42 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"14","progressId":null,"message":"Syncing files to device Android SDK built for x86...","finished":false}}]
+[10:23:42 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"14","progressId":null,"finished":true}}]
+[10:23:43 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"13","progressId":"hot.reload","finished":true}}]
+[10:23:43 PM]: <== Reloaded 35 of 1035 libraries in 1.480ms.
+[10:23:43 PM]: <== [{"id":"7","result":{"code":0,"message":"Reloaded 35 of 1035 libraries"}}]
+[10:23:43 PM]: <== I/flutter ( 3640): Distance 779.73175
+[10:24:20 PM]: ==> [{"id":"8","method":"app.restart","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","fullRestart":false,"pause":false,"reason":"save","debounce":true}}]
+[10:24:20 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"15","progressId":"hot.reload","message":"Performing hot reload...","finished":false}}]
+[10:24:20 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"16","progressId":null,"message":"Syncing files to device Android SDK built for x86...","finished":false}}]
+[10:24:20 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"16","progressId":null,"finished":true}}]
+[10:24:21 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"15","progressId":"hot.reload","finished":true}}]
+[10:24:21 PM]: <== Reloaded 3 of 1035 libraries in 982ms.
+[10:24:21 PM]: <== [{"id":"8","result":{"code":0,"message":"Reloaded 3 of 1035 libraries"}}]
+[10:24:21 PM]: <== I/flutter ( 3640): Distance 779.73175
+[10:26:25 PM]: ==> [{"id":"9","method":"app.restart","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","fullRestart":false,"pause":false,"reason":"save","debounce":true}}]
+[10:26:25 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"17","progressId":"hot.reload","message":"Performing hot reload...","finished":false}}]
+[10:26:25 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"18","progressId":null,"message":"Syncing files to device Android SDK built for x86...","finished":false}}]
+[10:26:25 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"18","progressId":null,"finished":true}}]
+[10:26:26 PM]: <== [{"event":"app.progress","params":{"appId":"b5346cb6-1f42-4c8c-a028-f0e406ddec53","id":"17","progressId":"hot.reload","finished":true}}]
+[10:26:26 PM]: <== Reloaded 1 of 1035 libraries in 1.044ms.
+[10:26:26 PM]: <== [{"id":"9","result":{"code":0,"message":"Reloaded 1 of 1035 libraries"}}]
+[10:26:26 PM]: <== I/flutter ( 3640): Distance 779.73175
