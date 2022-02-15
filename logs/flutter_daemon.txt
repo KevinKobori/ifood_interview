@@ -4,7 +4,7 @@ Dart Code extension: 3.34.0
 Flutter extension: 3.34.0 (not activated)
 
 App: Visual Studio Code
-Version: 1.64.0
+Version: 1.64.2
 Platform: mac
 
 HTTP_PROXY: undefined
@@ -13,245 +13,45 @@ NO_PROXY: undefined
 Logging Categories:
     FlutterDaemon
 
-Mon Feb 07 2022 [20:30:45 GMT-0400 (Bolivia Time)] Log file started
-[8:30:45 PM] [FlutterDaemon] [Info] Spawning /Users/kevinkobori/development/flutter/bin/flutter with args ["daemon"]
-[8:30:45 PM] [FlutterDaemon] [Info] ..  in /Users/kevinkobori/development/flutter
-[8:30:45 PM] [FlutterDaemon] [Info] ..  with {"toolEnv":{"FLUTTER_HOST":"VSCode","PUB_ENVIRONMENT":"vscode.dart-code"}}
-[8:30:45 PM] [FlutterDaemon] [Info]     PID: 57834
-[8:30:45 PM] [FlutterDaemon] [Info] ==> [{"id":"1","method":"emulator.getEmulators"}]
-[8:30:47 PM] [FlutterDaemon] [Info] <== [{"event":"daemon.connected","params":{"version":"0.6.1","pid":57873}}]
-[8:30:47 PM] [FlutterDaemon] [Info] ==> [{"id":"2","method":"device.enable"}]
-[8:30:47 PM] [FlutterDaemon] [Info] <== [{"event":"daemon.logMessage","params":{"level":"status","message":"Starting device daemon..."}}]
-[8:30:47 PM] [FlutterDaemon] [Info] <== [{"id":"1","result":[{"id":"apple_ios_simulator","name":"iOS Simulator","category":"mobile","platformType":"ios"},{"id":"Pixel_3_API_29","name":"Pixel 3 API 29","category":"mobile","platformType":"android"}]}]
-[8:30:48 PM] [FlutterDaemon] [Info] <== [{"id":"2"}]
-[8:30:51 PM] [FlutterDaemon] [Info] <== [{"event":"device.added","params":{"id":"emulator-5554","name":"Android SDK built for x86","platform":"android-x86","emulator":true,"category":"mobile","platformType":"android","ephemeral":true,"emulatorId":"Pixel_3_API_29"}}]
-[8:30:51 PM] [FlutterDaemon] [Info] ==> [{"id":"3","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[8:30:52 PM] [FlutterDaemon] [Info] <== [{"id":"3","result":{"platforms":["ios","android"]}}]
-[8:30:52 PM] [FlutterDaemon] [Info] <== [{"event":"device.added","params":{"id":"macos","name":"macOS","platform":"darwin","emulator":false,"category":"desktop","platformType":"macos","ephemeral":false,"emulatorId":null}}]
-[8:30:52 PM] [FlutterDaemon] [Info] <== [{"event":"device.added","params":{"id":"chrome","name":"Chrome","platform":"web-javascript","emulator":false,"category":"web","platformType":"web","ephemeral":false,"emulatorId":null}}]
-[9:31:38 PM] [FlutterDaemon] [Info] ==> [{"id":"4","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[9:31:38 PM] [FlutterDaemon] [Info] <== [{"id":"4","result":{"platforms":["ios","android"]}}]
-[9:31:38 PM] [FlutterDaemon] [Info] ==> [{"id":"5","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[9:31:38 PM] [FlutterDaemon] [Info] <== [{"id":"5","result":{"platforms":["ios","android"]}}]
-[9:31:38 PM] [General] [Warn] Project has errors, prompting user
-[9:31:38 PM] [General] [Warn]     /Users/kevinkobori/Documents/github/lojavirtual/lib/main copy 6.dart:33:4
-[9:31:38 PM] [General] [Warn]     The named parameter 'sDsSenha' isn't defined.
-[9:31:40 PM] [General] [Warn] Did not find session 8e5126e3-e8bb-4bd2-b231-ef887dec415b to handle dart.progressStart. There were 0 sessions:
-[9:31:40 PM] [General] [Warn] Event will be queued and processed when the session start event fires
-[9:31:44 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] Because no versions of correios_frete match >0.0.1 <0.1.0 and correios_frete 0.0.1 depends on http ^0.12.0+2, correios_frete ^0.0.1 requires http ^0.12.0+2.
-And because intl_utils >=2.0.0 depends on http ^0.13.0, correios_frete ^0.0.1 is incompatible with intl_utils >=2.0.0.
-[9:31:44 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] So, because lojavirtual depends on both intl_utils ^2.5.1 and correios_frete ^0.0.1, version solving failed.
-[9:31:45 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] pub get failed (1; So, because lojavirtual depends on both intl_utils ^2.5.1 and correios_frete ^0.0.1, version solving failed.)
-[9:32:25 PM] [FlutterDaemon] [Info] ==> [{"id":"6","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[9:32:25 PM] [FlutterDaemon] [Info] <== [{"id":"6","result":{"platforms":["ios","android"]}}]
-[9:32:25 PM] [FlutterDaemon] [Info] ==> [{"id":"7","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[9:32:25 PM] [FlutterDaemon] [Info] <== [{"id":"7","result":{"platforms":["ios","android"]}}]
-[9:32:25 PM] [General] [Warn] Project has errors, prompting user
-[9:32:25 PM] [General] [Warn]     /Users/kevinkobori/Documents/github/lojavirtual/lib/main copy 6.dart:33:4
-[9:32:25 PM] [General] [Warn]     The named parameter 'sDsSenha' isn't defined.
-[9:32:27 PM] [General] [Warn] Did not find session b4e821d3-7734-47cb-9880-d53622e930f1 to handle dart.progressStart. There were 0 sessions:
-[9:32:27 PM] [General] [Warn] Event will be queued and processed when the session start event fires
-[9:32:31 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] Because no versions of correios_frete match >0.0.1 <0.1.0 and correios_frete 0.0.1 depends on http ^0.12.0+2, correios_frete ^0.0.1 requires http ^0.12.0+2.
-[9:32:31 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] And because intl_utils >=2.0.0 depends on http ^0.13.0, correios_frete ^0.0.1 is incompatible with intl_utils >=2.0.0.
-So, because lojavirtual depends on both intl_utils ^2.5.1 and correios_frete ^0.0.1, version solving failed.
-[9:32:31 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] pub get failed (1; So, because lojavirtual depends on both intl_utils ^2.5.1 and correios_frete ^0.0.1, version solving failed.)
-[9:32:45 PM] [FlutterDaemon] [Info] ==> [{"id":"8","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[9:32:45 PM] [FlutterDaemon] [Info] <== [{"id":"8","result":{"platforms":["ios","android"]}}]
-[9:32:45 PM] [FlutterDaemon] [Info] ==> [{"id":"9","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[9:32:45 PM] [FlutterDaemon] [Info] <== [{"id":"9","result":{"platforms":["ios","android"]}}]
-[9:32:45 PM] [General] [Warn] Project has errors, prompting user
-[9:32:45 PM] [General] [Warn]     /Users/kevinkobori/Documents/github/lojavirtual/lib/main copy 6.dart:33:4
-[9:32:45 PM] [General] [Warn]     The named parameter 'sDsSenha' isn't defined.
-[9:32:47 PM] [General] [Warn] Did not find session 7d91757f-ebc2-4051-9ceb-ada365bfe7f1 to handle dart.progressStart. There were 0 sessions:
-[9:32:47 PM] [General] [Warn] Event will be queued and processed when the session start event fires
-[9:32:52 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] Because no versions of cloud_functions match >0.5.0 <0.6.0 and cloud_functions 0.5.0 depends on cloud_functions_web ^1.1.0, cloud_functions ^0.5.0 requires cloud_functions_web ^1.1.0.
-[9:32:52 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] And because no versions of cloud_functions_web match >1.1.0 <2.0.0 and cloud_functions_web 1.1.0 depends on http_parser ^3.1.3, cloud_functions ^0.5.0 requires http_parser ^3.1.3.
-And because intl_utils >=2.0.0 depends on http ^0.13.0 which depends on http_parser ^4.0.0, cloud_functions ^0.5.0 is incompatible with intl_utils >=2.0.0.
-So, because lojavirtual depends on both cloud_functions ^0.5.0 and intl_utils ^2.5.1, version solving failed.
-[9:32:52 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] pub get failed (1; So, because lojavirtual depends on both cloud_functions ^0.5.0 and intl_utils ^2.5.1, version solving failed.)
-[9:34:00 PM] [FlutterDaemon] [Info] ==> [{"id":"10","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[9:34:00 PM] [FlutterDaemon] [Info] <== [{"id":"10","result":{"platforms":["ios","android"]}}]
-[9:34:00 PM] [FlutterDaemon] [Info] ==> [{"id":"11","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[9:34:00 PM] [FlutterDaemon] [Info] <== [{"id":"11","result":{"platforms":["ios","android"]}}]
-[9:34:00 PM] [General] [Warn] Project has errors, prompting user
-[9:34:00 PM] [General] [Warn]     /Users/kevinkobori/Documents/github/lojavirtual/lib/main copy 6.dart:33:4
-[9:34:00 PM] [General] [Warn]     The named parameter 'sDsSenha' isn't defined.
-[9:34:02 PM] [General] [Warn] Did not find session 9c08df94-3a0e-4890-88f2-460bef7042f9 to handle dart.progressStart. There were 0 sessions:
-[9:34:02 PM] [General] [Warn] Event will be queued and processed when the session start event fires
-[9:34:05 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] The plugins `cloud_functions, flutter_facebook_login, flutter_plugin_android_lifecycle, gallery_saver, map_launcher, vibration` use a deprecated version of the Android embedding.
+Tue Feb 15 2022 [18:46:58 GMT-0400 (Bolivia Time)] Log file started
+[6:46:58 PM] [FlutterDaemon] [Info] Spawning /Users/kevinkobori/development/flutter/bin/flutter with args ["daemon"]
+[6:46:58 PM] [FlutterDaemon] [Info] ..  in /Users/kevinkobori/development/flutter
+[6:46:58 PM] [FlutterDaemon] [Info] ..  with {"toolEnv":{"FLUTTER_HOST":"VSCode","PUB_ENVIRONMENT":"vscode.dart-code"}}
+[6:46:58 PM] [FlutterDaemon] [Info]     PID: 13064
+[6:46:58 PM] [FlutterDaemon] [Info] ==> [{"id":"1","method":"emulator.getEmulators"}]
+[6:47:01 PM] [FlutterDaemon] [Info] <== [{"event":"daemon.connected","params":{"version":"0.6.1","pid":13108}}]
+[6:47:01 PM] [FlutterDaemon] [Info] ==> [{"id":"2","method":"device.enable"}]
+[6:47:01 PM] [FlutterDaemon] [Info] <== [{"event":"daemon.logMessage","params":{"level":"status","message":"Starting device daemon..."}}]
+[6:47:01 PM] [FlutterDaemon] [Info] <== [{"id":"1","result":[{"id":"apple_ios_simulator","name":"iOS Simulator","category":"mobile","platformType":"ios"},{"id":"Pixel_3_API_29","name":"Pixel 3 API 29","category":"mobile","platformType":"android"}]}]
+[6:47:03 PM] [FlutterDaemon] [Info] <== [{"id":"2"}]
+[6:47:06 PM] [FlutterDaemon] [Info] <== [{"event":"device.added","params":{"id":"emulator-5554","name":"Android SDK built for x86","platform":"android-x86","emulator":true,"category":"mobile","platformType":"android","ephemeral":true,"emulatorId":"Pixel_3_API_29"}}]
+[6:47:06 PM] [FlutterDaemon] [Info] ==> [{"id":"3","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
+[6:47:06 PM] [FlutterDaemon] [Info] <== [{"id":"3","result":{"platforms":["ios","android"]}}]
+[6:47:07 PM] [FlutterDaemon] [Info] <== [{"event":"device.added","params":{"id":"macos","name":"macOS","platform":"darwin","emulator":false,"category":"desktop","platformType":"macos","ephemeral":false,"emulatorId":null}}]
+[6:47:07 PM] [FlutterDaemon] [Info] <== [{"event":"device.added","params":{"id":"chrome","name":"Chrome","platform":"web-javascript","emulator":false,"category":"web","platformType":"web","ephemeral":false,"emulatorId":null}}]
+[6:47:23 PM] [FlutterDaemon] [Info] ==> [{"id":"4","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
+[6:47:23 PM] [FlutterDaemon] [Info] <== [{"id":"4","result":{"platforms":["ios","android"]}}]
+[6:47:23 PM] [FlutterDaemon] [Info] ==> [{"id":"5","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
+[6:47:23 PM] [FlutterDaemon] [Info] <== [{"id":"5","result":{"platforms":["ios","android"]}}]
+[6:47:23 PM] [General] [Warn] Project has errors, prompting user
+[6:47:23 PM] [General] [Warn]     /Users/kevinkobori/Documents/github/lojavirtual/lib/main copy 6.dart:31:33
+[6:47:23 PM] [General] [Warn]     The function 'CalcPriceTerm' isn't defined.
+[6:47:25 PM] [General] [Warn] Did not find session f6ab388a-868b-4602-87e1-0d4009ae79b3 to handle dart.progressStart. There were 0 sessions:
+[6:47:25 PM] [General] [Warn] Event will be queued and processed when the session start event fires
+[6:50:39 PM] [FlutterRun] [Error] [DEV - Loja Virtual] Connection closed before full header was received
+[6:50:56 PM] [FlutterRun] [Error] [DEV - Loja Virtual] Connection closed before full header was received
+[6:55:00 PM] [FlutterDaemon] [Info] ==> [{"id":"6","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
+[6:55:00 PM] [FlutterDaemon] [Info] <== [{"id":"6","result":{"platforms":["ios","android"]}}]
+[6:55:00 PM] [FlutterDaemon] [Info] ==> [{"id":"7","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
+[6:55:00 PM] [FlutterDaemon] [Info] <== [{"id":"7","result":{"platforms":["ios","android"]}}]
+[6:55:00 PM] [General] [Warn] Did not find session 92fe618c-6194-4091-9a04-5e4bb7ccdb64 to handle dart.progressStart. There were 0 sessions:
+[6:55:00 PM] [General] [Warn] Event will be queued and processed when the session start event fires
+[6:55:03 PM] [FlutterDaemon] [Info] ==> [{"id":"8","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
+[6:55:03 PM] [FlutterDaemon] [Info] <== [{"id":"8","result":{"platforms":["ios","android"]}}]
+[6:55:03 PM] [FlutterDaemon] [Info] ==> [{"id":"9","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
+[6:55:03 PM] [FlutterDaemon] [Info] <== [{"id":"9","result":{"platforms":["ios","android"]}}]
+[6:55:04 PM] [General] [Warn] Did not find session ac27bc87-634f-44e7-bd1f-c021ab89da32 to handle dart.progressStart. There were 0 sessions:
+[6:55:04 PM] [General] [Warn] Event will be queued and processed when the session start event fires
+[6:58:02 PM] [FlutterRun] [Error] [DEV - Loja Virtual] The plugins `cloud_functions, flutter_facebook_login, flutter_plugin_android_lifecycle, gallery_saver, map_launcher, vibration` use a deprecated version of the Android embedding.
 To avoid unexpected runtime failures, or future build failures, try to see if these plugins support the Android V2 embedding. Otherwise, consider removing them since a future release of Flutter will remove these deprecated APIs.
 If you are plugin author, take a look at the docs for migrating the plugin to the V2 embedding: https://flutter.dev/go/android-plugin-migration.
-[10:07:01 PM] [FlutterDaemon] [Info] ==> [{"id":"12","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[10:07:01 PM] [FlutterDaemon] [Info] <== [{"id":"12","result":{"platforms":["ios","android"]}}]
-[10:07:01 PM] [FlutterDaemon] [Info] ==> [{"id":"13","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[10:07:01 PM] [FlutterDaemon] [Info] <== [{"id":"13","result":{"platforms":["ios","android"]}}]
-[10:07:01 PM] [General] [Warn] Project has errors, prompting user
-[10:07:01 PM] [General] [Warn]     /Users/kevinkobori/Documents/github/lojavirtual/lib/main copy 6.dart:33:4
-[10:07:01 PM] [General] [Warn]     The named parameter 'sDsSenha' isn't defined.
-[10:07:03 PM] [General] [Warn] Did not find session d91f1def-cd3e-4d41-a0a9-ec8a32fb601a to handle dart.progressStart. There were 0 sessions:
-[10:07:03 PM] [General] [Warn] Event will be queued and processed when the session start event fires
-[10:07:05 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] The plugins `cloud_functions, flutter_facebook_login, flutter_plugin_android_lifecycle, gallery_saver, map_launcher, vibration` use a deprecated version of the Android embedding.
-To avoid unexpected runtime failures, or future build failures, try to see if these plugins support the Android V2 embedding. Otherwise, consider removing them since a future release of Flutter will remove these deprecated APIs.
-If you are plugin author, take a look at the docs for migrating the plugin to the V2 embedding: https://flutter.dev/go/android-plugin-migration.
-[10:07:59 PM] [FlutterDaemon] [Info] ==> [{"id":"14","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[10:07:59 PM] [FlutterDaemon] [Info] <== [{"id":"14","result":{"platforms":["ios","android"]}}]
-[10:07:59 PM] [FlutterDaemon] [Info] ==> [{"id":"15","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[10:07:59 PM] [FlutterDaemon] [Info] <== [{"id":"15","result":{"platforms":["ios","android"]}}]
-[10:07:59 PM] [General] [Warn] Project has errors, prompting user
-[10:07:59 PM] [General] [Warn]     /Users/kevinkobori/Documents/github/lojavirtual/lib/main copy 6.dart:33:4
-[10:07:59 PM] [General] [Warn]     The named parameter 'sDsSenha' isn't defined.
-[10:08:01 PM] [General] [Warn] Did not find session 2d8d4d0f-37bc-4750-b853-b313037ea5de to handle dart.progressStart. There were 0 sessions:
-[10:08:01 PM] [General] [Warn] Event will be queued and processed when the session start event fires
-[10:08:06 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] Because no versions of correios_frete match >0.0.1 <0.1.0 and correios_frete 0.0.1 depends on http ^0.12.0+2, correios_frete ^0.0.1 requires http ^0.12.0+2.
-And because intl_utils >=2.0.0 depends on http ^0.13.0, correios_frete ^0.0.1 is incompatible with intl_utils >=2.0.0.
-So, because lojavirtual depends on both correios_frete ^0.0.1 and intl_utils ^2.5.1, version solving failed.
-[10:08:06 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] pub get failed (1; So, because lojavirtual depends on both correios_frete ^0.0.1 and intl_utils ^2.5.1, version solving failed.)
-[10:08:42 PM] [FlutterDaemon] [Info] ==> [{"id":"16","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[10:08:42 PM] [FlutterDaemon] [Info] <== [{"id":"16","result":{"platforms":["ios","android"]}}]
-[10:08:42 PM] [FlutterDaemon] [Info] ==> [{"id":"17","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[10:08:42 PM] [FlutterDaemon] [Info] <== [{"id":"17","result":{"platforms":["ios","android"]}}]
-[10:08:42 PM] [General] [Warn] Project has errors, prompting user
-[10:08:42 PM] [General] [Warn]     /Users/kevinkobori/Documents/github/lojavirtual/lib/main copy 6.dart:33:4
-[10:08:42 PM] [General] [Warn]     The named parameter 'sDsSenha' isn't defined.
-[10:08:44 PM] [General] [Warn] Did not find session c22c5b6e-6a08-4a1c-9fb8-d0c47ec654aa to handle dart.progressStart. There were 0 sessions:
-[10:08:44 PM] [General] [Warn] Event will be queued and processed when the session start event fires
-[10:08:49 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] Because no versions of cloud_functions match >0.5.0 <0.6.0 and cloud_functions 0.5.0 depends on cloud_functions_web ^1.1.0, cloud_functions ^0.5.0 requires cloud_functions_web ^1.1.0.
-[10:08:49 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] And because no versions of cloud_functions_web match >1.1.0 <2.0.0 and cloud_functions_web 1.1.0 depends on http_parser ^3.1.3, cloud_functions ^0.5.0 requires http_parser ^3.1.3.
-And because intl_utils >=2.0.0 depends on http ^0.13.0 which depends on http_parser ^4.0.0, cloud_functions ^0.5.0 is incompatible with intl_utils >=2.0.0.
-So, because lojavirtual depends on both cloud_functions ^0.5.0 and intl_utils ^2.5.1, version solving failed.
-[10:08:50 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] pub get failed (1; So, because lojavirtual depends on both cloud_functions ^0.5.0 and intl_utils ^2.5.1, version solving failed.)
-[10:09:32 PM] [FlutterDaemon] [Info] ==> [{"id":"18","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[10:09:32 PM] [FlutterDaemon] [Info] <== [{"id":"18","result":{"platforms":["ios","android"]}}]
-[10:09:32 PM] [FlutterDaemon] [Info] ==> [{"id":"19","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[10:09:32 PM] [FlutterDaemon] [Info] <== [{"id":"19","result":{"platforms":["ios","android"]}}]
-[10:09:32 PM] [General] [Warn] Project has errors, prompting user
-[10:09:32 PM] [General] [Warn]     /Users/kevinkobori/Documents/github/lojavirtual/lib/main copy 6.dart:33:4
-[10:09:32 PM] [General] [Warn]     The named parameter 'sDsSenha' isn't defined.
-[10:09:34 PM] [General] [Warn] Did not find session 74a217e0-a6df-42b3-af6e-8fc63ab0d55b to handle dart.progressStart. There were 0 sessions:
-[10:09:34 PM] [General] [Warn] Event will be queued and processed when the session start event fires
-[10:09:40 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] The plugins `cloud_functions, flutter_facebook_login, flutter_plugin_android_lifecycle, gallery_saver, map_launcher, vibration` use a deprecated version of the Android embedding.
-To avoid unexpected runtime failures, or future build failures, try to see if these plugins support the Android V2 embedding. Otherwise, consider removing them since a future release of Flutter will remove these deprecated APIs.
-If you are plugin author, take a look at the docs for migrating the plugin to the V2 embedding: https://flutter.dev/go/android-plugin-migration.
-[10:09:48 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] Error: Couldn't resolve the package 'correios_frete' in 'package:correios_frete/correios_frete.dart'.
-[10:09:48 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] lib/main.dart:24:8: Error: Not found: 'package:correios_frete/correios_frete.dart'
-[10:09:48 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] import 'package:correios_frete/correios_frete.dart';
-[10:09:48 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)]        ^
-[10:09:59 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] Unhandled exception:
-FileSystemException(uri=org-dartlang-untranslatable-uri:package%3Acorreios_frete%2Fcorreios_frete.dart; message=StandardFileSystem only supports file:* and data:* URIs)
-#0      StandardFileSystem.entityForUri (package:front_end/src/api_prototype/standard_file_system.dart:34:7)
-[10:09:59 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] #1      asFileUri (package:vm/kernel_front_end.dart:614:37)
-#2      writeDepfile (package:vm/kernel_front_end.dart:754:21)
-<asynchronous suspension>
-[10:09:59 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] #3      FrontendCompiler.compile (package:frontend_server/frontend_server.dart:571:9)
-<asynchronous suspension>
-[10:09:59 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] #4      starter (package:flutter_frontend_server/server.dart:85:12)
-<asynchronous suspension>
-#5      main (file:///opt/s/w/ir/cache/builder/src/flutter/flutter_frontend_server/bin/starter.dart:13:24)
-[10:09:59 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] <asynchronous suspension>
-[10:09:59 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)]
-[10:09:59 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)]
-[10:10:00 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] 
-FAILURE: Build failed with an exception.
-
-* Where:
-Script '/Users/kevinkobori/development/flutter/packages/flutter_tools/gradle/flutter.gradle' line: 1070
-[10:10:00 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] 
-* What went wrong:
-Execution failed for task ':app:compileFlutterBuildDebug'.
-> Process 'command '/Users/kevinkobori/development/flutter/bin/flutter'' finished with non-zero exit value 1
-[10:10:00 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] 
-* Try:
-[10:10:00 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
-[10:10:00 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)]
-[10:10:00 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] * Get more help at https://help.gradle.org
-[10:10:00 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] BUILD FAILED in 18s
-[10:10:00 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] Exception: Gradle task assembleDebug failed with exit code 1
-[10:10:32 PM] [FlutterDaemon] [Info] ==> [{"id":"20","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[10:10:32 PM] [FlutterDaemon] [Info] <== [{"id":"20","result":{"platforms":["ios","android"]}}]
-[10:10:32 PM] [FlutterDaemon] [Info] ==> [{"id":"21","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[10:10:32 PM] [FlutterDaemon] [Info] <== [{"id":"21","result":{"platforms":["ios","android"]}}]
-[10:10:32 PM] [General] [Warn] Project has errors, prompting user
-[10:10:32 PM] [General] [Warn]     /Users/kevinkobori/Documents/github/lojavirtual/lib/main copy 6.dart:31:33
-[10:10:32 PM] [General] [Warn]     The function 'CalcPriceTerm' isn't defined.
-[10:10:34 PM] [General] [Warn] Did not find session fe329ab6-81e3-45e0-b61e-37913961b636 to handle dart.progressStart. There were 0 sessions:
-[10:10:34 PM] [General] [Warn] Event will be queued and processed when the session start event fires
-[10:10:36 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] The plugins `cloud_functions, flutter_facebook_login, flutter_plugin_android_lifecycle, gallery_saver, map_launcher, vibration` use a deprecated version of the Android embedding.
-To avoid unexpected runtime failures, or future build failures, try to see if these plugins support the Android V2 embedding. Otherwise, consider removing them since a future release of Flutter will remove these deprecated APIs.
-If you are plugin author, take a look at the docs for migrating the plugin to the V2 embedding: https://flutter.dev/go/android-plugin-migration.
-[10:10:43 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] Invalid depfile: /Users/kevinkobori/Documents/github/lojavirtual/.dart_tool/flutter_build/4446f1160fc7c63ca66705c2a410177d/kernel_snapshot.d
-Invalid depfile: /Users/kevinkobori/Documents/github/lojavirtual/.dart_tool/flutter_build/4446f1160fc7c63ca66705c2a410177d/kernel_snapshot.d
-[10:10:44 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] Error: Couldn't resolve the package 'correios_frete' in 'package:correios_frete/correios_frete.dart'.
-lib/main.dart:24:8: Error: Not found: 'package:correios_frete/correios_frete.dart'
-import 'package:correios_frete/correios_frete.dart';
-       ^
-[10:10:57 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] Unhandled exception:
-[10:10:57 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] FileSystemException(uri=org-dartlang-untranslatable-uri:package%3Acorreios_frete%2Fcorreios_frete.dart; message=StandardFileSystem only supports file:* and data:* URIs)
-#0      StandardFileSystem.entityForUri (package:front_end/src/api_prototype/standard_file_system.dart:34:7)
-#1      asFileUri (package:vm/kernel_front_end.dart:614:37)
-[10:10:57 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] #2      writeDepfile (package:vm/kernel_front_end.dart:754:21)
-<asynchronous suspension>
-#3      FrontendCompiler.compile (package:frontend_server/frontend_server.dart:571:9)
-[10:10:57 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] <asynchronous suspension>
-#4      starter (package:flutter_frontend_server/server.dart:85:12)
-<asynchronous suspension>
-#5      main (file:///opt/s/w/ir/cache/builder/src/flutter/flutter_frontend_server/bin/starter.dart:13:24)
-<asynchronous suspension>
-[10:10:58 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)]
-[10:10:58 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)]
-[10:10:58 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] FAILURE: Build failed with an exception.
-
-* Where:
-[10:10:58 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] Script '/Users/kevinkobori/development/flutter/packages/flutter_tools/gradle/flutter.gradle' line: 1070
-[10:10:58 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] 
-* What went wrong:
-[10:10:58 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] Execution failed for task ':app:compileFlutterBuildDebug'.
-[10:10:58 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] > Process 'command '/Users/kevinkobori/development/flutter/bin/flutter'' finished with non-zero exit value 1
-[10:10:58 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)]
-[10:10:58 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] * Try:
-[10:10:58 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
-[10:10:58 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)]
-[10:10:58 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] * Get more help at https://help.gradle.org
-[10:10:58 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)]
-[10:10:58 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] BUILD FAILED in 20s
-[10:10:58 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] Exception: Gradle task assembleDebug failed with exit code 1
-[10:11:24 PM] [FlutterDaemon] [Info] ==> [{"id":"22","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[10:11:24 PM] [FlutterDaemon] [Info] <== [{"id":"22","result":{"platforms":["ios","android"]}}]
-[10:11:24 PM] [FlutterDaemon] [Info] ==> [{"id":"23","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[10:11:24 PM] [FlutterDaemon] [Info] <== [{"id":"23","result":{"platforms":["ios","android"]}}]
-[10:11:24 PM] [General] [Warn] Did not find session 8778299a-8320-46d2-9b5c-74aa683c12d8 to handle dart.progressStart. There were 0 sessions:
-[10:11:24 PM] [General] [Warn] Event will be queued and processed when the session start event fires
-[10:11:26 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] The plugins `cloud_functions, flutter_facebook_login, flutter_plugin_android_lifecycle, gallery_saver, map_launcher, vibration` use a deprecated version of the Android embedding.
-To avoid unexpected runtime failures, or future build failures, try to see if these plugins support the Android V2 embedding. Otherwise, consider removing them since a future release of Flutter will remove these deprecated APIs.
-If you are plugin author, take a look at the docs for migrating the plugin to the V2 embedding: https://flutter.dev/go/android-plugin-migration.
-[10:11:33 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] Invalid depfile: /Users/kevinkobori/Documents/github/lojavirtual/.dart_tool/flutter_build/4446f1160fc7c63ca66705c2a410177d/kernel_snapshot.d
-[10:11:33 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] Invalid depfile: /Users/kevinkobori/Documents/github/lojavirtual/.dart_tool/flutter_build/4446f1160fc7c63ca66705c2a410177d/kernel_snapshot.d
-[10:12:31 PM] [FlutterDaemon] [Info] ==> [{"id":"24","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[10:12:31 PM] [FlutterDaemon] [Info] <== [{"id":"24","result":{"platforms":["ios","android"]}}]
-[10:12:31 PM] [FlutterDaemon] [Info] ==> [{"id":"25","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[10:12:31 PM] [FlutterDaemon] [Info] <== [{"id":"25","result":{"platforms":["ios","android"]}}]
-[10:12:31 PM] [General] [Warn] Project has errors, prompting user
-[10:12:31 PM] [General] [Warn]     /Users/kevinkobori/Documents/github/lojavirtual/lib/main copy 6.dart:22:7
-[10:12:31 PM] [General] [Warn]     Target of URI doesn't exist: 'package:correios_frete/correios_frete.dart'.
-[10:12:33 PM] [General] [Warn] Did not find session 286ab39a-0667-4824-a17a-1534eff61b00 to handle dart.progressStart. There were 0 sessions:
-[10:12:33 PM] [General] [Warn] Event will be queued and processed when the session start event fires
-[10:12:35 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] The plugins `cloud_functions, flutter_facebook_login, flutter_plugin_android_lifecycle, gallery_saver, map_launcher, vibration` use a deprecated version of the Android embedding.
-To avoid unexpected runtime failures, or future build failures, try to see if these plugins support the Android V2 embedding. Otherwise, consider removing them since a future release of Flutter will remove these deprecated APIs.
-If you are plugin author, take a look at the docs for migrating the plugin to the V2 embedding: https://flutter.dev/go/android-plugin-migration.
-[10:21:16 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] lib/screens/home/home_screen.dart:33:36: Error: Not a constant expression.
-                  title: Text(S.of(context).aceitar,),
-                                   ^^^^^^^
-[10:21:16 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] lib/screens/home/home_screen.dart:33:33: Error: Method invocation is not a constant expression.
-[10:21:16 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)]                   title: Text(S.of(context).aceitar,),
-                                ^^
-[10:21:45 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] lib/screens/home/home_screen.dart:33:36: Error: Not a constant expression.
-                  title: Text(S.of(context).aceitar,),
-                                   ^^^^^^^
-lib/screens/home/home_screen.dart:33:33: Error: Method invocation is not a constant expression.
-[10:21:45 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)]                   title: Text(S.of(context).aceitar,),
-                                ^^
-[10:21:56 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] lib/screens/home/home_screen.dart:33:36: Error: Not a constant expression.
-[10:21:56 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)]                   title: Text(S.of(context).aceitar),
-                                   ^^^^^^^
-[10:21:56 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)] lib/screens/home/home_screen.dart:33:33: Error: Method invocation is not a constant expression.
-[10:21:56 PM] [FlutterRun] [Error] [Flutter ($(device-mobile) Pixel 3 API 29)]                   title: Text(S.of(context).aceitar),
-                                ^^
