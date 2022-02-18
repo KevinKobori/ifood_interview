@@ -2,8 +2,8 @@ import 'dart:collection';
 
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:lojavirtual/models/credit_card.dart';
-import 'package:lojavirtual/models/user_model.dart';
+import 'package:wlstore/models/credit_card.dart';
+import 'package:wlstore/models/user_model.dart';
 
 class CieloPayment {
   final CloudFunctions functions = CloudFunctions.instance;
@@ -17,7 +17,7 @@ class CieloPayment {
       final Map<String, dynamic> dataSale = {
         'merchantOrderId': orderId,
         'amount': (price * 100).toInt(),
-        'softDescriptor': 'Loja Virtual',
+        'softDescriptor': 'WLStore',
         'installments': 1,
         'creditCard': creditCard.toJson(),
         'cpf': user.cpf,

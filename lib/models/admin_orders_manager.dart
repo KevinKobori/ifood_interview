@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:lojavirtual/models/order.dart';
-import 'package:lojavirtual/models/user_model.dart';
+import 'package:wlstore/models/order.dart';
+import 'package:wlstore/models/user_model.dart';
 
 class AdminOrdersManager extends ChangeNotifier {
   final List<Order> _orders = [];

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/common/custom_drawer/custom_drawer.dart';
-import 'package:lojavirtual/common/empty_card.dart';
-import 'package:lojavirtual/common/login_card.dart';
-import 'package:lojavirtual/common/order/order_tile.dart';
-import 'package:lojavirtual/models/orders_manager.dart';
+import 'package:wlstore/common/custom_drawer/custom_drawer.dart';
+import 'package:wlstore/common/empty_card.dart';
+import 'package:wlstore/common/login_card.dart';
+import 'package:wlstore/common/order/order_tile.dart';
+import 'package:wlstore/models/orders_manager.dart';
 import 'package:provider/provider.dart';
 
 class OrdersScreen extends StatelessWidget {

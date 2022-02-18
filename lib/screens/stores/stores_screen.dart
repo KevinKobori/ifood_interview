@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/common/custom_drawer/custom_drawer.dart';
-import 'package:lojavirtual/models/stores_manager.dart';
-import 'package:lojavirtual/screens/stores/components/store_card.dart';
+import 'package:wlstore/common/custom_drawer/custom_drawer.dart';
+import 'package:wlstore/models/stores_manager.dart';
+import 'package:wlstore/screens/stores/components/store_card.dart';
 import 'package:provider/provider.dart';
 
 class StoresScreen extends StatelessWidget {
@@ -10,7 +10,7 @@ class StoresScreen extends StatelessWidget {
     return Scaffold(
       drawer: CustomDrawer(),
       appBar: AppBar(
-        title: const Text('Lojas'),
+        title: const Text('WLStores'),
         centerTitle: true,
       ),
       body: Consumer<StoresManager>(

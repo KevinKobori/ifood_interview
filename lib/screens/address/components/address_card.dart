@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/address.dart';
-import 'package:lojavirtual/models/cart_manager.dart';
-import 'package:lojavirtual/screens/address/components/address_input_field.dart';
-import 'package:lojavirtual/screens/address/components/cep_input_field.dart';
+import 'package:wlstore/models/address.dart';
+import 'package:wlstore/models/cart_manager.dart';
+import 'package:wlstore/screens/address/components/address_input_field.dart';
+import 'package:wlstore/screens/address/components/cep_input_field.dart';
 import 'package:provider/provider.dart';
 
 class AddressCard extends StatelessWidget {

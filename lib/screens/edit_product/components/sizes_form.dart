@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/common/custom_icon_button.dart';
-import 'package:lojavirtual/models/item_size.dart';
-import 'package:lojavirtual/models/product.dart';
-import 'package:lojavirtual/screens/edit_product/components/edit_item_size.dart';
+import 'package:wlstore/common/custom_icon_button.dart';
+import 'package:wlstore/models/item_size.dart';
+import 'package:wlstore/models/product.dart';
+import 'package:wlstore/screens/edit_product/components/edit_item_size.dart';
 
 class SizesForm extends StatelessWidget {
   const SizesForm(this.product);

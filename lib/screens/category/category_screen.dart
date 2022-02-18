@@ -1,7 +1,7 @@
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/category_model.dart';
-import 'package:lojavirtual/models/user_manager.dart';
+import 'package:wlstore/models/category_model.dart';
+import 'package:wlstore/models/user_manager.dart';
 import 'package:provider/provider.dart';
 
 class CategoryScreen extends StatelessWidget {

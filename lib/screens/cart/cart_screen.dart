@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/common/empty_card.dart';
-import 'package:lojavirtual/common/login_card.dart';
-import 'package:lojavirtual/common/price_card.dart';
-import 'package:lojavirtual/common/whatsapp_card.dart';
-import 'package:lojavirtual/models/cart_manager.dart';
-import 'package:lojavirtual/screens/cart/components/cart_tile.dart';
+import 'package:wlstore/common/empty_card.dart';
+import 'package:wlstore/common/login_card.dart';
+import 'package:wlstore/common/price_card.dart';
+import 'package:wlstore/common/whatsapp_card.dart';
+import 'package:wlstore/models/cart_manager.dart';
+import 'package:wlstore/screens/cart/components/cart_tile.dart';
 import 'package:provider/provider.dart';
 
 class CartScreen extends StatelessWidget {

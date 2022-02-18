@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:lojavirtual/models/credit_card.dart';
-import 'package:lojavirtual/screens/checkout/components/card_text_field.dart';
+import 'package:wlstore/models/credit_card.dart';
+import 'package:wlstore/screens/checkout/components/card_text_field.dart';
 
 class CardBack extends StatelessWidget {
   const CardBack({this.cvvFocus, this.creditCard});

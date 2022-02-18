@@ -1,12 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/category_manager.dart';
-import 'package:lojavirtual/models/category_model.dart';
-// import 'package:lojavirtual/models/category_manager.dart';
-import 'package:lojavirtual/models/product.dart';
-import 'package:lojavirtual/models/product_manager.dart';
-import 'package:lojavirtual/screens/edit_product/components/images_form.dart';
-import 'package:lojavirtual/screens/edit_product/components/sizes_form.dart';
+import 'package:wlstore/models/category_manager.dart';
+import 'package:wlstore/models/category_model.dart';
+// import 'package:wlstore/models/category_manager.dart';
+import 'package:wlstore/models/product.dart';
+import 'package:wlstore/models/product_manager.dart';
+import 'package:wlstore/screens/edit_product/components/images_form.dart';
+import 'package:wlstore/screens/edit_product/components/sizes_form.dart';
 import 'package:provider/provider.dart';
 
 class EditProductScreen extends StatelessWidget {

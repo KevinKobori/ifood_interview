@@ -2,7 +2,7 @@ import 'package:brasil_fields/brasil_fields.dart';
 import 'package:cpf_cnpj_validator/cpf_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:lojavirtual/models/user_manager.dart';
+import 'package:wlstore/models/user_manager.dart';
 import 'package:provider/provider.dart';
 
 class CpfField extends StatelessWidget {

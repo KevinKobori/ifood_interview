@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/product.dart';
+import 'package:wlstore/models/product.dart';
 
 class ProductListTile extends StatelessWidget {
   const ProductListTile(this.product, this.categoryId);

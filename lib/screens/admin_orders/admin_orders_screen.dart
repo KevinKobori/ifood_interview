@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/common/custom_drawer/custom_drawer.dart';
-import 'package:lojavirtual/common/custom_icon_button.dart';
-import 'package:lojavirtual/common/empty_card.dart';
-import 'package:lojavirtual/common/order/order_tile.dart';
-import 'package:lojavirtual/models/admin_orders_manager.dart';
-import 'package:lojavirtual/models/order.dart';
+import 'package:wlstore/common/custom_drawer/custom_drawer.dart';
+import 'package:wlstore/common/custom_icon_button.dart';
+import 'package:wlstore/common/empty_card.dart';
+import 'package:wlstore/common/order/order_tile.dart';
+import 'package:wlstore/models/admin_orders_manager.dart';
+import 'package:wlstore/models/order.dart';
 import 'package:provider/provider.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 

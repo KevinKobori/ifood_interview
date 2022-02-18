@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/common/order/cancel_order_dialog.dart';
-import 'package:lojavirtual/common/order/export_address_dialog.dart';
-import 'package:lojavirtual/common/order/order_product_tile.dart';
-import 'package:lojavirtual/models/order.dart';
+import 'package:wlstore/common/order/cancel_order_dialog.dart';
+import 'package:wlstore/common/order/export_address_dialog.dart';
+import 'package:wlstore/common/order/order_product_tile.dart';
+import 'package:wlstore/models/order.dart';
 
 class OrderTile extends StatelessWidget {
   const OrderTile(this.order, {this.showControls = false});

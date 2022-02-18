@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/admin_orders_manager.dart';
-import 'package:lojavirtual/models/admin_users_manager.dart';
-import 'package:lojavirtual/models/cart_manager.dart';
-import 'package:lojavirtual/models/home_manager.dart';
-import 'package:lojavirtual/models/order.dart';
-import 'package:lojavirtual/models/orders_manager.dart';
-import 'package:lojavirtual/models/product.dart';
-import 'package:lojavirtual/models/product_manager.dart';
-import 'package:lojavirtual/models/stores_manager.dart';
-import 'package:lojavirtual/models/user_manager.dart';
-import 'package:lojavirtual/screens/address/address_screen.dart';
-import 'package:lojavirtual/screens/base/base_screen.dart';
-import 'package:lojavirtual/screens/cart/cart_screen.dart';
-import 'package:lojavirtual/screens/checkout/checkout_screen.dart';
-import 'package:lojavirtual/screens/confirmation/confirmation_screen.dart';
-import 'package:lojavirtual/screens/edit_product/edit_product_screen.dart';
-import 'package:lojavirtual/screens/login/login_screen.dart';
-import 'package:lojavirtual/screens/product/product_screen.dart';
-import 'package:lojavirtual/screens/select_product/select_product_screen.dart';
-import 'package:lojavirtual/screens/signup/signup_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:wlstore/models/admin_orders_manager.dart';
+import 'package:wlstore/models/admin_users_manager.dart';
+import 'package:wlstore/models/cart_manager.dart';
+import 'package:wlstore/models/home_manager.dart';
+import 'package:wlstore/models/order.dart';
+import 'package:wlstore/models/orders_manager.dart';
+import 'package:wlstore/models/product.dart';
+import 'package:wlstore/models/product_manager.dart';
+import 'package:wlstore/models/stores_manager.dart';
+import 'package:wlstore/models/user_manager.dart';
+import 'package:wlstore/screens/address/address_screen.dart';
+import 'package:wlstore/screens/base/base_screen.dart';
+import 'package:wlstore/screens/cart/cart_screen.dart';
+import 'package:wlstore/screens/checkout/checkout_screen.dart';
+import 'package:wlstore/screens/confirmation/confirmation_screen.dart';
+import 'package:wlstore/screens/edit_product/edit_product_screen.dart';
+import 'package:wlstore/screens/login/login_screen.dart';
+import 'package:wlstore/screens/product/product_screen.dart';
+import 'package:wlstore/screens/select_product/select_product_screen.dart';
+import 'package:wlstore/screens/signup/signup_screen.dart';
 
 import 'i18n/i18n.dart';
 import 'models/category_manager.dart';
@@ -82,7 +82,7 @@ class MyApp extends StatelessWidget {
         )
       ],
       child: MaterialApp(
-        title: 'Loja Virtual',
+        title: 'WLStore',
         debugShowCheckedModeBanner: false,
         localizationsDelegates: const [
           S.delegate,

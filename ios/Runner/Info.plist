@@ -11,7 +11,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Loja Virtual</string>
+	<string>WLStore</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -57,7 +57,7 @@
     <key>FacebookAppID</key>
     <string>705074733663048</string>
     <key>FacebookDisplayName</key>
-    <string>Loja Virtual</string>
+    <string>WLStore</string>
 
     <key>LSApplicationQueriesSchemes</key>
     <array>

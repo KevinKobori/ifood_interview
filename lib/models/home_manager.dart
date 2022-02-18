@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:lojavirtual/models/section.dart';
+import 'package:wlstore/models/section.dart';
 
 class HomeManager extends ChangeNotifier {
   HomeManager() {

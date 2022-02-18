@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:lojavirtual/models/address.dart';
+import 'package:wlstore/models/address.dart';
 
 class UserModel {
   UserModel({this.email, this.password, this.name, this.id});

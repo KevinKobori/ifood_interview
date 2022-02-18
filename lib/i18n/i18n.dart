@@ -142,7 +142,7 @@ class S {
   /// `Quem Conserta`
   String get appName {
     return Intl.message(
-      'Quem Conserta',
+      'WLStore',
       name: 'appName',
       args: [],
     );

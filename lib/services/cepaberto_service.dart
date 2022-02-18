@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:lojavirtual/models/cepaberto_address.dart';
+import 'package:wlstore/models/cepaberto_address.dart';
 
 const token = 'faa665cf0cb302b6a45e6f490110e334';
 

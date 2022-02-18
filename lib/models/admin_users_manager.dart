@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:lojavirtual/models/user_model.dart';
-import 'package:lojavirtual/models/user_manager.dart';
+import 'package:wlstore/models/user_model.dart';
+import 'package:wlstore/models/user_manager.dart';
 
 class AdminUsersManager extends ChangeNotifier {
   List<UserModel> users = [];

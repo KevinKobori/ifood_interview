@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/category_model.dart';
-import 'package:lojavirtual/screens/edit_category/components/image_source_sheet.dart';
+import 'package:wlstore/models/category_model.dart';
+import 'package:wlstore/screens/edit_category/components/image_source_sheet.dart';
 
 class ImagesForm extends StatelessWidget {
   const ImagesForm(this.categoryModel);

@@ -25,7 +25,7 @@ Fri Feb 18 2022 [18:08:38 GMT-0400 (Bolivia Time)] Log file started
 [6:08:43 PM] [FlutterDaemon] [Info] <== [{"id":"2"}]
 [6:08:43 PM] [FlutterDaemon] [Info] <== [{"id":"1","result":[{"id":"apple_ios_simulator","name":"iOS Simulator","category":"mobile","platformType":"ios"},{"id":"Pixel_3_API_29","name":"Pixel 3 API 29","category":"mobile","platformType":"android"}]}]
 [6:08:46 PM] [FlutterDaemon] [Info] <== [{"event":"device.added","params":{"id":"emulator-5554","name":"Android SDK built for x86","platform":"android-x86","emulator":true,"category":"mobile","platformType":"android","ephemeral":true,"emulatorId":"Pixel_3_API_29"}}]
-[6:08:46 PM] [FlutterDaemon] [Info] ==> [{"id":"3","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
+[6:08:46 PM] [FlutterDaemon] [Info] ==> [{"id":"3","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/wlstore"}}]
 [6:08:46 PM] [FlutterDaemon] [Info] <== [{"id":"3","result":{"platforms":["ios","android"]}}]
 [6:08:47 PM] [FlutterDaemon] [Info] <== [{"event":"device.added","params":{"id":"macos","name":"macOS","platform":"darwin","emulator":false,"category":"desktop","platformType":"macos","ephemeral":false,"emulatorId":null}}]
 [6:08:47 PM] [FlutterDaemon] [Info] <== [{"event":"device.added","params":{"id":"chrome","name":"Chrome","platform":"web-javascript","emulator":false,"category":"web","platformType":"web","ephemeral":false,"emulatorId":null}}]

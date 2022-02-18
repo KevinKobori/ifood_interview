@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:lojavirtual/models/address.dart';
-import 'package:lojavirtual/models/cart_manager.dart';
+import 'package:wlstore/models/address.dart';
+import 'package:wlstore/models/cart_manager.dart';
 import 'package:provider/provider.dart';
 
 class AddressInputField extends StatelessWidget {

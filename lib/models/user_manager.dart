@@ -5,8 +5,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
-import 'package:lojavirtual/helpers/firebase_errors.dart';
-import 'package:lojavirtual/models/user_model.dart';
+import 'package:wlstore/helpers/firebase_errors.dart';
+import 'package:wlstore/models/user_model.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class UserManager extends ChangeNotifier {

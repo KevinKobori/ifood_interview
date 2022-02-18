@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/common/custom_icon_button.dart';
-import 'package:lojavirtual/models/home_manager.dart';
-import 'package:lojavirtual/models/section.dart';
+import 'package:wlstore/common/custom_icon_button.dart';
+import 'package:wlstore/models/home_manager.dart';
+import 'package:wlstore/models/section.dart';
 import 'package:provider/provider.dart';
 
 class SectionHeader extends StatelessWidget {

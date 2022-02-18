@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/page_manager.dart';
-import 'package:lojavirtual/models/user_manager.dart';
 import 'package:provider/provider.dart';
+import 'package:wlstore/models/page_manager.dart';
+import 'package:wlstore/models/user_manager.dart';
 
 class CustomDrawerHeader extends StatelessWidget {
   @override
@@ -16,7 +16,7 @@ class CustomDrawerHeader extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               const Text(
-                'Loja\nVirtual',
+                'WL\nStore',
                 style: TextStyle(
                   fontSize: 34,
                   fontWeight: FontWeight.bold,

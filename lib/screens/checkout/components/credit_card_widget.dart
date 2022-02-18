@@ -1,9 +1,9 @@
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
-import 'package:lojavirtual/models/credit_card.dart';
-import 'package:lojavirtual/screens/checkout/components/card_back.dart';
-import 'package:lojavirtual/screens/checkout/components/card_front.dart';
+import 'package:wlstore/models/credit_card.dart';
+import 'package:wlstore/screens/checkout/components/card_back.dart';
+import 'package:wlstore/screens/checkout/components/card_front.dart';
 
 class CreditCardWidget extends StatefulWidget {
   const CreditCardWidget(this.creditCard);

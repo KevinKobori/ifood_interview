@@ -2,13 +2,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
-import 'package:lojavirtual/common/forgot_password.dart';
-import 'package:lojavirtual/helpers/send_email.dart';
-import 'package:lojavirtual/models/user_model.dart';
-import 'package:lojavirtual/models/user_manager.dart';
+import 'package:wlstore/common/forgot_password.dart';
+import 'package:wlstore/helpers/send_email.dart';
+import 'package:wlstore/models/user_model.dart';
+import 'package:wlstore/models/user_manager.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/helpers/validators.dart';
+import 'package:wlstore/helpers/validators.dart';
 
 class LoginScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();

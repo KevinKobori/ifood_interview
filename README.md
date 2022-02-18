@@ -1,8 +1,9 @@
-# WLStore > A FREE Open Source White-label Store
+# WLStore > A Open Source White-label Store
 
     The idea is based on small business who want to expand their sales using a free service for this, it will be like a whatsapp business + instagram shop.
 
 # Developing Status: 
+
     - ⚠️: IMPORTANT
     - ⛔: NOT PRIORITY
     - ⭕: WAITING
@@ -52,19 +53,23 @@
         - CPF: 385.631.880-11
 # Developing:
 
-    - Layout of the App:
+    - Implement Clean Architecture ⚠️⭕
+    - Implement Modules ⚠️⭕
+        - flutter_modular: ⚠️⭕
+		- Navigation with dynamic routes, suport for web ⚠️⭕
+		- Dependency injection ⚠️⭕
+		- Deep Link to navigate between pages or only ffrom external pages? ⚠️⭕
+    - Implement Tests ⚠️⭕
+    - Implement Controllers
+        - Migrate from provider to mobx ⚠️⭕
+    - Layout of the App: ⛔
         - drawer to bottom navigationbar ⛔
         - Search bar ⛔
         - Items list to grid ⛔
         - Colors ⛔
         - Fonts ⛔
-	- Separate model from remote controllers
-	- Migrate to Null Safety
-	- flutter_modular: ⚠️⭕
-		- Navigation on app and web ⚠️⭕
-		- Dependency injection ⚠️⭕
-		- Controllers ⚠️⭕
-		- Deep Link to navigate between pages or only ffrom external pages? ⚠️⭕
+	- Separate model from mappers and providers ⚠️⭕
+	- Migrate to Null Safety ⚠️⭕
 	- All user data logic:
 		- When logout on App: remove devices tokens from DB ⚠️✅
 		- When logout directly on Firebase Admin: remove devices tokens from DB using Cloud Functions ⚠️⭕
@@ -142,6 +147,7 @@
     - User token not deleting when logout ⚠️✅
 
 # Test status: 
+
     - ⚠️: IMPORTANT
     - ❓: NOT TESTED YET
     - ❗: NEED MORE TESTS
@@ -149,6 +155,7 @@
     - ❌: TEST FAILED
 
 ## Android:
+
     - Google SignIn ⚠️❕
     - Facebook SignIn ⚠️❗
     - Payment ⚠️❕
@@ -160,6 +167,7 @@
         - obs: need to see where it begins ⚠️❓
 
 ## iOS:
+
     - Google SignIn ⚠️❌
     - Facebook SignIn ⚠️❗
     - Payment ⚠️❕
@@ -172,6 +180,7 @@
         - obs: need to see where it begins ⚠️❓
         
 ## OBS:
+
     - Need to be tested on Android 8 > 9 > 10 > 11...
     - Need to be tested on iOS 8 > 9 > 10 > 11...
     - How to NOT get a 30K Firebase Bill

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:lojavirtual/models/category_manager.dart';
-import 'package:lojavirtual/models/category_model.dart';
+import 'package:wlstore/models/category_manager.dart';
+import 'package:wlstore/models/category_model.dart';
 import 'package:provider/provider.dart';
 
 import 'components/images_form.dart';

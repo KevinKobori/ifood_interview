@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/common/price_card.dart';
-import 'package:lojavirtual/models/cart_manager.dart';
-import 'package:lojavirtual/models/checkout_manager.dart';
-import 'package:lojavirtual/models/credit_card.dart';
-import 'package:lojavirtual/models/user_manager.dart';
-import 'package:lojavirtual/screens/checkout/components/cpf_field.dart';
-import 'package:lojavirtual/screens/checkout/components/credit_card_widget.dart';
+import 'package:wlstore/common/price_card.dart';
+import 'package:wlstore/models/cart_manager.dart';
+import 'package:wlstore/models/checkout_manager.dart';
+import 'package:wlstore/models/credit_card.dart';
+import 'package:wlstore/models/user_manager.dart';
+import 'package:wlstore/screens/checkout/components/cpf_field.dart';
+import 'package:wlstore/screens/checkout/components/credit_card_widget.dart';
 import 'package:provider/provider.dart';
 
 class CheckoutScreen extends StatelessWidget {

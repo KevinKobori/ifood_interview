@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/order.dart';
+import 'package:wlstore/models/order.dart';
 
 class CancelOrderDialog extends StatefulWidget {
   const CancelOrderDialog(this.order);

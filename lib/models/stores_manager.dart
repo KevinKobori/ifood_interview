@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:lojavirtual/models/store.dart';
+import 'package:wlstore/models/store.dart';
 
 class StoresManager extends ChangeNotifier {
   StoresManager() {

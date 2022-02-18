@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/common/custom_drawer/custom_drawer.dart';
-import 'package:lojavirtual/i18n/i18n.dart';
-import 'package:lojavirtual/models/home_manager.dart';
-import 'package:lojavirtual/models/user_manager.dart';
-import 'package:lojavirtual/screens/home/components/add_section_widget.dart';
-import 'package:lojavirtual/screens/home/components/section_list.dart';
-import 'package:lojavirtual/screens/home/components/section_staggered.dart';
 import 'package:provider/provider.dart';
+import 'package:wlstore/common/custom_drawer/custom_drawer.dart';
+import 'package:wlstore/i18n/i18n.dart';
+import 'package:wlstore/models/home_manager.dart';
+import 'package:wlstore/models/user_manager.dart';
+import 'package:wlstore/screens/home/components/add_section_widget.dart';
+import 'package:wlstore/screens/home/components/section_list.dart';
+import 'package:wlstore/screens/home/components/section_staggered.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -15,13 +15,13 @@ class HomeScreen extends StatelessWidget {
       drawer: CustomDrawer(),
       body: Stack(
         children: <Widget>[
-          Container(
-            decoration: const BoxDecoration(
-                gradient: LinearGradient(colors: [
-              Color.fromARGB(255, 211, 118, 130),
-              Color.fromARGB(255, 253, 181, 168)
-            ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
-          ),
+          // Container(
+          //   decoration: const BoxDecoration(
+          //       gradient: LinearGradient(colors: [
+          //     Color.fromARGB(255, 211, 118, 130),
+          //     Color.fromARGB(255, 253, 181, 168)
+          //   ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+          // ),
           CustomScrollView(
             slivers: <Widget>[
               SliverAppBar(
@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget {
                 backgroundColor: Colors.transparent,
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
-                    S.of(context).aDescricaoDoOrcamentoNaoPodeEstarVazia,
+                    S.of(context).appName,
                   ),
                   centerTitle: true,
                 ),

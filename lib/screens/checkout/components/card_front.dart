@@ -2,8 +2,8 @@ import 'package:brasil_fields/brasil_fields.dart';
 import 'package:credit_card_type_detector/credit_card_type_detector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:lojavirtual/models/credit_card.dart';
-import 'package:lojavirtual/screens/checkout/components/card_text_field.dart';
+import 'package:wlstore/models/credit_card.dart';
+import 'package:wlstore/screens/checkout/components/card_text_field.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class CardFront extends StatelessWidget {

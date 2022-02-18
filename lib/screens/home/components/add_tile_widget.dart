@@ -1,9 +1,9 @@
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/section.dart';
-import 'package:lojavirtual/models/section_item.dart';
-import 'package:lojavirtual/screens/edit_product/components/image_source_sheet.dart';
+import 'package:wlstore/models/section.dart';
+import 'package:wlstore/models/section_item.dart';
+import 'package:wlstore/screens/edit_product/components/image_source_sheet.dart';
 import 'package:provider/provider.dart';
 
 class AddTileWidget extends StatelessWidget {

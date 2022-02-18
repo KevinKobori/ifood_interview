@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/home_manager.dart';
-import 'package:lojavirtual/models/section.dart';
+import 'package:wlstore/models/home_manager.dart';
+import 'package:wlstore/models/section.dart';
 
 class AddSectionWidget extends StatelessWidget {
   const AddSectionWidget(this.homeManager);

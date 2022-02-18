@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/helpers/send_email.dart';
-import 'package:lojavirtual/helpers/validators.dart';
-import 'package:lojavirtual/models/user_model.dart';
-import 'package:lojavirtual/models/user_manager.dart';
+import 'package:wlstore/helpers/send_email.dart';
+import 'package:wlstore/helpers/validators.dart';
+import 'package:wlstore/models/user_model.dart';
+import 'package:wlstore/models/user_manager.dart';
 import 'package:provider/provider.dart';
 
 class SignUpScreen extends StatelessWidget {

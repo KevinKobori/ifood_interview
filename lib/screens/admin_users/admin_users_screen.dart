@@ -1,9 +1,9 @@
 import 'package:alphabet_list_scroll_view/alphabet_list_scroll_view.dart';
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/common/custom_drawer/custom_drawer.dart';
-import 'package:lojavirtual/models/admin_orders_manager.dart';
-import 'package:lojavirtual/models/admin_users_manager.dart';
-import 'package:lojavirtual/models/page_manager.dart';
+import 'package:wlstore/common/custom_drawer/custom_drawer.dart';
+import 'package:wlstore/models/admin_orders_manager.dart';
+import 'package:wlstore/models/admin_users_manager.dart';
+import 'package:wlstore/models/page_manager.dart';
 import 'package:provider/provider.dart';
 
 class AdminUsersScreen extends StatelessWidget {

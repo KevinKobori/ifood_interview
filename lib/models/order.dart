@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:lojavirtual/models/address.dart';
-import 'package:lojavirtual/models/cart_manager.dart';
-import 'package:lojavirtual/models/cart_product.dart';
-import 'package:lojavirtual/services/cielo_payment.dart';
+import 'package:wlstore/models/address.dart';
+import 'package:wlstore/models/cart_manager.dart';
+import 'package:wlstore/models/cart_product.dart';
+import 'package:wlstore/services/cielo_payment.dart';
 
 enum Status { canceled, preparing, transporting, delivered }
 

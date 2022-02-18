@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/address.dart';
-import 'package:lojavirtual/helpers/extensions.dart';
+import 'package:wlstore/models/address.dart';
+import 'package:wlstore/helpers/extensions.dart';
 
 enum StoreStatus { closed, open, closing }
 

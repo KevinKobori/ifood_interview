@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:lojavirtual/models/item_size.dart';
-import 'package:lojavirtual/models/product.dart';
+import 'package:wlstore/models/item_size.dart';
+import 'package:wlstore/models/product.dart';
 
 class CartProduct extends ChangeNotifier {
   CartProduct.fromProduct(this._product) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gallery_saver/gallery_saver.dart';
-import 'package:lojavirtual/models/address.dart';
+import 'package:wlstore/models/address.dart';
 import 'package:screenshot/screenshot.dart';
 
 class ExportAddressDialog extends StatelessWidget {

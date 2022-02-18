@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/helpers/send_email.dart';
+import 'package:wlstore/helpers/send_email.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 

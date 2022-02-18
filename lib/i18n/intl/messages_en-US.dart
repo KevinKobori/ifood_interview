@@ -3,25 +3,30 @@ import 'package:intl/message_lookup_by_library.dart';
 
 final messages = MessageLookup();
 
-typedef MessageIfAbsent = String Function(String messageStr, List<dynamic> args);
+typedef MessageIfAbsent = String Function(
+    String messageStr, List<dynamic> args);
 
 class MessageLookup extends MessageLookupByLibrary {
   @override
   String get localeName => 'en_US';
 
-  static String m0(num howMany) =>
-      Intl.plural(howMany, zero: 'There is no Quote', one: '(1) Quote', other: '($howMany) Quotes');
+  static String m0(num howMany) => Intl.plural(howMany,
+      zero: 'There is no Quote', one: '(1) Quote', other: '($howMany) Quotes');
 
-  static String m1(num howMany) =>
-      Intl.plural(howMany, zero: 'No Quotes sent', one: '(1) Quote sent', other: '($howMany) Quotes Sent');
+  static String m1(num howMany) => Intl.plural(howMany,
+      zero: 'No Quotes sent',
+      one: '(1) Quote sent',
+      other: '($howMany) Quotes Sent');
 
   static String m2(hourAndMinute, date) =>
       "Chat started at $hourAndMinute - $date";
 
   static String m3(name) => "How was $name's work?";
 
-  static String m4(num howMany) =>
-      Intl.plural(howMany, zero: 'No Conversation', one: '$howMany Conversation', other: '$howMany Conversations');
+  static String m4(num howMany) => Intl.plural(howMany,
+      zero: 'No Conversation',
+      one: '$howMany Conversation',
+      other: '$howMany Conversations');
 
   static String m5(date) => "Created at $date";
 
@@ -39,18 +44,18 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m11(appName) =>
       "Thanks for using $appName. We hope you had a great experience.";
 
-  static String m12(num howMany) =>
-      Intl.plural(howMany, zero: 'No Quote', one: '(1) Quote', other: '($howMany) Quotes');
+  static String m12(num howMany) => Intl.plural(howMany,
+      zero: 'No Quote', one: '(1) Quote', other: '($howMany) Quotes');
 
   static String m13(num howMany) => "+$howMany Quotes";
 
   // static String m14(user) => "Hello, ${user}";
 
-  static String m15(num howMany) =>
-      Intl.plural(howMany, zero: '', one: 'Selected (1)', other: ' Selected ($howMany)');
+  static String m15(num howMany) => Intl.plural(howMany,
+      zero: '', one: 'Selected (1)', other: ' Selected ($howMany)');
 
-  static String m16(num howMany) =>
-      Intl.plural(howMany, zero: 'No Service yet', one: '1 service', other: '$howMany Services');
+  static String m16(num howMany) => Intl.plural(howMany,
+      zero: 'No Service yet', one: '1 service', other: '$howMany Services');
 
   static String m17(price) => "Monthly total: U\$$price";
 
@@ -113,7 +118,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "anexos": MessageLookupByLibrary.simpleMessage("Attachments"),
         "apenas": MessageLookupByLibrary.simpleMessage("ONLY"),
         "aplicar": MessageLookupByLibrary.simpleMessage("Apply"),
-        "appName": MessageLookupByLibrary.simpleMessage("Who Fixes"),
+        "appName": MessageLookupByLibrary.simpleMessage("WLStore"),
         "aptoBloco": MessageLookupByLibrary.simpleMessage("Suite, Unit..."),
         "arquivos": MessageLookupByLibrary.simpleMessage("Files"),
         "asSenhasNoCoincidem":
