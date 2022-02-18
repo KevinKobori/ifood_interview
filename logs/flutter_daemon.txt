@@ -1,7 +1,7 @@
 !! PLEASE REVIEW THIS LOG FOR SENSITIVE INFORMATION BEFORE SHARING !!
 
 Dart Code extension: 3.34.0
-Flutter extension: 3.34.0 (not activated)
+Flutter extension: 3.34.0 (activated)
 
 App: Visual Studio Code
 Version: 1.64.2
@@ -13,45 +13,22 @@ NO_PROXY: undefined
 Logging Categories:
     FlutterDaemon
 
-Tue Feb 15 2022 [18:46:58 GMT-0400 (Bolivia Time)] Log file started
-[6:46:58 PM] [FlutterDaemon] [Info] Spawning /Users/kevinkobori/development/flutter/bin/flutter with args ["daemon"]
-[6:46:58 PM] [FlutterDaemon] [Info] ..  in /Users/kevinkobori/development/flutter
-[6:46:58 PM] [FlutterDaemon] [Info] ..  with {"toolEnv":{"FLUTTER_HOST":"VSCode","PUB_ENVIRONMENT":"vscode.dart-code"}}
-[6:46:58 PM] [FlutterDaemon] [Info]     PID: 13064
-[6:46:58 PM] [FlutterDaemon] [Info] ==> [{"id":"1","method":"emulator.getEmulators"}]
-[6:47:01 PM] [FlutterDaemon] [Info] <== [{"event":"daemon.connected","params":{"version":"0.6.1","pid":13108}}]
-[6:47:01 PM] [FlutterDaemon] [Info] ==> [{"id":"2","method":"device.enable"}]
-[6:47:01 PM] [FlutterDaemon] [Info] <== [{"event":"daemon.logMessage","params":{"level":"status","message":"Starting device daemon..."}}]
-[6:47:01 PM] [FlutterDaemon] [Info] <== [{"id":"1","result":[{"id":"apple_ios_simulator","name":"iOS Simulator","category":"mobile","platformType":"ios"},{"id":"Pixel_3_API_29","name":"Pixel 3 API 29","category":"mobile","platformType":"android"}]}]
-[6:47:03 PM] [FlutterDaemon] [Info] <== [{"id":"2"}]
-[6:47:06 PM] [FlutterDaemon] [Info] <== [{"event":"device.added","params":{"id":"emulator-5554","name":"Android SDK built for x86","platform":"android-x86","emulator":true,"category":"mobile","platformType":"android","ephemeral":true,"emulatorId":"Pixel_3_API_29"}}]
-[6:47:06 PM] [FlutterDaemon] [Info] ==> [{"id":"3","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[6:47:06 PM] [FlutterDaemon] [Info] <== [{"id":"3","result":{"platforms":["ios","android"]}}]
-[6:47:07 PM] [FlutterDaemon] [Info] <== [{"event":"device.added","params":{"id":"macos","name":"macOS","platform":"darwin","emulator":false,"category":"desktop","platformType":"macos","ephemeral":false,"emulatorId":null}}]
-[6:47:07 PM] [FlutterDaemon] [Info] <== [{"event":"device.added","params":{"id":"chrome","name":"Chrome","platform":"web-javascript","emulator":false,"category":"web","platformType":"web","ephemeral":false,"emulatorId":null}}]
-[6:47:23 PM] [FlutterDaemon] [Info] ==> [{"id":"4","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[6:47:23 PM] [FlutterDaemon] [Info] <== [{"id":"4","result":{"platforms":["ios","android"]}}]
-[6:47:23 PM] [FlutterDaemon] [Info] ==> [{"id":"5","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[6:47:23 PM] [FlutterDaemon] [Info] <== [{"id":"5","result":{"platforms":["ios","android"]}}]
-[6:47:23 PM] [General] [Warn] Project has errors, prompting user
-[6:47:23 PM] [General] [Warn]     /Users/kevinkobori/Documents/github/lojavirtual/lib/main copy 6.dart:31:33
-[6:47:23 PM] [General] [Warn]     The function 'CalcPriceTerm' isn't defined.
-[6:47:25 PM] [General] [Warn] Did not find session f6ab388a-868b-4602-87e1-0d4009ae79b3 to handle dart.progressStart. There were 0 sessions:
-[6:47:25 PM] [General] [Warn] Event will be queued and processed when the session start event fires
-[6:50:39 PM] [FlutterRun] [Error] [DEV - Loja Virtual] Connection closed before full header was received
-[6:50:56 PM] [FlutterRun] [Error] [DEV - Loja Virtual] Connection closed before full header was received
-[6:55:00 PM] [FlutterDaemon] [Info] ==> [{"id":"6","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[6:55:00 PM] [FlutterDaemon] [Info] <== [{"id":"6","result":{"platforms":["ios","android"]}}]
-[6:55:00 PM] [FlutterDaemon] [Info] ==> [{"id":"7","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[6:55:00 PM] [FlutterDaemon] [Info] <== [{"id":"7","result":{"platforms":["ios","android"]}}]
-[6:55:00 PM] [General] [Warn] Did not find session 92fe618c-6194-4091-9a04-5e4bb7ccdb64 to handle dart.progressStart. There were 0 sessions:
-[6:55:00 PM] [General] [Warn] Event will be queued and processed when the session start event fires
-[6:55:03 PM] [FlutterDaemon] [Info] ==> [{"id":"8","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[6:55:03 PM] [FlutterDaemon] [Info] <== [{"id":"8","result":{"platforms":["ios","android"]}}]
-[6:55:03 PM] [FlutterDaemon] [Info] ==> [{"id":"9","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
-[6:55:03 PM] [FlutterDaemon] [Info] <== [{"id":"9","result":{"platforms":["ios","android"]}}]
-[6:55:04 PM] [General] [Warn] Did not find session ac27bc87-634f-44e7-bd1f-c021ab89da32 to handle dart.progressStart. There were 0 sessions:
-[6:55:04 PM] [General] [Warn] Event will be queued and processed when the session start event fires
-[6:58:02 PM] [FlutterRun] [Error] [DEV - Loja Virtual] The plugins `cloud_functions, flutter_facebook_login, flutter_plugin_android_lifecycle, gallery_saver, map_launcher, vibration` use a deprecated version of the Android embedding.
-To avoid unexpected runtime failures, or future build failures, try to see if these plugins support the Android V2 embedding. Otherwise, consider removing them since a future release of Flutter will remove these deprecated APIs.
-If you are plugin author, take a look at the docs for migrating the plugin to the V2 embedding: https://flutter.dev/go/android-plugin-migration.
+Fri Feb 18 2022 [18:08:38 GMT-0400 (Bolivia Time)] Log file started
+[6:08:38 PM] [FlutterDaemon] [Info] Spawning /Users/kevinkobori/development/flutter/bin/flutter with args ["daemon"]
+[6:08:38 PM] [FlutterDaemon] [Info] ..  in /Users/kevinkobori/development/flutter
+[6:08:38 PM] [FlutterDaemon] [Info] ..  with {"toolEnv":{"FLUTTER_HOST":"VSCode","PUB_ENVIRONMENT":"vscode.dart-code"}}
+[6:08:38 PM] [FlutterDaemon] [Info]     PID: 71968
+[6:08:38 PM] [FlutterDaemon] [Info] ==> [{"id":"1","method":"emulator.getEmulators"}]
+[6:08:42 PM] [FlutterDaemon] [Info] <== [{"event":"daemon.connected","params":{"version":"0.6.1","pid":76185}}]
+[6:08:42 PM] [FlutterDaemon] [Info] ==> [{"id":"2","method":"device.enable"}]
+[6:08:42 PM] [FlutterDaemon] [Info] <== [{"event":"daemon.logMessage","params":{"level":"status","message":"Starting device daemon..."}}]
+[6:08:43 PM] [FlutterDaemon] [Info] <== [{"id":"2"}]
+[6:08:43 PM] [FlutterDaemon] [Info] <== [{"id":"1","result":[{"id":"apple_ios_simulator","name":"iOS Simulator","category":"mobile","platformType":"ios"},{"id":"Pixel_3_API_29","name":"Pixel 3 API 29","category":"mobile","platformType":"android"}]}]
+[6:08:46 PM] [FlutterDaemon] [Info] <== [{"event":"device.added","params":{"id":"emulator-5554","name":"Android SDK built for x86","platform":"android-x86","emulator":true,"category":"mobile","platformType":"android","ephemeral":true,"emulatorId":"Pixel_3_API_29"}}]
+[6:08:46 PM] [FlutterDaemon] [Info] ==> [{"id":"3","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/kevinkobori/Documents/github/lojavirtual"}}]
+[6:08:46 PM] [FlutterDaemon] [Info] <== [{"id":"3","result":{"platforms":["ios","android"]}}]
+[6:08:47 PM] [FlutterDaemon] [Info] <== [{"event":"device.added","params":{"id":"macos","name":"macOS","platform":"darwin","emulator":false,"category":"desktop","platformType":"macos","ephemeral":false,"emulatorId":null}}]
+[6:08:47 PM] [FlutterDaemon] [Info] <== [{"event":"device.added","params":{"id":"chrome","name":"Chrome","platform":"web-javascript","emulator":false,"category":"web","platformType":"web","ephemeral":false,"emulatorId":null}}]
+[6:08:53 PM] [FlutterDaemon] [Info] ==> [{"id":"4","method":"daemon.shutdown"}]
+[6:08:53 PM] [FlutterDaemon] [Info] <== [{"id":"4"}]
+Fri Feb 18 2022 [18:08:53 GMT-0400 (Bolivia Time)] Log file ended
