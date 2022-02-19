@@ -27,6 +27,7 @@ import 'models/category_model.dart';
 import 'screens/category/category_screen.dart';
 import 'screens/edit_category/edit_category_screen.dart';
 import 'screens/products/products_screen.dart';
+import 'utils/styles/app_theme_data.dart';
 
 Future<void> main() async {
   runApp(MyApp());
@@ -87,21 +88,21 @@ class MyApp extends StatelessWidget {
         localizationsDelegates: const [
           S.delegate,
         ],
-        // theme: theme(),
-        theme: ThemeData(
-          // primarySwatch: Colors.amber,
-          // backgroundColor: Colors.amber,
-          // scaffoldBackgroundColor: Colors.amber,
-          primaryColor: const Color.fromARGB(255, 4, 125, 141),
-          scaffoldBackgroundColor: const Color.fromARGB(255, 4, 125, 141),
-          appBarTheme: const AppBarTheme(
-            elevation: 0,
-            backgroundColor: Color.fromARGB(255, 4, 125, 141),
-          ),
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-          colorScheme: ColorScheme.fromSwatch()
-              .copyWith(secondary: const Color.fromARGB(255, 4, 125, 141)),
-        ),
+        theme: themeData(),
+        // theme: ThemeData(
+        //   // primarySwatch: Colors.amber,
+        //   // backgroundColor: Colors.amber,
+        //   // scaffoldBackgroundColor: Colors.amber,
+        //   primaryColor: const Color.fromARGB(255, 4, 125, 141),
+        //   scaffoldBackgroundColor: Colors.grey[200],//const Color.fromARGB(255, 4, 125, 141),
+        //   appBarTheme: const AppBarTheme(
+        //     elevation: 0,
+        //     backgroundColor: Color.fromARGB(255, 4, 125, 141),
+        //   ),
+        //   visualDensity: VisualDensity.adaptivePlatformDensity,
+        //   colorScheme: ColorScheme.fromSwatch()
+        //       .copyWith(secondary: const Color.fromARGB(255, 4, 125, 141)),
+        // ),
         onGenerateRoute: (settings) {
           switch (settings.name) {
             case '/login':

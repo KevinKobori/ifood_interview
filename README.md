@@ -1,4 +1,4 @@
-# WLStore > A Open Source White-label Store
+# WLStore is a full White-label Store > A Open Source Project
 
     The idea is based on small business who want to expand their sales using a free service for this, it will be like a whatsapp business + instagram shop.
 
