@@ -75,7 +75,7 @@ class ProductScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 8),
                     child: Text(
-                      'A partir de',
+                      'Prices from',
                       style: TextStyle(
                         color: Colors.grey[600],
                         fontSize: 13,
@@ -93,7 +93,7 @@ class ProductScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 16, bottom: 8),
                     child: Text(
-                      'Descrição',
+                      'Description',
                       style:
                           TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                     ),
@@ -117,7 +117,7 @@ class ProductScreen extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 16, bottom: 8),
                       child: Text(
-                        'Tamanhos',
+                        'Sizes',
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w500),
                       ),
@@ -156,8 +156,8 @@ class ProductScreen extends StatelessWidget {
                             // textColor: Colors.white,
                             child: Text(
                               userManager.isLoggedIn
-                                  ? 'Adicionar ao Carrinho'
-                                  : 'Entre para Comprar',
+                                  ? 'Add to Cart'
+                                  : 'Login to buy',
                               style: const TextStyle(fontSize: 18),
                             ),
                           ),

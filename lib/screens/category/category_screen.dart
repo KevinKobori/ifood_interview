@@ -66,7 +66,7 @@ class CategoryScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 8),
                     child: Text(
-                      'A partir de',
+                      'Prices from',
                       style: TextStyle(
                         color: Colors.grey[600],
                         fontSize: 13,
@@ -84,7 +84,7 @@ class CategoryScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 16, bottom: 8),
                     child: Text(
-                      'Descrição',
+                      'Description',
                       style:
                           TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                     ),

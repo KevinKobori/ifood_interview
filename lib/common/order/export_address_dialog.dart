@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gallery_saver/gallery_saver.dart';
-import 'package:wlstore/models/address.dart';
 import 'package:screenshot/screenshot.dart';
+import 'package:wlstore/models/address.dart';
 
 class ExportAddressDialog extends StatelessWidget {
   ExportAddressDialog(this.address);
@@ -13,7 +13,7 @@ class ExportAddressDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('Endereço de Entrega'),
+      title: const Text('Delivery Address'),
       content: Screenshot(
         controller: screenshotController,
         child: Container(

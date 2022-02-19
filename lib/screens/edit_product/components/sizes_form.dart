@@ -24,7 +24,7 @@ class SizesForm extends StatelessWidget {
               children: <Widget>[
                 Expanded(
                   child: Text(
-                    'Tamanhos',
+                    'Sizes',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                   ),
                 ),

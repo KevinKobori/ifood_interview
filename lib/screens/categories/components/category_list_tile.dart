@@ -44,7 +44,7 @@ class CategoryListTile extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 4),
                       child: Text(
-                        'A partir de',
+                        'Prices from',
                         style: TextStyle(
                           color: Colors.grey[400],
                           fontSize: 12,

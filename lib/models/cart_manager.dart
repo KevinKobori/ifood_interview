@@ -161,7 +161,7 @@ class CartManager extends ChangeNotifier {
       loading = false;
     } else {
       loading = false;
-      return Future.error('Endereço fora do raio de entrega :(');
+      return Future.error('Address outside delivery radius :('); // .i18n Endereço fora do raio de entrega :(
     }
   }
 

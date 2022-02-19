@@ -49,7 +49,7 @@ class AddSectionWidget extends StatelessWidget {
         //       padding: const EdgeInsets.symmetric(horizontal: 6),
         //     ),
         //     child: const Text(
-        //       'Adicionar Grade',
+        //       'Add Staggered',
         //     ),
         //   ),
         // ),

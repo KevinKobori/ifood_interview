@@ -69,7 +69,7 @@ class EditCategoryScreen extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 4),
                       child: Text(
-                        'A partir de',
+                        'Prices from',
                         style: TextStyle(
                           color: Colors.grey[600],
                           fontSize: 13,
@@ -112,7 +112,7 @@ class EditCategoryScreen extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 16),
                       child: Text(
-                        'Descrição',
+                        'Description',
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w500),
                       ),
@@ -121,7 +121,7 @@ class EditCategoryScreen extends StatelessWidget {
                       initialValue: categoryModel.description,
                       style: const TextStyle(fontSize: 16),
                       decoration: const InputDecoration(
-                        hintText: 'Descrição',
+                        hintText: 'Description',
                         border: InputBorder.none,
                         hintStyle: TextStyle(
                           fontSize: 16,
@@ -130,7 +130,7 @@ class EditCategoryScreen extends StatelessWidget {
                       ),
                       maxLines: null,
                       validator: (desc) {
-                        if (desc.isEmpty) return 'Insira uma descrição';
+                        if (desc.isEmpty) return 'Insert a description';
                         return null;
                       },
                       onSaved: (desc) => categoryModel.description = desc,

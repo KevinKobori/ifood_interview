@@ -36,7 +36,7 @@ class CartScreen extends StatelessWidget {
                     .toList(),
               ),
               PriceCard(
-                buttonText: 'Continuar para Entrega',
+                buttonText: 'Continuous to Delivery',
                 onPressed: cartManager.isCartValid
                     ? () {
                         Navigator.of(context).pushNamed('/address');

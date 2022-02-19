@@ -10,7 +10,7 @@ class AddressScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Entrega'),
+        title: const Text('Delivery'),
         centerTitle: true,
       ),
       body: ListView(
@@ -19,7 +19,7 @@ class AddressScreen extends StatelessWidget {
           Consumer<CartManager>(
             builder: (_, cartManager, __) {
               return PriceCard(
-                buttonText: 'Continuar para o Pagamento',
+                buttonText: 'Continuous to Payment',
                 onPressed: cartManager.isAddressValid
                     ? () {
                         Navigator.of(context).pushNamed('/checkout');

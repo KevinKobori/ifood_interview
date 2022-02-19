@@ -38,7 +38,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
                 },
                 child: const Padding(
                   padding: EdgeInsets.only(right: 8),
-                  child: Text('CONTINUAR'),
+                  child: Text('CONTINUOUS'),
                 ),
               );
             }
@@ -84,7 +84,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
                 padding: const EdgeInsets.symmetric(horizontal: 6),
               ),
               child: const Text(
-                'Virar cartão',
+                'Flip Card',
                 style: TextStyle(
                   // color: Colors.white,
                   // fontWeight: FontWeight.bold,

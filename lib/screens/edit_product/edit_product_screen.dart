@@ -86,7 +86,7 @@ class EditProductScreen extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 4),
                       child: Text(
-                        'A partir de',
+                        'Prices from',
                         style: TextStyle(
                           color: Colors.grey[600],
                           fontSize: 13,
@@ -104,7 +104,7 @@ class EditProductScreen extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 16),
                       child: Text(
-                        'Descrição',
+                        'Description',
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w500),
                       ),
@@ -113,7 +113,7 @@ class EditProductScreen extends StatelessWidget {
                       initialValue: product.description,
                       style: const TextStyle(fontSize: 16),
                       decoration: const InputDecoration(
-                        hintText: 'Descrição',
+                        hintText: 'Description',
                         border: InputBorder.none,
                         hintStyle: TextStyle(
                           fontSize: 16,
@@ -122,7 +122,7 @@ class EditProductScreen extends StatelessWidget {
                       ),
                       maxLines: null,
                       validator: (desc) {
-                        if (desc.length < 10) return 'Descrição muito curta';
+                        if (desc.length < 10) return 'Description not long enought';
                         return null;
                       },
                       onSaved: (desc) => product.description = desc,

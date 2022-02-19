@@ -26,7 +26,7 @@ class CheckoutScreen extends StatelessWidget {
       child: Scaffold(
         key: scaffoldKey,
         appBar: AppBar(
-          title: const Text('Pagamento'),
+          title: const Text('Payment'),
           centerTitle: true,
         ),
         body: GestureDetector(
@@ -47,7 +47,7 @@ class CheckoutScreen extends StatelessWidget {
                         height: 16,
                       ),
                       Text(
-                        'Processando seu pagamento...',
+                        'Payment in process...',
                         style: TextStyle(
                             // color: Colors.white,
                             fontWeight: FontWeight.w800,
@@ -65,7 +65,7 @@ class CheckoutScreen extends StatelessWidget {
                     CreditCardWidget(creditCard),
                     CpfField(),
                     PriceCard(
-                      buttonText: 'Finalizar Pedido',
+                      buttonText: 'Finish Order',
                       onPressed: () {
                         // if (formKey.currentState.validate()) {
                         // formKey.currentState.save();

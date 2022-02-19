@@ -108,7 +108,7 @@ class OrderTile extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 6),
                     ),
                     child: Text(
-                      'Endereço',
+                      'Address',
                       style: TextStyle(
                         color: primaryColor,
                       ),
