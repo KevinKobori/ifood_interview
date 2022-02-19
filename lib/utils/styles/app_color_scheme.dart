@@ -24,18 +24,30 @@ class AppColorScheme {
     errorColor: AppColorScheme.red,
   );
 
-  /// http://mcg.mbitson.com/
-  static const MaterialColor primarySwatch = const MaterialColor(0xFF20c99f, {
-    50: Color.fromRGBO(32, 201, 159, .1),
-    100: Color.fromRGBO(32, 201, 159, .2),
-    200: Color.fromRGBO(32, 201, 159, .3),
-    300: Color.fromRGBO(32, 201, 159, .4),
-    400: Color.fromRGBO(32, 201, 159, .5),
-    500: Color.fromRGBO(32, 201, 159, .6),
-    600: Color.fromRGBO(32, 201, 159, .7),
-    700: Color.fromRGBO(32, 201, 159, .8),
-    800: Color.fromRGBO(32, 201, 159, .9),
-    900: Color.fromRGBO(32, 201, 159, 1),
+  // static const MaterialColor primarySwatch = const MaterialColor(0xFF20c99f, {
+  //   50: Color.fromRGBO(32, 201, 159, .1),
+  //   100: Color.fromRGBO(32, 201, 159, .2),
+  //   200: Color.fromRGBO(32, 201, 159, .3),
+  //   300: Color.fromRGBO(32, 201, 159, .4),
+  //   400: Color.fromRGBO(32, 201, 159, .5),
+  //   500: Color.fromRGBO(32, 201, 159, .6),
+  //   600: Color.fromRGBO(32, 201, 159, .7),
+  //   700: Color.fromRGBO(32, 201, 159, .8),
+  //   800: Color.fromRGBO(32, 201, 159, .9),
+  //   900: Color.fromRGBO(32, 201, 159, 1),
+  // });
+
+  static MaterialColor primarySwatch = MaterialColor(0xFFFFE74C3C, {
+    50: Color(0xFFFDEDEC),
+    100: Color(0xFFFADBD8),
+    200: Color(0xFFF5B7B1),
+    300: Color(0xFFF1948A),
+    400: Color(0xFFEC7063),
+    500: Color(0xFFE74C3C),
+    600: Color(0xCB4335),
+    700: Color(0xFFB03A2E),
+    800: Color(0xFF943126),
+    900: Color(0xFF78281F),
   });
 
   static const MaterialColor primarySwatchDark = MaterialColor(0xff1EB993, {

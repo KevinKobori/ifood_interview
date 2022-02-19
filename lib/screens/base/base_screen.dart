@@ -21,6 +21,7 @@ import "package:flutter_card_swipper/flutter_card_swiper.dart";
 import "package:flutter_svg/flutter_svg.dart";
 import "package:flutter_neumorphic/flutter_neumorphic.dart";
 import "package:visibility_detector/visibility_detector.dart";
+import 'package:wlstore/utils/styles/app_color_scheme.dart';
 
 import "package:wlstore/utils/styles/constants.dart";
 
@@ -77,6 +78,64 @@ class _BaseScreenState extends State<BaseScreen> {
     ).show(context);
   }
 
+  BottomNavigationBarItem getBottomNavigationBarItem(
+      int index, String title, IconData icon) {
+    return BottomNavigationBarItem(
+      backgroundColor: darkGrey,
+      icon: indexPage == index
+          ? Padding(
+              padding: EdgeInsets.fromLTRB(
+                index == 0 ? 16 : 0,
+                0,
+                index == 3 ? 16 : 0,
+                0,
+              ),
+              child: Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.2),
+                      spreadRadius: 6,
+                      blurRadius: 10,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(16),
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [
+                      AppColorScheme.primarySwatch,
+                      AppColorScheme.primarySwatch[300],
+                    ],
+                  ),
+                ),
+                height: 42,
+                width: 106,
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(2, 0, 0, 0),
+                    child: Text(
+                      title,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w700,
+                        letterSpacing: 1,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            )
+          : Icon(
+              icon,
+              size: 24,
+              color: Colors.white,
+            ), //,
+      label: title,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Provider(
@@ -84,220 +143,205 @@ class _BaseScreenState extends State<BaseScreen> {
       child: Consumer<UserManager>(
         builder: (_, userManager, __) {
           return Scaffold(
-            body: PageView(
-              controller: pageController,
-              physics: const NeverScrollableScrollPhysics(),
+            body: Stack(
               children: <Widget>[
-                HomeScreen(),
-                CategoriesScreen(),
-                const ProductsScreen(null),
-                OrdersScreen(),
-                StoresScreen(),
-                if (userManager.adminEnabled) ...[
-                  AdminUsersScreen(),
-                  AdminOrdersScreen(),
-                ]
+                PageView(
+                  controller: pageController,
+                  physics: const NeverScrollableScrollPhysics(),
+                  children: <Widget>[
+                    HomeScreen(),
+                    CategoriesScreen(),
+                    const ProductsScreen(null),
+                    OrdersScreen(),
+                    StoresScreen(),
+                    if (userManager.adminEnabled) ...[
+                      AdminUsersScreen(),
+                      AdminOrdersScreen(),
+                    ]
+                  ],
+                ),
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    height: 56,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Theme.of(context)
+                              .scaffoldBackgroundColor
+                              .withOpacity(0),
+                          Theme.of(context).scaffoldBackgroundColor,
+                        ],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
             bottomNavigationBar: Padding(
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
-              child: Card(
-                // shape: RoundedRectangleBorder(
-                //   borderRadius: BorderRadius.circular(20.0),
-                // ),
-                // BorderRadius.circular(16),
-                // style: NeumorphicStyle(
-                //   shape: NeumorphicShape.convex,
-                //   color: Colors.transparent,
-                //   depth: 3,
-                //   intensity: 0.4,
-                //   lightSource: LightSource.topLeft,
-                //   shadowLightColor: Colors.white.withOpacity(0.4),
-                //   shadowDarkColor: Colors.black,
-                // ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(26),
                 child: BottomNavigationBar(
                   showSelectedLabels: false,
                   showUnselectedLabels: false,
                   elevation: 0,
                   items: [
-                    BottomNavigationBarItem(
-                      backgroundColor: color5,
-                      icon: indexPage == 0
-                          ? Padding(
-                              padding: const EdgeInsets.fromLTRB(12, 0, 0, 0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black.withOpacity(0.2),
-                                      spreadRadius: 6,
-                                      blurRadius: 10,
-                                      offset: const Offset(0, 3),
-                                    ),
-                                  ],
-                                  borderRadius: BorderRadius.circular(8),
-                                  gradient: const LinearGradient(
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight,
-                                    colors: [
-                                      color3,
-                                      color4,
-                                    ],
-                                  ),
-                                ),
-                                height: 40,
-                                width: 106,
-                                child: const Center(
-                                  child: Padding(
-                                    padding: EdgeInsets.fromLTRB(2, 0, 0, 0),
-                                    child: Text(
-                                      "Home",
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w700,
-                                        letterSpacing: 1,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            )
-                          : const Icon(Icons.home_filled,
-                              size: 24, color: Colors.white),
-                      label: "Home",
+                    getBottomNavigationBarItem(
+                      0,
+                      'Home',
+                      Icons.home_filled,
                     ),
-                    BottomNavigationBarItem(
-                      backgroundColor: color6,
-                      icon: indexPage == 1
-                          ? Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black.withOpacity(0.2),
-                                      spreadRadius: 6,
-                                      blurRadius: 10,
-                                      offset: const Offset(0, 3),
-                                    ),
-                                  ],
-                                  borderRadius: BorderRadius.circular(8),
-                                  gradient: const LinearGradient(
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight,
-                                    colors: [
-                                      color3,
-                                      color4,
-                                    ],
-                                  ),
-                                ),
-                                height: 40,
-                                width: 106,
-                                child: const Center(
-                                  child: Padding(
-                                    padding: EdgeInsets.fromLTRB(2, 0, 0, 0),
-                                    child: Text(
-                                      "Categories",
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w700,
-                                        letterSpacing: 1,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            )
-                          : const Icon(Icons.grid_view_rounded,
-                              size: 24, color: Colors.white),
-                      label: "Categories",
+                    getBottomNavigationBarItem(
+                      1,
+                      'Categories',
+                      Icons.storefront_outlined,
                     ),
-                    BottomNavigationBarItem(
-                      backgroundColor: color7,
-                      icon: indexPage == 2
-                          ? Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: Colors.black.withOpacity(0.2),
-                                        spreadRadius: 6,
-                                        blurRadius: 10,
-                                        offset: Offset(0, 3)),
-                                  ],
-                                  borderRadius: BorderRadius.circular(8),
-                                  gradient: const LinearGradient(
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight,
-                                    colors: [
-                                      color3,
-                                      color4,
-                                    ],
-                                  ),
-                                ),
-                                height: 40,
-                                width: 106,
-                                child: const Center(
-                                  child: Padding(
-                                    padding: EdgeInsets.fromLTRB(2, 0, 0, 0),
-                                    child: Text(
-                                      "Products",
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w700,
-                                        letterSpacing: 1,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            )
-                          : Icon(Icons.view_in_ar_outlined,
-                              size: 24, color: Colors.white), //window_rounded
-                      label: "Products",
+                    getBottomNavigationBarItem(
+                      2,
+                      'Products',
+                      Icons.widgets_rounded,
                     ),
-                    BottomNavigationBarItem(
-                      backgroundColor: color8,
-                      icon: indexPage == 3
-                          ? Padding(
-                              padding: EdgeInsets.fromLTRB(0, 0, 12, 0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black.withOpacity(0.2),
-                                      spreadRadius: 6,
-                                      blurRadius: 10,
-                                      offset: const Offset(0, 3),
-                                    ),
-                                  ],
-                                  borderRadius: BorderRadius.circular(8),
-                                  gradient: const LinearGradient(
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight,
-                                    colors: [
-                                      color3,
-                                      color4,
-                                    ],
-                                  ),
-                                ),
-                                height: 40,
-                                width: 106,
-                                child: const Center(
-                                  child: Padding(
-                                    padding: EdgeInsets.fromLTRB(2, 0, 0, 0),
-                                    child: Text(
-                                      "Stores",
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w700,
-                                        letterSpacing: 1,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            )
-                          : Icon(Icons.menu, size: 24, color: Colors.white),
-                      label: "Stores",
+                    getBottomNavigationBarItem(
+                      3,
+                      'Orders',
+                      Icons.view_in_ar_outlined,
                     ),
+                    // BottomNavigationBarItem(
+                    //   backgroundColor: darkGrey,
+                    //   icon: indexPage == 1
+                    //       ? Padding(
+                    //           padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                    //           child: Container(
+                    //             decoration: BoxDecoration(
+                    //               boxShadow: [
+                    //                 BoxShadow(
+                    //                   color: Colors.black.withOpacity(0.2),
+                    //                   spreadRadius: 6,
+                    //                   blurRadius: 10,
+                    //                   offset: const Offset(0, 3),
+                    //                 ),
+                    //               ],
+                    //               borderRadius: BorderRadius.circular(8),
+                    //               gradient: const LinearGradient(
+                    //                 begin: Alignment.topLeft,
+                    //                 end: Alignment.bottomRight,
+                    //                 colors: [
+                    //                   color3,
+                    //                   color4,
+                    //                 ],
+                    //               ),
+                    //             ),
+                    //             height: 40,
+                    //             width: 106,
+                    //             child: const Center(
+                    //               child: Padding(
+                    //                 padding: EdgeInsets.fromLTRB(2, 0, 0, 0),
+                    //                 child: Text(
+                    //                   "Categories",
+                    //                   style: TextStyle(
+                    //                     fontWeight: FontWeight.w700,
+                    //                     letterSpacing: 1,
+                    //                   ),
+                    //                 ),
+                    //               ),
+                    //             ),
+                    //           ),
+                    //         )
+                    //       : const Icon(Icons.grid_view_rounded,
+                    //           size: 24, color: Colors.white),
+                    //   label: "Categories",
+                    // ),
+                    // BottomNavigationBarItem(
+                    //   backgroundColor: darkGrey,
+                    //   icon: indexPage == 2
+                    //       ? Padding(
+                    //           padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                    //           child: Container(
+                    //             decoration: BoxDecoration(
+                    //               boxShadow: [
+                    //                 BoxShadow(
+                    //                     color: Colors.black.withOpacity(0.2),
+                    //                     spreadRadius: 6,
+                    //                     blurRadius: 10,
+                    //                     offset: Offset(0, 3)),
+                    //               ],
+                    //               borderRadius: BorderRadius.circular(8),
+                    //               gradient: const LinearGradient(
+                    //                 begin: Alignment.topLeft,
+                    //                 end: Alignment.bottomRight,
+                    //                 colors: [
+                    //                   color3,
+                    //                   color4,
+                    //                 ],
+                    //               ),
+                    //             ),
+                    //             height: 40,
+                    //             width: 106,
+                    //             child: const Center(
+                    //               child: Padding(
+                    //                 padding: EdgeInsets.fromLTRB(2, 0, 0, 0),
+                    //                 child: Text(
+                    //                   "Products",
+                    //                   style: TextStyle(
+                    //                     fontWeight: FontWeight.w700,
+                    //                     letterSpacing: 1,
+                    //                   ),
+                    //                 ),
+                    //               ),
+                    //             ),
+                    //           ),
+                    //         )
+                    //       : Icon(Icons.view_in_ar_outlined,
+                    //           size: 24, color: Colors.white), //window_rounded
+                    //   label: "Products",
+                    // ),
+                    // BottomNavigationBarItem(
+                    //   backgroundColor: darkGrey,
+                    //   icon: indexPage == 3
+                    //       ? Padding(
+                    //           padding: EdgeInsets.fromLTRB(0, 0, 12, 0),
+                    //           child: Container(
+                    //             decoration: BoxDecoration(
+                    //               boxShadow: [
+                    //                 BoxShadow(
+                    //                   color: Colors.black.withOpacity(0.2),
+                    //                   spreadRadius: 6,
+                    //                   blurRadius: 10,
+                    //                   offset: const Offset(0, 3),
+                    //                 ),
+                    //               ],
+                    //               borderRadius: BorderRadius.circular(8),
+                    //               gradient: const LinearGradient(
+                    //                 begin: Alignment.topLeft,
+                    //                 end: Alignment.bottomRight,
+                    //                 colors: [
+                    //                   color3,
+                    //                   color4,
+                    //                 ],
+                    //               ),
+                    //             ),
+                    //             height: 40,
+                    //             width: 106,
+                    //             child: const Center(
+                    //               child: Padding(
+                    //                 padding: EdgeInsets.fromLTRB(2, 0, 0, 0),
+                    //                 child: Text(
+                    //                   "Stores",
+                    //                   style: TextStyle(
+                    //                     fontWeight: FontWeight.w700,
+                    //                     letterSpacing: 1,
+                    //                   ),
+                    //                 ),
+                    //               ),
+                    //             ),
+                    //           ),
+                    //         )
+                    //       : Icon(Icons.menu, size: 24, color: Colors.white),
+                    //   label: "Stores",
+                    // ),
                   ],
                   currentIndex: indexPage,
                   onTap: (newIndex) {

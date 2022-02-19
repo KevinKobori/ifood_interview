@@ -17,6 +17,8 @@ const MaterialColor primaryBlack = MaterialColor(
   },
 );
 
+var darkGrey =  Color(0xFF0D0D0D);
+var black = Colors.black;
 const kAccentColor = Color(0xFFFF7643);
 const kPrimaryLightColor = Color(0xFFFFECDF);
 const kPrimaryGradientColor = LinearGradient(
