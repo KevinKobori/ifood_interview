@@ -8,8 +8,8 @@ import 'package:wlstore/models/product_manager.dart';
 import 'package:wlstore/models/section.dart';
 import 'package:wlstore/models/section_item.dart';
 
-class ProductItemTile extends StatelessWidget {
-  const ProductItemTile(this.item);
+class SectionProductsItemTile extends StatelessWidget {
+  const SectionProductsItemTile(this.item);
 
   final SectionItem item;
 

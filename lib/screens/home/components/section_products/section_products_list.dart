@@ -3,8 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:wlstore/models/home_manager.dart';
 import 'package:wlstore/models/section.dart';
 import 'package:wlstore/screens/home/components/add_tile_widget.dart';
-import 'package:wlstore/screens/home/components/product_item_tile.dart';
 import 'package:wlstore/screens/home/components/section_header.dart';
+
+import 'section_products_item_tile.dart';
 
 class SectionProductsList extends StatelessWidget {
   const SectionProductsList(this.section);
@@ -37,7 +38,7 @@ class SectionProductsList extends StatelessWidget {
                             left: index == 0 ? 26.0 : 0,
                             right: index == section.items.length - 1 ? 26.0 : 0,
                           ),
-                          child: ProductItemTile(section.items[index]),
+                          child: SectionProductsItemTile(section.items[index]),
                         );
                       else
                         return Padding(

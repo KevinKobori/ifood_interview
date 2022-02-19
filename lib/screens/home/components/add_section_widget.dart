@@ -21,19 +21,21 @@ class AddSectionWidget extends StatelessWidget {
             ),
             child: const Text(
               'Add Categories List',
+              style: TextStyle(color: Colors.black),
             ),
           ),
         ),
         Expanded(
           child: TextButton(
             onPressed: () {
-              homeManager.addSection(Section(type: 'list'));
+              homeManager.addSection(Section(type: 'products-list'));
             },
             style: ElevatedButton.styleFrom(
               padding: const EdgeInsets.symmetric(horizontal: 6),
             ),
             child: const Text(
               'Add Products List',
+                  style: TextStyle(color: Colors.black),
             ),
           ),
         ),

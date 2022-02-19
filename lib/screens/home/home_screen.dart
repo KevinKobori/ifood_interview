@@ -7,12 +7,13 @@ import 'package:wlstore/common/custom_search_text_field.dart';
 import 'package:wlstore/models/home_manager.dart';
 import 'package:wlstore/models/product.dart';
 import 'package:wlstore/models/product_manager.dart';
+import 'package:wlstore/models/user_manager.dart';
 import 'package:wlstore/screens/home/components/add_section_widget.dart';
 import 'package:wlstore/screens/products/components/product_list_tile.dart';
 import 'package:wlstore/utils/styles/app_color_scheme.dart';
 import '../base/base_screen.dart';
-import 'components/section_categories_list.dart';
-import 'components/section_products_list.dart';
+import 'components/section_categories/section_categories_list.dart';
+import 'components/section_products/section_products_list.dart';
 // /Users/kevinkobori/Documents/github/wlstore/lib/screens/base/base_screen.dart
 
 // GlobalKey<ScaffoldState> scafffoldKey = GlobalKey();
@@ -88,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ];
 
             if (homeManager.editing)
-              listChildren.add(AddSectionWidget(homeManager));
+              childrenWithPadding.add(AddSectionWidget(homeManager));
 
             return SliverList(
               delegate: SliverChildListDelegate(childrenWithPadding),
@@ -217,8 +218,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 leading: Container(),
                 title: Container(
                   padding: const EdgeInsets.fromLTRB(28, 0, 28, 0),
-
-                  // color: Colors.blue,
                   child: Row(
                     children: <Widget>[
                       Builder(
@@ -230,10 +229,19 @@ class _HomeScreenState extends State<HomeScreen> {
                           () => Scaffold.of(context).openDrawer(),
                         ),
                       ),
-
-                      SizedBox(width: 16),
-                      Text('Hi Jeniffer',
-                          style: Theme.of(context).textTheme.subtitle2),
+                      const SizedBox(width: 16),
+                      Consumer<UserManager>(builder: (_, userManager, __) {
+                        if (userManager.userModel?.name != null) {
+                          return Text(
+                            'Hi, ${userManager.userModel?.name}',
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 2,
+                            style: Theme.of(context).textTheme.subtitle2,
+                          );
+                        } else {
+                          return Container();
+                        }
+                      }),
                       // Container(
                       //   height: 40,
                       //   width: 40,
@@ -261,6 +269,41 @@ class _HomeScreenState extends State<HomeScreen> {
                       //   ),
                       // ),
                       const Spacer(),
+                      Consumer2<UserManager, HomeManager>(
+                        builder: (_, userManager, homeManager, __) {
+                          if (userManager.adminEnabled &&
+                              !homeManager.loading) {
+                            if (homeManager.editing) {
+                              return PopupMenuButton(
+                                onSelected: (e) {
+                                  if (e == 'SAVE') {
+                                    homeManager.saveEditing();
+                                  } else {
+                                    homeManager.discardEditing();
+                                  }
+                                },
+                                itemBuilder: (_) {
+                                  return ['SAVE', 'DISCARD'].map((e) {
+                                    return PopupMenuItem(
+                                      value: e,
+                                      child: Text(e),
+                                    );
+                                  }).toList();
+                                },
+                              );
+                            } else {
+                              return IconButton(
+                                icon: Icon(
+                                  Icons.edit,
+                                  color: Colors.black,
+                                ),
+                                onPressed: homeManager.enterEditing,
+                              );
+                            }
+                          } else
+                            return Container();
+                        },
+                      ),
                       customIconButton(
                         const EdgeInsets.only(left: 0),
                         Icons.notifications,
@@ -392,7 +435,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
               // }),
               getPageList(productManager: productManager),
-              const SliverToBoxAdapter(child: SizedBox(height: 1000)),
+              const SliverToBoxAdapter(child: SizedBox(height: 400)),
             ],
           ),
         ],

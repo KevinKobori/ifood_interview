@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:wlstore/models/section_item.dart';
 import 'package:uuid/uuid.dart';
+import 'package:wlstore/models/section_item.dart';
 
 class Section extends ChangeNotifier {
   Section({this.id, this.name, this.type, this.items}) {
@@ -108,9 +108,9 @@ class Section extends ChangeNotifier {
 
   bool valid() {
     if (name == null || name.isEmpty) {
-      error = 'Título inválido';
+      error = 'Invalid title';
     } else if (items.isEmpty) {
-      error = 'Insira ao menos uma imagem';
+      error = 'Insert at least one image';
     } else {
       error = null;
     }

@@ -52,7 +52,7 @@ class AdminOrdersManager extends ChangeNotifier {
             modOrder.updateFromDocument(change.document);
             break;
           case DocumentChangeType.removed:
-            debugPrint('Deu problema sério!!!');
+            debugPrint('A several error ocurred!!!');
             break;
         }
       }
