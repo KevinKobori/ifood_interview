@@ -132,8 +132,8 @@ class SectionProductsItemTile extends StatelessWidget {
               // const SizedBox(height: 4),
               Container(
                 // color: Colors.pink,
-                width: MediaQuery.of(context).size.width * 0.367,
-                padding: const EdgeInsets.fromLTRB(10, 4, 4, 4),
+                width: MediaQuery.of(context).size.width * 0.38,
+                padding: const EdgeInsets.fromLTRB(10, 4, 4, 0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

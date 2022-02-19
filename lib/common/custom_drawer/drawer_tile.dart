@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wlstore/models/page_manager.dart';
 import 'package:provider/provider.dart';
+import 'package:wlstore/models/page_manager.dart';
 
 class DrawerTile extends StatelessWidget {
   const DrawerTile({this.iconData, this.title, this.page});
@@ -16,6 +16,7 @@ class DrawerTile extends StatelessWidget {
 
     return InkWell(
       onTap: () {
+        Navigator.of(context).pop();
         context.read<PageManager>().setPage(page);
       },
       child: SizedBox(

@@ -11,8 +11,7 @@ class CategoryListTile extends StatelessWidget {
     // context.read<CartManager>().setCategoryId();
     return GestureDetector(
       onTap: () {
-        Navigator.of(context)
-            .pushNamed('/products', arguments: categoryModel);
+        Navigator.of(context).pushNamed('/products', arguments: categoryModel);
       },
       child: Card(
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),

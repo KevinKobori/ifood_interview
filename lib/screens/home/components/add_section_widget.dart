@@ -35,7 +35,7 @@ class AddSectionWidget extends StatelessWidget {
             ),
             child: const Text(
               'Add Products List',
-                  style: TextStyle(color: Colors.black),
+              style: TextStyle(color: Colors.black),
             ),
           ),
         ),

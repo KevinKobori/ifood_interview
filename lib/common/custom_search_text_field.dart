@@ -29,12 +29,13 @@ Widget customSearchTextField(
         hintText: hintText,
         hintStyle: TextStyle(color: Colors.grey[400]),
         suffixIcon: Container(
-          padding: const EdgeInsets.fromLTRB(14,2,0,2),
+          padding: const EdgeInsets.fromLTRB(14, 2, 0, 2),
           child: Card(
             // color: Colors.blue,
             child: Padding(
               padding: const EdgeInsets.all(0.0),
-              child: AspectRatio(aspectRatio: 1, child: Icon(Icons.search, size: 18)),
+              child: AspectRatio(
+                  aspectRatio: 1, child: Icon(Icons.search, size: 18)),
             ),
           ),
         ),

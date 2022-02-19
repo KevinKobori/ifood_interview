@@ -43,9 +43,8 @@ class _ProductsScreenState extends State<ProductsScreen> {
         title: Consumer<ProductManager>(
           builder: (_, productManager, __) {
             if (productManager.search.isEmpty && widget.category == null) {
-              return const Text('Products');
-            } else 
-            if (widget.category != null) {
+              return const Text('Produtos');
+            } else if (widget.category != null) {
               return Text(widget.category.name);
             } else {
               return LayoutBuilder(
@@ -72,7 +71,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
             }
           },
         ),
-        centerTitle: true,
+        // centerTitle: true,
         actions: <Widget>[
           Consumer<ProductManager>(
             builder: (_, productManager, __) {

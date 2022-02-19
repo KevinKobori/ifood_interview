@@ -86,9 +86,9 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
               child: const Text(
                 'Virar cartão',
                 style: TextStyle(
-                  // color: Colors.white,
-                  // fontWeight: FontWeight.bold,
-                ),
+                    // color: Colors.white,
+                    // fontWeight: FontWeight.bold,
+                    ),
               ),
             ),
           ],

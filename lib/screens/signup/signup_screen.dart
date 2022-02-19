@@ -19,7 +19,7 @@ class SignUpScreen extends StatelessWidget {
       key: scaffoldKey,
       appBar: AppBar(
         title: const Text('Criar Conta'),
-        centerTitle: true,
+        // centerTitle: true,
       ),
       body: Center(
         child: Card(
@@ -129,8 +129,8 @@ class SignUpScreen extends StatelessWidget {
                                             title: const Text(
                                               "Verifique seu email!",
                                               style: TextStyle(
-                                                // color: Colors.white,
-                                              ),
+                                                  // color: Colors.white,
+                                                  ),
                                             ),
                                             content: ElevatedButton(
                                               onPressed: () async {
@@ -186,8 +186,8 @@ class SignUpScreen extends StatelessWidget {
                                               child: const Text(
                                                 'Enviar verificação por email',
                                                 style: TextStyle(
-                                                  // color: Colors.white,
-                                                ),
+                                                    // color: Colors.white,
+                                                    ),
                                               ),
                                             ),
                                           );

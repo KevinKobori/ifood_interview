@@ -25,7 +25,7 @@ class EditCategoryScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(editing ? 'Editar Categoria' : 'Criar Categoria'),
-          centerTitle: true,
+          // centerTitle: true,
           actions: <Widget>[
             if (editing)
               IconButton(

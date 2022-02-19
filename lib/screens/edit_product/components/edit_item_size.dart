@@ -23,7 +23,8 @@ class EditItemSize extends StatelessWidget {
             initialValue: size.name,
             decoration: const InputDecoration(
               labelText: 'Título',
-              isDense: true, labelStyle: TextStyle(
+              isDense: true,
+              labelStyle: TextStyle(
                 fontSize: 16,
                 color: Color(0xFFE74C3C), // TODO REMOVE THIS
               ),

@@ -13,7 +13,7 @@ class OrdersScreen extends StatelessWidget {
       drawer: CustomDrawer(),
       appBar: AppBar(
         title: const Text('Meus Pedidos'),
-        centerTitle: true,
+        // centerTitle: true,
       ),
       body: Consumer<OrdersManager>(
         builder: (_, ordersManager, __) {

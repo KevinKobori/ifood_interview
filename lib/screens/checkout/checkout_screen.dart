@@ -27,7 +27,7 @@ class CheckoutScreen extends StatelessWidget {
         key: scaffoldKey,
         appBar: AppBar(
           title: const Text('Pagamento'),
-          centerTitle: true,
+          // centerTitle: true,
         ),
         body: GestureDetector(
           onTap: () {

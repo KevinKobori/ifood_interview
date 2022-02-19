@@ -25,7 +25,7 @@ class ProductScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(product.name),
-          centerTitle: true,
+          // centerTitle: true,
           actions: <Widget>[
             Consumer<UserManager>(
               builder: (_, userManager, __) {

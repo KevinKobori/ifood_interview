@@ -29,27 +29,27 @@ class CustomDrawer extends StatelessWidget {
               const Divider(),
               const DrawerTile(
                 iconData: Icons.home,
-                title: 'Home',
+                title: 'Início',
                 page: 0,
               ),
-              const DrawerTile(
-                iconData: Icons.list,
-                title: 'Categories',
-                page: 1,
-              ),
-              const DrawerTile(
-                iconData: Icons.list,
-                title: 'Products',
-                page: 2,
-              ),
-              const DrawerTile(
-                iconData: Icons.playlist_add_check,
-                title: 'Orders',
-                page: 3,
-              ),
+              // const DrawerTile(
+              //   iconData: Icons.list,
+              //   title: 'Categorias',
+              //   page: 1,
+              // ),
+              // const DrawerTile(
+              //   iconData: Icons.list,
+              //   title: 'Produtos',
+              //   page: 2,
+              // ),
+              // const DrawerTile(
+              //   iconData: Icons.playlist_add_check,
+              //   title: 'Pedidos',
+              //   page: 3,
+              // ),
               const DrawerTile(
                 iconData: Icons.location_on,
-                title: 'Store',
+                title: 'Lojas',
                 page: 4,
               ),
               const Divider(),

@@ -12,8 +12,6 @@ abstract class AppTextTheme {
   );
 
   static TextTheme textThemeRoboto = TextTheme(
-    
-    
     headline1: GoogleFonts.montserrat(
       fontSize: 97,
       fontWeight: FontWeight.w300,

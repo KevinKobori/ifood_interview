@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:wlstore/common/custom_drawer/custom_drawer.dart';
 import 'package:wlstore/common/custom_icon_button_2.dart';
 import 'package:wlstore/common/custom_search_text_field.dart';
 import 'package:wlstore/models/home_manager.dart';
-import 'package:wlstore/models/product.dart';
 import 'package:wlstore/models/product_manager.dart';
 import 'package:wlstore/models/user_manager.dart';
 import 'package:wlstore/screens/home/components/add_section_widget.dart';
 import 'package:wlstore/screens/products/components/product_list_tile.dart';
 import 'package:wlstore/utils/styles/app_color_scheme.dart';
-import '../base/base_screen.dart';
 import 'components/section_categories/section_categories_list.dart';
 import 'components/section_products/section_products_list.dart';
 // /Users/kevinkobori/Documents/github/wlstore/lib/screens/base/base_screen.dart
@@ -19,12 +16,25 @@ import 'components/section_products/section_products_list.dart';
 // GlobalKey<ScaffoldState> scafffoldKey = GlobalKey();
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({
+    Key key,
+  }) : super(key: key);
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
   // GlobalKey<ScaffoldState> scafffoldKey = GlobalKey();
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  void dispose() {
+    super.dispose();
+  }
 
   Widget getPageList({ProductManager productManager}) {
     Widget getEditRow() {
@@ -276,7 +286,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Consumer<UserManager>(builder: (_, userManager, __) {
                         if (userManager.userModel?.name != null) {
                           return Text(
-                            'Hi, ${userManager.userModel?.name}',
+                            'Olá, ${userManager.userModel?.name}',
                             overflow: TextOverflow.ellipsis,
                             maxLines: 2,
                             style: Theme.of(context).textTheme.subtitle2,
@@ -396,7 +406,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: <Widget>[
                           RichText(
                             text: TextSpan(
-                              text: 'Welcome to ',
+                              text: 'Bem vindo ao ',
                               style: Theme.of(context).textTheme.headline6,
                               children: [
                                 TextSpan(
@@ -409,7 +419,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           const SizedBox(height: 8),
                           Text(
-                            'What are\nyou looking for?',
+                            'Procurando\npor algo?', //'What are\nyou looking for?',
                             style: GoogleFonts.montserrat(
                               fontSize: 32,
                               fontWeight: FontWeight.w700,
@@ -475,7 +485,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: customSearchTextField(
                             context: context,
                             onChanged: (value) => productManager.search = value,
-                            hintText: "Search products",
+                            hintText: "Procurar produtos",
                           ),
                         ),
                       ],

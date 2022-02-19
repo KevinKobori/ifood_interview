@@ -17,7 +17,7 @@ class CategoriesScreen extends StatelessWidget {
         title: Consumer<CategoryManager>(
           builder: (_, categoryManager, __) {
             if (categoryManager.search.isEmpty) {
-              return const Text('Categories');
+              return const Text('Categorias');
             } else {
               return LayoutBuilder(
                 builder: (_, constraints) {
@@ -43,7 +43,7 @@ class CategoriesScreen extends StatelessWidget {
             }
           },
         ),
-        centerTitle: true,
+        // centerTitle: true,
         actions: <Widget>[
           Consumer<CategoryManager>(
             builder: (_, categoryManager, __) {

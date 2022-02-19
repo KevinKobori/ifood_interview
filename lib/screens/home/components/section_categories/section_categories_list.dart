@@ -25,7 +25,7 @@ class SectionCategoriesList extends StatelessWidget {
           children: <Widget>[
             SectionHeader(),
             SizedBox(
-              height: 64,
+              height: 68,
               child: Consumer<Section>(
                 builder: (_, section, __) {
                   return ListView.separated(
@@ -33,18 +33,19 @@ class SectionCategoriesList extends StatelessWidget {
                     itemBuilder: (_, index) {
                       if (index < section.items.length) {
                         return Padding(
-                          padding: EdgeInsets.only(
-                              left: index == 0 ? 26.0 : 0,
-                              right:
-                                  index == section.items.length - 1 ? 26.0 : 0),
-                          child: SectionCategoriesItemTile(section.items[index]),
+                          padding: EdgeInsets.fromLTRB(
+                            index == 0 ? 26.0 : 0,
+                            4,
+                            index == section.items.length - 1 ? 26.0 : 0,
+                            4,
+                          ),
+                          child:
+                              SectionCategoriesItemTile(section.items[index]),
                         );
                       } else {
                         return Padding(
-                          padding: EdgeInsets.only(
-                              left: index == 0 ? 26.0 : 0,
-                              right:
-                                  index == section.items.length - 1 ? 26.0 : 0),
+                          padding: EdgeInsets.fromLTRB(index == 0 ? 26.0 : 0, 0,
+                              index == section.items.length - 1 ? 26.0 : 0, 0),
                           child: AddTileWidget(),
                         );
                       }

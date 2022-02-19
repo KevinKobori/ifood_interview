@@ -23,7 +23,7 @@ class LoginScreen extends StatelessWidget {
       key: scaffoldKey,
       appBar: AppBar(
         title: const Text('Entrar'),
-        centerTitle: true,
+        // centerTitle: true,
         actions: <Widget>[
           TextButton(
             onPressed: () {
@@ -120,8 +120,8 @@ class LoginScreen extends StatelessWidget {
                                           title: const Text(
                                             "Email não verificado!",
                                             style: TextStyle(
-                                              // color: Colors.white,
-                                            ),
+                                                // color: Colors.white,
+                                                ),
                                           ),
                                           content: ElevatedButton(
                                             onPressed: () async {
@@ -176,8 +176,8 @@ class LoginScreen extends StatelessWidget {
                                             child: const Text(
                                               'Enviar verificação por email',
                                               style: TextStyle(
-                                                // color: Colors.white,
-                                              ),
+                                                  // color: Colors.white,
+                                                  ),
                                             ),
                                           ),
                                         );
@@ -208,28 +208,28 @@ class LoginScreen extends StatelessWidget {
                       Buttons.Google,
                       text: 'Entrar com Google',
                       onPressed: () {
-                        userManager.googleLogin(onFail: (e) {
-                          scaffoldKey.currentState.showSnackBar(SnackBar(
-                            content: Text('Falha ao entrar: $e'),
-                            backgroundColor: Colors.red,
-                          ));
-                        }, onSuccess: () {
-                          Navigator.of(context).pop();
-                        });
+                        // userManager.googleLogin(onFail: (e) {
+                        //   scaffoldKey.currentState.showSnackBar(SnackBar(
+                        //     content: Text('Falha ao entrar: $e'),
+                        //     backgroundColor: Colors.red,
+                        //   ));
+                        // }, onSuccess: () {
+                        //   Navigator.of(context).pop();
+                        // });
                       },
                     ),
                     SignInButton(
                       Buttons.Facebook,
                       text: 'Entrar com Facebook',
                       onPressed: () {
-                        userManager.facebookLogin(onFail: (e) {
-                          scaffoldKey.currentState.showSnackBar(SnackBar(
-                            content: Text('Falha ao entrar: $e'),
-                            backgroundColor: Colors.red,
-                          ));
-                        }, onSuccess: () {
-                          Navigator.of(context).pop();
-                        });
+                        // userManager.facebookLogin(onFail: (e) {
+                        //   scaffoldKey.currentState.showSnackBar(SnackBar(
+                        //     content: Text('Falha ao entrar: $e'),
+                        //     backgroundColor: Colors.red,
+                        //   ));
+                        // }, onSuccess: () {
+                        //   Navigator.of(context).pop();
+                        // });
                       },
                     ),
                   ],

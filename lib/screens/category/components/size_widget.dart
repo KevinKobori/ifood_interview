@@ -40,7 +40,7 @@ class SizeWidget extends StatelessWidget {
               child: Text(
                 size.name,
                 style: TextStyle(// color: Colors.white,
-                ),
+                    ),
               ),
             ),
             Container(

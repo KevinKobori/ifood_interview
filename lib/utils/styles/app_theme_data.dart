@@ -13,19 +13,19 @@ ThemeData themeData() {
 
   return ThemeData(
     brightness: Brightness.light,
-    accentColorBrightness: Brightness.light,
+    // accentColorBrightness: Brightness.light,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     primarySwatch: AppColorScheme.primarySwatch,
-    accentColor: AppColorScheme.primarySwatch,// .accentColor, // TODO
+    // accentColor: AppColorScheme.primarySwatch,// .accentColor, // TODO
     textTheme: AppTextTheme.textTheme,
     appBarTheme: AppBarThemeApp.appBarTheme,
-    colorScheme: AppColorScheme.colorSchemeLight,
-    scaffoldBackgroundColor: AppColorScheme.grey[50],
-    highlightColor: Colors.transparent,
+    // colorScheme: AppColorScheme.colorSchemeLight,
+    // scaffoldBackgroundColor: AppColorScheme.grey[50],
+    // highlightColor: Colors.transparent,
     splashColor: Colors.transparent,
-    hintColor: Colors.transparent,
-    focusColor: Colors.transparent,
-    hoverColor: Colors.transparent,
+    // hintColor: Colors.transparent,
+    // focusColor: Colors.transparent,
+    // hoverColor: Colors.transparent,
     errorColor: AppColorScheme.primarySwatch,
     pageTransitionsTheme: PageTransitionsTheme(
       builders: {
@@ -43,6 +43,7 @@ ThemeData themeData() {
     buttonTheme: ButtonThemeData(
       colorScheme: AppColorScheme.colorSchemeLight,
       textTheme: ButtonTextTheme.primary,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
     ),
     cardTheme: CardTheme(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
@@ -54,12 +55,13 @@ ThemeData themeData() {
     //     elevation: 0.0,
     //   ),
     // ),
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        elevation: 5.0,
-        shadowColor: AppColorScheme.shadowTealColor,
-      ),
-    ),
+    // elevatedButtonTheme: ElevatedButtonThemeData(
+    //   style: ElevatedButton.styleFrom(
+    //     elevation: 5.0,
+    //     shadowColor: AppColorScheme.shadowTealColor,
+    //   ),
+    // ),
+
     // outlinedButtonTheme: OutlinedButtonThemeData(
     //   style: OutlinedButton.styleFrom(
     //     elevation: 0.0,

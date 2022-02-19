@@ -24,7 +24,7 @@ class LoginCard extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 18,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                     color: Theme.of(context).primaryColor,
                   ),
                 ),

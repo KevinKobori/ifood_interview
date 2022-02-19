@@ -27,6 +27,7 @@ import 'models/category_model.dart';
 import 'screens/category/category_screen.dart';
 import 'screens/edit_category/edit_category_screen.dart';
 import 'screens/products/products_screen.dart';
+import 'utils/styles/app_color_scheme.dart';
 import 'utils/styles/app_theme_data.dart';
 
 Future<void> main() async {
@@ -88,6 +89,34 @@ class MyApp extends StatelessWidget {
         localizationsDelegates: const [
           S.delegate,
         ],
+        // theme: ThemeData(
+        //   // scaffoldBackgroundColor: AppColorScheme.grey[50],
+        //   // highlightColor: Colors.transparent,
+        //   splashColor: Colors.transparent,
+        //   // hintColor: Colors.transparent,
+        //   // focusColor: Colors.transparent,
+        //   // hoverColor: Colors.transparent,
+        //   errorColor: AppColorScheme.primarySwatch,
+        //   pageTransitionsTheme: PageTransitionsTheme(
+        //     builders: {
+        //       TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+        //       TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
+        //       TargetPlatform.fuchsia: ZoomPageTransitionsBuilder(),
+        //     },
+        //   ),
+        //   cardTheme: CardTheme(
+        //     shape: RoundedRectangleBorder(
+        //         borderRadius: BorderRadius.circular(16.0)),
+        //     elevation: 4.0,
+        //     shadowColor: AppColorScheme.shadowTealColor,
+        //   ),
+        //   elevatedButtonTheme: ElevatedButtonThemeData(
+        //     style: ElevatedButton.styleFrom(
+        //       elevation: 5.0,
+        //       shadowColor: AppColorScheme.shadowTealColor,
+        //     ),
+        //   ),
+        // ),
         theme: themeData(),
         // theme: ThemeData(
         //   // primarySwatch: Colors.amber,
@@ -124,7 +153,8 @@ class MyApp extends StatelessWidget {
               );
             case '/products':
               return MaterialPageRoute(
-                builder: (_) => ProductsScreen(settings.arguments as CategoryModel),
+                builder: (_) =>
+                    ProductsScreen(settings.arguments as CategoryModel),
               );
             case '/cart':
               return MaterialPageRoute(

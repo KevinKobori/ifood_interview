@@ -13,7 +13,7 @@ class AdminUsersScreen extends StatelessWidget {
       drawer: CustomDrawer(),
       appBar: AppBar(
         title: const Text('Usuários'),
-        centerTitle: true,
+        // centerTitle: true,
       ),
       body: Consumer<AdminUsersManager>(
         builder: (_, adminUsersManager, __) {
@@ -23,15 +23,15 @@ class AdminUsersScreen extends StatelessWidget {
                 title: Text(
                   adminUsersManager.users[index].name,
                   style: TextStyle(
-                      fontWeight: FontWeight.w800, 
-                      // color: Colors.white,
-                      ),
+                    fontWeight: FontWeight.w800,
+                    // color: Colors.white,
+                  ),
                 ),
                 subtitle: Text(
                   adminUsersManager.users[index].email,
                   style: TextStyle(
-                    // color: Colors.white,
-                  ),
+                      // color: Colors.white,
+                      ),
                 ),
                 onTap: () {
                   context
@@ -42,8 +42,8 @@ class AdminUsersScreen extends StatelessWidget {
               );
             },
             highlightTextStyle: TextStyle(
-              // color: Colors.white, 
-            fontSize: 20,
+              // color: Colors.white,
+              fontSize: 20,
             ),
             indexedHeight: (index) => 80,
             strList: adminUsersManager.names,

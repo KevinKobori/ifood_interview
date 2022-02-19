@@ -86,8 +86,17 @@ class _BaseScreenState extends State<BaseScreen> {
   BottomNavigationBarItem getBottomNavigationBarItem(
       int index, String title, IconData icon) {
     return BottomNavigationBarItem(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor:
+          Colors.transparent, //Theme.of(context).scaffoldBackgroundColor,
 
+      // icon: Icon(
+      //   icon,
+      //   size: 24,
+      //   color: indexPage == index
+      //       ? Colors.white
+      //       : Theme.of(context).accentColor,
+      //   // color: Colors.white,
+      // ),
       // AppColorScheme.grey[100],
       icon: indexPage == index
           ? Padding(
@@ -101,7 +110,7 @@ class _BaseScreenState extends State<BaseScreen> {
                 decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
-                      color: AppColorScheme.shadowTealColor.withOpacity(0.4),
+                      color: AppColorScheme.primarySwatch.withOpacity(0.4),
                       spreadRadius: 2,
                       blurRadius: 10,
                     ),
@@ -120,7 +129,7 @@ class _BaseScreenState extends State<BaseScreen> {
                 // width: 106,
                 child: Center(
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(4, 4, 4, 6),
+                    padding: const EdgeInsets.fromLTRB(0, 8, 0, 10),
                     child: Text(
                       title,
                       style: const TextStyle(
@@ -136,9 +145,7 @@ class _BaseScreenState extends State<BaseScreen> {
           : Icon(
               icon,
               size: 24,
-              color: indexPage == index
-                  ? Theme.of(context).accentColor.withOpacity(0.6)
-                  : Theme.of(context).accentColor,
+              color: Theme.of(context).accentColor,
               // color: Colors.white,
             ), //,
       label: title,
@@ -160,7 +167,7 @@ class _BaseScreenState extends State<BaseScreen> {
                   controller: pageController,
                   physics: const NeverScrollableScrollPhysics(),
                   children: <Widget>[
-                    HomeScreen(),
+                    const HomeScreen(),
                     CategoriesScreen(),
                     const ProductsScreen(null),
                     OrdersScreen(),
@@ -173,78 +180,119 @@ class _BaseScreenState extends State<BaseScreen> {
                 ),
                 Align(
                   alignment: Alignment.bottomCenter,
-                  child: Container(
-                    height: 56,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          Theme.of(context)
-                              .scaffoldBackgroundColor
-                              .withOpacity(0),
-                          Theme.of(context).scaffoldBackgroundColor,
-                        ],
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                      ),
+                  child: Card(
+                    margin: const EdgeInsets.fromLTRB(28, 0, 28, 16),
+                    color: Color(0xFF17202A),
+                    child: BottomNavigationBar(
+                      // backgroundColor: AppColorScheme.grey[100],
+                      showSelectedLabels: false,
+                      showUnselectedLabels: false,
+                      elevation: 0,
+                      items: [
+                        getBottomNavigationBarItem(
+                          0,
+                          'Início',
+                          Icons.home_filled,
+                        ),
+                        getBottomNavigationBarItem(
+                          1,
+                          'Categorias',
+                          Icons.storefront_outlined,
+                        ),
+                        getBottomNavigationBarItem(
+                          2,
+                          'Produtos',
+                          Icons.widgets_rounded,
+                        ),
+                        getBottomNavigationBarItem(
+                          3,
+                          'Pedidos',
+                          Icons.view_in_ar_outlined,
+                        ),
+                      ],
+                      currentIndex: indexPage,
+                      onTap: (newIndex) {
+                        setState(() {
+                          indexPage = newIndex;
+                          pageController.jumpToPage(newIndex);
+                        });
+                      },
                     ),
                   ),
                 ),
+                // Align(
+                //   alignment: Alignment.bottomCenter,
+                //   child: Container(
+                //     height: 56,
+                //     decoration: BoxDecoration(
+                //       gradient: LinearGradient(
+                //         colors: [
+                //           Theme.of(context)
+                //               .scaffoldBackgroundColor
+                //               .withOpacity(0),
+                //           Theme.of(context).scaffoldBackgroundColor,
+                //         ],
+                //         begin: Alignment.topCenter,
+                //         end: Alignment.bottomCenter,
+                //       ),
+                //     ),
+                //   ),
+                // ),
               ],
             ),
-            bottomNavigationBar: Container(
-              // color: AppColorScheme.grey[100],
-              height: 58,
-              padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-              child:
-                  // Container(
-                  //   decoration: BoxDecoration(
-                  //     borderRadius: BorderRadius.circular(26),
-                  //     boxShadow: [
-                  //       BoxShadow(
-                  //         color: Colors.grey[900].withOpacity(0.2),
-                  //         spreadRadius: 6,
-                  //         blurRadius: 12,
-                  //         offset: const Offset(0, 7),
-                  //       ),
-                  //     ],
-                  //   ),
-                  //   child:
-                  BottomNavigationBar(
-                // backgroundColor: AppColorScheme.grey[100],
-                showSelectedLabels: false,
-                showUnselectedLabels: false,
-                elevation: 0,
-                items: [
-                  getBottomNavigationBarItem(
-                    0,
-                    'Home',
-                    Icons.home_filled,
-                  ),
-                  getBottomNavigationBarItem(
-                    1,
-                    'Categories',
-                    Icons.storefront_outlined,
-                  ),
-                  getBottomNavigationBarItem(
-                    2,
-                    'Products',
-                    Icons.widgets_rounded,
-                  ),
-                  getBottomNavigationBarItem(
-                    3,
-                    'Orders',
-                    Icons.view_in_ar_outlined,
-                  ),
-                ],
-                currentIndex: indexPage,
-                onTap: (newIndex) {
-                  setState(() {
-                    indexPage = newIndex;
-                    pageController.jumpToPage(newIndex);
-                  });
-                },
-              ),
-            ),
+            // bottomNavigationBar: Container(
+            //   // color: AppColorScheme.grey[100],
+            //   height: 58,
+            //   padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+            //   child:
+            //       // Container(
+            //       //   decoration: BoxDecoration(
+            //       //     borderRadius: BorderRadius.circular(26),
+            //       //     boxShadow: [
+            //       //       BoxShadow(
+            //       //         color: Colors.grey[900].withOpacity(0.2),
+            //       //         spreadRadius: 6,
+            //       //         blurRadius: 12,
+            //       //         offset: const Offset(0, 7),
+            //       //       ),
+            //       //     ],
+            //       //   ),
+            //       //   child:
+            //       BottomNavigationBar(
+            //     // backgroundColor: AppColorScheme.grey[100],
+            //     showSelectedLabels: false,
+            //     showUnselectedLabels: false,
+            //     elevation: 0,
+            //     items: [
+            //       getBottomNavigationBarItem(
+            //         0,
+            //         'Início',
+            //         Icons.home_filled,
+            //       ),
+            //       getBottomNavigationBarItem(
+            //         1,
+            //         'Categorias',
+            //         Icons.storefront_outlined,
+            //       ),
+            //       getBottomNavigationBarItem(
+            //         2,
+            //         'Produtos',
+            //         Icons.widgets_rounded,
+            //       ),
+            //       getBottomNavigationBarItem(
+            //         3,
+            //         'Pedidos',
+            //         Icons.view_in_ar_outlined,
+            //       ),
+            //     ],
+            //     currentIndex: indexPage,
+            //     onTap: (newIndex) {
+            //       setState(() {
+            //         indexPage = newIndex;
+            //         pageController.jumpToPage(newIndex);
+            //       });
+            //     },
+            //   ),
             // ),
           );
         },

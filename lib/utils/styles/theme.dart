@@ -62,7 +62,7 @@
 //     // color: Colors.white,
 //     elevation: 4,
 //     shadowColor: Colors.blueGrey[900], //AppColors.azulClaro,
-//     centerTitle: true,
+//     // centerTitle: true,
 //     iconTheme: IconThemeData(
 //       color: AppColors.azulMarinhoEscuro,
 //     ),

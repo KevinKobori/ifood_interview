@@ -11,7 +11,7 @@ class StoresScreen extends StatelessWidget {
       drawer: CustomDrawer(),
       appBar: AppBar(
         title: const Text('WLStores'),
-        centerTitle: true,
+        // centerTitle: true,
       ),
       body: Consumer<StoresManager>(
         builder: (_, storesManager, __) {

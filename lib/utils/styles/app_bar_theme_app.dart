@@ -5,9 +5,9 @@ import 'app_color_scheme.dart';
 class AppBarThemeApp {
   static AppBarTheme appBarTheme = AppBarTheme(
     color: AppColorScheme.grey[50],
-    elevation: 4,
+    elevation: 0,
     // shadowColor: Colors.blueGrey[900], //AppColors.azulClaro,
-    centerTitle: true,
+    centerTitle: false,
     // iconTheme: IconThemeData(
     //   color: AppColors.azulMarinhoEscuro,
     // ),

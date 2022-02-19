@@ -8,7 +8,7 @@ class SelectProductScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Vincular Produto'),
-        centerTitle: true,
+        // centerTitle: true,
       ),
       backgroundColor: Colors.white,
       body: Consumer<ProductManager>(
