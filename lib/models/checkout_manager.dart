@@ -129,7 +129,7 @@ class CheckoutManager extends ChangeNotifier {
 
       if (productsWithoutStock.isNotEmpty) {
         return Future.error(
-            '${productsWithoutStock.length} produtos sem estoque');
+            '${productsWithoutStock.length} products without stock');
       }
 
       for (final product in productsToUpdate) {

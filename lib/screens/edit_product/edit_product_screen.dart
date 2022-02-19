@@ -70,6 +70,10 @@ class EditProductScreen extends StatelessWidget {
                       decoration: const InputDecoration(
                         hintText: 'Título',
                         border: InputBorder.none,
+                        hintStyle: TextStyle(
+                          fontSize: 16,
+                          color: Colors.grey,
+                        ),
                       ),
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
@@ -109,7 +113,13 @@ class EditProductScreen extends StatelessWidget {
                       initialValue: product.description,
                       style: const TextStyle(fontSize: 16),
                       decoration: const InputDecoration(
-                          hintText: 'Descrição', border: InputBorder.none),
+                        hintText: 'Descrição',
+                        border: InputBorder.none,
+                        hintStyle: TextStyle(
+                          fontSize: 16,
+                          color: Colors.grey,
+                        ),
+                      ),
                       maxLines: null,
                       validator: (desc) {
                         if (desc.length < 10) return 'Descrição muito curta';

@@ -108,9 +108,9 @@ class SectionCategoriesItemTile extends StatelessWidget {
             children: <Widget>[
               Card(
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(11.0)),
+                    borderRadius: BorderRadius.circular(10.0)),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(11),
+                  borderRadius: BorderRadius.circular(10),
                   child: AspectRatio(
                     aspectRatio: 1,
                     child: item.image is String

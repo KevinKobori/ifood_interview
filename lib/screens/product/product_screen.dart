@@ -1,10 +1,10 @@
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:wlstore/models/cart_manager.dart';
 import 'package:wlstore/models/product.dart';
 import 'package:wlstore/models/user_manager.dart';
 import 'package:wlstore/screens/product/components/size_widget.dart';
-import 'package:provider/provider.dart';
 
 class ProductScreen extends StatelessWidget {
   const ProductScreen(

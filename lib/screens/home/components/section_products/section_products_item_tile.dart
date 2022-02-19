@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:wlstore/models/home_manager.dart';
+import 'package:wlstore/models/product.dart';
 import 'package:wlstore/models/product_manager.dart';
 import 'package:wlstore/models/section.dart';
 import 'package:wlstore/models/section_item.dart';
@@ -73,25 +74,24 @@ class SectionProductsItemTile extends StatelessWidget {
                           ),
                         ),
                       ),
-                      // TextButton(
-                      //   onPressed: () async {
-                      //     if (product != null) {
-                      //       item.product = null;
-                      //     } else {
-                      //       final Product product =
-                      //           await Navigator.of(context)
-                      //               .pushNamed('/select_product') as Product;
-                      //       item.product = product?.id;
-                      //     }
-                      //     Navigator.of(context).pop();
-                      //   },
-                      //   style: ElevatedButton.styleFrom(
-                      //     padding: const EdgeInsets.symmetric(horizontal: 6),
-                      //   ),
-                      //   child: Text(product != null
-                      //       ? 'Unlink Product'
-                      //       : 'Link Product'),
-                      // ),
+                      TextButton(
+                        onPressed: () async {
+                          if (product != null) {
+                            item.product = null;
+                          } else {
+                            final Product product = await Navigator.of(context)
+                                .pushNamed('/select_product') as Product;
+                            item.product = product?.id;
+                          }
+                          Navigator.of(context).pop();
+                        },
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(horizontal: 6),
+                        ),
+                        child: Text(product != null
+                            ? 'Unlink Product'
+                            : 'Link Product'),
+                      ),
                     ],
                   );
                 },
@@ -110,9 +110,9 @@ class SectionProductsItemTile extends StatelessWidget {
               Expanded(
                 child: Card(
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16.0)),
+                      borderRadius: BorderRadius.circular(10.0)),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(13),
+                    borderRadius: BorderRadius.circular(10),
                     child: AspectRatio(
                       aspectRatio: 1,
                       child: item.image is String

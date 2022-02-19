@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:wlstore/common/custom_drawer/custom_drawer.dart';
 import 'package:wlstore/common/search_dialog.dart';
 import 'package:wlstore/models/category_manager.dart';
 import 'package:wlstore/models/user_manager.dart';
 import 'package:wlstore/screens/categories/components/category_list_tile.dart';
-import 'package:provider/provider.dart';
 
 import 'components/category_list_tile.dart';
 
@@ -17,7 +17,7 @@ class CategoriesScreen extends StatelessWidget {
         title: Consumer<CategoryManager>(
           builder: (_, categoryManager, __) {
             if (categoryManager.search.isEmpty) {
-              return const Text('Categorias');
+              return const Text('Categories');
             } else {
               return LayoutBuilder(
                 builder: (_, constraints) {

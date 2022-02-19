@@ -105,21 +105,23 @@ class Product extends ChangeNotifier {
     };
 
     if (id == null) {
-      final doc = await firestore
-          .collection('categories')
-          .document(categoryId)
-          .collection('products')
-          .add(data);
-      await firestore
-          .collection('products')
-          .document(doc.documentID)
-          .setData(data);
+      // final doc = await firestore
+      //     .collection('categories')
+      //     .document(categoryId)
+      //     .collection('products')
+      //     .add(data);
+      // await firestore
+      //     .collection('products')
+      //     .document(doc.documentID)
+      //     .setData(data);
+      final doc = await firestore.collection('products').add(data);
 
       id = doc.documentID;
     } else {
-      await firestore
-          .document('categories/$categoryId/products/$id')
-          .updateData(data);
+      // await firestore
+      //     .document('products/$id')
+      //     // .document('categories/$categoryId/products/$id')
+      //     .updateData(data);
       await firestore.collection('products').document(id).updateData(data);
     }
 
@@ -148,9 +150,9 @@ class Product extends ChangeNotifier {
       }
     }
 
-    await firestore
-        .document('categories/$categoryId/products/$id')
-        .updateData({'images': updateImages});
+    // await firestore
+    //     .document('categories/$categoryId/products/$id')
+    //     .updateData({'images': updateImages});
     await firestore
         .document('products/$id')
         .updateData({'images': updateImages});
@@ -161,9 +163,9 @@ class Product extends ChangeNotifier {
   }
 
   void deleteCategoryProduct(String categoryId) {
-    firestore
-        .document('categories/$categoryId/products/$id')
-        .updateData({'deleted': true});
+    // firestore
+    //     .document('categories/$categoryId/products/$id')
+    //     .updateData({'deleted': true});
     deleteProductsProduct();
   }
 

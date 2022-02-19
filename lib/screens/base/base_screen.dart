@@ -24,7 +24,7 @@ import "package:flutter_neumorphic/flutter_neumorphic.dart";
 import "package:visibility_detector/visibility_detector.dart";
 import 'package:wlstore/utils/styles/app_color_scheme.dart';
 
-import "package:wlstore/utils/styles/constants.dart";
+import 'package:wlstore/utils/constants.dart';
 
 // GlobalKey<ScaffoldState> _scafffoldKey = GlobalKey();
 
@@ -111,8 +111,8 @@ class _BaseScreenState extends State<BaseScreen> {
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     colors: [
-                      AppColorScheme.enabledTealColor,
-                      AppColorScheme.disabledTealColor,
+                      Theme.of(context).accentColor.withOpacity(0.6),
+                      Theme.of(context).accentColor,
                     ],
                   ),
                 ),
@@ -137,8 +137,8 @@ class _BaseScreenState extends State<BaseScreen> {
               icon,
               size: 24,
               color: indexPage == index
-                  ? AppColorScheme.enabledTealColor
-                  : AppColorScheme.disabledTealColor,
+                  ? Theme.of(context).accentColor.withOpacity(0.6)
+                  : Theme.of(context).accentColor,
               // color: Colors.white,
             ), //,
       label: title,
@@ -151,12 +151,10 @@ class _BaseScreenState extends State<BaseScreen> {
       create: (_) => PageManager(pageController),
       child: Consumer<UserManager>(
         builder: (_, userManager, __) {
-          return 
-          Scaffold(
+          return Scaffold(
             // key: _scafffoldKey,
             drawer: CustomDrawer(),
-            body: 
-            Stack(
+            body: Stack(
               children: <Widget>[
                 PageView(
                   controller: pageController,

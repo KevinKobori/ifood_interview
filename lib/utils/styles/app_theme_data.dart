@@ -15,8 +15,8 @@ ThemeData themeData() {
     brightness: Brightness.light,
     accentColorBrightness: Brightness.light,
     visualDensity: VisualDensity.adaptivePlatformDensity,
-    // primarySwatch: AppColorScheme.primarySwatch,
-    accentColor: AppColorScheme.accentColor,
+    primarySwatch: AppColorScheme.primarySwatch,
+    accentColor: AppColorScheme.primarySwatch,// .accentColor, // TODO
     textTheme: AppTextTheme.textTheme,
     appBarTheme: AppBarThemeApp.appBarTheme,
     colorScheme: AppColorScheme.colorSchemeLight,

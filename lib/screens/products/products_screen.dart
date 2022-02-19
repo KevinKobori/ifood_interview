@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:wlstore/common/custom_drawer/custom_drawer.dart';
 import 'package:wlstore/common/search_dialog.dart';
+import 'package:wlstore/models/category_model.dart';
 // import 'package:wlstore/models/category_manager.dart';
 import 'package:wlstore/models/product_manager.dart';
 import 'package:wlstore/models/user_manager.dart';
 import 'package:wlstore/screens/products/components/product_list_tile.dart';
-import 'package:provider/provider.dart';
 
 class ProductsScreen extends StatefulWidget {
   const ProductsScreen(
-    this.categoryId,
+    this.category,
+    // @required this.categoryName,
   );
 
-  final String categoryId;
-
+  final CategoryModel category;
+  // final String categoryName;
   @override
   _ProductsScreenState createState() => _ProductsScreenState();
 }
@@ -25,8 +27,8 @@ class _ProductsScreenState extends State<ProductsScreen> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     final ProductManager productManager = Provider.of(context, listen: false);
-    if (widget.categoryId != null) {
-      productManager.loadAllCategoryProducts(widget.categoryId);
+    if (widget.category != null) {
+      productManager.loadAllCategoryProducts(widget.category.id);
     } else {
       productManager.loadAllProducts();
     }
@@ -36,12 +38,15 @@ class _ProductsScreenState extends State<ProductsScreen> {
   Widget build(BuildContext context) {
     // final userManager = context.watch<UserManager>();
     return Scaffold(
-      drawer: widget.categoryId == null ? CustomDrawer() : null,
+      drawer: widget.category == null ? CustomDrawer() : null,
       appBar: AppBar(
         title: Consumer<ProductManager>(
           builder: (_, productManager, __) {
-            if (productManager.search.isEmpty) {
-              return const Text('Produtos');
+            if (productManager.search.isEmpty && widget.category == null) {
+              return const Text('Products');
+            } else 
+            if (widget.category != null) {
+              return Text(widget.category.name);
             } else {
               return LayoutBuilder(
                 builder: (_, constraints) {
@@ -95,14 +100,14 @@ class _ProductsScreenState extends State<ProductsScreen> {
           ),
           Consumer<UserManager>(
             builder: (_, userManager, __) {
-              if (userManager.adminEnabled) {
+              if (userManager.adminEnabled && widget.category != null) {
                 return IconButton(
                   icon: Icon(Icons.add),
                   onPressed: () {
                     Navigator.of(context).pushNamed(
                       '/edit_product',
                       arguments: {
-                        'categoryId': widget.categoryId,
+                        'category': widget.category,
                         // 'product': product
                       },
                     );
@@ -117,7 +122,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
       ),
       body: Consumer<ProductManager>(
         builder: (_, productManager, __) {
-          if (widget.categoryId != null) {
+          if (widget.category != null) {
             final filteredCategoryProducts =
                 productManager.filteredCategoryProducts;
             return ListView.builder(
@@ -125,7 +130,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
               itemBuilder: (_, index) {
                 return ProductListTile(
                   filteredCategoryProducts[index],
-                  widget.categoryId,
+                  widget.category.id,
                 );
               },
             );

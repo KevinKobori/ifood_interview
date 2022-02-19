@@ -53,6 +53,10 @@ class EditCategoryScreen extends StatelessWidget {
                       decoration: const InputDecoration(
                         hintText: 'Título',
                         border: InputBorder.none,
+                        hintStyle: TextStyle(
+                          fontSize: 16,
+                          color: Colors.grey,
+                        ),
                       ),
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
@@ -87,6 +91,10 @@ class EditCategoryScreen extends StatelessWidget {
                       decoration: const InputDecoration(
                         hintText: 'Preço Base',
                         border: InputBorder.none,
+                        hintStyle: TextStyle(
+                          fontSize: 16,
+                          color: Colors.grey,
+                        ),
                       ),
                       keyboardType: TextInputType.number,
                       // inputFormatters: [
@@ -113,7 +121,13 @@ class EditCategoryScreen extends StatelessWidget {
                       initialValue: categoryModel.description,
                       style: const TextStyle(fontSize: 16),
                       decoration: const InputDecoration(
-                          hintText: 'Descrição', border: InputBorder.none),
+                        hintText: 'Descrição',
+                        border: InputBorder.none,
+                        hintStyle: TextStyle(
+                          fontSize: 16,
+                          color: Colors.grey,
+                        ),
+                      ),
                       maxLines: null,
                       validator: (desc) {
                         if (desc.isEmpty) return 'Insira uma descrição';

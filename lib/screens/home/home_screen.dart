@@ -27,6 +27,48 @@ class _HomeScreenState extends State<HomeScreen> {
   // GlobalKey<ScaffoldState> scafffoldKey = GlobalKey();
 
   Widget getPageList({ProductManager productManager}) {
+    Widget getEditRow() {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          Consumer2<UserManager, HomeManager>(
+            builder: (_, userManager, homeManager, __) {
+              if (userManager.adminEnabled && !homeManager.loading) {
+                if (homeManager.editing) {
+                  return PopupMenuButton(
+                    onSelected: (e) {
+                      if (e == 'SAVE') {
+                        homeManager.saveEditing();
+                      } else {
+                        homeManager.discardEditing();
+                      }
+                    },
+                    itemBuilder: (_) {
+                      return ['SAVE', 'DISCARD'].map((e) {
+                        return PopupMenuItem(
+                          value: e,
+                          child: Text(e),
+                        );
+                      }).toList();
+                    },
+                  );
+                } else {
+                  return IconButton(
+                    icon: Icon(
+                      Icons.edit,
+                      color: Colors.black,
+                    ),
+                    onPressed: homeManager.enterEditing,
+                  );
+                }
+              } else
+                return const SizedBox(height: 6);
+            },
+          ),
+        ],
+      );
+    }
+
     if (productManager.filteredProducts.isNotEmpty &&
         productManager.search != '') {
       final List<Widget> listChildren =
@@ -84,7 +126,8 @@ class _HomeScreenState extends State<HomeScreen> {
             }).toList();
 
             final List<Widget> childrenWithPadding = [
-              ...[const SizedBox(height: 6)],
+              ...[getEditRow()],
+              // ...[const SizedBox(height: 6)],
               ...listChildren
             ];
 
@@ -224,7 +267,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         builder: (context) => // Ensure Scaffold is in context
                             customIconButton(
                           const EdgeInsets.only(left: 0),
-                          Icons.menu,
+                          Icons.person,
                           // () => scafffoldKey.currentState.openDrawer(),
                           () => Scaffold.of(context).openDrawer(),
                         ),
@@ -269,41 +312,41 @@ class _HomeScreenState extends State<HomeScreen> {
                       //   ),
                       // ),
                       const Spacer(),
-                      Consumer2<UserManager, HomeManager>(
-                        builder: (_, userManager, homeManager, __) {
-                          if (userManager.adminEnabled &&
-                              !homeManager.loading) {
-                            if (homeManager.editing) {
-                              return PopupMenuButton(
-                                onSelected: (e) {
-                                  if (e == 'SAVE') {
-                                    homeManager.saveEditing();
-                                  } else {
-                                    homeManager.discardEditing();
-                                  }
-                                },
-                                itemBuilder: (_) {
-                                  return ['SAVE', 'DISCARD'].map((e) {
-                                    return PopupMenuItem(
-                                      value: e,
-                                      child: Text(e),
-                                    );
-                                  }).toList();
-                                },
-                              );
-                            } else {
-                              return IconButton(
-                                icon: Icon(
-                                  Icons.edit,
-                                  color: Colors.black,
-                                ),
-                                onPressed: homeManager.enterEditing,
-                              );
-                            }
-                          } else
-                            return Container();
-                        },
-                      ),
+                      // Consumer2<UserManager, HomeManager>(
+                      //   builder: (_, userManager, homeManager, __) {
+                      //     if (userManager.adminEnabled &&
+                      //         !homeManager.loading) {
+                      //       if (homeManager.editing) {
+                      //         return PopupMenuButton(
+                      //           onSelected: (e) {
+                      //             if (e == 'SAVE') {
+                      //               homeManager.saveEditing();
+                      //             } else {
+                      //               homeManager.discardEditing();
+                      //             }
+                      //           },
+                      //           itemBuilder: (_) {
+                      //             return ['SAVE', 'DISCARD'].map((e) {
+                      //               return PopupMenuItem(
+                      //                 value: e,
+                      //                 child: Text(e),
+                      //               );
+                      //             }).toList();
+                      //           },
+                      //         );
+                      //       } else {
+                      //         return IconButton(
+                      //           icon: Icon(
+                      //             Icons.edit,
+                      //             color: Colors.black,
+                      //           ),
+                      //           onPressed: homeManager.enterEditing,
+                      //         );
+                      //       }
+                      //     } else
+                      //       return Container();
+                      //   },
+                      // ),
                       customIconButton(
                         const EdgeInsets.only(left: 0),
                         Icons.notifications,
@@ -347,13 +390,33 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     child: Align(
                       alignment: Alignment.bottomLeft,
-                      child: Text(
-                        'What are\nyou looking for?',
-                        style: GoogleFonts.montserrat(
-                          fontSize: 32,
-                          fontWeight: FontWeight.w700,
-                          letterSpacing: 0.25,
-                        ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          RichText(
+                            text: TextSpan(
+                              text: 'Welcome to ',
+                              style: Theme.of(context).textTheme.headline6,
+                              children: [
+                                TextSpan(
+                                  text: 'WLStore',
+                                  style: TextStyle(
+                                      color: Theme.of(context).accentColor),
+                                )
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            'What are\nyou looking for?',
+                            style: GoogleFonts.montserrat(
+                              fontSize: 32,
+                              fontWeight: FontWeight.w700,
+                              letterSpacing: 0.25,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -435,7 +498,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
               // }),
               getPageList(productManager: productManager),
-              const SliverToBoxAdapter(child: SizedBox(height: 400)),
+              const SliverToBoxAdapter(child: SizedBox(height: 100)),
             ],
           ),
         ],

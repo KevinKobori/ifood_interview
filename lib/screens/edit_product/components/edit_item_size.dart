@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wlstore/common/custom_icon_button.dart';
 import 'package:wlstore/models/item_size.dart';
+import 'package:wlstore/utils/styles/app_color_scheme.dart';
 
 class EditItemSize extends StatelessWidget {
   const EditItemSize(
@@ -22,7 +23,14 @@ class EditItemSize extends StatelessWidget {
             initialValue: size.name,
             decoration: const InputDecoration(
               labelText: 'Título',
-              isDense: true,
+              isDense: true, labelStyle: TextStyle(
+                fontSize: 16,
+                color: Color(0xFFE74C3C), // TODO REMOVE THIS
+              ),
+              hintStyle: TextStyle(
+                fontSize: 16,
+                color: Colors.grey,
+              ),
             ),
             validator: (name) {
               if (name.isEmpty) return 'Inválido';
@@ -41,6 +49,10 @@ class EditItemSize extends StatelessWidget {
             decoration: const InputDecoration(
               labelText: 'Estoque',
               isDense: true,
+              hintStyle: TextStyle(
+                fontSize: 16,
+                color: Colors.grey,
+              ),
             ),
             keyboardType: TextInputType.number,
             validator: (stock) {
@@ -58,7 +70,18 @@ class EditItemSize extends StatelessWidget {
           child: TextFormField(
             initialValue: size.price?.toStringAsFixed(2),
             decoration: const InputDecoration(
-                labelText: 'Preço', isDense: true, prefixText: 'R\$'),
+              labelText: 'Preço',
+              labelStyle: TextStyle(
+                fontSize: 16,
+                color: Color(0xFFE74C3C), // TODO REMOVE THIS
+              ),
+              isDense: true,
+              prefixText: 'R\$',
+              hintStyle: TextStyle(
+                fontSize: 16,
+                color: Colors.grey,
+              ),
+            ),
             keyboardType: const TextInputType.numberWithOptions(decimal: true),
             validator: (price) {
               if (num.tryParse(price) == null) return 'Inválido';

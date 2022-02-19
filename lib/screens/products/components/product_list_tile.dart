@@ -16,16 +16,19 @@ class ProductListTile extends StatelessWidget {
         );
       },
       child: Card(
-        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+        margin: const EdgeInsets.symmetric(horizontal: 28, vertical: 4),
+        // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
         child: Container(
           height: 100,
-          padding: const EdgeInsets.all(8),
+          padding: const EdgeInsets.all(6),
           child: Row(
             children: <Widget>[
-              AspectRatio(
-                aspectRatio: 1,
-                child: Image.network(product.images.first),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: AspectRatio(
+                  aspectRatio: 1,
+                  child: Image.network(product.images.first),
+                ),
               ),
               const SizedBox(
                 width: 16,

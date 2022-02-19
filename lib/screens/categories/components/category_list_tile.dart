@@ -12,7 +12,7 @@ class CategoryListTile extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.of(context)
-            .pushNamed('/products', arguments: categoryModel.id);
+            .pushNamed('/products', arguments: categoryModel);
       },
       child: Card(
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
