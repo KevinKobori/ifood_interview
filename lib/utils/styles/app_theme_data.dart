@@ -20,6 +20,7 @@ ThemeData themeData() {
     textTheme: AppTextTheme.textTheme,
     appBarTheme: AppBarThemeApp.appBarTheme,
     colorScheme: AppColorScheme.colorSchemeLight,
+    scaffoldBackgroundColor: AppColorScheme.grey[50],
     pageTransitionsTheme: PageTransitionsTheme(
       builders: {
         TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
@@ -39,7 +40,7 @@ ThemeData themeData() {
     ),
     cardTheme: CardTheme(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
-      elevation: 7.0,
+      elevation: 4.0,
       shadowColor: AppColorScheme.shadowTealColor,
     ),
     // textButtonTheme: TextButtonThemeData(
@@ -88,3 +89,4 @@ ThemeData themeData() {
   //   ),
   // );
 }
+

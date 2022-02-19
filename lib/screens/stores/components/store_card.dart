@@ -97,7 +97,7 @@ class StoreCard extends StatelessWidget {
                   alignment: Alignment.topRight,
                   child: Container(
                     decoration: BoxDecoration(
-                        color: Colors.white,
+                        // color: Colors.white,
                         borderRadius: const BorderRadius.only(
                             bottomLeft: Radius.circular(8))),
                     padding: const EdgeInsets.all(8),

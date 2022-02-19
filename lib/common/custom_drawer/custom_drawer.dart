@@ -54,7 +54,7 @@ class CustomDrawer extends StatelessWidget {
               ),
               const Divider(),
               const WhatsappCard(
-                buttonText: 'Contato Whatsapp',
+                buttonText: 'Whatsapp',
                 onPressed: true,
                 cartDoubt: false,
               ),

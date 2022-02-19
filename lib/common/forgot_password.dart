@@ -64,7 +64,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     duration: const Duration(seconds: 5),
                     icon: const Icon(
                       Icons.shopping_cart,
-                      color: Colors.white,
+                      // color: Colors.white,
                     ),
                   ).show(context);
                 });

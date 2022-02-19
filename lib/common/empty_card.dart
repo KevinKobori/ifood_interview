@@ -17,7 +17,7 @@ class EmptyCard extends StatelessWidget {
           Icon(
             iconData,
             size: 80.0,
-            color: Colors.white,
+            // color: Colors.white,
           ),
           const SizedBox(
             height: 16.0,
@@ -27,7 +27,7 @@ class EmptyCard extends StatelessWidget {
             style: const TextStyle(
               fontSize: 20.0,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              // color: Colors.white,
             ),
             textAlign: TextAlign.center,
           ),

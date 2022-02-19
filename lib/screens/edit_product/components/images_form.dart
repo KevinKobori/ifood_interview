@@ -53,7 +53,7 @@ class ImagesForm extends StatelessWidget {
                             state.value.remove(image);
                             state.didChange(state.value);
                           },
-                          color: Colors.white,
+                          // color: Colors.white,
                           textColor: Colors.white,
                           child: const Icon(
                             Icons.remove,

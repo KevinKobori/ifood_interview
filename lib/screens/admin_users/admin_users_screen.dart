@@ -23,12 +23,14 @@ class AdminUsersScreen extends StatelessWidget {
                 title: Text(
                   adminUsersManager.users[index].name,
                   style: TextStyle(
-                      fontWeight: FontWeight.w800, color: Colors.white),
+                      fontWeight: FontWeight.w800, 
+                      // color: Colors.white,
+                      ),
                 ),
                 subtitle: Text(
                   adminUsersManager.users[index].email,
                   style: TextStyle(
-                    color: Colors.white,
+                    // color: Colors.white,
                   ),
                 ),
                 onTap: () {
@@ -39,7 +41,10 @@ class AdminUsersScreen extends StatelessWidget {
                 },
               );
             },
-            highlightTextStyle: TextStyle(color: Colors.white, fontSize: 20),
+            highlightTextStyle: TextStyle(
+              // color: Colors.white, 
+            fontSize: 20,
+            ),
             indexedHeight: (index) => 80,
             strList: adminUsersManager.names,
             showPreview: true,

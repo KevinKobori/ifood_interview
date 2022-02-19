@@ -52,7 +52,8 @@ class CardTextField extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 10,
                           fontWeight: FontWeight.w400,
-                          color: Colors.white),
+                          // color: Colors.white,
+                          ),
                     ),
                     if (state.hasError)
                       const Text(

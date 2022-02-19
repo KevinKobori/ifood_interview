@@ -120,7 +120,7 @@ class LoginScreen extends StatelessWidget {
                                           title: const Text(
                                             "Email não verificado!",
                                             style: TextStyle(
-                                              color: Colors.white,
+                                              // color: Colors.white,
                                             ),
                                           ),
                                           content: ElevatedButton(
@@ -155,7 +155,7 @@ class LoginScreen extends StatelessWidget {
                                                         seconds: 5),
                                                     icon: const Icon(
                                                       Icons.shopping_cart,
-                                                      color: Colors.white,
+                                                      // color: Colors.white,
                                                     ),
                                                   ).show(context);
                                                 });
@@ -176,7 +176,7 @@ class LoginScreen extends StatelessWidget {
                                             child: const Text(
                                               'Enviar verificação por email',
                                               style: TextStyle(
-                                                color: Colors.white,
+                                                // color: Colors.white,
                                               ),
                                             ),
                                           ),

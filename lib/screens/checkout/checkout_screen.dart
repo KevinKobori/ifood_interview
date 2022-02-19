@@ -49,7 +49,7 @@ class CheckoutScreen extends StatelessWidget {
                       Text(
                         'Processando seu pagamento...',
                         style: TextStyle(
-                            color: Colors.white,
+                            // color: Colors.white,
                             fontWeight: FontWeight.w800,
                             fontSize: 16),
                       )

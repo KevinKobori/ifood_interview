@@ -22,11 +22,11 @@ class SectionHeader extends StatelessWidget {
                 child: TextFormField(
                   initialValue: section.name,
                   decoration: const InputDecoration(
-                      hintText: 'Título',
+                      hintText: 'Title',
                       isDense: true,
                       border: InputBorder.none),
                   style: const TextStyle(
-                    color: Colors.white,
+                    // color: Colors.white,
                     fontWeight: FontWeight.w800,
                     fontSize: 18,
                   ),
@@ -35,7 +35,7 @@ class SectionHeader extends StatelessWidget {
               ),
               CustomIconButton(
                 iconData: Icons.remove,
-                color: Colors.white,
+                // color: Colors.white,
                 onTap: () {
                   homeManager.removeSection(section);
                 },
@@ -54,14 +54,18 @@ class SectionHeader extends StatelessWidget {
       );
     } else {
       return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 32,
+          vertical: 8,
+        ),
         child: Text(
-          section.name ?? "Banana",
-          style: const TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.w800,
-            fontSize: 18,
-          ),
+          section.name ?? '',
+          style: Theme.of(context).textTheme.bodyText1,
+          // style: const TextStyle(
+          //   // color: Colors.white,
+          //   fontWeight: FontWeight.w700,
+          //   fontSize: 18,
+          // ),
         ),
       );
     }

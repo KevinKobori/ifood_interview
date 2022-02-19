@@ -75,13 +75,13 @@ class _AdminOrdersScreenState extends State<AdminOrdersScreen>
                             'Pedidos de ${ordersManager.userFilter.name}',
                             style: const TextStyle(
                               fontWeight: FontWeight.w800,
-                              color: Colors.white,
+                              // color: Colors.white,
                             ),
                           ),
                         ),
                         CustomIconButton(
                           iconData: Icons.close,
-                          color: Colors.white,
+                          // color: Colors.white,
                           onTap: () {
                             ordersManager.setUserFilter(null);
                           },
@@ -131,7 +131,7 @@ class _AdminOrdersScreenState extends State<AdminOrdersScreen>
                   },
                   child: Container(
                     height: 40,
-                    color: Colors.white,
+                    // color: Colors.white,
                     alignment: Alignment.center,
                     child: Row(
                       children: [

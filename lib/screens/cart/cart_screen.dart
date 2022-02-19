@@ -44,7 +44,7 @@ class CartScreen extends StatelessWidget {
                     : null,
               ),
               const WhatsappCard(
-                buttonText: 'Contato Whatsapp',
+                buttonText: 'Whatsapp',
                 onPressed: true,
                 cartDoubt: true,
               ),

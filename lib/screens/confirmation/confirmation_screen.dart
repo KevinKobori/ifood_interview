@@ -22,7 +22,7 @@ class ConfirmationScreen extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(
               fontWeight: FontWeight.w600,
-              color: Colors.white,
+              // color: Colors.white,
               fontSize: 32,
             ),
           ),

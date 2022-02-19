@@ -129,7 +129,7 @@ class SignUpScreen extends StatelessWidget {
                                             title: const Text(
                                               "Verifique seu email!",
                                               style: TextStyle(
-                                                color: Colors.white,
+                                                // color: Colors.white,
                                               ),
                                             ),
                                             content: ElevatedButton(
@@ -164,7 +164,7 @@ class SignUpScreen extends StatelessWidget {
                                                         seconds: 5),
                                                     icon: const Icon(
                                                       Icons.shopping_cart,
-                                                      color: Colors.white,
+                                                      // color: Colors.white,
                                                     ),
                                                   ).show(context);
                                                 });
@@ -186,7 +186,7 @@ class SignUpScreen extends StatelessWidget {
                                               child: const Text(
                                                 'Enviar verificação por email',
                                                 style: TextStyle(
-                                                  color: Colors.white,
+                                                  // color: Colors.white,
                                                 ),
                                               ),
                                             ),

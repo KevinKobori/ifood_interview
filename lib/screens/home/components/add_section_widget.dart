@@ -14,29 +14,43 @@ class AddSectionWidget extends StatelessWidget {
         Expanded(
           child: TextButton(
             onPressed: () {
-              homeManager.addSection(Section(type: 'List'));
+              homeManager.addSection(Section(type: 'categories-list'));
             },
             style: ElevatedButton.styleFrom(
               padding: const EdgeInsets.symmetric(horizontal: 6),
             ),
             child: const Text(
-              'Adicionar Lista',
+              'Add Categories List',
             ),
           ),
         ),
         Expanded(
           child: TextButton(
             onPressed: () {
-              homeManager.addSection(Section(type: 'Staggered'));
+              homeManager.addSection(Section(type: 'list'));
             },
             style: ElevatedButton.styleFrom(
               padding: const EdgeInsets.symmetric(horizontal: 6),
             ),
             child: const Text(
-              'Adicionar Grade',
+              'Add Products List',
             ),
           ),
         ),
+
+        // Expanded(
+        //   child: TextButton(
+        //     onPressed: () {
+        //       homeManager.addSection(Section(type: 'Staggered'));
+        //     },
+        //     style: ElevatedButton.styleFrom(
+        //       padding: const EdgeInsets.symmetric(horizontal: 6),
+        //     ),
+        //     child: const Text(
+        //       'Adicionar Grade',
+        //     ),
+        //   ),
+        // ),
       ],
     );
   }

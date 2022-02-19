@@ -50,6 +50,19 @@ class AppColorScheme {
     900: Color(0xFF78281F),
   });
 
+  //   static MaterialColor primarySwatch = MaterialColor(0xFFFFFFFFF, {
+  //   50: Color(0xFFFFFFFFF),
+  //   100: Color(0xFFFFFFFFF),
+  //   200: Color(0xFFFFFFFFF),
+  //   300: Color(0xFFFFFFFFF),
+  //   400: Color(0xFFFFFFFFF),
+  //   500: Color(0xFFFFFFFFF),
+  //   600: Color(0xFFFFFFFFF),
+  //   700: Color(0xFFFFFFFFF),
+  //   800: Color(0xFFFFFFFFF),
+  //   900: Color(0xFFFFFFFFF),
+  // });
+
   static const MaterialColor primarySwatchDark = MaterialColor(0xff1EB993, {
     50: Color.fromRGBO(30, 185, 147, .1),
     100: Color.fromRGBO(30, 185, 147, .2),
@@ -97,7 +110,9 @@ class AppColorScheme {
 
   static const Color textInputBorder = Color(0x14000000);
   static const Color hintColor = Color(0xff5E5E5E);
-  static Color shadowTealColor = Colors.teal[100].withOpacity(0.7);
+  static Color shadowTealColor = Colors.teal[100].withOpacity(1);
+  static Color enabledTealColor = Colors.teal[300];
+  static Color disabledTealColor = Colors.teal[900];
   static const Color shadowColor = Color(0xffEFEFEF);
   static const Color shadowColorDark = Color(0x1100001A);
 

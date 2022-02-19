@@ -18,7 +18,7 @@ class ExportAddressDialog extends StatelessWidget {
         controller: screenshotController,
         child: Container(
           padding: const EdgeInsets.all(8),
-          color: Colors.white,
+          // color: Colors.white,
           child: Text(
             '${address.street}, ${address.number} ${address.complement}\n'
             '${address.district}\n'

@@ -63,7 +63,7 @@
     - Implement Controllers
         - Migrate from provider to mobx ⚠️⭕
     - Layout of the App: ⛔
-        - drawer to bottom navigationbar ⛔
+        - drawer to bottom navigationbar ✅
         - Search bar ⛔
         - Items list to grid ⛔
         - Colors ⛔

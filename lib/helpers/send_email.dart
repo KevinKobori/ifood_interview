@@ -46,7 +46,7 @@ class _SendEmailState extends State<SendEmail> {
                   style: const TextStyle(
                     fontSize: 16,
                     // fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    // color: Colors.white,
                   ),
                   children: [
                     TextSpan(
@@ -66,7 +66,7 @@ class _SendEmailState extends State<SendEmail> {
               //   style: TextStyle(
               //     fontSize: 16,
               //     fontWeight: FontWeight.bold,
-              //     color: Colors.white,
+              //     // color: Colors.white,
               //   ),
               // ),
             ),
