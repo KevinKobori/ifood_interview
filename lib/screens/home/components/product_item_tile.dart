@@ -131,42 +131,43 @@ class ProductItemTile extends StatelessWidget {
               ),
               // const SizedBox(height: 4),
               Container(
-                width: MediaQuery.of(context).size.width * 0.38,
                 // color: Colors.pink,
-                padding: const EdgeInsets.fromLTRB(10, 4, 10, 4),
-                child: Container(
-                  child: Row(
-                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.264,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Product',
-                              style: Theme.of(context).textTheme.bodyText2,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            Text(
-                              'Category',
-                              style: Theme.of(context).textTheme.overline,
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 1,
-                            ),
-                          ],
+                width: MediaQuery.of(context).size.width * 0.367,
+                padding: const EdgeInsets.fromLTRB(10, 4, 4, 4),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.229,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Product',
+                            style: Theme.of(context).textTheme.bodyText2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          Text(
+                            'Category',
+                            style: Theme.of(context).textTheme.overline,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Spacer(),
+                    const Card(
+                      // color: Colors.black,
+                      child: Padding(
+                        padding: EdgeInsets.all(5.0),
+                        child: Icon(
+                          Icons.favorite_outline_rounded,
+                          size: 16,
                         ),
                       ),
-                      Spacer(),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: Container(
-                          // color: Colors.black,
-                          child: const Icon(Icons.favorite_outline_rounded),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
               // Row[Column[],Container]

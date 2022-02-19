@@ -151,10 +151,12 @@ class _BaseScreenState extends State<BaseScreen> {
       create: (_) => PageManager(pageController),
       child: Consumer<UserManager>(
         builder: (_, userManager, __) {
-          return Scaffold(
+          return 
+          Scaffold(
             // key: _scafffoldKey,
-            // drawer: CustomDrawer(),
-            body: Stack(
+            drawer: CustomDrawer(),
+            body: 
+            Stack(
               children: <Widget>[
                 PageView(
                   controller: pageController,

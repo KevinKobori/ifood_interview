@@ -21,6 +21,12 @@ ThemeData themeData() {
     appBarTheme: AppBarThemeApp.appBarTheme,
     colorScheme: AppColorScheme.colorSchemeLight,
     scaffoldBackgroundColor: AppColorScheme.grey[50],
+    highlightColor: Colors.transparent,
+    splashColor: Colors.transparent,
+    hintColor: Colors.transparent,
+    focusColor: Colors.transparent,
+    hoverColor: Colors.transparent,
+    errorColor: AppColorScheme.primarySwatch,
     pageTransitionsTheme: PageTransitionsTheme(
       builders: {
         TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
@@ -89,4 +95,3 @@ ThemeData themeData() {
   //   ),
   // );
 }
-

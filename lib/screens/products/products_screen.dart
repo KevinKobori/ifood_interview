@@ -124,7 +124,9 @@ class _ProductsScreenState extends State<ProductsScreen> {
               itemCount: filteredCategoryProducts.length,
               itemBuilder: (_, index) {
                 return ProductListTile(
-                    filteredCategoryProducts[index], widget.categoryId);
+                  filteredCategoryProducts[index],
+                  widget.categoryId,
+                );
               },
             );
           } else {
@@ -133,7 +135,9 @@ class _ProductsScreenState extends State<ProductsScreen> {
               itemCount: filteredProducts.length,
               itemBuilder: (_, index) {
                 return ProductListTile(
-                    filteredProducts[index], widget.categoryId);
+                  filteredProducts[index],
+                  null,
+                );
               },
             );
           }

@@ -5,7 +5,10 @@ import 'package:wlstore/common/custom_drawer/custom_drawer.dart';
 import 'package:wlstore/common/custom_icon_button_2.dart';
 import 'package:wlstore/common/custom_search_text_field.dart';
 import 'package:wlstore/models/home_manager.dart';
+import 'package:wlstore/models/product.dart';
+import 'package:wlstore/models/product_manager.dart';
 import 'package:wlstore/screens/home/components/add_section_widget.dart';
+import 'package:wlstore/screens/products/components/product_list_tile.dart';
 import 'package:wlstore/utils/styles/app_color_scheme.dart';
 import '../base/base_screen.dart';
 import 'components/section_categories_list.dart';
@@ -20,16 +23,94 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  GlobalKey<ScaffoldState> scafffoldKey = GlobalKey();
+  // GlobalKey<ScaffoldState> scafffoldKey = GlobalKey();
+
+  Widget getPageList({ProductManager productManager}) {
+    if (productManager.filteredProducts.isNotEmpty &&
+        productManager.search != '') {
+      final List<Widget> listChildren =
+          productManager.filteredProducts.map<Widget>((element) {
+        return ProductListTile(element, null);
+      }).toList();
+
+      final List<Widget> childrenWithPadding = [
+        ...[const SizedBox(height: 28)],
+        ...listChildren
+      ];
+      return SliverList(
+        delegate: SliverChildListDelegate(childrenWithPadding),
+      );
+
+      // return ListView.builder(
+      //   itemCount: filteredProducts.length,
+      //   itemBuilder: (_, index) {
+      //     return ProductListTile(filteredProducts[index], null);
+      //   },
+      // );
+    } else if (productManager.search != '') {
+      return SliverToBoxAdapter(
+        child: Center(
+            child: Text(
+          'Nenhum produto encontrado',
+          style: TextStyle(
+            color: Theme.of(context).errorColor,
+          ),
+        )),
+      );
+    } else {
+      return Consumer<HomeManager>(
+        builder: (_, homeManager, __) {
+          if (homeManager.loading) {
+            return const SliverToBoxAdapter(
+              child: LinearProgressIndicator(
+                valueColor: AlwaysStoppedAnimation(Colors.white),
+                backgroundColor: Colors.transparent,
+              ),
+            );
+          } else {
+            final List<Widget> listChildren =
+                homeManager.sections.map<Widget>((section) {
+              switch (section.type) {
+                case 'products-list':
+                  return SectionProductsList(section);
+                case 'categories-list':
+                  return SectionCategoriesList(section);
+                // case 'Staggered':
+                //   return SectionStaggered(section);
+                default:
+                  return Container();
+              }
+            }).toList();
+
+            final List<Widget> childrenWithPadding = [
+              ...[const SizedBox(height: 6)],
+              ...listChildren
+            ];
+
+            if (homeManager.editing)
+              listChildren.add(AddSectionWidget(homeManager));
+
+            return SliverList(
+              delegate: SliverChildListDelegate(childrenWithPadding),
+            );
+          }
+        },
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     final sliverAppBarHeight = MediaQuery.of(context).size.height * 0.40;
-    return Scaffold(
-      key: scafffoldKey,
-      drawer: CustomDrawer(),
-      drawerEnableOpenDragGesture: false,
-      body: Stack(
+    return
+        // Scaffold(
+        //   // key: scafffoldKey,
+        //   // drawer: CustomDrawer(),
+        //   // drawerEnableOpenDragGesture: false,
+        //   body:
+        Consumer<ProductManager>(builder: (_, productManager, __) {
+      // final List<Product> filteredProducts = productManager.filteredProducts;
+      return Stack(
         children: <Widget>[
           CustomScrollView(
             slivers: <Widget>[
@@ -140,22 +221,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   // color: Colors.blue,
                   child: Row(
                     children: <Widget>[
-                      // ElevatedButton(
-                      //   onPressed: () {
-                      //     scafffoldKey.currentState.openDrawer();
-                      //     // Scaffold.of(context).openDrawer();
-                      //   },
-                      //   child: Icon(Icons.menu),
-                      // ),
-                      // Builder(
-                      //   builder: (context) => // Ensure Scaffold is in context
-                      customIconButton(
-                        const EdgeInsets.only(left: 0),
-                        Icons.menu,
-                        () => scafffoldKey.currentState.openDrawer(),
-                        // Scaffold.of(context).openDrawer();
+                      Builder(
+                        builder: (context) => // Ensure Scaffold is in context
+                            customIconButton(
+                          const EdgeInsets.only(left: 0),
+                          Icons.menu,
+                          // () => scafffoldKey.currentState.openDrawer(),
+                          () => Scaffold.of(context).openDrawer(),
+                        ),
                       ),
-                      // ),
 
                       SizedBox(width: 16),
                       Text('Hi Jeniffer',
@@ -262,16 +336,40 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                         ),
+                        // Consumer<ProductManager>(
+                        //   builder: (_, productManager, __) {
+                        //     if (productManager.search.isEmpty) {
+                        //       return IconButton(
+                        //         icon: Icon(Icons.search),
+                        //         onPressed: () async {
+                        //           final search = await showDialog<String>(
+                        //               context: context,
+                        //               builder: (_) =>
+                        //                   SearchDialog(productManager.search));
+                        //           if (search != null) {
+                        //             productManager.search = search;
+                        //           }
+                        //         },
+                        //       );
+                        //     } else {
+                        //       return IconButton(
+                        //         icon: Icon(Icons.close),
+                        //         onPressed: () async {
+                        //           productManager.search = '';
+                        //         },
+                        //       );
+                        //     }
+                        //   },
+                        // ),
                         Container(
                           height: 50,
                           width: MediaQuery.of(context).size.width,
                           // color: Colors.black,
                           padding: const EdgeInsets.fromLTRB(16, 0, 16, 4),
-
                           child: customSearchTextField(
                             context: context,
-                            // onChanged: (value) => cartManager.search = value,
-                            hintText: "Search product",
+                            onChanged: (value) => productManager.search = value,
+                            hintText: "Search products",
                           ),
                         ),
                       ],
@@ -279,50 +377,27 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
+              // Consumer<HomeManager>(
+              //   builder: (_, homeManager, __) {
+              //     if (homeManager.loading) {
+              //       return const SliverToBoxAdapter(
+              //         child: LinearProgressIndicator(
+              //           valueColor: AlwaysStoppedAnimation(Colors.white),
+              //           backgroundColor: Colors.transparent,
+              //         ),
+              //       );
+              //     } else {
+              // return
+              // Consumer<ProductManager>(builder: (_, productManager, __) {
 
-              Consumer<HomeManager>(
-                builder: (_, homeManager, __) {
-                  if (homeManager.loading) {
-                    return const SliverToBoxAdapter(
-                      child: LinearProgressIndicator(
-                        valueColor: AlwaysStoppedAnimation(Colors.white),
-                        backgroundColor: Colors.transparent,
-                      ),
-                    );
-                  }
-
-                  final List<Widget> listChildren =
-                      homeManager.sections.map<Widget>((section) {
-                    switch (section.type) {
-                      case 'products-list':
-                        return SectionProductsList(section);
-                      case 'categories-list':
-                        return SectionCategoriesList(section);
-                      // case 'Staggered':
-                      //   return SectionStaggered(section);
-                      default:
-                        return Container();
-                    }
-                  }).toList();
-
-                  final List<Widget> childrenWithPadding = [
-                    ...[const SizedBox(height: 10)],
-                    ...listChildren
-                  ];
-
-                  if (homeManager.editing)
-                    listChildren.add(AddSectionWidget(homeManager));
-
-                  return SliverList(
-                    delegate: SliverChildListDelegate(childrenWithPadding),
-                  );
-                },
-              ),
+              // }),
+              getPageList(productManager: productManager),
               const SliverToBoxAdapter(child: SizedBox(height: 1000)),
             ],
           ),
         ],
-      ),
-    );
+      );
+    });
+    // ),
   }
 }
