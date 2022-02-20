@@ -24,7 +24,7 @@ class ProductsScreen extends StatefulWidget {
 class _ProductsScreenState extends State<ProductsScreen> {
   final PageController pageController = PageController();
   CategoryModel category;
-  
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -34,6 +34,8 @@ class _ProductsScreenState extends State<ProductsScreen> {
       productManager.loadAllCategoryProducts(widget.category.id);
     } else {
       context.read<CategoryManager>().setCategory(category: null);
+      productManager.search =
+          ''; // TODO Problem when the user close the textfield on bottom navigation, ensure the textfield close before change bottom navigation page
       productManager.loadAllProducts();
     }
   }
@@ -152,14 +154,14 @@ class _ProductsScreenState extends State<ProductsScreen> {
           }
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.white,
-        foregroundColor: Theme.of(context).primaryColor,
-        onPressed: () {
-          Navigator.of(context).pushNamed('/cart');
-        },
-        child: Icon(Icons.shopping_cart),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   backgroundColor: Colors.white,
+      //   foregroundColor: Theme.of(context).primaryColor,
+      //   onPressed: () {
+      //     Navigator.of(context).pushNamed('/cart');
+      //   },
+      //   child: Icon(Icons.shopping_cart),
+      // ),
     );
   }
 }
