@@ -78,7 +78,6 @@ class _ProductsScreenState extends State<ProductsScreen> {
             }
           },
         ),
-        // centerTitle: true,
         actions: <Widget>[
           Consumer<ProductManager>(
             builder: (_, productManager, __) {
@@ -145,9 +144,17 @@ class _ProductsScreenState extends State<ProductsScreen> {
             return ListView.builder(
               itemCount: filteredProducts.length,
               itemBuilder: (_, index) {
-                return ProductListTile(
-                  filteredProducts[index],
-                  null,
+                return Padding(
+                  padding: EdgeInsets.fromLTRB(
+                    0,
+                    0,
+                    0,
+                    index == filteredProducts.length - 1 ? 96 : 0,
+                  ),
+                  child: ProductListTile(
+                    filteredProducts[index],
+                    null,
+                  ),
                 );
               },
             );

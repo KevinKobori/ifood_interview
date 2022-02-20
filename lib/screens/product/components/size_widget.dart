@@ -4,7 +4,9 @@ import 'package:wlstore/models/product.dart';
 import 'package:provider/provider.dart';
 
 class SizeWidget extends StatelessWidget {
-  const SizeWidget({this.size});
+  const SizeWidget({
+    this.size,
+  });
 
   final ItemSize size;
 

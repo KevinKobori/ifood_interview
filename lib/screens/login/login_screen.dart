@@ -23,7 +23,6 @@ class LoginScreen extends StatelessWidget {
       key: scaffoldKey,
       appBar: AppBar(
         title: const Text('Entrar'),
-        // centerTitle: true,
         actions: <Widget>[
           TextButton(
             onPressed: () {

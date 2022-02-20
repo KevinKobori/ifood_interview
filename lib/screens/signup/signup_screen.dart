@@ -19,7 +19,6 @@ class SignUpScreen extends StatelessWidget {
       key: scaffoldKey,
       appBar: AppBar(
         title: const Text('Criar Conta'),
-        // centerTitle: true,
       ),
       body: Center(
         child: Card(

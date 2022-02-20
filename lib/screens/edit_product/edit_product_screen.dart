@@ -40,7 +40,6 @@ class EditProductScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(editing ? 'Editar Produto' : 'Criar Produto'),
-          // centerTitle: true,
           actions: <Widget>[
             if (editing)
               IconButton(

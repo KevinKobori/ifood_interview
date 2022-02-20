@@ -5,7 +5,12 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:wlstore/models/address.dart';
 
 class UserModel {
-  UserModel({this.email, this.password, this.name, this.id});
+  UserModel({
+    this.email,
+    this.password,
+    this.name,
+    this.id,
+  });
 
   UserModel.fromDocument(DocumentSnapshot document) {
     id = document.documentID;

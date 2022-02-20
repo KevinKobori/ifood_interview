@@ -17,7 +17,6 @@ class ProductListTile extends StatelessWidget {
       },
       child: Card(
         margin: const EdgeInsets.symmetric(horizontal: 28, vertical: 4),
-        // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
         child: Container(
           height: 100,
           padding: const EdgeInsets.all(6),
@@ -40,6 +39,8 @@ class ProductListTile extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       product.name,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,

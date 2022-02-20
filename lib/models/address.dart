@@ -1,14 +1,15 @@
 class Address {
-  Address(
-      {this.street,
-      this.number,
-      this.complement,
-      this.district,
-      this.zipCode,
-      this.city,
-      this.state,
-      this.lat,
-      this.long});
+  Address({
+    this.street,
+    this.number,
+    this.complement,
+    this.district,
+    this.zipCode,
+    this.city,
+    this.state,
+    this.lat,
+    this.long,
+  });
 
   String street;
   String number;

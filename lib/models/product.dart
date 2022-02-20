@@ -7,14 +7,15 @@ import 'package:wlstore/models/item_size.dart';
 import 'package:uuid/uuid.dart';
 
 class Product extends ChangeNotifier {
-  Product(
-      {this.id,
-      this.name,
-      this.description,
-      this.images,
-      this.sizes,
-      this.categoryId,
-      this.deleted = false}) {
+  Product({
+    this.id,
+    this.name,
+    this.description,
+    this.images,
+    this.sizes,
+    this.categoryId,
+    this.deleted = false,
+  }) {
     images = images ?? [];
     sizes = sizes ?? [];
   }
@@ -152,10 +153,10 @@ class Product extends ChangeNotifier {
 
     // await firestore
     //     .document('categories/$categoryId/products/$id')
-    //     .updateData({'images': updateImages});
-    await firestore
-        .document('products/$id')
-        .updateData({'images': updateImages});
+    //     .updateData({'images': updateImages,});
+    await firestore.document('products/$id').updateData({
+      'images': updateImages,
+    });
 
     images = updateImages;
 
@@ -165,7 +166,7 @@ class Product extends ChangeNotifier {
   void deleteCategoryProduct(String categoryId) {
     // firestore
     //     .document('categories/$categoryId/products/$id')
-    //     .updateData({'deleted': true});
+    //     .updateData({'deleted': true,});
     deleteProductsProduct();
   }
 
@@ -183,7 +184,9 @@ class Product extends ChangeNotifier {
 
 //________________________
   void deleteProductsProduct() {
-    firestore.document('products/$id').updateData({'deleted': true});
+    firestore.document('products/$id').updateData({
+      'deleted': true,
+    });
   }
 
   @override

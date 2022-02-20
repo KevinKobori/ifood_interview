@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-Widget customIconButton(
-  EdgeInsets margin,
+Widget customCardIconButton({
+  EdgeInsets margin = const EdgeInsets.all(0.0),
   IconData icon,
-  Function() function,
-) {
+  Function() onPressed,
+}) {
   return Container(
     height: 40,
     width: 40,
@@ -21,10 +21,10 @@ Widget customIconButton(
       ],
     ),
     child: IconButton(
-      onPressed: function,
+      onPressed: onPressed,
       icon: Icon(
         icon,
-        color: Colors.black,
+        // color: Colors.white,
       ),
     ),
   );

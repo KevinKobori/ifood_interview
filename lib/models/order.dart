@@ -67,7 +67,9 @@ class Order {
     return status.index <= Status.transporting.index
         ? () {
             status = Status.values[status.index + 1];
-            firestoreRef.updateData({'status': status.index});
+            firestoreRef.updateData({
+              'status': status.index,
+            });
           }
         : null;
   }
@@ -77,7 +79,9 @@ class Order {
       await CieloPayment().cancel(payId);
 
       status = Status.canceled;
-      firestoreRef.updateData({'status': status.index});
+      firestoreRef.updateData({
+        'status': status.index,
+      });
     } catch (e) {
       debugPrint('Erro ao cancelar');
       return Future.error('Falha ao cancelar');

@@ -8,10 +8,8 @@ class StoresScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // drawer: CustomDrawer(),
       appBar: AppBar(
         title: const Text('WLStores'),
-        // centerTitle: true,
       ),
       body: Consumer<StoresManager>(
         builder: (_, storesManager, __) {

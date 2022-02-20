@@ -7,7 +7,12 @@ import 'package:uuid/uuid.dart';
 import 'package:wlstore/models/section_item.dart';
 
 class Section extends ChangeNotifier {
-  Section({this.id, this.name, this.type, this.items}) {
+  Section({
+    this.id,
+    this.name,
+    this.type,
+    this.items,
+  }) {
     items = items ?? [];
     originalItems = List.from(items);
   }

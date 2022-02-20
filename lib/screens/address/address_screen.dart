@@ -11,7 +11,6 @@ class AddressScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Entrega'),
-        // centerTitle: true,
       ),
       body: ListView(
         children: <Widget>[

@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:wlstore/models/admin_orders_manager.dart';
 import 'package:wlstore/models/page_manager.dart';
 
 class DrawerTile extends StatelessWidget {
-  const DrawerTile({this.iconData, this.title, this.page});
+  const DrawerTile({
+    this.iconData,
+    this.title,
+    this.page,
+    this.path = '',
+  });
 
   final IconData iconData;
   final String title;
   final int page;
+  final String path;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +24,14 @@ class DrawerTile extends StatelessWidget {
     return InkWell(
       onTap: () {
         Navigator.of(context).pop();
-        context.read<PageManager>().setPage(page);
+        if (path.isNotEmpty) {
+          if (path == '/admin/orders') {
+            context.read<AdminOrdersManager>().setUserFilter(null);
+          }
+          Navigator.of(context).pushNamed(path);
+        } else {
+          context.read<PageManager>().setPage(page);
+        }
       },
       child: SizedBox(
         height: 60,

@@ -16,16 +16,18 @@ class CategoryListTile extends StatelessWidget {
         Navigator.of(context).pushNamed('/products', arguments: categoryModel);
       },
       child: Card(
-        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+        margin: const EdgeInsets.symmetric(horizontal: 28, vertical: 4),
         child: Container(
           height: 100,
           padding: const EdgeInsets.all(8),
           child: Row(
             children: <Widget>[
-              AspectRatio(
-                aspectRatio: 1,
-                child: Image.network(categoryModel.images.first),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: AspectRatio(
+                  aspectRatio: 1,
+                  child: Image.network(categoryModel.images.first),
+                ),
               ),
               const SizedBox(
                 width: 16,
@@ -37,6 +39,8 @@ class CategoryListTile extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       categoryModel.name,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
                         fontSize: 16,
                         // fontWeight: FontWeight.w600,

@@ -176,19 +176,19 @@ class _BaseScreenState extends State<BaseScreen> {
                     CategoriesScreen(),
                     const ProductsScreen(null),
                     OrdersScreen(),
-                    CartScreen(),
-                    StoresScreen(),
-                    if (userManager.adminEnabled) ...[
-                      AdminUsersScreen(),
-                      AdminOrdersScreen(),
-                    ]
+                    // CartScreen(),
+                    // StoresScreen(),
+                    // if (userManager.adminEnabled) ...[
+                    // AdminUsersScreen(),
+                    // AdminOrdersScreen(),
+                    // ]
                   ],
                 ),
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: Card(
                     margin: const EdgeInsets.fromLTRB(28, 0, 28, 16),
-                    color: Color(0xFF17202A),
+                    color: AppColorScheme.darkBlue.shade900,
                     child: BottomNavigationBar(
                       // backgroundColor: AppColorScheme.grey[100],
                       showSelectedLabels: false,

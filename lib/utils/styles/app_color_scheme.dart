@@ -37,6 +37,19 @@ class AppColorScheme {
   //   900: Color.fromRGBO(32, 201, 159, 1),
   // });
 
+  static MaterialColor darkBlue = MaterialColor(0xFFF2C3E50, {
+    50: Color(0xFFFEAECEE),
+    100: Color(0xFFFD5D8DC),
+    200: Color(0xFFFABB2B9),
+    300: Color(0xFFF808B96),
+    400: Color(0xFFF566573),
+    500: Color(0xFFF2C3E50),
+    600: Color(0xFFF273746),
+    700: Color(0xFFF212F3D),
+    800: Color(0xFFF1C2833),
+    900: Color(0xFFF17202A),
+  });
+
   static MaterialColor primarySwatch = MaterialColor(0xFFFFE74C3C, {
     50: Color(0xFFFDEDEC),
     100: Color(0xFFFADBD8),

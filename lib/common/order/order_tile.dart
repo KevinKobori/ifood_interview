@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:wlstore/common/custom_expansion_tile/expansion_list_tile.dart';
 import 'package:wlstore/common/order/cancel_order_dialog.dart';
 import 'package:wlstore/common/order/export_address_dialog.dart';
 import 'package:wlstore/common/order/order_product_tile.dart';
 import 'package:wlstore/models/order.dart';
 
 class OrderTile extends StatelessWidget {
-  const OrderTile(this.order, {this.showControls = false});
+  const OrderTile(
+    this.order, {
+    this.showControls = false,
+  });
 
   final Order order;
   final bool showControls;
@@ -16,7 +20,8 @@ class OrderTile extends StatelessWidget {
 
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-      child: ExpansionTile(
+      child: CustomExpansionTile(
+        tilePadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[

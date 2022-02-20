@@ -24,9 +24,12 @@ import 'package:wlstore/screens/signup/signup_screen.dart';
 import 'i18n/i18n.dart';
 import 'models/category_manager.dart';
 import 'models/category_model.dart';
+import 'screens/admin_orders/admin_orders_screen.dart';
+import 'screens/admin_users/admin_users_screen.dart';
 import 'screens/category/category_screen.dart';
 import 'screens/edit_category/edit_category_screen.dart';
 import 'screens/products/products_screen.dart';
+import 'screens/stores/stores_screen.dart';
 import 'utils/styles/app_color_scheme.dart';
 import 'utils/styles/app_theme_data.dart';
 
@@ -134,6 +137,18 @@ class MyApp extends StatelessWidget {
         // ),
         onGenerateRoute: (settings) {
           switch (settings.name) {
+            case '/stores':
+              return MaterialPageRoute(
+                builder: (_) => StoresScreen(),
+              );
+            case '/admin/users':
+              return MaterialPageRoute(
+                builder: (_) => AdminUsersScreen(),
+              );
+            case '/admin/orders':
+              return MaterialPageRoute(
+                builder: (_) => AdminOrdersScreen(),
+              );
             case '/login':
               return MaterialPageRoute(
                 builder: (_) => LoginScreen(),
@@ -142,19 +157,33 @@ class MyApp extends StatelessWidget {
               return MaterialPageRoute(
                 builder: (_) => SignUpScreen(),
               );
-            case '/product':
-              return MaterialPageRoute(
-                builder: (_) => ProductScreen(settings.arguments as Product),
-              );
             case '/category':
               return MaterialPageRoute(
                 builder: (_) =>
                     CategoryScreen(settings.arguments as CategoryModel),
               );
+            case '/edit_category':
+              return MaterialPageRoute(
+                builder: (_) =>
+                    EditCategoryScreen(settings.arguments as CategoryModel),
+              );
             case '/products':
               return MaterialPageRoute(
                 builder: (_) =>
                     ProductsScreen(settings.arguments as CategoryModel),
+              );
+            case '/product':
+              return MaterialPageRoute(
+                builder: (_) => ProductScreen(settings.arguments as Product),
+              );
+            case '/edit_product':
+              return MaterialPageRoute(
+                builder: (_) => EditProductScreen(
+                    settings.arguments as Map<String, dynamic>),
+              );
+            case '/select_product':
+              return MaterialPageRoute(
+                builder: (_) => SelectProductScreen(),
               );
             case '/cart':
               return MaterialPageRoute(
@@ -167,24 +196,11 @@ class MyApp extends StatelessWidget {
               return MaterialPageRoute(
                 builder: (_) => CheckoutScreen(),
               );
-            case '/edit_product':
-              return MaterialPageRoute(
-                builder: (_) => EditProductScreen(
-                    settings.arguments as Map<String, dynamic>),
-              );
-            case '/edit_category':
-              return MaterialPageRoute(
-                builder: (_) =>
-                    EditCategoryScreen(settings.arguments as CategoryModel),
-              );
-            case '/select_product':
-              return MaterialPageRoute(
-                builder: (_) => SelectProductScreen(),
-              );
             case '/confirmation':
               return MaterialPageRoute(
                 builder: (_) => ConfirmationScreen(settings.arguments as Order),
               );
+
             case '/':
             default:
               return MaterialPageRoute(

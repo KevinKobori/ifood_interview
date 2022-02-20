@@ -7,15 +7,19 @@ import 'package:wlstore/screens/checkout/components/card_text_field.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class CardFront extends StatelessWidget {
-  CardFront(
-      {this.numberFocus,
-      this.dateFocus,
-      this.nameFocus,
-      this.finished,
-      this.creditCard});
+  CardFront({
+    this.numberFocus,
+    this.dateFocus,
+    this.nameFocus,
+    this.finished,
+    this.creditCard,
+  });
 
-  final MaskTextInputFormatter dateFormatter = MaskTextInputFormatter(
-      mask: '!#/####', filter: {'#': RegExp('[0-9]'), '!': RegExp('[0-1]')});
+  final MaskTextInputFormatter dateFormatter =
+      MaskTextInputFormatter(mask: '!#/####', filter: {
+    '#': RegExp('[0-9]'),
+    '!': RegExp('[0-1]'),
+  });
 
   final VoidCallback finished;
 

@@ -1,5 +1,9 @@
 class ItemSize {
-  ItemSize({this.name, this.price, this.stock});
+  ItemSize({
+    this.name,
+    this.price,
+    this.stock,
+  });
 
   ItemSize.fromMap(Map<String, dynamic> map) {
     name = map['name'] as String;

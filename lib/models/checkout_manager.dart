@@ -85,7 +85,9 @@ class CheckoutManager extends ChangeNotifier {
       final result = await firestore.runTransaction((tx) async {
         final doc = await tx.get(ref);
         final orderId = doc.data['current'] as int;
-        await tx.update(ref, {'current': orderId + 1});
+        await tx.update(ref, {
+          'current': orderId + 1,
+        });
         return {'orderId': orderId};
       });
       return result['orderId'] as int;
@@ -133,8 +135,9 @@ class CheckoutManager extends ChangeNotifier {
       }
 
       for (final product in productsToUpdate) {
-        tx.update(firestore.document('products/${product.id}'),
-            {'sizes': product.exportSizeList()});
+        tx.update(firestore.document('products/${product.id}'), {
+          'sizes': product.exportSizeList(),
+        });
       }
     });
   }

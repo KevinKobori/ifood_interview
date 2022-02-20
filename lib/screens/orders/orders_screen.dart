@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:wlstore/common/custom_drawer/custom_drawer.dart';
+import 'package:provider/provider.dart';
 import 'package:wlstore/common/empty_card.dart';
 import 'package:wlstore/common/login_card.dart';
 import 'package:wlstore/common/order/order_tile.dart';
 import 'package:wlstore/models/orders_manager.dart';
-import 'package:provider/provider.dart';
 
 class OrdersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // drawer: CustomDrawer(),
       appBar: AppBar(
         title: const Text('Meus Pedidos'),
-        // centerTitle: true,
       ),
       body: Consumer<OrdersManager>(
         builder: (_, ordersManager, __) {
@@ -21,16 +18,25 @@ class OrdersScreen extends StatelessWidget {
             return LoginCard();
           }
           if (ordersManager.orders.isEmpty) {
-            return EmptyCard(
+            return const EmptyCard(
               title: 'Nenhuma compra encontrada!',
               iconData: Icons.border_clear,
             );
           }
           return ListView.builder(
-              itemCount: ordersManager.orders.length,
-              itemBuilder: (_, index) {
-                return OrderTile(ordersManager.orders.reversed.toList()[index]);
-              });
+            itemCount: ordersManager.orders.length,
+            itemBuilder: (_, index) {
+              return Padding(
+                padding: EdgeInsets.fromLTRB(
+                  0,
+                  0,
+                  0,
+                  index == ordersManager.orders.length - 1 ? 96 : 0,
+                ),
+                child: OrderTile(ordersManager.orders.reversed.toList()[index]),
+              );
+            },
+          );
         },
       ),
     );

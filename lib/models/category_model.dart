@@ -93,7 +93,9 @@ class CategoryModel extends ChangeNotifier {
       }
     }
 
-    await firestoreRef.updateData({'images': updateImages});
+    await firestoreRef.updateData({
+      'images': updateImages,
+    });
 
     images = updateImages;
 
@@ -101,7 +103,9 @@ class CategoryModel extends ChangeNotifier {
   }
 
   void delete() {
-    firestoreRef.updateData({'deleted': true});
+    firestoreRef.updateData({
+      'deleted': true,
+    });
   }
 
   CategoryModel clone() {

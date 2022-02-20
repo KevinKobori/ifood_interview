@@ -2,6 +2,40 @@
 
     The idea is based on small business who want to expand their sales using a free service for this, it will be like a whatsapp business + instagram shop.
 
+# Why use this template for a startup project:
+    - Reasons for now:
+        - Easy project configuration:
+            - Easy to configurate a new project using Firebase:
+                - Auth users using Firebase Authentication.        
+                - Part of the backend using Firebase Cloud Functions.
+                - Database using Firebase Firestore.
+                - Store the images, archives etc using Firebase Storage.
+                - Host on the WEB using Firebase Hosting.
+                - AI to detect customers usability using Firebase Machine Learning.
+                - OBS: everything for FREE to start.
+            - Easy to change package name, put on Play Store and Apple Store.
+        - Easy methods to change the theme of the app.
+        - Easy implementation:
+            - Easy to learn the project.
+            - Easy way to add new functionalities.
+    - Future reasons:
+        - Scalable:
+            - Good architecture using Clean Architecture structure.
+            - Everything will use modularity.
+            - Will have test to all business process.
+            - Uses just confiable packages.
+            - Decouple everything possible.
+        - Use mobx for the statements.
+        - 100% of the code will have support for Android + iOS + Web + Desktop.
+            - Uses platafform identification build.
+            - Uses responsive layout for diferent devices.
+        - The theme will be dynamically:
+            - Almost everything will be editable just using the app user interface.
+                - Change app colors, cards theme, buttons theme, text theme, etc.
+            - Option to use deep link to call the pages.
+            - Option to use serverside data to construct the pages dynamically.
+        ...
+
 # Developing Status: 
 
     - ⚠️: IMPORTANT
@@ -121,6 +155,7 @@
     - Format everything to be named parameters ⭕
     - Set all orders status filter enabled by default ✅
     - Set icon into Filters SlidingUpPanel ✅
+    - Set loading state to all pages ⚠️⭕
 
 ## Refactoring:
 

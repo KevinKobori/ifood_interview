@@ -25,8 +25,8 @@ class SectionProductsList extends StatelessWidget {
           children: <Widget>[
             SectionHeader(),
             SizedBox(
-              // height: 200,
-              height: MediaQuery.of(context).size.width * 0.56,
+              height: 223,
+              // height: MediaQuery.of(context).size.width * 0.57,
               child: Consumer<Section>(
                 builder: (_, section, __) {
                   return ListView.separated(
@@ -35,9 +35,9 @@ class SectionProductsList extends StatelessWidget {
                       if (index < section.items.length)
                         return Padding(
                           padding: EdgeInsets.fromLTRB(
-                            index == 0 ? 26.0 : 0,
+                            index == 0 ? 24.0 : 0,
                             4,
-                            index == section.items.length - 1 ? 26.0 : 0,
+                            index == section.items.length - 1 ? 24.0 : 0,
                             4,
                           ),
                           child: SectionProductsItemTile(section.items[index]),
@@ -45,9 +45,9 @@ class SectionProductsList extends StatelessWidget {
                       else
                         return Padding(
                           padding: EdgeInsets.fromLTRB(
-                            index == 0 ? 26.0 : 0,
+                            index == 0 ? 24.0 : 0,
                             4,
-                            index == section.items.length - 1 ? 26.0 : 0,
+                            index == section.items.length - 1 ? 24.0 : 0,
                             4,
                           ),
                           child: AddTileWidget(),

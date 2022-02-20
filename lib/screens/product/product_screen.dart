@@ -25,7 +25,6 @@ class ProductScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(product.name),
-          // centerTitle: true,
           actions: <Widget>[
             Consumer<UserManager>(
               builder: (_, userManager, __) {
@@ -36,7 +35,7 @@ class ProductScreen extends StatelessWidget {
                       Navigator.of(context)
                           .pushReplacementNamed('/edit_product', arguments: {
                         'categoryId': product.categoryId,
-                        'product': product
+                        'product': product,
                       });
                     },
                   );

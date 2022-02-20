@@ -25,20 +25,25 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // GlobalKey<ScaffoldState> scafffoldKey = GlobalKey();
-
   @override
   void initState() {
     super.initState();
+    final ProductManager providerProductManager =
+        Provider.of(context, listen: false);
+    providerProductManager.search = '';
   }
 
-  void dispose() {
-    super.dispose();
-  }
-
-  Widget getPageList({ProductManager productManager}) {
-    Widget getEditRow() {
-      return Row(
+  Widget getEditRow() {
+    return Container(
+      padding: const EdgeInsets.fromLTRB(
+        16,
+        0,
+        16,
+        0,
+      ),
+      height: 40,
+      // color: Colors.pink,
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           Consumer2<UserManager, HomeManager>(
@@ -64,9 +69,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 } else {
                   return IconButton(
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.edit,
                       color: Colors.black,
+                      // size: 16,
                     ),
                     onPressed: homeManager.enterEditing,
                   );
@@ -76,9 +82,13 @@ class _HomeScreenState extends State<HomeScreen> {
             },
           ),
         ],
-      );
-    }
+      ),
+    );
+  }
 
+  Widget getPageList({
+    ProductManager productManager,
+  }) {
     if (productManager.filteredProducts.isNotEmpty &&
         productManager.search != '') {
       final List<Widget> listChildren =
@@ -88,7 +98,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
       final List<Widget> childrenWithPadding = [
         ...[const SizedBox(height: 28)],
-        ...listChildren
+        ...listChildren,
+        ...[const SizedBox(height: 92)],
       ];
       return SliverList(
         delegate: SliverChildListDelegate(childrenWithPadding),
@@ -104,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
       return SliverToBoxAdapter(
         child: Center(
             child: Text(
-          'Nenhum produto encontrado',
+          'Nenhum produto encontrado', // TODO .i18n
           style: TextStyle(
             color: Theme.of(context).errorColor,
           ),
@@ -138,12 +149,15 @@ class _HomeScreenState extends State<HomeScreen> {
             final List<Widget> childrenWithPadding = [
               ...[getEditRow()],
               // ...[const SizedBox(height: 6)],
-              ...listChildren
+              ...listChildren,
+              // ...[const SizedBox(height: 92)],
             ];
 
-            if (homeManager.editing)
+            if (homeManager.editing) {
               childrenWithPadding.add(AddSectionWidget(homeManager));
+            }
 
+            childrenWithPadding.add(const SizedBox(height: 92));
             return SliverList(
               delegate: SliverChildListDelegate(childrenWithPadding),
             );
@@ -155,116 +169,26 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final sliverAppBarHeight = MediaQuery.of(context).size.height * 0.40;
-    return
-        // Scaffold(
-        //   // key: scafffoldKey,
-        //   // drawer: CustomDrawer(),
-        //   // drawerEnableOpenDragGesture: false,
-        //   body:
-        Consumer<ProductManager>(builder: (_, productManager, __) {
-      // final List<Product> filteredProducts = productManager.filteredProducts;
+    const sliverAppBarHeight =
+        300.0; //MediaQuery.of(context).size.height * 0.40;
+    return Consumer<ProductManager>(builder: (_, productManager, __) {
       return Stack(
         children: <Widget>[
           CustomScrollView(
             slivers: <Widget>[
-              // SliverAppBar(
-              //   floating: true,
-              //   // pinned: true,
-              //   snap: true,
-              //   elevation: 0,
-              //   // backgroundColor: Colors.transparent,
-              //   flexibleSpace: FlexibleSpaceBar(
-              //     title: Text(
-              //       S.of(context).appName,
-              //     ),
-              //     centerTitle: false,
-              //   ),
-              //   //  leading: Align(
-              //   //   alignment: Alignment.centerLeft,
-              //   //   child: Container(
-              //   //     height: 40,
-              //   //     width: 40,
-              //   //     margin: EdgeInsets.only(left: 16),
-              //   //     decoration: BoxDecoration(
-              //   //       color: Colors.white,
-              //   //       borderRadius: BorderRadius.circular(100),
-              //   //       boxShadow: [
-              //   //         BoxShadow(
-              //   //           color: Colors.black.withOpacity(0.2),
-              //   //           spreadRadius: 0,
-              //   //           blurRadius: 4,
-              //   //           offset: Offset(0, 4),
-              //   //         ),
-              //   //       ],
-              //   //     ),
-              //   //     child: IconButton(
-              //   //       onPressed: () {
-              //   //         // Navigator.of(context).pop();
-              //   //       },
-              //   //       icon: Icon(
-              //   //         Icons.data_usage_rounded,
-              //   //         color: Colors.black,
-              //   //       ),
-              //   //     ),
-              //   //   ),
-              //   // ),
-              //   actions: <Widget>[
-              //     IconButton(
-              //       icon: const Icon(Icons.shopping_cart),
-              //       onPressed: () => Navigator.of(context).pushNamed('/cart'),
-              //     ),
-              //     Consumer2<UserManager, HomeManager>(
-              //       builder: (_, userManager, homeManager, __) {
-              //         if (userManager.adminEnabled && !homeManager.loading) {
-              //           if (homeManager.editing) {
-              //             return PopupMenuButton(
-              //               onSelected: (e) {
-              //                 if (e == 'Salvar') {
-              //                   homeManager.saveEditing();
-              //                 } else {
-              //                   homeManager.discardEditing();
-              //                 }
-              //               },
-              //               itemBuilder: (_) {
-              //                 return ['Salvar', 'Descartar'].map((e) {
-              //                   return PopupMenuItem(
-              //                     value: e,
-              //                     child: Text(e),
-              //                   );
-              //                 }).toList();
-              //               },
-              //             );
-              //           } else {
-              //             return IconButton(
-              //               icon: const Icon(Icons.edit),
-              //               onPressed: homeManager.enterEditing,
-              //             );
-              //           }
-              //         } else
-              //           return Container();
-              //       },
-              //     ),
-              //   ],
-              // ),
-              SliverToBoxAdapter(
+              const SliverToBoxAdapter(
                 child: SizedBox(height: 32),
-                // snap: true,
-                // pinned: true,
-                // floating: true,
               ),
               SliverAppBar(
                 elevation: 10,
-                shadowColor:
-                    AppColorScheme.shadowTealColor, //Color(0xFFFFFFFF),//
+                shadowColor: AppColorScheme.shadowTealColor,
                 backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                 expandedHeight: sliverAppBarHeight,
                 floating: true,
                 pinned: true,
                 snap: true,
-                collapsedHeight: 100,
+                collapsedHeight: 102,
                 actionsIconTheme: const IconThemeData(opacity: 0.0),
-                toolbarHeight: 56,
                 centerTitle: false,
                 leadingWidth: 0,
                 titleSpacing: 0,
@@ -274,12 +198,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Row(
                     children: <Widget>[
                       Builder(
-                        builder: (context) => // Ensure Scaffold is in context
-                            customIconButton(
-                          const EdgeInsets.only(left: 0),
-                          Icons.person,
-                          // () => scafffoldKey.currentState.openDrawer(),
-                          () => Scaffold.of(context).openDrawer(),
+                        builder: (context) => customCardIconButton(
+                          icon: Icons.person,
+                          onPressed: () => Scaffold.of(context).openDrawer(),
                         ),
                       ),
                       const SizedBox(width: 16),
@@ -295,102 +216,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           return Container();
                         }
                       }),
-                      // Container(
-                      //   height: 40,
-                      //   width: 40,
-                      //   // margin: EdgeInsets.only(left: 32),
-                      //   decoration: BoxDecoration(
-                      //     color: Colors.white,
-                      //     borderRadius: BorderRadius.circular(100),
-                      //     boxShadow: [
-                      //       BoxShadow(
-                      //         color: Colors.black.withOpacity(0.2),
-                      //         spreadRadius: 0,
-                      //         blurRadius: 4,
-                      //         offset: Offset(0, 4),
-                      //       ),
-                      //     ],
-                      //   ),
-                      //   child: IconButton(
-                      //     onPressed: () {
-                      //       // Navigator.of(context).pop();
-                      //     },
-                      //     icon: Icon(
-                      //       Icons.data_usage_rounded,
-                      //       color: Colors.black,
-                      //     ),
-                      //   ),
-                      // ),
                       const Spacer(),
-                      // Consumer2<UserManager, HomeManager>(
-                      //   builder: (_, userManager, homeManager, __) {
-                      //     if (userManager.adminEnabled &&
-                      //         !homeManager.loading) {
-                      //       if (homeManager.editing) {
-                      //         return PopupMenuButton(
-                      //           onSelected: (e) {
-                      //             if (e == 'SAVE') {
-                      //               homeManager.saveEditing();
-                      //             } else {
-                      //               homeManager.discardEditing();
-                      //             }
-                      //           },
-                      //           itemBuilder: (_) {
-                      //             return ['SAVE', 'DISCARD'].map((e) {
-                      //               return PopupMenuItem(
-                      //                 value: e,
-                      //                 child: Text(e),
-                      //               );
-                      //             }).toList();
-                      //           },
-                      //         );
-                      //       } else {
-                      //         return IconButton(
-                      //           icon: Icon(
-                      //             Icons.edit,
-                      //             color: Colors.black,
-                      //           ),
-                      //           onPressed: homeManager.enterEditing,
-                      //         );
-                      //       }
-                      //     } else
-                      //       return Container();
-                      //   },
-                      // ),
-                      customIconButton(
-                        const EdgeInsets.only(left: 0),
-                        Icons.notifications,
-                        () {},
+                      customCardIconButton(
+                        icon: Icons.notifications,
+                        onPressed: () {},
                       ),
-                      // Container(
-                      //   height: 40,
-                      //   width: 40,
-                      //   margin: EdgeInsets.only(left: 32),
-                      //   decoration: BoxDecoration(
-                      //     color: Colors.white,
-                      //     borderRadius: BorderRadius.circular(100),
-                      //     boxShadow: [
-                      //       BoxShadow(
-                      //         color: Colors.black.withOpacity(0.2),
-                      //         spreadRadius: 0,
-                      //         blurRadius: 4,
-                      //         offset: Offset(0, 4),
-                      //       ),
-                      //     ],
-                      //   ),
-                      //   child: IconButton(
-                      //     onPressed: () {},
-                      //     // Navigator.of(context).pop();
-                      //     icon: Icon(
-                      //       Icons.notifications,
-                      //       color: Colors.black,
-                      //     ),
-                      //   ),
-                      // ),
                     ],
                   ),
                 ),
-                // leading: Container(),
                 flexibleSpace: FlexibleSpaceBar(
                   background: Container(
                     padding: const EdgeInsets.only(
@@ -424,6 +257,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontSize: 32,
                               fontWeight: FontWeight.w700,
                               letterSpacing: 0.25,
+                              color: AppColorScheme.darkBlue.shade600,
                             ),
                           ),
                         ],
@@ -437,46 +271,24 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Container(
-                          height: 72,
-                          padding: const EdgeInsets.fromLTRB(32, 0, 84, 0),
-
-                          //   left: 32, right: 84),
-                          // padding: const EdgeInsets.only(left: 32, right: 84),
+                          height: 76, //84,
+                          padding: const EdgeInsets.fromLTRB(72, 0, 72, 0),
                           // color: Colors.blue,
                           child: Align(
                             alignment: Alignment.bottomRight,
-                            child: customIconButton(
-                              const EdgeInsets.only(left: 32),
-                              Icons.shopping_cart,
-                              () => Navigator.of(context).pushNamed('/cart'),
+                            child: IconButton(
+                              icon: const Icon(
+                                Icons.shopping_cart,
+                                size: 24,
+                                // color:
+                              ),
+                              onPressed: () {
+                                Navigator.of(context).pushNamed('/cart');
+                                // Navigator.of(context).pushNamed(SearchScreen.routeName);
+                              },
                             ),
                           ),
                         ),
-                        // Consumer<ProductManager>(
-                        //   builder: (_, productManager, __) {
-                        //     if (productManager.search.isEmpty) {
-                        //       return IconButton(
-                        //         icon: Icon(Icons.search),
-                        //         onPressed: () async {
-                        //           final search = await showDialog<String>(
-                        //               context: context,
-                        //               builder: (_) =>
-                        //                   SearchDialog(productManager.search));
-                        //           if (search != null) {
-                        //             productManager.search = search;
-                        //           }
-                        //         },
-                        //       );
-                        //     } else {
-                        //       return IconButton(
-                        //         icon: Icon(Icons.close),
-                        //         onPressed: () async {
-                        //           productManager.search = '';
-                        //         },
-                        //       );
-                        //     }
-                        //   },
-                        // ),
                         Container(
                           height: 50,
                           width: MediaQuery.of(context).size.width,
@@ -493,27 +305,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-              // Consumer<HomeManager>(
-              //   builder: (_, homeManager, __) {
-              //     if (homeManager.loading) {
-              //       return const SliverToBoxAdapter(
-              //         child: LinearProgressIndicator(
-              //           valueColor: AlwaysStoppedAnimation(Colors.white),
-              //           backgroundColor: Colors.transparent,
-              //         ),
-              //       );
-              //     } else {
-              // return
-              // Consumer<ProductManager>(builder: (_, productManager, __) {
-
-              // }),
               getPageList(productManager: productManager),
-              const SliverToBoxAdapter(child: SizedBox(height: 100)),
             ],
           ),
         ],
       );
     });
-    // ),
   }
 }

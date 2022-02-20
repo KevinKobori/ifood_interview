@@ -7,6 +7,7 @@ import 'package:wlstore/models/admin_orders_manager.dart';
 import 'package:wlstore/models/order.dart';
 import 'package:provider/provider.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
+import 'package:wlstore/models/user_manager.dart';
 
 class AdminOrdersScreen extends StatefulWidget {
   @override
@@ -21,9 +22,13 @@ class _AdminOrdersScreenState extends State<AdminOrdersScreen>
 
   @override
   void initState() {
+    super.initState();
+    final UserManager userManager = Provider.of(context, listen: false);
+    if (!userManager.adminEnabled) {
+      Navigator.of(context).pushReplacementNamed('/');
+    }
     _animationController = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 450));
-    super.initState();
   }
 
   void _handleOnPressed() {
@@ -39,17 +44,15 @@ class _AdminOrdersScreenState extends State<AdminOrdersScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // drawer: CustomDrawer(),
-      appBar: AppBar(
-        title: const Text('Todos os Pedidos'),
-        // centerTitle: true,
-      ),
-      body: Consumer<AdminOrdersManager>(
-        builder: (_, ordersManager, __) {
-          final filteredOrders = ordersManager.filteredOrders;
-
-          return SlidingUpPanel(
+    return Consumer<AdminOrdersManager>(
+      builder: (_, ordersManager, __) {
+        return Scaffold(
+          appBar: AppBar(
+            title: Text(ordersManager.userFilter != null
+                ? ordersManager.userFilter.name
+                : 'Todos os Pedidos'),
+          ),
+          body: SlidingUpPanel(
             onPanelOpened: () {
               setState(() {
                 _animationController.reverse();
@@ -89,7 +92,7 @@ class _AdminOrdersScreenState extends State<AdminOrdersScreen>
                       ],
                     ),
                   ),
-                if (filteredOrders.isEmpty)
+                if (ordersManager.filteredOrders.isEmpty)
                   const Expanded(
                     child: EmptyCard(
                       title: 'Nenhuma venda realizada!',
@@ -99,11 +102,21 @@ class _AdminOrdersScreenState extends State<AdminOrdersScreen>
                 else
                   Expanded(
                     child: ListView.builder(
-                        itemCount: filteredOrders.length,
+                        itemCount: ordersManager.filteredOrders.length,
                         itemBuilder: (_, index) {
-                          return OrderTile(
-                            filteredOrders[index],
-                            showControls: true,
+                          return Padding(
+                            padding: EdgeInsets.fromLTRB(
+                              0,
+                              0,
+                              0,
+                              index == ordersManager.filteredOrders.length - 1
+                                  ? 96
+                                  : 0,
+                            ),
+                            child: OrderTile(
+                              ordersManager.filteredOrders[index],
+                              showControls: true,
+                            ),
                           );
                         }),
                   ),
@@ -186,9 +199,9 @@ class _AdminOrdersScreenState extends State<AdminOrdersScreen>
                 ),
               ],
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }

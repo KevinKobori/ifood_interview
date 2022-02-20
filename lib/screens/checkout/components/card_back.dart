@@ -4,7 +4,10 @@ import 'package:wlstore/models/credit_card.dart';
 import 'package:wlstore/screens/checkout/components/card_text_field.dart';
 
 class CardBack extends StatelessWidget {
-  const CardBack({this.cvvFocus, this.creditCard});
+  const CardBack({
+    this.cvvFocus,
+    this.creditCard,
+  });
 
   final FocusNode cvvFocus;
   final CreditCard creditCard;

@@ -41,7 +41,7 @@ class WhatsappCard extends StatelessWidget {
         }
       } else {
         msg =
-            'Bom dia, queria tirar algumas dúvidas sobre os produtos da Selim Jóias.';
+            'Bom dia, queria tirar algumas dúvidas sobre os produtos da Selim Joias.';
       }
       return 'whatsapp://send?phone=+5561991200684&text=$msg';
     }
