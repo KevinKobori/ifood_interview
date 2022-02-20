@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wlstore/models/category_manager.dart';
 import 'package:wlstore/models/category_model.dart';
 import 'package:provider/src/provider.dart';
+import 'package:wlstore/utils/styles/app_color_scheme.dart';
 
 class CategoryListTile extends StatelessWidget {
   const CategoryListTile(this.categoryModel);
@@ -34,35 +35,45 @@ class CategoryListTile extends StatelessWidget {
               ),
               Expanded(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
+                    // const Spacer(),
                     Text(
-                      categoryModel.name,
+                      categoryModel.name + 'asdasdasdasd asd asd asd as',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      // style: const TextStyle(
+                      //   fontSize: 16,
+                      //   // fontWeight: FontWeight.w600,
+                      // ),
+                    ),
+                    Text(
+                      categoryModel.description + 'asdasdasdasd asd asd asd as',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        // fontWeight: FontWeight.w600,
-                      ),
+                      style: Theme.of(context).textTheme.overline,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 4),
-                      child: Text(
-                        'A partir de',
-                        style: TextStyle(
-                          color: Colors.grey[400],
-                          fontSize: 12,
-                        ),
-                      ),
-                    ),
-                    Text(
-                      'R\$ ${categoryModel.basePrice.toStringAsFixed(2)}',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w800,
-                          color: Theme.of(context).primaryColor),
-                    ),
+                    const Spacer(),
+                    // Padding(
+                    //   padding: const EdgeInsets.only(top: 4),
+                    //   child: Text(
+                    //     'A partir de',
+                    //     style: TextStyle(
+                    //       color:
+                    //           Theme.of(context).primaryColor.withOpacity(0.7),
+                    //       fontSize: 10,
+                    //     ),
+                    //   ),
+                    // ),
+                    // Text(
+                    //   'R\$ ${categoryModel.basePrice.toStringAsFixed(2)}',
+                    //   style: TextStyle(
+                    //     fontSize: 13,
+                    //     fontWeight: FontWeight.w800,
+                    //     color: Theme.of(context).primaryColor,
+                    //   ),
+                    // ),
+                    // const Spacer(),
                   ],
                 ),
               )

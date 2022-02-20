@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:wlstore/models/product.dart';
 
 class ProductListTile extends StatelessWidget {
-  const ProductListTile(this.product, this.categoryId);
+  const ProductListTile(this.productModel, this.categoryId);
 
-  final Product product;
+  final Product productModel;
   final String categoryId;
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class ProductListTile extends StatelessWidget {
       onTap: () {
         Navigator.of(context).pushNamed(
           '/product',
-          arguments: product,
+          arguments: productModel,
         );
       },
       child: Card(
@@ -26,7 +26,7 @@ class ProductListTile extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
                 child: AspectRatio(
                   aspectRatio: 1,
-                  child: Image.network(product.images.first),
+                  child: Image.network(productModel.images.first),
                 ),
               ),
               const SizedBox(
@@ -34,43 +34,53 @@ class ProductListTile extends StatelessWidget {
               ),
               Expanded(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
+                    const Spacer(),
                     Text(
-                      product.name,
+                      productModel.name ,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      // style: const TextStyle(
+                      //   fontSize: 16,
+                      //   // fontWeight: FontWeight.w600,
+                      // ),
+                    ),
+                    Text(
+                      productModel.description,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                      ),
+                      style: Theme.of(context).textTheme.overline,
                     ),
+                    const Spacer(),
                     Padding(
                       padding: const EdgeInsets.only(top: 4),
                       child: Text(
                         'A partir de',
                         style: TextStyle(
-                          color: Colors.grey[400],
-                          fontSize: 12,
+                          color:
+                              Theme.of(context).primaryColor.withOpacity(0.7),
+                          fontSize: 10,
                         ),
                       ),
                     ),
                     Text(
-                      'R\$ ${product.basePrice.toStringAsFixed(2)}',
+                      'R\$ ${productModel.basePrice.toStringAsFixed(2)}',
                       style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w800,
-                          color: Theme.of(context).primaryColor),
+                        fontSize: 13,
+                        fontWeight: FontWeight.w800,
+                        color: Theme.of(context).primaryColor,
+                      ),
                     ),
-                    if (!product.hasStock)
+                    if (!productModel.hasStock)
                       const Padding(
                         padding: EdgeInsets.only(top: 4),
                         child: Text(
                           'Sem estoque',
                           style: TextStyle(color: Colors.red, fontSize: 10),
                         ),
-                      )
+                      ),
+                    const Spacer(),
                   ],
                 ),
               )

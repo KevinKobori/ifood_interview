@@ -85,10 +85,10 @@ abstract class AppTextTheme {
       letterSpacing: 0.4,
     ),
     overline: GoogleFonts.montserrat(
-      color: Colors.grey[500],
-      fontSize: 10,
+      color: AppColorScheme.darkBlue.shade400,
+      fontSize: 12,
       fontWeight: FontWeight.w500,
-      letterSpacing: 1.5,
+      letterSpacing: 0,
     ),
   );
 }
