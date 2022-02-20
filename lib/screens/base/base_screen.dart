@@ -5,6 +5,8 @@ import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wlstore/common/custom_drawer/custom_drawer.dart';
+import 'package:wlstore/models/category_manager.dart';
+import 'package:wlstore/models/category_model.dart';
 import 'package:wlstore/models/page_manager.dart';
 import 'package:wlstore/models/user_manager.dart';
 import 'package:wlstore/screens/admin_orders/admin_orders_screen.dart';
@@ -86,6 +88,8 @@ class _BaseScreenState extends State<BaseScreen> {
 
   BottomNavigationBarItem getBottomNavigationBarItem(
       int index, String title, IconData icon) {
+    // CategoryModel category = context.watch<CategoryManager>().category;
+    // context.read<CategoryManager>().setCategory(category: null);
     return BottomNavigationBarItem(
       backgroundColor:
           Colors.transparent, //Theme.of(context).scaffoldBackgroundColor,
@@ -170,7 +174,7 @@ class _BaseScreenState extends State<BaseScreen> {
                   children: <Widget>[
                     const HomeScreen(),
                     CategoriesScreen(),
-                    const ProductsScreen(),//null),
+                    const ProductsScreen(null),
                     OrdersScreen(),
                     CartScreen(),
                     StoresScreen(),

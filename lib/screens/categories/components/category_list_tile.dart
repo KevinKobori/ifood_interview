@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/src/provider.dart';
 import 'package:wlstore/models/category_manager.dart';
 import 'package:wlstore/models/category_model.dart';
+import 'package:provider/src/provider.dart';
 
 class CategoryListTile extends StatelessWidget {
   const CategoryListTile(this.categoryModel);
@@ -13,7 +13,7 @@ class CategoryListTile extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         context.read<CategoryManager>().setCategory(category: categoryModel);
-        Navigator.of(context).pushNamed('/products');//, arguments: categoryModel);
+        Navigator.of(context).pushNamed('/products', arguments: categoryModel);
       },
       child: Card(
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
@@ -39,7 +39,7 @@ class CategoryListTile extends StatelessWidget {
                       categoryModel.name,
                       style: const TextStyle(
                         fontSize: 16,
-                        fontWeight: FontWeight.w800,
+                        // fontWeight: FontWeight.w600,
                       ),
                     ),
                     Padding(

@@ -28,19 +28,18 @@ class _ProductsScreenState extends State<ProductsScreen> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+    category = context.watch<CategoryManager>().category;
 
     final ProductManager productManager = Provider.of(context, listen: false);
     if (widget.category != null) {
       productManager.loadAllCategoryProducts(widget.category.id);
     } else {
-      context.read<CategoryManager>().setCategory(category: null);
       productManager.loadAllProducts();
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    category = context.watch<CategoryManager>().category;
     // final userManager = context.watch<UserManager>();
     return Scaffold(
       // drawer: category == null ? CustomDrawer() : null,

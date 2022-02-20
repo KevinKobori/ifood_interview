@@ -27,13 +27,16 @@ ThemeData themeData() {
     // focusColor: Colors.transparent,
     // hoverColor: Colors.transparent,
     errorColor: AppColorScheme.primarySwatch,
-    pageTransitionsTheme: PageTransitionsTheme(
-      builders: {
-        TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-        TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
-        TargetPlatform.fuchsia: ZoomPageTransitionsBuilder(),
-      },
-    ),
+    // pageTransitionsTheme: PageTransitionsTheme(
+    //   builders: {
+    //     TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+    //     TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
+    //     TargetPlatform.fuchsia: ZoomPageTransitionsBuilder(),
+    //   },
+    // ),
+    pageTransitionsTheme: PageTransitionsTheme(builders: {
+      TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+    }),
     cupertinoOverrideTheme: CupertinoThemeData(
       brightness: Brightness.light,
     ),
