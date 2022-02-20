@@ -12,7 +12,7 @@ class CategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: CustomDrawer(),
+      // drawer: CustomDrawer(),
       appBar: AppBar(
         title: Consumer<CategoryManager>(
           builder: (_, categoryManager, __) {

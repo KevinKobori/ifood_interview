@@ -40,7 +40,7 @@ class _AdminOrdersScreenState extends State<AdminOrdersScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: CustomDrawer(),
+      // drawer: CustomDrawer(),
       appBar: AppBar(
         title: const Text('Todos os Pedidos'),
         // centerTitle: true,

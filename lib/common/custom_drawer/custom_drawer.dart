@@ -47,10 +47,15 @@ class CustomDrawer extends StatelessWidget {
               //   title: 'Pedidos',
               //   page: 3,
               // ),
+               const DrawerTile(
+                iconData: Icons.shopping_cart,
+                title: 'Carrinho',
+                page: 4,
+              ),
               const DrawerTile(
                 iconData: Icons.location_on,
                 title: 'Lojas',
-                page: 4,
+                page: 5,
               ),
               const Divider(),
               const WhatsappCard(

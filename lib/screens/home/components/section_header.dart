@@ -22,7 +22,7 @@ class SectionHeader extends StatelessWidget {
                 child: TextFormField(
                   initialValue: section.name,
                   decoration: const InputDecoration(
-                      hintText: 'Title',
+                      hintText: 'Título',
                       isDense: true,
                       border: InputBorder.none),
                   style: const TextStyle(

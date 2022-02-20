@@ -47,14 +47,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 if (homeManager.editing) {
                   return PopupMenuButton(
                     onSelected: (e) {
-                      if (e == 'SAVE') {
+                      if (e == 'SALVAR') {
                         homeManager.saveEditing();
                       } else {
                         homeManager.discardEditing();
                       }
                     },
                     itemBuilder: (_) {
-                      return ['SAVE', 'DISCARD'].map((e) {
+                      return ['SALVAR', 'DESCARTAR'].map((e) {
                         return PopupMenuItem(
                           value: e,
                           child: Text(e),

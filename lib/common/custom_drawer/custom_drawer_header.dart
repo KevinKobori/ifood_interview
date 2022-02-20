@@ -16,7 +16,7 @@ class CustomDrawerHeader extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               const Text(
-                'Bem vindo ao\nWLStore',
+                'WLStore',
                 style: TextStyle(
                   fontSize: 34,
                   fontWeight: FontWeight.bold,
@@ -24,7 +24,7 @@ class CustomDrawerHeader extends StatelessWidget {
               ),
               if (userManager.userModel?.name != null)
                 Text(
-                  'Olá, ${userManager.userModel?.name}',
+                  '${userManager.userModel?.name}',
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
                   style: const TextStyle(

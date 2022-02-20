@@ -9,51 +9,60 @@ class AddSectionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        Expanded(
-          child: TextButton(
-            onPressed: () {
-              homeManager.addSection(Section(type: 'categories-list'));
-            },
-            style: ElevatedButton.styleFrom(
-              padding: const EdgeInsets.symmetric(horizontal: 6),
-            ),
-            child: const Text(
-              'Add Categories List',
-              style: TextStyle(color: Colors.black),
-            ),
-          ),
-        ),
-        Expanded(
-          child: TextButton(
-            onPressed: () {
-              homeManager.addSection(Section(type: 'products-list'));
-            },
-            style: ElevatedButton.styleFrom(
-              padding: const EdgeInsets.symmetric(horizontal: 6),
-            ),
-            child: const Text(
-              'Add Products List',
-              style: TextStyle(color: Colors.black),
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(
+        28.0,
+        12.0,
+        28.0,
+        12.0,
+      ),
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: ElevatedButton(
+              onPressed: () {
+                homeManager.addSection(Section(type: 'categories-list'));
+              },
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(horizontal: 6),
+              ),
+              child: const Text(
+                'Add categorias',
+                // style: TextStyle(color: Colors.black),
+              ),
             ),
           ),
-        ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: ElevatedButton(
+              onPressed: () {
+                homeManager.addSection(Section(type: 'products-list'));
+              },
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(horizontal: 6),
+              ),
+              child: const Text(
+                'Add produtos',
+                // style: TextStyle(color: Colors.black),
+              ),
+            ),
+          ),
 
-        // Expanded(
-        //   child: TextButton(
-        //     onPressed: () {
-        //       homeManager.addSection(Section(type: 'Staggered'));
-        //     },
-        //     style: ElevatedButton.styleFrom(
-        //       padding: const EdgeInsets.symmetric(horizontal: 6),
-        //     ),
-        //     child: const Text(
-        //       'Adicionar Grade',
-        //     ),
-        //   ),
-        // ),
-      ],
+          // Expanded(
+          //   child: TextButton(
+          //     onPressed: () {
+          //       homeManager.addSection(Section(type: 'Staggered'));
+          //     },
+          //     style: ElevatedButton.styleFrom(
+          //       padding: const EdgeInsets.symmetric(horizontal: 6),
+          //     ),
+          //     child: const Text(
+          //       'Adicionar Grade',
+          //     ),
+          //   ),
+          // ),
+        ],
+      ),
     );
   }
 }

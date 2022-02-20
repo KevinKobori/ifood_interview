@@ -20,7 +20,7 @@ ThemeData themeData() {
     textTheme: AppTextTheme.textTheme,
     appBarTheme: AppBarThemeApp.appBarTheme,
     // colorScheme: AppColorScheme.colorSchemeLight,
-    // scaffoldBackgroundColor: AppColorScheme.grey[50],
+    scaffoldBackgroundColor: AppColorScheme.grey[50],
     // highlightColor: Colors.transparent,
     splashColor: Colors.transparent,
     // hintColor: Colors.transparent,
@@ -55,12 +55,12 @@ ThemeData themeData() {
     //     elevation: 0.0,
     //   ),
     // ),
-    // elevatedButtonTheme: ElevatedButtonThemeData(
-    //   style: ElevatedButton.styleFrom(
-    //     elevation: 5.0,
-    //     shadowColor: AppColorScheme.shadowTealColor,
-    //   ),
-    // ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        elevation: 5.0,
+        shadowColor: AppColorScheme.shadowTealColor,
+      ),
+    ),
 
     // outlinedButtonTheme: OutlinedButtonThemeData(
     //   style: OutlinedButton.styleFrom(

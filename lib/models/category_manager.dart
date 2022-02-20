@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 
 import 'category_model.dart';
 
@@ -20,7 +21,7 @@ class CategoryManager extends ChangeNotifier {
     notifyListeners();
   }
 
-  String categoryId = '';
+  CategoryModel category;
 
   List<CategoryModel> get filteredCategories {
     final List<CategoryModel> filteredCategories = [];
@@ -33,6 +34,11 @@ class CategoryManager extends ChangeNotifier {
     }
 
     return filteredCategories;
+  }
+
+  void setCategory({CategoryModel category}) {
+    this.category = category;
+    notifyListeners();
   }
 
   Future<void> _loadAllCategories() async {

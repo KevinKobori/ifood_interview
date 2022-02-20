@@ -108,9 +108,9 @@ class Section extends ChangeNotifier {
 
   bool valid() {
     if (name == null || name.isEmpty) {
-      error = 'Invalid title';
+      error = 'Título inválido';
     } else if (items.isEmpty) {
-      error = 'Insert at least one image';
+      error = 'Insira pelo menos uma imagem';
     } else {
       error = null;
     }

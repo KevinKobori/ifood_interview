@@ -9,6 +9,7 @@ import 'package:wlstore/models/page_manager.dart';
 import 'package:wlstore/models/user_manager.dart';
 import 'package:wlstore/screens/admin_orders/admin_orders_screen.dart';
 import 'package:wlstore/screens/admin_users/admin_users_screen.dart';
+import 'package:wlstore/screens/cart/cart_screen.dart';
 import 'package:wlstore/screens/categories/categories_screen.dart';
 import 'package:wlstore/screens/home/home_screen.dart';
 import 'package:wlstore/screens/orders/orders_screen.dart';
@@ -169,8 +170,9 @@ class _BaseScreenState extends State<BaseScreen> {
                   children: <Widget>[
                     const HomeScreen(),
                     CategoriesScreen(),
-                    const ProductsScreen(null),
+                    const ProductsScreen(),//null),
                     OrdersScreen(),
+                    CartScreen(),
                     StoresScreen(),
                     if (userManager.adminEnabled) ...[
                       AdminUsersScreen(),
