@@ -1,8 +1,9 @@
-# A Open Source Project >>> WLStore is a full White-label Store
+# A Open Source Project >>> A full White-label Store
 
     The idea is based on small business who want to expand their sales using a free service for this, it will be like a whatsapp business + instagram shop.
 
 # Why use this template for a startup project:
+
     - Reasons for now:
         - Easy project configuration:
             - Easy to configurate a new project using Firebase:
