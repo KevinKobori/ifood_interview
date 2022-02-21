@@ -61,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         }
                       },
                       itemBuilder: (_) {
-                        ['SALVAR', 'DESCARTAR'].map((e) {
+                        return ['SALVAR', 'DESCARTAR'].map((e) {
                           return PopupMenuItem(
                             value: e,
                             child: Text(e),
