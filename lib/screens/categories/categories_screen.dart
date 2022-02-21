@@ -159,7 +159,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                       gridDelegate:
                           const SliverGridDelegateWithMaxCrossAxisExtent(
                         maxCrossAxisExtent: 203,
-                        childAspectRatio: 0.90,
+                        childAspectRatio: 0.87,
                       ),
                       delegate: SliverChildBuilderDelegate(
                         (context, index) {
