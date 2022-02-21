@@ -184,48 +184,49 @@ class _BaseScreenState extends State<BaseScreen> {
                     // ]
                   ],
                 ),
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Card(
-                    margin: const EdgeInsets.fromLTRB(28, 0, 28, 16),
-                    color: AppColorScheme.darkBlue.shade900,
-                    child: BottomNavigationBar(
-                      // backgroundColor: AppColorScheme.grey[100],
-                      showSelectedLabels: false,
-                      showUnselectedLabels: false,
-                      elevation: 0,
-                      items: [
-                        getBottomNavigationBarItem(
-                          0,
-                          'Início',
-                          Icons.home_filled,
-                        ),
-                        getBottomNavigationBarItem(
-                          1,
-                          'Categorias',
-                          Icons.storefront_outlined,
-                        ),
-                        getBottomNavigationBarItem(
-                          2,
-                          'Produtos',
-                          Icons.widgets_rounded,
-                        ),
-                        getBottomNavigationBarItem(
-                          3,
-                          'Pedidos',
-                          Icons.view_in_ar_outlined,
-                        ),
-                      ],
-                      currentIndex: indexPage,
-                      onTap: (newIndex) {
-                        setState(() {
-                          indexPage = newIndex;
-                          pageController.jumpToPage(newIndex);
-                        });
-                      },
+                if (MediaQuery.of(context).viewInsets.bottom == 0)
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Card(
+                      margin: const EdgeInsets.fromLTRB(28, 0, 28, 16),
+                      color: AppColorScheme.darkBlue.shade900,
+                      child: BottomNavigationBar(
+                        // backgroundColor: AppColorScheme.grey[100],
+                        showSelectedLabels: false,
+                        showUnselectedLabels: false,
+                        elevation: 0,
+                        items: [
+                          getBottomNavigationBarItem(
+                            0,
+                            'Início',
+                            Icons.home_filled,
+                          ),
+                          getBottomNavigationBarItem(
+                            1,
+                            'Categorias',
+                            Icons.storefront_outlined,
+                          ),
+                          getBottomNavigationBarItem(
+                            2,
+                            'Produtos',
+                            Icons.widgets_rounded,
+                          ),
+                          getBottomNavigationBarItem(
+                            3,
+                            'Pedidos',
+                            Icons.view_in_ar_outlined,
+                          ),
+                        ],
+                        currentIndex: indexPage,
+                        onTap: (newIndex) {
+                          setState(() {
+                            indexPage = newIndex;
+                            pageController.jumpToPage(newIndex);
+                          });
+                        },
+                      ),
                     ),
                   ),
-                ),
                 // Align(
                 //   alignment: Alignment.bottomCenter,
                 //   child: Container(

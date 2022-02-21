@@ -292,13 +292,26 @@ class _HomeScreenState extends State<HomeScreen> {
                         Container(
                           height: 50,
                           width: MediaQuery.of(context).size.width,
-                          // color: Colors.black,
-                          padding: const EdgeInsets.fromLTRB(16, 0, 16, 4),
-                          child: customSearchTextField(
-                            context: context,
-                            onChanged: (value) => productManager.search = value,
-                            hintText: "Procurar produtos",
-                          ),
+                          padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+                          child: Stack(children: [
+                            Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Container(
+                                height: 45,
+                                color: 
+                                    Theme.of(context).scaffoldBackgroundColor,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 0, 0, 4),
+                              child: customSearchTextField(
+                                context: context,
+                                onChanged: (value) =>
+                                    productManager.search = value,
+                                hintText: "Procurar produtos",
+                              ),
+                            ),
+                          ]),
                         ),
                       ],
                     ),
