@@ -34,8 +34,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
       productManager.loadAllCategoryProducts(widget.category.id);
     } else {
       context.read<CategoryManager>().setCategory(category: null);
-      productManager.search =
-          ''; // TODO Problem when the user close the textfield on bottom navigation, ensure the textfield close before change bottom navigation page
+      productManager.search = '';
       productManager.loadAllProducts();
     }
   }

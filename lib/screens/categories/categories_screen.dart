@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:wlstore/common/custom_search_text_field.dart';
 // import 'package:wlstore/common/custom_search_text_field_2.dart';
 import 'package:wlstore/models/category_manager.dart';
+import 'package:wlstore/models/product_manager.dart';
 import 'package:wlstore/models/user_manager.dart';
 
 // import '../../models/user/user_manager.dart';
@@ -16,11 +17,19 @@ class CategoriesScreen extends StatefulWidget {
 
 class _CategoriesScreenState extends State<CategoriesScreen> {
   @override
-  void initState() {
+  void didChangeDependencies() {
+    super.didChangeDependencies();
     // final CategoryManager categoryManager = Provider.of(context, listen: false);
     // categoryManager.loadCompanies();
     // categoryManager.search = '';
-    super.initState();
+    final ProductManager productManager = Provider.of(context, listen: false);
+    // if (widget.category != null) {
+    //   productManager.loadAllCategoryProducts(widget.category.id);
+    // } else {
+    //   context.read<CategoryManager>().setCategory(category: null);
+    productManager.search = '';
+    // productManager.loadAllProducts();
+    // }
   }
 
   @override
