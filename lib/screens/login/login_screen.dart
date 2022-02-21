@@ -207,28 +207,28 @@ class LoginScreen extends StatelessWidget {
                       Buttons.Google,
                       text: 'Entrar com Google',
                       onPressed: () {
-                        // userManager.googleLogin(onFail: (e) {
-                        //   scaffoldKey.currentState.showSnackBar(SnackBar(
-                        //     content: Text('Falha ao entrar: $e'),
-                        //     backgroundColor: Colors.red,
-                        //   ));
-                        // }, onSuccess: () {
-                        //   Navigator.of(context).pop();
-                        // });
+                        userManager.googleLogin(onFail: (e) {
+                          scaffoldKey.currentState.showSnackBar(SnackBar(
+                            content: Text('Falha ao entrar: $e'),
+                            backgroundColor: Colors.red,
+                          ));
+                        }, onSuccess: () {
+                          Navigator.of(context).pop();
+                        });
                       },
                     ),
                     SignInButton(
                       Buttons.Facebook,
                       text: 'Entrar com Facebook',
                       onPressed: () {
-                        // userManager.facebookLogin(onFail: (e) {
-                        //   scaffoldKey.currentState.showSnackBar(SnackBar(
-                        //     content: Text('Falha ao entrar: $e'),
-                        //     backgroundColor: Colors.red,
-                        //   ));
-                        // }, onSuccess: () {
-                        //   Navigator.of(context).pop();
-                        // });
+                        userManager.facebookLogin(onFail: (e) {
+                          scaffoldKey.currentState.showSnackBar(SnackBar(
+                            content: Text('Falha ao entrar: $e'),
+                            backgroundColor: Colors.red,
+                          ));
+                        }, onSuccess: () {
+                          Navigator.of(context).pop();
+                        });
                       },
                     ),
                   ],
