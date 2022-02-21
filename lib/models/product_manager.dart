@@ -21,6 +21,13 @@ class ProductManager extends ChangeNotifier {
     notifyListeners();
   }
 
+  bool _loading = false;
+  bool get loading => _loading;
+  set loading(bool value) {
+    _loading = value;
+    notifyListeners();
+  }
+
   List<Product> get filteredCategoryProducts {
     final List<Product> filteredCategoryProducts = [];
 
@@ -35,6 +42,7 @@ class ProductManager extends ChangeNotifier {
   }
 
   Future<void> loadAllCategoryProducts(String categoryId) async {
+    loading = true;
     // final QuerySnapshot getProducts = await firestore
     //     .collection('categories')
     //     .document(categoryId)
@@ -51,7 +59,7 @@ class ProductManager extends ChangeNotifier {
 
     allCategoryProducts =
         getProducts.documents.map((d) => Product.fromDocument(d)).toList();
-
+    loading = false;
     notifyListeners();
   }
 
@@ -64,21 +72,26 @@ class ProductManager extends ChangeNotifier {
   }
 
   void updateCategoryProduct(Product product) {
+    loading = true; // TODO TEST
     allCategoryProducts.removeWhere((p) => p.id == product.id);
     allCategoryProducts.add(product);
     updateProductsProduct(product);
+    loading = false; // TODO TEST
     notifyListeners();
   }
 
   void deleteCategoryProduct(Product product, String categoryId) {
+    loading = true; // TODO TEST
     product.deleteCategoryProduct(categoryId);
     allCategoryProducts.removeWhere((p) => p.id == product.id);
     deleteProductsProduct(product);
+    loading = false; // TODO TEST
     notifyListeners();
   }
 
   //______________________________________
   List<Product> get filteredProducts {
+    loading = true;
     final List<Product> filteredProducts = [];
 
     if (search.isEmpty) {
@@ -87,11 +100,12 @@ class ProductManager extends ChangeNotifier {
       filteredProducts.addAll(allProducts
           .where((p) => p.name.toLowerCase().contains(search.toLowerCase())));
     }
-
+    loading = false;
     return filteredProducts;
   }
 
   Future<void> loadAllProducts() async {
+    loading = true;
     final QuerySnapshot snapProducts = await firestore
         .collection('products')
         .where('deleted', isEqualTo: false)
@@ -99,7 +113,7 @@ class ProductManager extends ChangeNotifier {
 
     allProducts =
         snapProducts.documents.map((d) => Product.fromDocument(d)).toList();
-
+    loading = false;
     notifyListeners();
   }
 

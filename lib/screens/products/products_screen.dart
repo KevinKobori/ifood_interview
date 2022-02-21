@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wlstore/common/custom_drawer/custom_drawer.dart';
 import 'package:wlstore/common/search_dialog.dart';
 import 'package:wlstore/models/category_manager.dart';
 import 'package:wlstore/models/category_model.dart';
@@ -33,7 +32,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
     if (widget.category != null) {
       productManager.loadAllCategoryProducts(widget.category.id);
     } else {
-      context.read<CategoryManager>().setCategory(category: null);
+      context.read<CategoryManager>().setCategory();
       productManager.search = '';
       productManager.loadAllProducts();
     }
@@ -126,6 +125,11 @@ class _ProductsScreenState extends State<ProductsScreen> {
       ),
       body: Consumer<ProductManager>(
         builder: (_, productManager, __) {
+          if (productManager.loading)
+            return LinearProgressIndicator(
+              valueColor: AlwaysStoppedAnimation(Theme.of(context).primaryColor),
+              backgroundColor: Colors.transparent,
+            );
           if (category != null) {
             final filteredCategoryProducts =
                 productManager.filteredCategoryProducts;

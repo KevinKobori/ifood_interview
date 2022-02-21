@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:wlstore/models/address.dart';
 import 'package:wlstore/models/cart_manager.dart';
-import 'package:provider/provider.dart';
 
 class AddressInputField extends StatelessWidget {
   const AddressInputField(this.address);
@@ -11,7 +11,7 @@ class AddressInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final primaryColor = Theme.of(context).primaryColor;
+    // final Theme.of(context).primaryColor = Theme.of(context).Theme.of(context).primaryColor;
     final cartManager = context.watch<CartManager>();
 
     String emptyValidator(String text) =>
@@ -43,7 +43,7 @@ class AddressInputField extends StatelessWidget {
                     labelText: 'Número',
                     hintText: '123',
                   ),
-                  inputFormatters: [
+                  inputFormatters: const [
                     // FilteringTextInputFormatter.digitsOnly,
                   ],
                   keyboardType: TextInputType.number,
@@ -129,12 +129,12 @@ class AddressInputField extends StatelessWidget {
           ),
           if (cartManager.loading)
             LinearProgressIndicator(
-              valueColor: AlwaysStoppedAnimation(primaryColor),
+              valueColor: AlwaysStoppedAnimation(Theme.of(context).primaryColor),
               backgroundColor: Colors.transparent,
             ),
           RaisedButton(
-            color: primaryColor,
-            disabledColor: primaryColor.withAlpha(100),
+            color: Theme.of(context).primaryColor,
+            disabledColor: Theme.of(context).primaryColor.withAlpha(100),
             textColor: Colors.white,
             onPressed: !cartManager.loading
                 ? () async {
