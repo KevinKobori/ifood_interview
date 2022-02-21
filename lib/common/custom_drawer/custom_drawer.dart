@@ -57,12 +57,7 @@ class CustomDrawer extends StatelessWidget {
                 title: 'Lojas',
                 path: '/stores',
               ),
-              const Divider(),
-              const WhatsappCard(
-                buttonText: 'Whatsapp',
-                onPressed: true,
-                cartDoubt: false,
-              ),
+
               Consumer<UserManager>(
                 builder: (_, userManager, __) {
                   if (userManager.adminEnabled) {
@@ -85,7 +80,13 @@ class CustomDrawer extends StatelessWidget {
                     return Container();
                   }
                 },
-              )
+              ),
+              const Divider(),
+              const WhatsappCard(
+                buttonText: 'Whatsapp',
+                onPressed: true,
+                cartDoubt: false,
+              ),
             ],
           ),
         ],

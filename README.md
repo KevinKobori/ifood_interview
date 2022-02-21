@@ -8,6 +8,7 @@
 # Why use this template for a startup project:
 
     - Reasons for now:
+        - One code, all platforms, run right now your ecommerce on WEB, Android and iOS. 
         - Easy project configuration:
             - Easy to configurate a new project using Firebase:
                 - Auth users using Firebase Authentication.        

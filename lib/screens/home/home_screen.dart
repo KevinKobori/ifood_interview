@@ -9,6 +9,7 @@ import 'package:wlstore/models/user_manager.dart';
 import 'package:wlstore/screens/home/components/add_section_widget.dart';
 import 'package:wlstore/screens/products/components/product_list_tile.dart';
 import 'package:wlstore/utils/styles/app_color_scheme.dart';
+
 import 'components/section_categories/section_categories_list.dart';
 import 'components/section_products/section_products_list.dart';
 // /Users/kevinkobori/Documents/github/wlstore/lib/screens/base/base_screen.dart
@@ -34,55 +35,57 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget getEditRow() {
-    return Container(
-      padding: const EdgeInsets.fromLTRB(
-        16,
-        0,
-        16,
-        0,
-      ),
-      height: 40,
-      // color: Colors.pink,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: <Widget>[
-          Consumer2<UserManager, HomeManager>(
-            builder: (_, userManager, homeManager, __) {
-              if (userManager.adminEnabled && !homeManager.loading) {
-                if (homeManager.editing) {
-                  return PopupMenuButton(
-                    onSelected: (e) {
-                      if (e == 'SALVAR') {
-                        homeManager.saveEditing();
-                      } else {
-                        homeManager.discardEditing();
-                      }
-                    },
-                    itemBuilder: (_) {
-                      return ['SALVAR', 'DESCARTAR'].map((e) {
-                        return PopupMenuItem(
-                          value: e,
-                          child: Text(e),
-                        );
-                      }).toList();
-                    },
-                  );
-                } else {
-                  return IconButton(
-                    icon: const Icon(
-                      Icons.edit,
-                      color: Colors.black,
-                      // size: 16,
-                    ),
-                    onPressed: homeManager.enterEditing,
-                  );
-                }
-              } else
-                return const SizedBox(height: 6);
-            },
-          ),
-        ],
-      ),
+    return Consumer2<UserManager, HomeManager>(
+      builder: (_, userManager, homeManager, __) {
+        if (userManager.adminEnabled)
+          return Container(
+            padding: const EdgeInsets.fromLTRB(
+              16,
+              0,
+              16,
+              0,
+            ),
+            height: 40,
+            // color: Colors.pink,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                if (!homeManager.loading)
+                  if (homeManager.editing)
+                    PopupMenuButton(
+                      onSelected: (e) {
+                        if (e == 'SALVAR') {
+                          homeManager.saveEditing();
+                        } else {
+                          homeManager.discardEditing();
+                        }
+                      },
+                      itemBuilder: (_) {
+                        ['SALVAR', 'DESCARTAR'].map((e) {
+                          return PopupMenuItem(
+                            value: e,
+                            child: Text(e),
+                          );
+                        }).toList();
+                      },
+                    )
+                  else
+                    IconButton(
+                      icon: const Icon(
+                        Icons.edit,
+                        color: Colors.black,
+                        // size: 16,
+                      ),
+                      onPressed: homeManager.enterEditing,
+                    )
+                else
+                  const SizedBox(height: 6)
+              ],
+            ),
+          );
+        else
+          return Container();
+      },
     );
   }
 
@@ -298,7 +301,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               alignment: Alignment.bottomCenter,
                               child: Container(
                                 height: 45,
-                                color: 
+                                color:
                                     Theme.of(context).scaffoldBackgroundColor,
                               ),
                             ),
