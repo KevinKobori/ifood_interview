@@ -19,43 +19,33 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    // final CategoryManager categoryManager = Provider.of(context, listen: false);
-    // categoryManager.loadCompanies();
-    // categoryManager.search = '';
+    final CategoryManager categoryManager = Provider.of(context, listen: false);
+    categoryManager.loadAllCategories();
     final ProductManager productManager = Provider.of(context, listen: false);
-    // if (widget.category != null) {
-    //   productManager.loadAllCategoryProducts(widget.category.id);
-    // } else {
-    //   context.read<CategoryManager>().setCategory(category: null);
     productManager.search = '';
-    // productManager.loadAllProducts();
-    // }
   }
 
   @override
   Widget build(BuildContext context) {
-    // final CategoryManager categoryManager = Provider.of(context, listen: false);
-    return Consumer<CategoryManager>(
-      builder: (_, categoryManager, __) {
-        return Consumer<UserManager>(
-          builder: (_, userManager, __) {
-            // categoryManager.loadCompanies();
-            return Scaffold(
-              // extendBody: true,
-              body: CustomScrollView(
+    return Scaffold(
+      body: Consumer<CategoryManager>(
+        builder: (_, categoryManager, __) {
+          return Consumer<UserManager>(
+            builder: (_, userManager, __) {
+              if (categoryManager.loading)
+                return CircularProgressIndicator(
+                  valueColor:
+                      AlwaysStoppedAnimation(Theme.of(context).primaryColor),
+                  backgroundColor: Colors.transparent,
+                );
+              return CustomScrollView(
                 slivers: <Widget>[
-                  const SliverToBoxAdapter(child: SizedBox(height: 16)),
-                  // const SliverAppBar(
-                  //   backgroundColor: Colors.red,
-                  // ),
                   SliverAppBar(
                     floating: true,
                     snap: true,
                     elevation: 0,
                     expandedHeight: 10,
                     toolbarHeight: 40,
-                    // backgroundColor: Colors.green,
-                    // backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                     title: const Text(
                       'Categorias',
                       style: TextStyle(
@@ -64,19 +54,6 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                       ),
                     ),
                     actions: [
-                      // userManager.adminEnabled
-                      //     ? [
-                      //         IconButton(
-                      //           icon: Icon(Icons.add),
-                      //           onPressed: () {
-                      //             Navigator.of(context).pushNamed(
-                      //               '/edit_category',
-                      //             );
-                      //           },
-                      //         )
-                      //       ]
-                      //     : []
-
                       Consumer<UserManager>(
                         builder: (_, userManager, __) {
                           if (userManager.adminEnabled) {
@@ -96,12 +73,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                     ],
                   ),
                   SliverAppBar(
-                    // expandedHeight: 100,
                     toolbarHeight: 52,
                     pinned: true,
                     elevation: 0,
-                    // backgroundColor: Colors.blue,
-                    // // backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                     leading: Container(),
                     leadingWidth: 0,
                     title: Container(
@@ -125,28 +99,6 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                         hintText: "Pesquisar categoria",
                       ),
                     ),
-
-                    ///[light mode] TODO
-                    // title: Container(
-                    //   height: 38,
-                    //   decoration: BoxDecoration(
-                    //     color: Colors.grey[200],
-                    //     borderRadius: BorderRadius.circular(10),
-                    //   ),
-                    //   child: TextField(
-                    //     onChanged: (value) => categoryManager.search = value,
-                    //     decoration: InputDecoration(
-                    //       contentPadding: const EdgeInsets.symmetric(
-                    //           horizontal: 20, vertical: 12),
-                    //       border: InputBorder.none,
-                    //       focusedBorder: InputBorder.none,
-                    //       enabledBorder: InputBorder.none,
-                    //       hintText: "Pesquisar lojas",
-                    //       hintStyle: TextStyle(color: Colors.grey[400]),
-                    //       prefixIcon: const Icon(Icons.search),
-                    //     ),
-                    //   ),
-                    // ),
                   ),
                   SliverPadding(
                     padding: const EdgeInsets.fromLTRB(
@@ -177,11 +129,11 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                     ),
                   ),
                 ],
-              ),
-            );
-          },
-        );
-      },
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }

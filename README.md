@@ -1,45 +1,27 @@
 
 # A Open Source Project >>> A full White-label Store
 
-    The idea is based on small business who want to expand their sales using a free service for this, it will be like a whatsapp business + instagram shop.
+    The idea is based on small companies/startups that want to expand their sales to multiplatforms.
 
 ![WhatsApp Image 2022-02-20 at 23 38 10](https://user-images.githubusercontent.com/29134032/154885271-f257c279-e439-436b-95b2-71b3d3ea860b.jpeg)
 
 # Why use this template for a startup project:
 
-    - Reasons for now:
-        - One code, all platforms, run right now your ecommerce on WEB, Android and iOS. 
-        - Easy project configuration:
-            - Easy to configurate a new project using Firebase:
-                - Auth users using Firebase Authentication.        
-                - Part of the backend using Firebase Cloud Functions.
-                - Database using Firebase Firestore.
-                - Store the images, archives etc using Firebase Storage.
-                - Host on the WEB using Firebase Hosting.
-                - AI to detect customers usability using Firebase Machine Learning.
-                - OBS: everything for FREE to start.
-            - Easy to change package name, put on Play Store and Apple Store.
-        - Easy methods to change the theme of the app.
-        - Easy implementation:
-            - Easy to learn the project.
-            - Easy way to add new functionalities.
-    - Future reasons:
-        - Scalable:
-            - Good architecture using Clean Architecture structure.
-            - Everything will use modularity.
-            - Will have test to all business process.
-            - Uses just confiable packages.
-            - Decouple everything possible.
-        - Use mobx for the statements.
-        - 100% of the code will have support for Android + iOS + Web + Desktop.
-            - Uses platafform identification build.
-            - Uses responsive layout for diferent devices.
-        - The theme will be dynamically:
-            - Almost everything will be editable just using the app user interface.
-                - Change app colors, cards theme, buttons theme, text theme, etc.
-            - Option to use deep link to call the pages.
-            - Option to use serverside data to construct the pages dynamically.
-        ...
+    - One code, all platforms, run right now your ecommerce on WEB, Android and iOS. 
+    - Easy project configuration:
+        - Easy to configurate a new project using Firebase:
+            - Auth users using Firebase Authentication.        
+            - Part of the backend using Firebase Cloud Functions.
+            - Database using Firebase Firestore.
+            - Store the images, archives etc using Firebase Storage.
+            - Host on the WEB using Firebase Hosting.
+            - AI to detect customers usability using Firebase Machine Learning.
+            - OBS: everything for FREE to start.
+        - Easy to change package name, put on Play Store and Apple Store.
+    - Easy methods to change the theme of the app.
+    - Easy implementation:
+        - Easy to learn the project.
+        - Easy way to add new functionalities.
 
 # Developing Status: 
 
@@ -51,11 +33,11 @@
 ## Need to implement on each project:
 
     - flutter pub run change_app_package_name:main com.new.package.name
-    - Customize the app: ⚠️⭕
+    - Customize the app:
         - Change the package name ⚠️✅
         - Insert the google-services.json(Android) ⚠️✅
         - Insert the GoogleServices-info.plist(iOS) ⚠️✅
-        - Configure firebase products: ⚠️✅
+        - Configure firebase products:
             - Login email/password ⚠️✅
             - Login Facebook: ⛔
                 - Go to facebook.com configurations ⛔
@@ -65,10 +47,8 @@
             - $ npm install ⚠️✅
             - set functions.config().cielo.merchantid; ⚠️✅
             - set functions.config().cielo.merchantkey; ⚠️✅
-            - Class 163. sandbox > dev mode > change to a real key later: ⚠️✅
+            - Class 163. sandbox > dev mode > change to a real key later:
                 - https://cadastrosandbox.cieloecommerce.cielo.com.br ⚠️✅
-                <!-- - $ firebase functions:config:set cielo.merchantid="30cdfad2-3fbb-442a-9c76-e440ee67d6e2" ⚠️✅
-                - $ firebase functions:config:set cielo.merchantkey="OSKVVKHHQYLMSQUKYRWLFQEWHFMIBMTGEHNEUJHD" ⚠️✅ -->
                 - $ firebase functions:config:set cielo.merchantid="c93ea95f-be22-44fa-b6a0-cc2e36a4df03" ⚠️✅
                 - $ firebase functions:config:set cielo.merchantkey="JTUQPBLVPATXLAAZRHSJSGJSKLXJQKBPOOWWOOFN" ⚠️✅           
                 - $ firebase functions:config:get ⚠️✅
@@ -85,15 +65,16 @@
     - Test data example: ⚠️✅
         - CEP: 13.087-000 ⚠️✅
         - Credit Card:
-            - Number: 43?? ???? ???? ???1
+            - Number: 4300 0000 0000 0001
             - Date: 11/2028
             - Titular: Kevin Kobori
             - Verification: 235
         - CPF: 385.631.880-11
+
 # Developing:
 
     - Implement Clean Architecture ⚠️⭕
-    - Implement Modules ⚠️⭕
+    - Implement Modules
         - flutter_modular: ⚠️⭕
 		- Navigation with dynamic routes, suport for web ⚠️⭕
 		- Dependency injection ⚠️⭕
@@ -101,7 +82,7 @@
     - Implement Tests ⚠️⭕
     - Implement Controllers
         - Migrate from provider to mobx ⚠️⭕
-    - Layout of the App: ⛔
+    - Layout of the App:
         - drawer to bottom navigationbar ✅
         - Search bar ⛔
         - Items list to grid ⛔
@@ -120,8 +101,8 @@
 		- Obfuscating the app ⚠️⭕
 		- Verify if its a real device ⚠️⭕
 		- Use functional programming ⚠️⭕
-    - Notifications: ⚠️✅
-		- Insert status on data parameter: ⚠️✅
+    - Notifications:
+		- Insert status on data parameter:
 			- readed ⚠️✅
 			- deleted ⚠️✅
 			- created dateTime ⚠️✅
@@ -137,7 +118,7 @@
     - List Builders, get 20 by 20 items ⚠️⭕
     - Favorite logic ⭕
     - Pix payment method ⚠️⭕
-    - Real Frete vinculation Correios: ⚠️⭕
+    - Real Frete vinculation Correios:
         - http://labcor.com.br/pdf/26.pdf ⚠️⭕
     - Layout for iOS using cupertino padronization ⛔
     - Forget password ⚠️✅
@@ -174,11 +155,6 @@
     - Credit Card mask ⚠️✅
         - Number mask ⚠️✅
         - Validate date mask ⚠️✅
-    - Error Invalid Credentials ⚠️⭕ > its about course problem. dont have to be fixed.
-    <!-- - Home page not loading when the app opens at first time ⚠️⭕
-        - maybe the solution:
-            - Firebase.initializeApp(); ⚠️⭕
-            - await ⚠️⭕ --> FIXED BY ITSELF
     - packages deprecated ⛔
     - Facebook Login not working ⛔
     - FunctionsError fix: ⚠️✅

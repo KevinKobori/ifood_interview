@@ -274,7 +274,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Container(
-                          height: 76, //84,
+                          height: 84,//76, //
                           padding: const EdgeInsets.fromLTRB(72, 0, 72, 0),
                           // color: Colors.blue,
                           child: Align(

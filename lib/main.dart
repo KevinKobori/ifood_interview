@@ -30,7 +30,6 @@ import 'screens/category/category_screen.dart';
 import 'screens/edit_category/edit_category_screen.dart';
 import 'screens/products/products_screen.dart';
 import 'screens/stores/stores_screen.dart';
-import 'utils/styles/app_color_scheme.dart';
 import 'utils/styles/app_theme_data.dart';
 
 Future<void> main() async {

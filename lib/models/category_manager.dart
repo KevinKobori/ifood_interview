@@ -5,9 +5,9 @@ import 'package:flutter/foundation.dart';
 import 'category_model.dart';
 
 class CategoryManager extends ChangeNotifier {
-  CategoryManager() {
-    _loadAllCategories();
-  }
+  // CategoryManager() {
+  //   loadAllCategories();
+  // }
 
   final Firestore firestore = Firestore.instance;
 
@@ -18,6 +18,13 @@ class CategoryManager extends ChangeNotifier {
   String get search => _search;
   set search(String value) {
     _search = value;
+    notifyListeners();
+  }
+
+  bool _loading = false;
+  bool get loading => _loading;
+  set loading(bool value) {
+    _loading = value;
     notifyListeners();
   }
 
@@ -41,7 +48,8 @@ class CategoryManager extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> _loadAllCategories() async {
+  Future<void> loadAllCategories() async {
+    loading = true;
     final QuerySnapshot snapCategories = await firestore
         .collection('categories')
         .where('deleted', isEqualTo: false)
@@ -50,7 +58,7 @@ class CategoryManager extends ChangeNotifier {
     allCategories = snapCategories.documents
         .map((d) => CategoryModel.fromDocument(d))
         .toList();
-
+    loading = false;
     notifyListeners();
   }
 
