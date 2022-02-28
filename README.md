@@ -1,7 +1,9 @@
 
-# A Open Source Project >>> A full White-label Store
+# A Open Source Project >>> A full Flutter White-label Store
 
     The idea is based on small companies/startups that want to expand their sales to multiplatforms.
+    
+# This code is based on this course: >>> https://www.udemy.com/course/lojaflutter/
 
 ![WhatsApp Image 2022-02-20 at 23 38 10](https://user-images.githubusercontent.com/29134032/154885271-f257c279-e439-436b-95b2-71b3d3ea860b.jpeg)
 
@@ -202,4 +204,5 @@
     - How to NOT get a 30K Firebase Bill
         - https://www.youtube.com/watch?v=Lb-Pnytoi-8
     - important provider
-        - https://github.com/rrousselGit/provider/issues/168
+        - https://github.com/rrousselGit/provider/issues/168	
+    - If you want to understand more about that code, this code is based on the code of this course: https://www.udemy.com/course/lojaflutter/
