@@ -1,7 +1,7 @@
 
 # A Open Source Project >>> A full Flutter White-label Store
 
-    The idea is based on small companies/startups that want to expand their sales to multiplatforms.
+    This is a Full e-commerce App mande in Flutter. Easy configuration for startups and small business.
     
 # This code is based on this course: >>> https://www.udemy.com/course/lojaflutter/
 
