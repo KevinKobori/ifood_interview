@@ -1,7 +1,6 @@
-import * as functions from 'firebase-functions';
+import { CancelTransactionRequestModel, CaptureRequestModel, Cielo, CieloConstructor, EnumBrands, TransactionCreditCardRequestModel } from 'cielo';
 import * as admin from 'firebase-admin';
-
-import { CieloConstructor, Cielo, TransactionCreditCardRequestModel, EnumBrands, CaptureRequestModel, CancelTransactionRequestModel} from 'cielo';
+import * as functions from 'firebase-functions';
 
 admin.initializeApp(functions.config().firebase);
 
@@ -21,7 +20,7 @@ const cieloParams: CieloConstructor = {
 const cielo = new Cielo(cieloParams);
 
 export const authorizeCreditCard = functions.https.onCall(async (data, context) => {
-    if(data === null){
+    if (data === null) {
         return {
             "success": false,
             "error": {
@@ -31,7 +30,7 @@ export const authorizeCreditCard = functions.https.onCall(async (data, context) 
         };
     }
 
-    if(!context.auth){
+    if (!context.auth) {
         return {
             "success": false,
             "error": {
@@ -49,7 +48,7 @@ export const authorizeCreditCard = functions.https.onCall(async (data, context) 
     console.log("Iniciando Autorização");
 
     let brand: EnumBrands;
-    switch(data.creditCard.brand){
+    switch (data.creditCard.brand) {
         case "VISA":
             brand = EnumBrands.VISA;
             break;
@@ -123,14 +122,14 @@ export const authorizeCreditCard = functions.https.onCall(async (data, context) 
     try {
         const transaction = await cielo.creditCard.transaction(saleData);
 
-        if(transaction.payment.status === 1){
+        if (transaction.payment.status === 1) {
             return {
                 "success": true,
                 "paymentId": transaction.payment.paymentId
             }
         } else {
             let message = '';
-            switch(transaction.payment.returnCode) {
+            switch (transaction.payment.returnCode) {
                 case '5':
                     message = 'Não Autorizada';
                     break;
@@ -162,7 +161,7 @@ export const authorizeCreditCard = functions.https.onCall(async (data, context) 
                 }
             }
         }
-    } catch (error){
+    } catch (error) {
         console.log("Error ", error);
         return {
             "success": false,
@@ -176,7 +175,7 @@ export const authorizeCreditCard = functions.https.onCall(async (data, context) 
 });
 
 export const captureCreditCard = functions.https.onCall(async (data, context) => {
-    if(data === null){
+    if (data === null) {
         return {
             "success": false,
             "error": {
@@ -186,7 +185,7 @@ export const captureCreditCard = functions.https.onCall(async (data, context) =>
         };
     }
 
-    if(!context.auth){
+    if (!context.auth) {
         return {
             "success": false,
             "error": {
@@ -202,9 +201,9 @@ export const captureCreditCard = functions.https.onCall(async (data, context) =>
 
     try {
         const capture = await cielo.creditCard.captureSaleTransaction(captureParams);
-        
-        if(capture.status === 2){
-            return {"success": true};
+
+        if (capture.status === 2) {
+            return { "success": true };
         } else {
             return {
                 "success": false,
@@ -215,7 +214,7 @@ export const captureCreditCard = functions.https.onCall(async (data, context) =>
                 }
             };
         }
-    } catch (error){
+    } catch (error) {
         console.log("Error ", error);
         return {
             "success": false,
@@ -229,7 +228,7 @@ export const captureCreditCard = functions.https.onCall(async (data, context) =>
 });
 
 export const cancelCreditCard = functions.https.onCall(async (data, context) => {
-    if(data === null){
+    if (data === null) {
         return {
             "success": false,
             "error": {
@@ -239,7 +238,7 @@ export const cancelCreditCard = functions.https.onCall(async (data, context) => 
         };
     }
 
-    if(!context.auth){
+    if (!context.auth) {
         return {
             "success": false,
             "error": {
@@ -255,9 +254,9 @@ export const cancelCreditCard = functions.https.onCall(async (data, context) => 
 
     try {
         const cancel = await cielo.creditCard.cancelTransaction(cancelParams);
-        
-        if(cancel.status === 10 || cancel.status === 11){
-            return {"success": true};
+
+        if (cancel.status === 10 || cancel.status === 11) {
+            return { "success": true };
         } else {
             return {
                 "success": false,
@@ -268,7 +267,7 @@ export const cancelCreditCard = functions.https.onCall(async (data, context) => 
                 }
             };
         }
-    } catch (error){
+    } catch (error) {
         console.log("Error ", error);
         return {
             "success": false,
@@ -281,8 +280,8 @@ export const cancelCreditCard = functions.https.onCall(async (data, context) => 
 
 });
 
-export const getUserData = functions.https.onCall( async (data, context) => {
-    if(!context.auth){
+export const getUserData = functions.https.onCall(async (data, context) => {
+    if (!context.auth) {
         return {
             "data": "Nenhum usuário logado"
         };
@@ -299,31 +298,48 @@ export const getUserData = functions.https.onCall( async (data, context) => {
     };
 });
 
-export const addMessage = functions.https.onCall( async (data, context) => {
+export const addMessage = functions.https.onCall(async (data, context) => {
     console.log(data);
 
     const snapshot = await admin.firestore().collection("messages").add(data);
 
-    return {"success": snapshot.id};
+    return { "success": snapshot.id };
 });
 
 export const onNewOrder = functions.firestore.document("/orders/{orderId}").onCreate(async (snapshot, context) => {
     const orderId = context.params.orderId;
-    
+
     const querySnapshot = await admin.firestore().collection("admins").get();
 
     const admins = querySnapshot.docs.map(doc => doc.id);
 
     let adminsTokens: string[] = [];
-    for(let i = 0; i < admins.length; i++){
+    for (let i = 0; i < admins.length; i++) {
         const tokensAdmin: string[] = await getDeviceTokens(admins[i]);
         adminsTokens = adminsTokens.concat(tokensAdmin);
     }
 
     await sendPushFCM(
         adminsTokens,
-        'Novo Pedido',
-        'Nova venda realizada. Pedido: ' + orderId
+        {
+            data: {
+                createdAt: (new Date()).toISOString(), // convert back: Date(iso)
+                deleted: 'false',
+                modifiedAt: (new Date()).toISOString(), // convert back: Date(iso)
+                readed: 'false',
+                type: 'onNewOrder',
+            },
+            notification: {
+                bagde: '',
+                body: 'Nova venda realizada. Pedido: ' + orderId,
+                click_action: 'FLUTTER_NOTIFICATION_CLICK',
+                color: '',
+                icon: '',
+                sound: '',
+                tag: '',
+                title: 'Novo Pedido',
+            }
+        }
     );
 });
 
@@ -338,18 +354,35 @@ export const onOrderStatusChanged = functions.firestore.document("/orders/{order
     const beforeStatus = snapshot.before.data().status;
     const afterStatus = snapshot.after.data().status;
 
-    if(beforeStatus !== afterStatus){
+    if (beforeStatus !== afterStatus) {
         const tokensUser = await getDeviceTokens(snapshot.after.data().user)
 
         await sendPushFCM(
             tokensUser,
-            'Pedido: ' + context.params.orderId,
-            'Status atualizado para: ' + orderStatus.get(afterStatus),
+            {
+                data: {
+                    createdAt: (new Date()).toISOString(), // convert back: Date(iso)
+                    deleted: 'false',
+                    modifiedAt: (new Date()).toISOString(), // convert back: Date(iso)
+                    readed: 'false',
+                    type: 'onOrderStatusChanged',
+                },
+                notification: {
+                    bagde: '',
+                    body: 'Status atualizado para: ' + orderStatus.get(afterStatus),
+                    click_action: 'FLUTTER_NOTIFICATION_CLICK',
+                    color: '',
+                    icon: '',
+                    sound: '',
+                    tag: '',
+                    title: 'Pedido: ' + context.params.orderId,
+                }
+            }
         )
     }
 });
 
-async function getDeviceTokens(uid: string){
+async function getDeviceTokens(uid: string) {
     const querySnapshot = await admin.firestore().collection("users").doc(uid).collection("tokens").get();
 
     const tokens = querySnapshot.docs.map(doc => doc.id);
@@ -357,16 +390,53 @@ async function getDeviceTokens(uid: string){
     return tokens;
 }
 
-async function sendPushFCM(tokens: string[], title: string, message: string){
-    if(tokens.length > 0){
+async function sendPushFCM(tokens: string[], firebaseMessageFCM: FirebaseMessageFCM) {
+    
+    if (tokens.length > 0) {
         const payload = {
+            data: {
+                createdAt: firebaseMessageFCM.data.createdAt,
+                deleted: firebaseMessageFCM.data.deleted,
+                modifiedAt: firebaseMessageFCM.data.modifiedAt,
+                readed: firebaseMessageFCM.data.readed,
+                type: firebaseMessageFCM.data.type,
+            },
             notification: {
-                title: title,
-                body: message,
-                click_action: 'FLUTTER_NOTIFICATION_CLICK'
+                bagde: firebaseMessageFCM.notification.bagde,
+                body: firebaseMessageFCM.notification.body,
+                click_action: firebaseMessageFCM.notification.click_action,
+                color: firebaseMessageFCM.notification.color,
+                icon: firebaseMessageFCM.notification.icon,
+                sound: firebaseMessageFCM.notification.sound,
+                tag: firebaseMessageFCM.notification.tag,
+                title: firebaseMessageFCM.notification.title,
             }
-        };
+        }
         return admin.messaging().sendToDevice(tokens, payload);
     }
     return;
+}
+
+interface FirebaseMessageFCMData {
+    createdAt: string;
+    deleted: string;
+    modifiedAt: string;
+    readed: string;
+    type: string;
+}
+
+interface FirebaseMessageFCMNotification {
+    bagde: string;
+    body: string;
+    click_action: string;
+    color: string;
+    icon: string;
+    sound: string;
+    tag: string;
+    title: string;
+}
+
+interface FirebaseMessageFCM {
+    data: FirebaseMessageFCMData;
+    notification: FirebaseMessageFCMNotification;
 }
